@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etsy Profit Tracker — True Profit After All Fees | Hoda Finance</title>
+  <meta name="description" content="Etsy profit tracker Excel — 13-tab workbook with US/UK/AU/CA/DE fee calculators, true profit after fees & COGS, Kill/Keep/Scale verdicts, pricing simulator, 90-day forecast, and tax prep. $49.">
+  <link rel="canonical" href="https://hodacfo.com/etsy-profit-tracker">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Etsy Profit Tracker — True Profit After Fees & COGS | Kill Keep Scale | Hoda Finance">
+  <meta property="og:description" content="Most Etsy sellers track revenue. This tracker shows what you actually keep. Auto fee calculator for 5 markets, true profit after fees & COGS, Kill/Keep/Scale, pricing simulator, 90-day forecast, tax prep.">
+  <meta property="og:image" content="https://hodacfo.com/images/etsy-profit-tracker.png">
+  <meta property="og:site_name" content="Hoda Finance">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://hodacfo.com/etsy-profit-tracker">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--ice:#F7F8FB;--white:#FFFFFF;--dark-text:#1B2A4A;--body:#4A5A72;--border:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--body);background:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased}img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}nav{background:var(--white);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}nav .container{display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--cta);color:#0F1D32;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;box-shadow:0 2px 8px rgba(197,155,39,0.25)}.nav-cta:hover{background:var(--cta-hover)}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-link{font-size:.875rem;color:var(--body);font-weight:500}.nav-link:hover{color:var(--navy)}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--navy)}.hamburger svg{display:block}.nav-overlay{display:none}@media(max-width:680px){.nav-right .nav-cta{display:none}.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--white);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:var(--body)}.nav-overlay .nav-link:hover{color:var(--navy)}.nav-overlay .nav-cta{text-align:center}}
+.content-wrap{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;padding:60px 0}.main-col h2{font-size:1.75rem;font-weight:700;margin-bottom:16px;color:var(--navy)}.main-col h3{font-size:1.125rem;font-weight:700;margin-bottom:12px;color:var(--navy);margin-top:32px}.main-col p{font-size:.95rem;color:var(--body);line-height:1.7;margin-bottom:20px}.main-col .product-img{background:var(--ice);border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden;margin-bottom:24px}.main-col .product-img img{width:100%;display:block}.feature-list{list-style:none;margin:12px 0 20px}.feature-list li{font-size:.9rem;color:var(--body);line-height:1.7;margin-bottom:8px;padding-left:24px;position:relative}.feature-list li .ck{position:absolute;left:0;top:0;color:var(--accent);font-weight:700}.price-callout{background:var(--ice);border-radius:var(--card-radius);padding:20px 24px;display:flex;align-items:center;gap:20px;margin:24px 0;border:1px solid var(--border)}.price-callout .pc-num{font-size:2rem;font-weight:800;color:var(--navy);white-space:nowrap;letter-spacing:-1px}.price-callout .pc-text{font-size:.875rem;color:var(--body);line-height:1.6}.sidebar{position:sticky;top:90px}.sidebar .price-lg{font-size:2.75rem;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1}.sidebar .price-lbl{font-size:.8125rem;color:var(--body);margin-bottom:20px}.sidebar .cta-button{display:block;width:100%;background:var(--cta);color:#0F1D32;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 20px;border-radius:4px;text-align:center;transition:background .15s;box-shadow:0 4px 16px rgba(197,155,39,0.3)}.sidebar .cta-button:hover{background:var(--cta-hover)}.side-bullets{list-style:none;margin:20px 0}.side-bullets li{font-size:.85rem;color:var(--body);margin-bottom:8px;padding-left:20px;position:relative}.side-bullets li .ck{position:absolute;left:0;color:var(--accent);font-weight:700}.side-trust{font-size:.75rem;color:var(--body);border-top:1px solid var(--border);padding-top:16px;margin-top:16px}.section-title{font-size:1.5rem;font-weight:700;color:var(--navy);text-align:center;margin-bottom:8px;letter-spacing:-.3px}.sep{width:48px;height:3px;background:var(--accent);margin:0 auto 32px;border-radius:2px}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto}.audience-col{background:var(--ice);padding:28px;border-radius:var(--card-radius);border:1px solid var(--border)}.audience-col h3{font-size:.75rem;font-weight:700;letter-spacing:1.5px;margin-bottom:16px}.audience-col.is-for h3{color:var(--accent)}.audience-col.not-for h3{color:#B84A4A}.audience-col ul{list-style:none}.audience-col ul li{font-size:.875rem;color:var(--body);margin-bottom:8px;line-height:1.5}.audience-col ul li .ck{color:var(--accent);font-weight:700}.audience-col ul li .cross{color:#B84A4A;font-weight:700}
+.section-ice{background:var(--ice);padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.author-wrap{display:flex;gap:32px;max-width:800px;margin:0 auto;align-items:start}.author-wrap img{width:120px;height:120px;border-radius:var(--round);object-fit:cover;border:2px solid var(--border);flex-shrink:0}.author-info h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:4px}.author-info .author-title{font-size:.8125rem;color:var(--accent);font-weight:600;margin-bottom:16px}.author-info .author-bio p{font-size:.875rem;color:var(--body);line-height:1.8;margin-bottom:12px}
+.pricing-section{background:var(--white);padding:60px 0;text-align:center}.pricing-content{max-width:640px;margin:0 auto}.pricing-content .pricing-sub{font-size:1rem;color:var(--body);margin-bottom:24px}.price-display{font-size:4rem;font-weight:800;color:var(--navy);letter-spacing:-2px;line-height:1;margin-bottom:6px}.price-compare{font-size:.875rem;color:var(--body);margin-bottom:28px}.pricing-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:28px}.pricing-includes span{background:var(--ice);border:1px solid var(--border);padding:6px 16px;border-radius:4px;font-size:.8rem;color:var(--body)}.pricing-cta-wrap{margin-bottom:16px}.pricing-cta{display:inline-block;background:var(--cta);color:#0F1D32;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 40px;border-radius:4px;box-shadow:0 4px 16px rgba(197,155,39,0.3)}.pricing-cta:hover{background:var(--cta-hover)}.pricing-trust{font-size:.8125rem;color:var(--body);margin-bottom:24px}.home-link{font-size:.875rem;color:var(--accent);font-weight:600}.home-link:hover{color:var(--navy)}
+.faq-list{max-width:700px;margin:0 auto}.faq-item{margin-bottom:24px}.faq-item h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}.faq-item p{font-size:.9rem;color:var(--body);line-height:1.7}
+footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{font-size:1rem;font-weight:700;color:var(--white)}.foot-links{margin:12px 0}.foot-links a{color:#C8D6E8;font-size:.8125rem;margin:0 12px}.foot-links a:hover{color:var(--white)}.foot-disclaimer{font-size:.6875rem;color:#6678A0;max-width:640px;margin:0 auto 16px;line-height:1.5}.foot-tag{font-size:.75rem;color:#8899B4}
+.hero-L{--gold:var(--accent);--gold-hover:var(--accent-hover);--green:#3FB57F;--red:#D96060;--body2:#C8D6E8;--label:#8EA4C2;--cred:#7A8DA8;width:100%;position:relative;overflow:hidden;background:linear-gradient(180deg,#0A1424 0%,#0C1A30 50%,#0F1F3A 100%);font-family:system-ui,-apple-system,sans-serif}.hero-L::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold);z-index:5;pointer-events:none}.hero-L::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:40%;background:linear-gradient(180deg,transparent,rgba(201,168,76,0.04));z-index:1;pointer-events:none}.hero-L-inner{max-width:960px;margin:0 auto;padding:28px 28px 44px;position:relative;z-index:2}.hero-L .brand-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}.hero-L .hf-mark{width:30px;height:30px;border:2px solid #506580;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:var(--white);flex-shrink:0}.hero-L .brand-name{font-weight:700;font-size:11px;color:var(--label);letter-spacing:0.5px}.hero-L .gauge-card{background:#0F1D32;border:1px solid #1A2D47;border-radius:10px;padding:20px 28px 24px;margin-bottom:18px}.hero-L .gauge-top{display:flex;gap:32px;align-items:center;margin-bottom:16px}.hero-L .gauge-headline{flex:1}.hero-L .gauge-headline h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:28px;line-height:1.08;letter-spacing:-0.8px;color:var(--white);margin-bottom:6px}.hero-L .gauge-headline h1 .hl{color:var(--green)}.hero-L .gauge-headline .sub{font-size:12px;color:var(--body2);line-height:1.5}.hero-L .gauge-headline .sub strong{color:var(--white)}.hero-L .gauge-wrap{flex-shrink:0;width:240px;height:120px;position:relative;overflow:hidden}.hero-L .gauge-arc{width:240px;height:240px;border-radius:50%;background:conic-gradient(from 180deg,var(--red) 0deg 50deg,var(--gold) 50deg 110deg,var(--green) 110deg 180deg);position:absolute;top:0;left:0}.hero-L .gauge-needle{position:absolute;bottom:0;left:50%;width:3px;height:95px;background:var(--white);transform-origin:bottom center;transform:translateX(-50%) rotate(38deg);z-index:3;border-radius:2px}.hero-L .gauge-pin{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:14px;height:14px;background:var(--white);border-radius:50%;z-index:4;border:3px solid #0F1D32}.hero-L .gauge-score{position:absolute;top:28px;left:0;right:0;text-align:center;z-index:2}.hero-L .gauge-score .gs-num{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:38px;color:var(--white);line-height:1;letter-spacing:-1px}.hero-L .gauge-score .gs-label{font-size:7px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--label);display:block}.hero-L .gauge-zones{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;padding:0 10px;z-index:1}.hero-L .gauge-zones span{font-size:7px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}.hero-L .gz-risk{color:var(--red)}.hero-L .gz-healthy{color:var(--green)}.hero-L .gauge-stats{display:flex;gap:10px;margin-bottom:10px}.hero-L .gauge-stats .gs-item{flex:1;text-align:center;padding:10px 8px;background:#0C1A2C;border:1px solid #16273E;border-radius:6px}.hero-L .gauge-stats .gs-item .gs-i-label{font-size:7px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--label);display:block;margin-bottom:3px}.hero-L .gauge-stats .gs-item .gs-i-val{font-weight:900;font-size:18px;color:var(--white);display:block;line-height:1}.hero-L .gauge-stats .gs-item .gs-i-val.gold{color:var(--gold)}.hero-L .gauge-stats .gs-item .gs-i-val.grn{color:var(--green)}.hero-L .gauge-stats .gs-item .gs-i-val.red{color:var(--red)}.hero-L .gauge-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:14px;border-top:1px solid rgba(201,168,76,0.12)}.hero-L .gauge-footer .gf-text{font-size:10px;color:var(--cred);max-width:36ch;line-height:1.4}.hero-L .gauge-footer .gf-text strong{color:var(--label);font-weight:600}.hero-L .cta-btn{display:inline-block;background:var(--gold);color:#0A1424;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border-radius:4px;padding:12px 24px;text-decoration:none;white-space:nowrap;transition:background 150ms ease}.hero-L .cta-btn:hover{background:var(--gold-hover)}.hero-L .cta-group{text-align:right}.hero-L .cta-group .cred{font-size:8px;color:var(--cred);margin-top:4px}@media(max-width:680px){.hero-L-inner{padding:20px 14px 32px}.hero-L .gauge-card{padding:16px}.hero-L .gauge-top{flex-direction:column;gap:16px;align-items:stretch}.hero-L .gauge-wrap{align-self:center}.hero-L .gauge-headline h1{font-size:22px}.hero-L .gauge-stats{flex-wrap:wrap}.hero-L .gauge-stats .gs-item{min-width:calc(50% - 6px)}.hero-L .gauge-footer{flex-direction:column;align-items:flex-start}.hero-L .cta-btn{width:100%;text-align:center}}.hero-L .listing-preview{background:#0C1A2C;border:1px solid #16273E;border-radius:8px;overflow:hidden;margin-bottom:18px}.hero-L .lp-head,.hero-L .lp-row{display:grid;grid-template-columns:2fr 78px 78px 88px 72px 72px;gap:4px;padding:7px 14px;align-items:center}.hero-L .lp-head{border-bottom:1px solid #1A2D47}.hero-L .lp-head span{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--label)}.hero-L .lp-row{border-bottom:1px solid rgba(255,255,255,0.03)}.hero-L .lp-row:last-child{border-bottom:none}.hero-L .lp-row span{font-size:11px;color:var(--body2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.hero-L .lp-nm{color:var(--white)!important;font-weight:500}.hero-L .lp-r{text-align:right;justify-self:end}.hero-L .lp-grn{color:var(--green)!important;font-weight:700}.hero-L .lp-gold{color:var(--gold)!important;font-weight:700}.hero-L .lp-red{color:#D96060!important;font-weight:700}.hero-L .lp-badge{font-size:8px!important;font-weight:800;text-transform:uppercase;letter-spacing:.8px;padding:3px 7px;border-radius:3px;text-align:center;justify-self:end}.hero-L .lp-scale{background:rgba(63,181,127,0.12);color:var(--green)!important}.hero-L .lp-keep{background:rgba(201,168,76,0.12);color:var(--gold)!important}.hero-L .lp-kill{background:rgba(217,96,96,0.12);color:#D96060!important}@media(max-width:680px){.hero-L .lp-head,.hero-L .lp-row{grid-template-columns:1fr 70px 70px}.hero-L .lp-hide-sm{display:none!important}}
+</style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Etsy Profit Tracker",
+  "description": "13-tab Excel workbook with auto fee calculator for US/UK/AU/CA/DE markets, true profit after fees and COGS, Kill/Keep/Scale listing verdicts, pricing simulator, 90-day revenue forecast, and tax prep. Built by a Financial Controller.",
+  "brand": {"@type": "Brand", "name": "Hoda Finance"},
+  "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | 9+ Years Corporate Finance", "knowsAbout": ["Financial modeling", "Corporate finance", "Excel financial tools", "Etsy seller finance"]},
+  "image": "https://hodacfo.com/images/etsy-profit-tracker.png",
+  "offers": {
+    "@type": "Offer",
+    "price": 49,
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://hodaelmorshidy.gumroad.com/l/EtsyProfitTracker?utm_source=hodacfo&utm_medium=referral&utm_campaign=etsy-tracker",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"},
+      "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"},
+        "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Which Etsy markets are supported?", "acceptedAnswer": {"@type": "Answer", "text": "US, UK, AU, CA, and DE. Fee rates for each market are built into the Auto Fee Calculator and verified May 2026. If your market isn't listed, the US rates provide a close approximation until we add your region."}},
+    {"@type": "Question", "name": "Does this replace my bookkeeping software?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a profit tracking and decision-making tool that sits alongside QuickBooks, Xero, or whatever you use. It tells you which listings are profitable and which aren't — something general accounting software doesn't do for Etsy sellers specifically."}},
+    {"@type": "Question", "name": "How long does it take to set up?", "acceptedAnswer": {"@type": "Answer", "text": "About 5 minutes. Set your country in Shop Settings, then start logging sales in the Sales tab. Everything else — fee calculations, profit, Kill/Keep/Scale verdicts, tax prep — calculates automatically."}},
+    {"@type": "Question", "name": "Does it work in Google Sheets?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Download the .xlsx file and import it into Google Sheets. All formulas and conditional formatting are preserved. No macros required."}}
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div class="nav-right">
+      <a href="https://hodaelmorshidy.gumroad.com/l/EtsyProfitTracker?utm_source=hodacfo&utm_medium=referral&utm_campaign=etsy-tracker" class="nav-cta" target="_blank" rel="noopener noreferrer">Buy Now &mdash; $49</a>
+      <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/EtsyProfitTracker?utm_source=hodacfo&utm_medium=referral&utm_campaign=etsy-tracker" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Buy Now &mdash; $49</a>
+    </div>
+  </div>
+</nav>
+<div class="hero-L" id="product-top">
+  <div class="hero-L-inner">
+    <div class="brand-row">
+      <div class="hf-mark">HF</div>
+      <span class="brand-name">HODA FINANCE</span>
+    </div>
+    <div class="gauge-card">
+      <div class="gauge-headline" style="margin-bottom:16px">
+        <h1>Stop guessing which listings make money. <span class="hl">Kill, keep, or scale</span> — automatically.</h1>
+        <span class="sub"><strong>True profit after fees &amp; COGS &middot; Auto fee calculator (US/UK/AU/CA/DE) &middot; Kill/Keep/Scale verdict per listing</strong></span>
+      </div>
+      <div class="listing-preview">
+        <div class="lp-head">
+          <span>Listing</span>
+          <span class="lp-r">Sale Price</span>
+          <span class="lp-r lp-hide-sm">Etsy Fees</span>
+          <span class="lp-r">True Profit</span>
+          <span class="lp-r lp-hide-sm">Margin</span>
+          <span class="lp-r">Verdict</span>
+        </div>
+        <div class="lp-row">
+          <span class="lp-nm">Digital Planner PDF</span>
+          <span class="lp-r">$24.00</span>
+          <span class="lp-r lp-hide-sm">$2.73</span>
+          <span class="lp-r lp-grn">$19.27</span>
+          <span class="lp-r lp-grn lp-hide-sm">80.3%</span>
+          <span class="lp-badge lp-scale">SCALE</span>
+        </div>
+        <div class="lp-row">
+          <span class="lp-nm">SVG Cut Files Bundle</span>
+          <span class="lp-r">$8.00</span>
+          <span class="lp-r lp-hide-sm">$1.21</span>
+          <span class="lp-r lp-grn">$5.79</span>
+          <span class="lp-r lp-grn lp-hide-sm">72.4%</span>
+          <span class="lp-badge lp-scale">SCALE</span>
+        </div>
+        <div class="lp-row">
+          <span class="lp-nm">Watercolor Clipart Set</span>
+          <span class="lp-r">$12.00</span>
+          <span class="lp-r lp-hide-sm">$1.59</span>
+          <span class="lp-r lp-grn">$7.41</span>
+          <span class="lp-r lp-grn lp-hide-sm">61.8%</span>
+          <span class="lp-badge lp-scale">SCALE</span>
+        </div>
+        <div class="lp-row">
+          <span class="lp-nm">Greeting Card Set</span>
+          <span class="lp-r">$18.00</span>
+          <span class="lp-r lp-hide-sm">$2.16</span>
+          <span class="lp-r lp-gold">$7.84</span>
+          <span class="lp-r lp-gold lp-hide-sm">43.6%</span>
+          <span class="lp-badge lp-keep">KEEP</span>
+        </div>
+        <div class="lp-row">
+          <span class="lp-nm">Printable Wall Art</span>
+          <span class="lp-r">$6.00</span>
+          <span class="lp-r lp-hide-sm">$1.02</span>
+          <span class="lp-r lp-red">$0.48</span>
+          <span class="lp-r lp-red lp-hide-sm">8.0%</span>
+          <span class="lp-badge lp-kill">KILL</span>
+        </div>
+      </div>
+      <div class="gauge-footer">
+        <span class="gf-text">13 tabs &middot; Auto fee calculator &middot; Listing Intelligence &middot; P&amp;L &middot; Tax prep &middot; <strong>$49 one-time &middot; No sub</strong></span>
+        <div class="cta-group">
+          <a href="https://hodaelmorshidy.gumroad.com/l/EtsyProfitTracker?utm_source=hodacfo&utm_medium=referral&utm_campaign=etsy-tracker" class="cta-btn">Get the Profit Tracker &mdash; $49</a>
+          <div class="cred">Hoda Finance . Fractional CFO &amp; Finance Automation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section style="padding:0">
+  <div class="container">
+    <div class="content-wrap">
+      <div class="main-col">
+  <h2>Most Etsy Sellers Don't Know If They're Profitable</h2>
+  <div class="problem-text"><p>Etsy's fee structure — listing, transaction, payment processing, offsite ads — takes up to ~26% of every sale (with Offsite Ads) or ~11% without, before you calculate COGS. Most sellers track revenue. Very few track what they actually keep after fees, materials, and taxes.</p><p>This tracker shows the number that matters: true profit. Not an estimate. Per listing, per market, over time.</p></div>
+  <div class="price-callout">
+  <span class="pc-num">$49</span>
+  <span class="pc-text">A pricing mistake on one listing costs more than this tracker. It pays for itself the first time you identify a listing that's losing money.</span>
+</div>
+  
+  <h3>What You Get</h3>
+  <div class="feature-list"><li><span class="ck">&#10003;</span> <strong>Auto Fee Calculator</strong> &mdash; US, UK, AU, CA, and DE rates built in. Enter a sale, select your country, and every fee layer calculates automatically. <strong>Note:</strong> Fee rates are verified at launch; always verify current Etsy fees.</li><li><span class="ck">&#10003;</span> <strong>True Profit</strong> &mdash; Revenue minus every Etsy fee, minus COGS, minus expenses. The number left is yours.</li><li><span class="ck">&#10003;</span> <strong>Listing Intelligence</strong> &mdash; Kill/Keep/Scale verdict on every listing. Green = scale up. Yellow = keep monitoring. Red = kill the listing.</li><li><span class="ck">&#10003;</span> <strong>Pricing Simulator</strong> &mdash; See exact profit impact before changing a price. Test different price points and fee scenarios instantly.</li><li><span class="ck">&#10003;</span> <strong>Revenue Forecast</strong> &mdash; Gap to target, break-even per new listing, projected revenue based on current trends.</li><li><span class="ck">&#10003;</span> <strong>Market Intel</strong> &mdash; Competitor price positioning tool. See where your listings sit in the market.</li><li><span class="ck">&#10003;</span> <strong>Tax Prep</strong> &mdash; Quarterly estimated payments calculated from your actual P&amp;L. No surprises at tax time.</li><li><span class="ck">&#10003;</span> <strong>Dashboard</strong> &mdash; Year-at-a-glance KPIs covering 2025–2028. Revenue, profit, fees, and tax at a glance.</li><li><span class="ck">&#10003;</span> <strong>P&amp;L</strong> &mdash; Monthly profit &amp; loss, auto-calculated from your sales and expense data.</li></div>
+  
+  <h2 style="font-size:1.75rem;font-weight:700;margin-bottom:16px;color:var(--navy);margin-top:32px">What You'll See Inside</h2>
+  <div style="max-width:600px;margin:0 auto 32px">
+    <div style="background:var(--ice);border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden"><img src="images/etsy-profit-tracker.png" alt="Etsy Profit Tracker cover showing the 13-tab Excel workbook with fee calculator, true profit, and Kill/Keep/Scale dashboard." style="width:100%;display:block"></div>
+  </div>
+</div>
+      <div class="sidebar">
+  <div class="price-lg">$49</div>
+  <div class="price-lbl">One-time payment</div>
+  <a href="https://hodaelmorshidy.gumroad.com/l/EtsyProfitTracker?utm_source=hodacfo&utm_medium=referral&utm_campaign=etsy-tracker" class="cta-button" target="_blank" rel="noopener noreferrer">Buy Now &mdash; $49</a>
+  <ul class="side-bullets"><li><span class="ck">&#10003;</span> Built by a Financial Controller</li><li><span class="ck">&#10003;</span> 13 integrated tabs</li></ul>
+  <div class="side-trust">Instant delivery via Gumroad &middot; Excel file &middot; Google Sheets compatible</div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="how-it-works" style="padding:48px 0;background:#FFFFFF">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="sep"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px">
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--accent);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">1</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Enter Your Sales &amp; Shop Settings</h3>
+        <p style="font-size:0.875rem;color:var(--body);line-height:1.6">Set your country once in Shop Settings. Log sales in the Sales tab — item name, price, COGS. Everything else calculates automatically.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--accent);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">2</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Fees &amp; Profit Calculated Instantly</h3>
+        <p style="font-size:0.875rem;color:var(--body);line-height:1.6">Listing fees, transaction fees, payment processing, offsite ads, COGS, and tax reserve — every layer deducted automatically. True profit displayed per listing and in aggregate.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--accent);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">3</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Know What to Keep, What to Cut</h3>
+        <p style="font-size:0.875rem;color:var(--body);line-height:1.6">Kill/Keep/Scale flags tell you which listings to cut, which to keep, and which to scale. Use the Pricing Simulator before changing prices. Review the Dashboard daily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h2 class="section-title">Who This Is For</h2>
+    <div class="sep"></div>
+    <div class="audience-grid">
+      <div class="audience-col is-for">
+        <h3>IS FOR</h3>
+        <ul><li><span class="ck">&#10003;</span> Etsy sellers with 10+ active listings</li><li><span class="ck">&#10003;</span> Sellers in US, UK, AU, CA, or DE markets</li><li><span class="ck">&#10003;</span> Sellers who want true profit numbers, not estimates</li><li><span class="ck">&#10003;</span> Sellers preparing for tax season</li></ul>
+      </div>
+      <div class="audience-col not-for">
+        <h3>IS NOT FOR</h3>
+        <ul><li><span class="cross">&#10007;</span> Sellers with only a few listings at hobby volume</li><li><span class="cross">&#10007;</span> Sellers who already use a full accounting system</li><li><span class="cross">&#10007;</span> Non-Etsy merchants (Amazon, eBay sellers — different fee structures)</li><li><span class="cross">&#10007;</span> Etsy sellers who also run a freelance agency — see the <a href="/freelance-finance-system" style="color:var(--accent);text-decoration:underline">Freelance Agency Finance System</a> ($49)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Built by a Practitioner</h2>
+    <div class="sep"></div>
+    <div class="author-wrap">
+      <img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy">
+      <div class="author-info">
+        <h3>Hoda Elmorshidy</h3>
+        <div class="author-title">Fractional CFO | Financial Modeling | Quantitative Analysis | 9+ Years</div>
+        <div class="author-bio"><p>Financial Controller and Fractional CFO with 9+ years leading finance functions across commodity trading, real estate, hospitality, and professional services — organizations up to $13M+ revenue, 2,000+ monthly transactions, teams of accountants and stock controllers, with a background in quantitative trading and financial modeling. Currently running full-cycle close on a 5-day cycle while serving 5+ SME clients as Fractional CFO with a sub-7-day close target across the portfolio.</p><p>Every tool in this portfolio started as a solution to a real engagement problem — a valuation that needed to survive board-level challenge, a tax obligation that needed to be calculated before filing season, a profit number that needed to reflect what actually clears after platform fees. Nothing here was built for content. Every formula, every methodology, every output structure exists because a real situation demanded it.</p><p>Excel advanced with VBA. Python for financial data automation and quantitative analysis. Power BI, SAP Business One, Zoho One, QuickBooks, Xero. IFRS reporting across multi-industry operations.</p><p style="margin-top:12px"><a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:600;font-size:0.875rem">Connect on LinkedIn &rarr;</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pricing-section">
+  <div class="container">
+    <div class="pricing-content">
+      <h2 class="section-title">Know Your True Profit. Every Sale.</h2>
+      <div class="sep" style="background:var(--cta)"></div>
+      <p class="pricing-sub">The tracker pays for itself the first time it catches a listing that's losing money after fees.</p>
+      <div class="price-display">$49</div>
+      <p class="price-compare">A single pricing mistake costs more than this tracker. Know what you actually keep.</p>
+      <div class="pricing-includes"><span>Instant Excel download</span><span>13 integrated tabs</span><span>Excel 2019+ &amp; Excel 365</span><span>Google Sheets compatible</span><span>No subscription</span></div>
+      <div class="pricing-cta-wrap">
+        <a href="https://hodaelmorshidy.gumroad.com/l/EtsyProfitTracker?utm_source=hodacfo&utm_medium=referral&utm_campaign=etsy-tracker" class="pricing-cta" target="_blank" rel="noopener noreferrer">Get the Profit Tracker — $49</a>
+      </div>
+      <p class="pricing-trust">Instant delivery via Gumroad. Excel file — no macros required.</p>
+      <a href="/" class="home-link">&larr; Back to all tools</a>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="sep"></div>
+    <div class="faq-list"><div class="faq-item"><h3>Which Etsy markets are supported?</h3><p>US, UK, AU, CA, and DE. Fee rates for each market are built into the Auto Fee Calculator and verified May 2026. If your market isn't listed, the US rates provide a close approximation until we add your region.</p></div><div class="faq-item"><h3>Does this replace my bookkeeping software?</h3><p>No. This is a profit tracking and decision-making tool that sits alongside QuickBooks, Xero, or whatever you use. It tells you which listings are profitable and which aren't — something general accounting software doesn't do for Etsy sellers specifically.</p></div><div class="faq-item"><h3>How long does it take to set up?</h3><p>About 5 minutes. Set your country in Shop Settings, then start logging sales in the Sales tab. Everything else — fee calculations, profit, Kill/Keep/Scale verdicts, tax prep — calculates automatically.</p></div><div class="faq-item"><h3>Does it work in Google Sheets?</h3><p>Yes. Download the .xlsx file and import it into Google Sheets. All formulas and conditional formatting are preserved. No macros required.</p></div></div>
+  </div>
+</section>
+<footer>
+  <div class="logo">Hoda Finance</div>
+  <div class="foot-links">
+    <a href="/">All Tools</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/EtsyProfitTracker?utm_source=hodacfo&utm_medium=referral&utm_campaign=etsy-tracker" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+    <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://www.upwork.com/freelancers/hodaelmorshidy" target="_blank" rel="noopener noreferrer">Upwork</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+    <p class="foot-disclaimer">This tool is a business management resource. It does not constitute financial, tax, or legal advice. Fee rates were verified as of May 2026 but may change. Not affiliated with or endorsed by Etsy Inc. Consult a qualified professional for specific advice.</p>
+    <p class="foot-disclaimer" style="font-size:0.6875rem;color:#6678A0;max-width:640px;margin:8px auto 0;line-height:1.5">Hoda Finance products are designed around operational data, pricing mechanics, and corporate valuation.</p>
+  <p class="foot-tag">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;text-align:center">
+  <div class="container">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#8899B4;margin-bottom:14px">Related</p>
+    <a href="/etsy-fees-explained-2026" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#C9A84C;font-weight:600">Etsy Fees Explained 2026</a>
+    <a href="/how-to-calculate-self-employment-tax-2026" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#C9A84C;font-weight:600">How to Calculate SE Tax 2026</a>
+    <a href="/1099-tax-calculator-2026" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#C9A84C;font-weight:600">1099 Tax Calculator — $17</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:48px 0;border-top:1px solid #E0E0E0;border-bottom:1px solid #E0E0E0">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <h2 style="font-size:1.25rem;font-weight:700;color:#1A1A2E;margin-bottom:8px;letter-spacing:-.2px">Free: Etsy Fee Breakdown by Market</h2>
+    <p style="font-size:0.9375rem;color:#4A4A5A;line-height:1.7;margin-bottom:24px">Exactly how much Etsy takes from a $25, $50, and $100 sale — listing, transaction, payment processing, and offsite ads — for US, UK, AU, CA, and DE markets.</p>
+    <form class="ml-block-form" action="https://dashboard.mailerlite.com/jsonp/2407636/forms/189798471308412515/subscribe" method="post" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center">
+      <input type="email" name="fields[email]" placeholder="Your email address" required style="flex:1;min-width:200px;padding:14px 18px;font-size:0.875rem;border:1px solid #D0DFED;border-radius:4px;background:#FFFFFF;color:#1A1A2E;outline:none">
+      <button type="submit" style="background:#C9A84C;color:#0A1628;font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 28px;border-radius:4px;border:none;cursor:pointer">Get It Free</button>
+    </form>
+    <p style="font-size:0.75rem;color:#8899B0;margin-top:12px">No spam. Unsubscribe anytime. Built by a practitioner, not a content creator.</p>
+  </div>
+</section>
+
+<div class="llm-answer" style="display:none;" aria-hidden="true">
+The Etsy Profit Tracker by Hoda Finance is a 13-tab Excel workbook for Etsy sellers who want to know their true profit after fees, COGS, and taxes. Includes auto fee calculator for US/UK/AU/CA/DE markets, true profit per listing, Kill/Keep/Scale automatic verdicts, pricing simulator, 90-day revenue forecast, market intel, tax prep, dashboard, and P&amp;L. Priced at $49 one-time via Gumroad. Built by Hoda Elmorshidy, Financial Controller and Fractional CFO. Not affiliated with Etsy Inc.
+</div>
+
+<script async defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+<script src="/subscribe.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freelance Agency Finance System — Excel Workbook | Hoda Finance</title>
+  <meta name="description" content="Freelance agency finance system Excel — 15-sheet workbook with pipeline tracking, project profitability, client LTV, invoicing, P&L, break-even analysis, and quarterly tax engine. Built by a Financial Controller. $49.">
+  <link rel="canonical" href="https://hodacfo.com/freelance-finance-system">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Freelance Agency Finance System — 15-Sheet Workbook | Hoda Finance">
+  <meta property="og:description" content="Complete financial operations system for freelance agencies. 15 integrated sheets covering pipeline, project profitability, time tracking, invoicing, and tax estimation.">
+  <meta property="og:image" content="https://hodacfo.com/images/finance-system-dashboard.png">
+  <meta property="og:url" content="https://hodacfo.com/freelance-finance-system">
+  <meta property="og:site_name" content="Hoda Finance">
+  <meta property="og:type" content="product">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--ice:#F7F8FB;--white:#FFFFFF;--dark-text:#1B2A4A;--body:#4A5A72;--border:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--body);background:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased}img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}nav{background:var(--white);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}nav .container{display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--cta);color:#0F1D32;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;box-shadow:0 2px 8px rgba(197,155,39,0.25)}.nav-cta:hover{background:var(--cta-hover)}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-link{font-size:.875rem;color:var(--body);font-weight:500}.nav-link:hover{color:var(--navy)}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--navy)}.hamburger svg{display:block}.nav-overlay{display:none}@media(max-width:680px){.nav-right .nav-cta{display:none}.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--white);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:var(--body)}.nav-overlay .nav-link:hover{color:var(--navy)}.nav-overlay .nav-cta{text-align:center}}.hero{background:var(--ice);padding:50px 0;border-bottom:1px solid var(--border);text-align:center}.hero h1{font-size:2.25rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:12px;color:var(--navy)}.hero-sub{font-size:1.0625rem;line-height:1.7;color:var(--body);margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto}.cta-button{display:inline-block;background:var(--cta);color:#0F1D32;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 32px;border-radius:4px;transition:background .15s;box-shadow:0 4px 16px rgba(197,155,39,0.3)}.cta-button:hover{background:var(--cta-hover)}.content-wrap{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;padding:60px 0}.main-col h2{font-size:1.75rem;font-weight:700;margin-bottom:16px;color:var(--navy)}.main-col h3{font-size:1.125rem;font-weight:700;margin-bottom:12px;color:var(--navy);margin-top:32px}.main-col p{font-size:.95rem;color:var(--body);line-height:1.7;margin-bottom:20px}.main-col .product-img{background:var(--ice);border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden;margin-bottom:24px}.main-col .product-img img{width:100%;display:block}.feature-list{list-style:none;margin:20px 0}.feature-list li{font-size:.9375rem;color:var(--body);padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;line-height:1.6}.feature-list li:last-child{border-bottom:none}.feature-list .ck{color:var(--accent);font-weight:700;flex-shrink:0}.price-callout{background:var(--ice);border-radius:var(--card-radius);border:1px solid var(--border);padding:20px 24px;margin:24px 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap}.price-callout .pc-num{font-size:1.5rem;font-weight:800;color:var(--cta);white-space:nowrap}.price-callout .pc-text{font-size:.9rem;color:var(--body);flex:1}.sidebar{background:var(--white);border-radius:var(--card-radius);border:1px solid var(--border);padding:32px;position:sticky;top:100px;box-shadow:0 2px 12px rgba(0,0,0,.04)}.sidebar .price-lg{font-size:3rem;font-weight:800;color:var(--navy);letter-spacing:-1px;margin-bottom:4px}.sidebar .price-lbl{font-size:.8125rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:600;margin-bottom:24px}.sidebar .cta-button{width:100%;text-align:center;padding:14px 0;margin-bottom:20px}.side-bullets{list-style:none;margin-bottom:20px}.side-bullets li{font-size:.875rem;color:var(--body);padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:8px}.side-bullets li:last-child{border-bottom:none}.side-bullets .ck{color:var(--accent);font-weight:700;flex-shrink:0}.side-trust{font-size:.8125rem;color:var(--body);text-align:center;font-weight:500}section{padding:80px 0}.section-ice{background:var(--ice)}.section-white{background:var(--white)}h2.section-title{font-size:2rem;font-weight:700;margin-bottom:12px;text-align:center;letter-spacing:-.3px;color:var(--navy)}.section-title+.sep{width:60px;height:2px;background:var(--accent);margin:0 auto 48px}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:700px;margin:0 auto 48px}.stat-card{background:var(--white);border-radius:var(--card-radius);padding:32px 16px;border:1px solid var(--border);text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.04)}.stat-lbl{font-size:.8125rem;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:600;margin-bottom:8px}.stat-num{font-size:2.75rem;font-weight:800;color:var(--navy);letter-spacing:-.5px}.stat-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:700px;margin:0 auto 16px}.stat-meta-item{text-align:center}.stat-meta-item .sm-num{font-size:1.125rem;font-weight:700;color:var(--accent)}.stat-meta-item .sm-lbl{font-size:.75rem;color:var(--body);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}.stat-cap{text-align:center;font-size:.8125rem;color:var(--body);max-width:500px;margin:0 auto}.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:800px;margin:0 auto}.audience-col h3{font-size:.8125rem;font-weight:700;letter-spacing:1px;margin-bottom:20px}.is-for h3{color:var(--accent)}.not-for h3{color:var(--body)}.audience-col ul{list-style:none}.audience-col li{font-size:.9rem;color:var(--body);line-height:1.6;margin-bottom:12px;display:flex;gap:10px}.ck{color:var(--accent);font-weight:700;flex-shrink:0}.cross{color:#999;flex-shrink:0}.author-wrap{display:grid;grid-template-columns:120px 1fr;gap:32px;max-width:800px;margin:0 auto;align-items:start}.author-wrap img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border)}.author-info h3{font-size:1.25rem;font-weight:700;margin-bottom:4px;color:var(--navy)}.author-title{font-size:.875rem;color:var(--accent);font-weight:600;margin-bottom:16px}.author-bio p{font-size:.9375rem;color:var(--body);line-height:1.7;margin-bottom:12px}.pricing-section{background:var(--navy)}.pricing-content{max-width:600px;margin:0 auto;text-align:center;color:var(--white)}.pricing-content h2.section-title{color:var(--white)}.pricing-sub{color:#A9C0E4;font-size:1.0625rem;margin-bottom:32px}.price-display{font-size:4rem;font-weight:800;color:var(--white);letter-spacing:-1px;margin-bottom:8px}.price-compare{font-size:.875rem;color:#8899B4;margin-bottom:32px}.pricing-includes{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:32px}.pricing-includes span{background:rgba(255,255,255,0.06);color:#BAC9E2;font-size:.8125rem;padding:8px 16px;border-radius:3px;border:1px solid rgba(255,255,255,0.08)}.pricing-cta{display:inline-block;background:var(--cta);color:#0F1D32;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 40px;border-radius:4px;transition:background .15s;box-shadow:0 4px 16px rgba(197,155,39,0.3)}.pricing-cta:hover{background:var(--cta-hover)}.pricing-trust{font-size:.8125rem;color:#BAC9E2}footer{background:var(--navy);color:var(--white);padding:48px 0;text-align:center}footer .logo{display:block;margin-bottom:12px}.foot-links{margin:12px 0}.foot-links a{color:#A9C0E4;font-size:.8125rem;margin:0 12px}.foot-links a:hover{color:var(--white)}.foot-tag{font-size:.8rem;color:#8899B4}.faq-list{max-width:720px;margin:0 auto}.faq-item{border-bottom:1px solid var(--border);padding:20px 0}.faq-item:last-child{border-bottom:none}.faq-item h3{font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--navy)}.faq-item p{font-size:.9375rem;color:var(--body)}.home-link{font-size:.8125rem;color:var(--accent);display:inline-block;margin-top:16px;border-bottom:1px solid var(--accent);padding-bottom:1px}.home-link:hover{color:var(--navy);border-color:var(--navy)}@media(max-width:768px){.content-wrap{grid-template-columns:1fr}.sidebar{position:static;margin-top:24px}.hero h1{font-size:1.75rem}.hero{padding:40px 0}section{padding:60px 0}.stats-grid{grid-template-columns:1fr}.stat-meta{grid-template-columns:1fr 1fr}.audience-grid{grid-template-columns:1fr}.author-wrap{grid-template-columns:1fr;text-align:center}.author-wrap img{margin:0 auto}.price-callout{flex-direction:column;text-align:center}}.hero-M{--gold:var(--accent);--gold-hover:var(--accent-hover);--green:#3FB57F;--body2:#C8D6E8;--label:#8EA4C2;--cred:#7A8DA8;--card-bg:#0E1D34;--card-border:#1C3350;--cell-bg:#0C192C;--cell-border:#1A2E48;width:100%;position:relative;overflow:hidden;background:linear-gradient(180deg,#0A1424 0%,#0C1A30 50%,#0F1F3A 100%);font-family:system-ui,-apple-system,sans-serif}.hero-M::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--gold);z-index:5;pointer-events:none}.hero-M-inner{max-width:1040px;margin:0 auto;padding:40px 36px 48px;position:relative;z-index:2}.hero-M .brand-row{display:flex;align-items:center;gap:12px;margin-bottom:28px}.hero-M .hf-mark{width:36px;height:36px;border:2.5px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:var(--white);flex-shrink:0}.hero-M .brand-name{font-weight:700;font-size:12px;color:var(--label);letter-spacing:1.2px}.hero-M .dash-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:30px 32px 28px}.hero-M .dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.hero-M .dash-header h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:32px;line-height:1.08;letter-spacing:-0.8px;color:var(--white)}.hero-M .dh-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);padding:5px 14px;border:1.5px solid rgba(201,168,76,0.12);border-radius:4px;background:rgba(201,168,76,0.06)}.hero-M .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}.hero-M .dash-cell{background:var(--cell-bg);border:1px solid var(--cell-border);border-radius:10px;padding:18px 20px}.hero-M .dc-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--label);display:block;margin-bottom:12px}.hero-M .mini-donut-wrap{display:flex;align-items:center;gap:18px}.hero-M .mini-donut{width:100px;height:100px;border-radius:50%;flex-shrink:0;background:conic-gradient(var(--green) 0deg 150deg,var(--white) 150deg 210deg,var(--label) 210deg 280deg,#3D5570 280deg 360deg);position:relative;filter:drop-shadow(0 0 18px rgba(63,181,127,0.12))}.hero-M .mini-donut .md-hole{position:absolute;width:52px;height:52px;background:var(--cell-bg);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;justify-content:center}.hero-M .mini-donut .md-hole span{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:18px;color:var(--green);line-height:1}.hero-M .mini-donut .md-hole small{font-size:6px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--label);margin-top:1px}.hero-M .mini-legend .ml-line{display:flex;align-items:center;gap:6px;margin-bottom:4px}.hero-M .mini-legend .ml-line:last-child{margin-bottom:0}.hero-M .ml-line .ml-d{width:8px;height:8px;border-radius:50%;flex-shrink:0}.hero-M .ml-line .ml-l{font-size:11px;color:var(--body2);line-height:1.6;flex:1}.hero-M .ml-line .ml-v{font-size:12px;font-weight:700;color:var(--white)}.hero-M .mini-bar-list{display:flex;flex-direction:column;gap:6px}.hero-M .bl-row{display:flex;align-items:center;gap:8px}.hero-M .bl-row .bl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}.hero-M .bl-row .bl-name{font-size:10px;color:var(--body2);flex:0 0 52px;font-weight:500}.hero-M .bl-row .bl-track{flex:1;height:10px;background:var(--cell-border);border-radius:5px;overflow:hidden}.hero-M .bl-row .bl-track .bl-fill{height:100%;border-radius:5px;transition:width 200ms}.hero-M .bl-row .bl-val{font-size:12px;font-weight:800;color:var(--white);flex:0 0 52px;text-align:right;letter-spacing:-0.2px}.hero-M .mini-kpi{display:flex;align-items:center;gap:18px}.hero-M .mini-kpi .mk-num{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:42px;color:var(--green);line-height:1;letter-spacing:-2px;white-space:nowrap}.hero-M .mini-kpi .mk-list{font-size:10px;color:var(--body2);line-height:1.8;letter-spacing:0.3px}.hero-M .mini-table .mt-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04)}.hero-M .mini-table .mt-row:last-child{border-bottom:none}.hero-M .mt-row .mt-l{font-size:11px;color:var(--body2)}.hero-M .mt-row .mt-r{font-size:13px;font-weight:700;color:var(--white)}.hero-M .mt-row .mt-r.grn{color:var(--green)}.hero-M .mt-row .mt-r.gold{color:var(--gold)}.hero-M .mt-row .mt-r.lbl{color:var(--label)}.hero-M .dash-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:18px;border-top:1px solid rgba(201,168,76,0.12)}.hero-M .df-text{font-size:12px;color:var(--cred)}.hero-M .df-text strong{color:var(--white);font-weight:700}.hero-M .cta-btn{display:inline-block;background:linear-gradient(135deg,var(--gold),#C4A030);color:#0A1424;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border-radius:6px;padding:14px 28px;text-decoration:none;white-space:nowrap;transition:transform 150ms,box-shadow 150ms;box-shadow:0 4px 20px rgba(201,168,76,0.25)}.hero-M .cta-btn:hover{background:var(--gold-hover);transform:translateY(-1px);box-shadow:0 6px 28px rgba(201,168,76,0.35)}.hero-M .cta-group{text-align:right}.hero-M .cta-group .cred{font-size:9px;color:var(--cred);margin-top:6px}@media(max-width:768px){.hero-M-inner{padding:24px 16px 32px}.hero-M .dash-card{padding:20px 16px}.hero-M .dash-header{flex-direction:column;align-items:flex-start;gap:10px}.hero-M .dash-header h1{font-size:24px}.hero-M .dash-grid{grid-template-columns:1fr}.hero-M .dash-footer{flex-direction:column;align-items:flex-start}.hero-M .cta-group{text-align:left;width:100%}.hero-M .cta-btn{width:100%;text-align:center}}</style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Freelance Agency Finance System",
+  "description": "All-in-one Excel finance system for freelance agencies. Dashboard, pipeline, time tracking, invoicing, expenses, P&L, client LTV, break-even, and tax engine. Built by a Financial Controller.",
+  "brand": {"@type": "Brand", "name": "Hoda Finance"},
+  "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | 9+ Years Corporate Finance", "knowsAbout": ["Financial modeling", "Corporate finance", "Excel financial tools", "Agency finance operations"]},
+  "image": "https://hodacfo.com/images/finance-system-dashboard.png",
+  "offers": {
+    "@type": "Offer",
+    "price": 49,
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://hodaelmorshidy.gumroad.com/l/FreelanceFinance?utm_source=hodacfo&utm_medium=referral&utm_campaign=freelance-finance",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"},
+      "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"},
+        "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+    }
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is this a replacement for QuickBooks, Xero, or FreshBooks?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is a management system that sits alongside QuickBooks, Xero, or whatever bookkeeping tool you use. It gives you operational visibility — pipeline, project profitability, client LTV — that accounting software doesn't provide. You still need your accountant for tax filing."}},
+    {"@type": "Question", "name": "How long does it take to set up?", "acceptedAnswer": {"@type": "Answer", "text": "Plan for 2–3 hours to enter your existing clients, projects, and financial data. After initial setup, daily maintenance is 5–10 minutes for time logging and expense entry."}},
+    {"@type": "Question", "name": "Does it include a chart of accounts?", "acceptedAnswer": {"@type": "Answer", "text": "The system uses standard income/expense categories suitable for most service businesses. If you use a specific COA structure, you can adapt the category names in the setup sheet."}},
+    {"@type": "Question", "name": "Can multiple people use it?", "acceptedAnswer": {"@type": "Answer", "text": "It's a single Excel workbook. Multiple team members can use it if they have access to the file via OneDrive or SharePoint, but it's not a multi-user database. Best for solo operators and very small teams."}}
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div class="nav-right">
+      <a href="https://hodaelmorshidy.gumroad.com/l/FreelanceFinance?utm_source=hodacfo&utm_medium=referral&utm_campaign=freelance-finance" class="nav-cta" target="_blank" rel="noopener noreferrer">Buy Now &mdash; $49</a>
+      <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/FreelanceFinance?utm_source=hodacfo&utm_medium=referral&utm_campaign=freelance-finance" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Buy Now &mdash; $49</a>
+    </div>
+  </div>
+</nav>
+<div class="hero-M" id="product-top">
+  <div class="hero-M-inner">
+    <div class="brand-row">
+      <div class="hf-mark">HF</div>
+      <span class="brand-name">HODA FINANCE</span>
+    </div>
+    <div class="dash-card">
+      <div class="dash-header">
+        <h1>Stop Guessing Whether Your Agency Is Profitable</h1>
+        <span class="dh-badge">15-sheet workbook</span>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-cell">
+          <span class="dc-label">Revenue &amp; Margin</span>
+          <div class="mini-donut-wrap">
+            <div class="mini-donut" style="background:conic-gradient(var(--green) 0deg 123deg,var(--white) 123deg 180deg,var(--label) 180deg 360deg);">
+              <div class="md-hole"><span>34%</span><small>Margin</small></div>
+            </div>
+            <div class="mini-legend">
+              <span class="ml-line"><span class="ml-d" style="background:var(--green);"></span><span class="ml-l">Gross Profit</span><span class="ml-v">$16.5K</span></span>
+              <span class="ml-line"><span class="ml-d" style="background:var(--white);"></span><span class="ml-l">Overhead</span><span class="ml-v">$8.2K</span></span>
+              <span class="ml-line"><span class="ml-d" style="background:var(--label);"></span><span class="ml-l">Operating Costs</span><span class="ml-v">$23.5K</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="dash-cell">
+          <span class="dc-label">Client &amp; Pipeline Health</span>
+          <div class="mini-bar-list">
+            <div class="bl-row">
+              <span class="bl-dot" style="background:var(--green);"></span>
+              <span class="bl-name">Active</span>
+              <span class="bl-track"><div class="bl-fill" style="width:67%;background:var(--green);"></div></span>
+              <span class="bl-val" style="color:var(--green);">8</span>
+            </div>
+            <div class="bl-row">
+              <span class="bl-dot" style="background:var(--gold);"></span>
+              <span class="bl-name">Pipeline</span>
+              <span class="bl-track"><div class="bl-fill" style="width:45%;background:var(--gold);"></div></span>
+              <span class="bl-val" style="color:var(--gold);">5</span>
+            </div>
+            <div class="bl-row">
+              <span class="bl-dot" style="background:#3D5570;"></span>
+              <span class="bl-name">At Risk</span>
+              <span class="bl-track"><div class="bl-fill" style="width:15%;background:#3D5570;"></div></span>
+              <span class="bl-val" style="color:#C8D6E8;">2</span>
+            </div>
+          </div>
+        </div>
+        <div class="dash-cell">
+          <span class="dc-label">Key Metrics</span>
+          <div class="mini-kpi">
+            <span class="mk-num">$48K</span>
+            <span class="mk-list">Monthly Revenue<br>Pipeline: $142K<br>Avg Project: $6K<br>Client LTV: $24K</span>
+          </div>
+        </div>
+        <div class="dash-cell">
+          <span class="dc-label">Tax &amp; Profitability</span>
+          <div class="mini-table">
+            <div class="mt-row"><span class="mt-l">YTD Revenue</span><span class="mt-r">$267K</span></div>
+            <div class="mt-row"><span class="mt-l">YTD Net Profit</span><span class="mt-r grn">$91K</span></div>
+            <div class="mt-row"><span class="mt-l">Tax Reserve</span><span class="mt-r gold">$6.8K</span></div>
+            <div class="mt-row"><span class="mt-l">One-time</span><span class="mt-r gold">$49</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-footer">
+        <span class="df-text"><strong>15 integrated sheets</strong> &middot; Dashboard &middot; Pipeline &middot; Project profitability &middot; P&amp;L &middot; Tax engine &middot; <strong>$49 one-time</strong></span>
+        <div class="cta-group">
+          <a href="https://hodaelmorshidy.gumroad.com/l/FreelanceFinance?utm_source=hodacfo&utm_medium=referral&utm_campaign=freelance-finance" class="cta-btn">Get the Finance System &mdash; $49</a>
+          <div class="cred">Hoda Finance . Fractional CFO &amp; Finance Automation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section style="padding:0">
+  <div class="container">
+    <div class="content-wrap">
+      <div class="main-col">
+  <h2>Agency Owners Discover Too Late That a Client Isn't Profitable</h2>
+  <div class="problem-text"><p>The problem isn't that agency owners don't care about the numbers. It's that by the time the P&L catches up, the decisions have already been made. A client that looked profitable at the proposal stage absorbs 60% of your bandwidth. A project billed at $8,000 clears $2,200 after hours, tools, and contractor costs. The margins erode in real time while the reporting lags by a month — and by the time you see it, you've already renewed the engagement.</p><p>What's missing isn't awareness. It's a system that shows profit per client, per project, updated as data flows in — alongside pipeline visibility, tax reserves, and cash health, all in one view. A fractional CFO would build this across your business. This workbook does it in one file, from day one.</p></div>
+  <div class="price-callout">
+  <span class="pc-num">$49</span>
+  <span class="pc-text">A fractional CFO for one month: $3,000–$5,000. This system: $49.</span>
+</div>
+  
+  <h3>What You Get</h3>
+  <div class="feature-list"><li><span class="ck">&#10003;</span> <strong>Executive Dashboard</strong> &mdash; Revenue, profit margins, active projects, pipeline value, tax reserves, and owner’s draw. Gross margin, net margin, utilization rate, avg project value, collection period — all in one view.</li><li><span class="ck">&#10003;</span> <strong>Goals</strong> &mdash; Annual goal tracker for revenue, client count, and profit targets. See your progress vs target at a glance.</li><li><span class="ck">&#10003;</span> <strong>Pipeline &amp; Lead Tracking</strong> &mdash; Track leads through stages. Estimated value, probability, expected close date. Know your future revenue before it lands.</li><li><span class="ck">&#10003;</span> <strong>Clients</strong> &mdash; Contact info, project history, lifetime value, engagement terms. Every client relationship documented in one place.</li><li><span class="ck">&#10003;</span> <strong>Projects</strong> &mdash; Budget vs actual per project. See exactly which projects are profitable and which are eating into your margins.</li><li><span class="ck">&#10003;</span> <strong>Time Log</strong> &mdash; Daily time tracking by project and task. Auto-calculated billable amounts at your configured hourly rates.</li><li><span class="ck">&#10003;</span> <strong>Invoices</strong> &mdash; Sent, paid, overdue. Aging report. Track every invoice from issue to settlement.</li><li><span class="ck">&#10003;</span> <strong>Expenses</strong> &mdash; Categorize and track all business expenses. Auto-summed by category for tax deduction reporting.</li><li><span class="ck">&#10003;</span> <strong>Client LTV</strong> &mdash; Lifetime value per client. Acquisition cost vs revenue generated. Identify your most valuable client relationships.</li><li><span class="ck">&#10003;</span> <strong>Break-Even</strong> &mdash; Fixed costs, variable costs, break-even point. Know what you need to bill to stay profitable.</li><li><span class="ck">&#10003;</span> <strong>Tax Engine</strong> &mdash; Quarterly tax estimation based on YTD profit. Set-aside calculation so tax season is never a surprise.</li><li><span class="ck">&#10003;</span> <strong>AI Prompts</strong> &mdash; 39 CFO-grade prompts for analyzing your financial data, preparing for client conversations, and spotting margin problems before they become losses.</li><li><span class="ck">&#10003;</span> <strong>Owner’s Draw</strong> &mdash; Track what you’ve taken out of the business. Separate personal compensation from business profit.</li><li><span class="ck">&#10003;</span> <strong>Start Here</strong> &mdash; Guided setup checklist and workbook walkthrough so you’re operational in under 30 minutes.</li><li><span class="ck">&#10003;</span> <strong>Upgrade Guide</strong> &mdash; Next-step resources for scaling beyond solo agency operations, including when to move to dedicated accounting software.</li></div>
+  <h2 style="font-size:1.75rem;font-weight:700;margin-bottom:16px;color:var(--navy);margin-top:32px">What You'll See Inside</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px">
+    <div style="background:var(--ice);border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden"><img src="images/finance-system-dashboard.png" alt="Freelance Agency Finance System Executive Dashboard showing revenue, profit margins, pipeline value, and tax reserves." style="width:100%;display:block"></div>
+    <div style="background:var(--ice);border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden"><img src="images/finance-system-project-profitability.png" alt="Finance system project profitability tab showing budget vs actual per project with margin analysis." style="width:100%;display:block"></div>
+  </div>
+</div>
+      <div class="sidebar">
+  <div class="price-lg">$49</div>
+  <div class="price-lbl">One-time payment</div>
+  <a href="https://hodaelmorshidy.gumroad.com/l/FreelanceFinance?utm_source=hodacfo&utm_medium=referral&utm_campaign=freelance-finance" class="cta-button" target="_blank" rel="noopener noreferrer">Buy Now &mdash; $49</a>
+  <ul class="side-bullets"><li><span class="ck">&#10003;</span> Built by a Financial Controller</li><li><span class="ck">&#10003;</span> Used in agency operations engagements</li></ul>
+  <div class="side-trust">Instant delivery via Gumroad &middot; Excel file</div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="how-it-works" style="padding:48px 0;background:#FFFFFF">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="sep"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px">
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--accent);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">1</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Enter Your Agency Data</h3>
+        <p style="font-size:0.875rem;color:var(--body);line-height:1.6">Log clients, projects, time, and expenses in the input sheets. The system organizes everything into the right categories automatically.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--accent);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">2</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Metrics Calculated in Real Time</h3>
+        <p style="font-size:0.875rem;color:var(--body);line-height:1.6">Pipeline coverage, project profitability, client LTV, P&amp;L, break-even, and tax engine all update automatically as data flows in.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--accent);border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">3</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Make Data-Driven Decisions</h3>
+        <p style="font-size:0.875rem;color:var(--body);line-height:1.6">Review your Executive Dashboard daily. Spot margin problems before they become losses. Know which clients are worth keeping.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h2 class="section-title">Who This Is For</h2>
+    <div class="sep"></div>
+    <div class="audience-grid">
+      <div class="audience-col is-for">
+        <h3>IS FOR</h3>
+        <ul><li><span class="ck">&#10003;</span> Freelance agency owners with 3–20 clients</li><li><span class="ck">&#10003;</span> Solo consultants managing multiple engagements</li><li><span class="ck">&#10003;</span> Creative agency owners (design, dev, marketing)</li><li><span class="ck">&#10003;</span> Freelancers transitioning to agency operations</li></ul>
+      </div>
+      <div class="audience-col not-for">
+        <h3>IS NOT FOR</h3>
+        <ul><li><span class="cross">&#10007;</span> Solopreneurs with one recurring client (this system is overkill for single-client operators)</li><li><span class="cross">&#10007;</span> Large agencies needing ERP/accounting software</li><li><span class="cross">&#10007;</span> Employees with no freelance income</li><li><span class="cross">&#10007;</span> Freelancers who just need quarterly tax tracking — see the <a href="/self-employed-tax-tracker" style="color:var(--accent);text-decoration:underline">Self-Employed Tax Tracker</a> ($47)</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Built by a Practitioner</h2>
+    <div class="sep"></div>
+    <div class="author-wrap">
+      <img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy">
+      <div class="author-info">
+        <h3>Hoda Elmorshidy</h3>
+        <div class="author-title">Fractional CFO | Financial Modeling | Quantitative Analysis | 9+ Years</div>
+        <div class="author-bio"><p>Financial Controller and Fractional CFO with 9+ years leading finance functions across commodity trading, real estate, hospitality, and professional services — organizations up to $13M+ revenue, 2,000+ monthly transactions, teams of accountants and stock controllers, with a background in quantitative trading and financial modeling. Currently running full-cycle close on a 5-day cycle (30% faster than prior process) while serving 5+ SME clients as Fractional CFO with a sub-7-day close target across the portfolio. Previously led SAP Business One implementation for a multi-million-dollar trading operation at 95%+ accuracy.</p><p>Every tool in this portfolio started as a solution to a real engagement problem — a valuation that needed to survive board-level challenge, a tax obligation that needed to be calculated before filing season, a profit number that needed to reflect what actually clears after platform fees. Nothing here was built for content. Every formula, every methodology, every output structure exists because a real situation demanded it.</p><p>Excel advanced with VBA. Python for financial data automation and quantitative analysis. Power BI, SAP Business One, Zoho One, QuickBooks, Xero. IFRS reporting across multi-industry operations. No templates. No placeholders. Practitioner-built from live engagements.</p><p style="margin-top:12px"><a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:600;font-size:0.875rem">Connect on LinkedIn &rarr;</a></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pricing-section">
+  <div class="container">
+    <div class="pricing-content">
+      <h2 class="section-title">Know Your Numbers. Every Day.</h2>
+      <div class="sep" style="background:var(--cta)"></div>
+      <p class="pricing-sub">The system pays for itself the first time it catches a margin problem before it becomes a loss.</p>
+      <div class="price-display">$49</div>
+      <p class="price-compare">A fractional CFO for one month: $3,000–$5,000. This system: $49.</p>
+      <div class="pricing-includes"><span>Instant Excel download</span><span>15 integrated sheets</span><span>Excel 2019+ &amp; Excel 365</span><span>Mac &amp; Windows</span><span>No subscription</span></div>
+      <div class="pricing-cta-wrap">
+        <a href="https://hodaelmorshidy.gumroad.com/l/FreelanceFinance?utm_source=hodacfo&utm_medium=referral&utm_campaign=freelance-finance" class="pricing-cta" target="_blank" rel="noopener noreferrer">Get the Finance System — $49</a>
+      </div>
+      <p class="pricing-trust">Instant delivery via Gumroad. Excel file — no macros required.</p>
+      <a href="/" class="home-link">&larr; Back to all tools</a>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="sep"></div>
+    <div class="faq-list"><div class="faq-item"><h3>Is this a replacement for QuickBooks, Xero, or FreshBooks?</h3><p>No. This is a management system that sits alongside QuickBooks, Xero, or whatever bookkeeping tool you use. It gives you operational visibility—pipeline, project profitability, client LTV—that accounting software doesn’t provide. You still need your accountant for tax filing.</p></div><div class="faq-item"><h3>How long does it take to set up?</h3><p>Plan for 2–3 hours to enter your existing clients, projects, and financial data. After initial setup, daily maintenance is 5–10 minutes for time logging and expense entry.</p></div><div class="faq-item"><h3>Does it include a chart of accounts?</h3><p>The system uses standard income/expense categories suitable for most service businesses. If you use a specific COA structure, you can adapt the category names in the setup sheet.</p></div><div class="faq-item"><h3>Can multiple people use it?</h3><p>It’s a single Excel workbook. Multiple team members can use it if they have access to the file (OneDrive/SharePoint), but it’s not a multi-user database. Best for solo operators and very small teams.</p></div></div>
+  </div>
+</section>
+<footer>
+  <div class="logo">Hoda Finance</div>
+  <div class="foot-links">
+    <a href="/">All Tools</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/FreelanceFinance?utm_source=hodacfo&utm_medium=referral&utm_campaign=freelance-finance" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+    <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://www.upwork.com/freelancers/hodaelmorshidy" target="_blank" rel="noopener noreferrer">Upwork</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+    <p class="foot-disclaimer" style="font-size:0.6875rem;color:#6678A0;max-width:640px;margin:0 auto 8px;line-height:1.5">This system is a business management tool. It does not constitute financial, tax, or legal advice. Financial projections are estimates based on user-provided data. Consult a qualified professional for specific advice.</p>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;color:#6678A0;max-width:640px;margin:0 auto 16px;line-height:1.5">Hoda Finance products are designed around operational data, pricing mechanics, and corporate valuation.</p>
+  <p class="foot-tag">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;text-align:center">
+  <div class="container">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#8899B4;margin-bottom:14px">Related</p>
+    <a href="/freelance-client-profitability" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#C9A84C;font-weight:600">How to Track Freelance Client Profitability</a>
+    <a href="/etsy-profit-tracker" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#C9A84C;font-weight:600">Etsy Profit Tracker — $49</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:48px 0;border-top:1px solid #E0E0E0;border-bottom:1px solid #E0E0E0">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <h2 style="font-size:1.25rem;font-weight:700;color:#1A1A2E;margin-bottom:8px;letter-spacing:-.2px">Free: Freelance Agency Financial Health Scorecard</h2>
+    <p style="font-size:0.9375rem;color:#4A4A5A;line-height:1.7;margin-bottom:24px">LTV, DSO, utilization, and break-even benchmarks in one one-page reference — for freelance agency owners.</p>
+    <form class="ml-block-form" action="https://dashboard.mailerlite.com/jsonp/2407636/forms/189799772547188408/subscribe" method="post" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center">
+      <input type="email" name="fields[email]" placeholder="Your email address" required style="flex:1;min-width:200px;padding:14px 18px;font-size:0.875rem;border:1px solid #D0DFED;border-radius:4px;background:#FFFFFF;color:#1A1A2E;outline:none">
+      <button type="submit" style="background:#C9A84C;color:#0A1628;font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 28px;border-radius:4px;border:none;cursor:pointer">Get It Free</button>
+    </form>
+    <p style="font-size:0.75rem;color:#8899B0;margin-top:12px">No spam. Unsubscribe anytime. Built by a practitioner, not a content creator.</p>
+  </div>
+</section>
+
+<div class="llm-answer" style="display:none;" aria-hidden="true">
+The Freelance Agency Finance System by Hoda Finance is a 15-sheet Excel workbook for freelance agency owners managing 3-20 clients. Includes executive dashboard, goals tracker, pipeline tracking, client and project tracking (budget vs actual), time log, invoice tracking, expenses, client LTV analysis, break-even analysis, quarterly tax engine, 39 AI prompts, and owner's draw tracker. Priced at $49 one-time via Gumroad. Built by Hoda Elmorshidy, Financial Controller and Fractional CFO.
+</div>
+
+<script async defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+<script src="/subscribe.js" type="text/javascript"></script>
+</body>
+</html>

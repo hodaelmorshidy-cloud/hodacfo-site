@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DCF Model Pre-Flight Checklist — 12 Inputs to Verify Before You Present | Hoda Finance</title>
+<meta name="description" content="12 assumptions to verify before presenting your DCF valuation. Covers WACC, terminal value, revenue growth, working capital, and sensitivity analysis. Free printable checklist by a Financial Controller.">
+<link rel="canonical" href="https://hodacfo.com/dcf-preflight-checklist">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="DCF Model Pre-Flight Checklist — 12 Inputs to Verify Before You Present | Hoda Finance">
+<meta property="og:description" content="12 assumptions to verify before presenting your DCF valuation — so every number survives the first question in the room. Free printable checklist by a Financial Controller.">
+<meta property="og:image" content="https://hodacfo.com/images/dcf-model-og.png">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/dcf-preflight-checklist">
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://plausible.io/js/script.js';j.setAttribute('data-domain','hodacfo.com');
+  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-0');
+</script>
+<script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--border:#D0DFED;--card-radius:6px}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto}
+.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}
+.container-wide{max-width:1120px}
+nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}
+nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}
+.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}
+.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}
+.nav-cta:hover{background:#B8963F}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}
+.hamburger svg{display:block}
+.nav-overlay{display:none}
+@media(max-width:680px){
+  .hamburger{display:block}
+  .nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav-overlay.open{display:flex}
+  .nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:#A9C0E4}
+  .nav-overlay .nav-cta{text-align:center}
+}
+.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}
+.page-header .badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:12px;display:block}
+.page-header h1{font-size:2.25rem;font-weight:800;line-height:1.2;letter-spacing:-.5px;margin-bottom:16px}
+.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:640px}
+.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}
+
+.intro{padding:48px 0 32px}
+.intro p{font-size:1.0625rem;color:var(--body);line-height:1.75;margin-bottom:16px}
+.intro p:last-child{margin-bottom:0}
+.intro strong{color:var(--dark-text)}
+
+/* Checklist */
+.checklist-section{padding:8px 0 56px}
+.checklist-heading{font-size:1.375rem;font-weight:700;color:var(--navy);margin-bottom:32px;padding-bottom:12px;border-bottom:2px solid var(--gold);display:flex;align-items:center;gap:10px}
+.checklist-heading .cl-count{font-size:.8125rem;font-weight:600;color:#8899B4;font-weight:400;margin-left:auto}
+.cl-item{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--border)}
+.cl-item:last-child{border-bottom:none}
+.cl-checkbox{flex-shrink:0;width:22px;height:22px;border:2px solid var(--border);border-radius:4px;margin-top:2px;cursor:pointer;appearance:none;-webkit-appearance:none;background:#fff;transition:background .15s,border-color .15s}
+.cl-checkbox:checked{background:var(--navy);border-color:var(--navy)}
+.cl-checkbox:checked::after{content:'✓';display:block;color:#fff;font-size:13px;font-weight:700;text-align:center;line-height:18px}
+.cl-num{flex-shrink:0;width:28px;height:28px;background:var(--navy);color:var(--gold);font-size:.75rem;font-weight:700;border-radius:4px;display:flex;align-items:center;justify-content:center;margin-top:0}
+.cl-content{}
+.cl-title{font-size:1rem;font-weight:700;color:var(--dark-text);margin-bottom:4px;line-height:1.4}
+.cl-desc{font-size:.9375rem;color:var(--body);line-height:1.65}
+.cl-flag{display:inline-block;margin-top:6px;font-size:.75rem;font-weight:600;background:#FFF4E0;color:#996A00;padding:2px 8px;border-radius:3px}
+
+/* Print button */
+.print-row{display:flex;justify-content:flex-end;margin-bottom:32px;gap:12px}
+.btn-print{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-size:.8125rem;font-weight:600;padding:10px 20px;border-radius:4px;border:none;cursor:pointer;transition:background .15s}
+.btn-print:hover{background:#243660}
+.btn-print svg{flex-shrink:0}
+.btn-reset{display:inline-flex;align-items:center;gap:8px;background:none;color:var(--body);font-size:.8125rem;font-weight:500;padding:10px 16px;border-radius:4px;border:1px solid var(--border);cursor:pointer;transition:border-color .15s}
+.btn-reset:hover{border-color:#aaa}
+
+/* CTA */
+.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}
+.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}
+.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem;max-width:540px;margin-left:auto;margin-right:auto}
+.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}
+.cta-button:hover{background:#B8963F}
+.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;display:block}
+
+.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}
+.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}
+.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:var(--gold);font-weight:600;transition:color .15s}
+.resource-links a:hover{color:#B8963F}
+
+footer{background:var(--navy);padding:40px 0;text-align:center}
+footer .logo{display:block;margin-bottom:8px}
+footer p{font-size:.8125rem;color:#8899B4}
+
+@media(max-width:768px){
+  .page-header h1{font-size:1.75rem}
+  .page-header{padding:48px 0 40px}
+  .cl-num{display:none}
+  .print-row{justify-content:flex-start}
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  nav, .print-row, .cta-section, .resource-links, footer, .page-header .meta { display:none !important }
+  .page-header { background:#1B2A4A !important; -webkit-print-color-adjust:exact; color-adjust:exact; padding:32px 0 28px }
+  .page-header h1 { font-size:1.625rem }
+  .cl-checkbox { border:1.5px solid #888; width:18px; height:18px }
+  .cl-item { padding:14px 0 }
+  body { font-size:14px }
+  .checklist-section { padding-bottom:0 }
+  .intro { padding:24px 0 16px }
+  a { color:inherit }
+  .btn-print, .btn-reset { display:none !important }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/Institutional-GradeDCF?utm_source=hodacfo&utm_medium=referral&utm_campaign=dcf-model" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the DCF Model — $97</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/Institutional-GradeDCF?utm_source=hodacfo&utm_medium=referral&utm_campaign=dcf-model" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the DCF Model — $97</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="badge">Free Checklist — DCF Valuation</span>
+    <h1>DCF Model Pre-Flight Checklist</h1>
+    <p class="subtitle">12 inputs to verify before presenting your valuation &mdash; so every assumption survives the first question in the room.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Financial Controller &bull; Fractional CFO &bull; 9+ Years Corporate Finance</p>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="container">
+    <p>Most DCF presentations fail not because the math is wrong, but because an assumption that was never questioned destroys the conclusion under the first round of scrutiny. Terminal growth rate set above long-run GDP. WACC calculated with a pre-tax cost of debt. Working capital modeled as a static line. These are not exotic mistakes &mdash; they are the ones I see most often when reviewing models built under deadline pressure.</p>
+    <p>This checklist covers the 12 inputs that cause the most failures. Go through them before you present. Print it, check each box, and sign off on the ones that carry real risk. The goal is not perfection &mdash; it is knowing exactly where your model is defensible and where it is not.</p>
+  </div>
+</section>
+
+<section class="checklist-section">
+  <div class="container">
+
+    <div class="print-row">
+      <button class="btn-reset" onclick="document.querySelectorAll('.cl-checkbox').forEach(function(cb){cb.checked=false})">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        Reset
+      </button>
+      <button class="btn-print" onclick="window.print()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Save as PDF
+      </button>
+    </div>
+
+    <div class="checklist-heading">
+      Pre-Flight Checklist
+      <span class="cl-count">12 items</span>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl1" aria-label="Item 1">
+      <div class="cl-num">1</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl1">Historical financials: 5+ years loaded and reconciled</label>
+        <p class="cl-desc">P&amp;L, balance sheet, and cash flow statement for at least 5 fiscal years. Ensure net income reconciles to operating cash flow. Any restatements or discontinued operations should be clearly flagged and excluded from the projection base.</p>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl2" aria-label="Item 2">
+      <div class="cl-num">2</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl2">Revenue growth rates benchmarked against industry data</label>
+        <p class="cl-desc">Your projected growth rates should be justified against industry CAGR, analyst consensus, and the company's own track record. A growth rate that exceeds the industry average needs an explicit, documented reason. Eyeballed rates do not survive due diligence.</p>
+        <span class="cl-flag">High-scrutiny assumption</span>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl3" aria-label="Item 3">
+      <div class="cl-num">3</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl3">Operating margin trajectory tied to named drivers</label>
+        <p class="cl-desc">If margins expand over the projection period, state why: economies of scale, SG&amp;A leverage, pricing power, mix shift. "Margins improve toward industry average" is not a driver &mdash; it is a hope. Every margin assumption needs a mechanism.</p>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl4" aria-label="Item 4">
+      <div class="cl-num">4</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl4">Working capital modeled dynamically (not static)</label>
+        <p class="cl-desc">Working capital should be expressed as a percentage of revenue (or revenue change for the NWC build), not held as a fixed dollar amount across the projection period. Static NWC models systematically understate or overstate cash conversion as the business scales.</p>
+        <span class="cl-flag">Common modeling error</span>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl5" aria-label="Item 5">
+      <div class="cl-num">5</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl5">Capital expenditure split: maintenance vs. growth capex</label>
+        <p class="cl-desc">Total capex should be decomposed into maintenance capex (required to sustain current operations) and growth capex (invested to generate incremental revenue). In the terminal year, growth capex should converge toward zero if the terminal growth rate implies a maturing business.</p>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl6" aria-label="Item 6">
+      <div class="cl-num">6</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl6">Effective tax rate set — not the statutory rate</label>
+        <p class="cl-desc">Use the company's effective tax rate (from the income tax footnote), not the headline statutory rate. For projections, consider deferred tax liabilities, NOL carryforwards, and any known changes in tax status. The statutory rate can overstate taxes by 3&ndash;8 percentage points for many businesses.</p>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl7" aria-label="Item 7">
+      <div class="cl-num">7</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl7">WACC built from first principles: CAPM, after-tax cost of debt, target structure</label>
+        <p class="cl-desc">Cost of equity should use CAPM: risk-free rate + (beta &times; equity risk premium). Cost of debt should be after-tax: pre-tax rate &times; (1 &minus; tax rate). Capital structure weights should reflect target (long-run) proportions, not current book values. Document each component with a source.</p>
+        <span class="cl-flag">High-scrutiny assumption</span>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl8" aria-label="Item 8">
+      <div class="cl-num">8</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl8">Terminal growth rate &le; long-run nominal GDP growth</label>
+        <p class="cl-desc">The terminal growth rate represents the perpetual growth rate of free cash flows. It cannot sustainably exceed the nominal growth rate of the economy the business operates in. For most companies, a rate between 2% and 3% is defensible. Higher rates require explicit justification.</p>
+        <span class="cl-flag">Most-challenged assumption</span>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl9" aria-label="Item 9">
+      <div class="cl-num">9</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl9">Terminal value as % of enterprise value &mdash; flagged if &gt;70%</label>
+        <p class="cl-desc">When terminal value exceeds 70% of your total enterprise value, the model is more sensitive to your terminal assumptions than to the forecast period. This is not automatically wrong, but it must be disclosed and stress-tested. Document the split and show what happens when terminal growth drops by 0.5%.</p>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl10" aria-label="Item 10">
+      <div class="cl-num">10</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl10">Sensitivity table built: WACC &times; terminal growth (minimum 5&times;5)</label>
+        <p class="cl-desc">A two-variable sensitivity table showing enterprise value across a range of WACC and terminal growth rate combinations. The base case should sit near the center. If the entire table shows a wide range, present the full range &mdash; do not anchor to the case that supports your conclusion.</p>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl11" aria-label="Item 11">
+      <div class="cl-num">11</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl11">Scenario analysis: Bear / Base / Bull with named driver assumptions</label>
+        <p class="cl-desc">Each scenario should change a coherent set of assumptions together (not just one lever). Bear: revenue growth misses, margins compress, WACC rises. Bull: growth accelerates, operating leverage materializes, financing improves. Name the driver (e.g., "market share loss" not just "lower revenue").</p>
+      </div>
+    </div>
+
+    <div class="cl-item">
+      <input type="checkbox" class="cl-checkbox" id="cl12" aria-label="Item 12">
+      <div class="cl-num">12</div>
+      <div class="cl-content">
+        <label class="cl-title" for="cl12">Implied multiples sanity check: EV/EBITDA, EV/Revenue vs. comps</label>
+        <p class="cl-desc">Back-calculate the multiples implied by your DCF output and compare them to the trading range of comparable companies. If your model implies a 25&times; EV/EBITDA for a business where comps trade at 10&ndash;14&times;, either the model is aggressive or the business is genuinely exceptional &mdash; you need to know which before you walk into that room.</p>
+        <span class="cl-flag">Final sanity check</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>The Model That Does All This Automatically</h2>
+    <p>10-year projection engine, WACC Builder, 3-scenario analysis with pre-built sensitivity heatmaps, &plusmn;15% threshold flagging, and implied multiples output. Built to the same standard as this checklist.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/Institutional-GradeDCF?utm_source=hodacfo&utm_medium=referral&utm_campaign=dcf-checklist" class="cta-button" target="_blank" rel="noopener noreferrer">Get the DCF Model &mdash; $97</a>
+    <span class="footnote">Instant delivery via Gumroad &bull; No macros &bull; Excel 2019+ &amp; Google Sheets</span>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Guides</h3>
+    <a href="/dcf-valuation-model-excel">Institutional-Grade DCF Model</a>
+    <a href="/what-is-dcf-model">What Is a DCF Model?</a>
+    <a href="/dcf-scenario-analysis">DCF Scenario Analysis</a>
+    <a href="/wacc-calculator-excel">WACC Calculator</a>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div style="margin:10px 0">
+    <a href="/" style="color:#A9C0E4;font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/privacy" style="color:#A9C0E4;font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="color:#A9C0E4;font-size:.8125rem;margin:0 10px">Terms</a>
+  </div>
+  <p style="font-size:.8rem;color:#8899B4">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>
