@@ -93,57 +93,49 @@ footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:cente
   </div>
 </nav>
 
-<div class="hero-eq">
-  <div class="hero-eq-inner">
-    <div class="brand-row">
-      <div class="hf-mark">HF</div>
-      <span class="brand-name">HODA FINANCE</span>
+<style>
+.hero-meq{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#13243F 0%,#0C1A30 45%,#0A1424 100%);border-bottom:1px solid #16273E;font-family:system-ui,-apple-system,sans-serif}
+.hero-meq::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:#C9A84C;z-index:5}
+.hero-meq::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 0%,rgba(201,168,76,.10) 0%,rgba(201,168,76,0) 70%);pointer-events:none}
+.hero-meq .meq-inner{max-width:920px;margin:0 auto;padding:48px 28px 56px;text-align:center;position:relative;z-index:2}
+.hero-meq .meq-brand{display:inline-flex;align-items:center;gap:9px;margin-bottom:26px}
+.hero-meq .meq-mark{width:30px;height:30px;border:2px solid #C9A84C;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:#fff}
+.hero-meq .meq-bname{font-weight:700;font-size:11px;color:#8EA4C2;letter-spacing:1.5px;text-transform:uppercase}
+.hero-meq .meq-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px}
+.hero-meq h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-.8px;color:#fff;margin:0 auto 14px;max-width:18ch}
+.hero-meq h1 .hl{color:#C9A84C}
+.hero-meq .meq-sub{font-size:15px;line-height:1.6;color:#C8D6E8;max-width:60ch;margin:0 auto 30px}
+.hero-meq .meq-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:680px;margin:0 auto 30px}
+.hero-meq .meq-pill{display:inline-flex;align-items:center;gap:7px;background:#0F1D32;border:1px solid #1F3350;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;color:#E4ECF7}
+.hero-meq .meq-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#C9A84C;flex-shrink:0}
+.hero-meq .meq-cta{display:inline-block;background:#C9A84C;color:#0A1424;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;border-radius:5px;padding:15px 36px;text-decoration:none;transition:background 150ms ease;box-shadow:0 8px 24px rgba(201,168,76,.18)}
+.hero-meq .meq-cta:hover{background:#D8B85C}
+.hero-meq .meq-tag{font-size:12.5px;color:#C8D6E8;margin:0 auto 22px;font-weight:600}
+.hero-meq .meq-tag strong{color:#fff}
+.hero-meq .meq-trust{font-size:11.5px;color:#8EA4C2;margin-top:16px;letter-spacing:.2px}
+.hero-meq .meq-trust b{color:#3FB57F;font-weight:700}
+@media(max-width:680px){.hero-meq .meq-inner{padding:36px 16px 40px}.hero-meq h1{font-size:28px;max-width:none}.hero-meq .meq-sub{font-size:14px}.hero-meq .meq-cta{display:block;width:100%}}
+</style>
+<div class="hero-meq">
+  <div class="meq-inner">
+    <div class="meq-brand">
+      <div class="meq-mark">HF</div>
+      <span class="meq-bname">Hoda Finance</span>
     </div>
-    <div class="main-card">
-      <div class="card-headline">
-        <h1>Build a defensible investment thesis without Bloomberg. <span class="hl">DCF, Reverse DCF, and Margin of Safety &mdash; in one model.</span></h1>
-        <div class="sub"><strong>10-year DCF &middot; WACC Builder (CAPM) &middot; Reverse DCF implied growth &middot; Margin of Safety entry prices &middot; Sensitivity heatmaps &middot; Pre-filled: NVIDIA FY2026</strong></div>
-      </div>
-      <div class="val-grid">
-        <div class="val-card">
-          <div class="vc-label">DCF Valuation &mdash; NVDA</div>
-          <div class="vc-ticker">NVIDIA Corporation &nbsp;&middot;&nbsp; FY2026 10-K Data</div>
-          <div class="vc-rows">
-            <div class="vc-row"><span class="vr-l">DCF Fair Value</span><span class="vr-v gold">$95.11</span></div>
-            <div class="vc-row"><span class="vr-l">Current Price</span><span class="vr-v">$205.00</span></div>
-            <div class="vc-row"><span class="vr-l">Downside to Fair Value</span><span class="vr-v red">&minus;53.6%</span></div>
-            <div class="vc-divider"></div>
-            <div class="vc-row"><span class="vr-l">MoS Entry @ 20%</span><span class="vr-v">$76.09</span></div>
-            <div class="vc-row"><span class="vr-l">Tax Rate (Effective)</span><span class="vr-v">15.0%</span></div>
-          </div>
-          <div class="verdict-row">
-            <span class="verdict-label">Investment Verdict</span>
-            <span class="verdict-badge vb-avoid">AVOID</span>
-          </div>
-        </div>
-        <div class="val-card">
-          <div class="vc-label">5-Year Holding Period &mdash; Bear / Base / Bull</div>
-          <div class="scenario-row" style="margin:8px 0 0;gap:6px;display:grid;grid-template-columns:repeat(3,1fr)">
-            <div class="sc-item si-bear"><span class="si-label">Bear</span><span class="si-val">8%</span><span class="si-irr">Rev CAGR</span></div>
-            <div class="sc-item si-base"><span class="si-label">Base</span><span class="si-val">20%</span><span class="si-irr">Rev CAGR</span></div>
-            <div class="sc-item si-bull"><span class="si-label">Bull</span><span class="si-val">30%</span><span class="si-irr">Rev CAGR</span></div>
-          </div>
-          <div class="vc-rows" style="margin-top:10px">
-            <div class="vc-row"><span class="vr-l">WACC (CAPM)</span><span class="vr-v">11.86%</span></div>
-            <div class="vc-row"><span class="vr-l">Terminal Growth</span><span class="vr-v">3.0%</span></div>
-            <div class="vc-row"><span class="vr-l">Sensitivity Table</span><span class="vr-v gold">WACC &times; TGR</span></div>
-            <div class="vc-row"><span class="vr-l">Audit Checks Passed</span><span class="vr-v grn">31 / 31</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="card-footer">
-        <span class="cf-text">12 tabs &middot; 400+ formulas &middot; 3-file bundle &middot; NVDA pre-filled &middot; <strong>$97 &middot; No sub</strong></span>
-        <div class="cta-group">
-          <a href="https://hodaelmorshidy.gumroad.com/l/equity-investment-thesis-builder?utm_source=hodacfo&utm_medium=referral&utm_campaign=equity-builder" class="cta-btn" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $97</a>
-          <div class="cred">Hoda Finance &nbsp;&middot;&nbsp; Fractional CFO &amp; Finance Automation</div>
-        </div>
-      </div>
+    <div class="meq-eyebrow">Equity Investment Thesis Builder</div>
+    <h1>Build a defensible investment thesis <span class="hl">without Bloomberg.</span></h1>
+    <p class="meq-sub">One Excel model that runs a full DCF, reverse-engineers the growth the market is pricing in, and sets your margin-of-safety entry price &mdash; with every formula traceable to an investment committee.</p>
+    <div class="meq-pills">
+      <span class="meq-pill">10-Year DCF</span>
+      <span class="meq-pill">Reverse DCF</span>
+      <span class="meq-pill">Margin of Safety</span>
+      <span class="meq-pill">WACC Builder (CAPM)</span>
+      <span class="meq-pill">Sensitivity Heatmaps</span>
+      <span class="meq-pill">Holding-Period IRR</span>
     </div>
+    <div class="meq-tag">Pre-filled: <strong>NVIDIA FY2026</strong> &middot; 12 tabs &middot; 400+ formulas &middot; <strong>$97</strong> &middot; one-time, no subscription</div>
+    <a href="https://hodaelmorshidy.gumroad.com/l/equity-investment-thesis-builder?utm_source=hodacfo&utm_medium=referral&utm_campaign=equity-builder" class="meq-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $97</a>
+    <div class="meq-trust"><b>31/31</b> audit checks passed &middot; Excel 2019+ &middot; No Bloomberg or terminal required</div>
   </div>
 </div>
 
