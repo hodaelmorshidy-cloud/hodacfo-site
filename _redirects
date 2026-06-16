@@ -1,44 +1,16 @@
 # ============================================================
-# Hoda Finance — Netlify Redirects
+# Hoda Finance — Cloudflare Pages Redirects
 # ============================================================
-# This file does two things:
-# 1. Clean URLs — maps /page to /page.html (your existing rules)
-# 2. UTM short links — maps /li/dcf to the full page + tracking
-#
-# Drop in D:\Claude-Code\hodacfo.com\ (replaces the old file)
-# ============================================================
-
-
-# ------ CLEAN URL RULES (existing — do not remove) ------
-
-/dcf-valuation-model-excel     /dcf-valuation-model-excel.html
-/1099-tax-calculator-2026      /1099-tax-calculator-2026.html
-/freelance-finance-system      /freelance-finance-system.html
-/self-employed-tax-tracker     /self-employed-tax-tracker.html
-/uae-vat-calculator-excel      /uae-vat-calculator-excel.html
-/what-is-dcf-model             /what-is-dcf-model.html
-/wacc-calculator-excel         /wacc-calculator-excel.html
-/dcf-scenario-analysis         /dcf-scenario-analysis.html
-/etsy-profit-tracker                        /etsy-profit-tracker.html
-/etsy-fees-explained-2026                   /etsy-fees-explained-2026.html
-/freelance-client-profitability             /freelance-client-profitability.html
-/how-to-calculate-self-employment-tax-2026  /how-to-calculate-self-employment-tax-2026.html
-/privacy                                    /privacy.html
-/terms                                      /terms.html
-/dcf-preflight-checklist                    /dcf-preflight-checklist.html
-/fpa-variance-forecast-toolkit              /fpa-variance-forecast-toolkit.html
-/variance-analysis-excel-template          /variance-analysis-excel-template.html
-/cfo-board-reporting-system                /cfo-board-reporting-system.html
-/equity-investment-thesis-builder          /equity-investment-thesis-builder.html
-
-
+# NOTE (Cloudflare Pages): clean URLs work automatically —
+# /dcf-valuation-model-excel is served from dcf-valuation-model-excel.html
+# with NO rule needed. Do NOT add "/page /page.html" rules:
+# Cloudflare auto-redirects .html -> clean, so such a rule causes
+# an infinite redirect loop (ERR_TOO_MANY_REDIRECTS).
+# UTM targets below point to the EXTENSIONLESS path for the same reason.
 # ============================================================
 # UTM SHORT LINKS
 # ============================================================
 # Share hodacfo.com/li/dcf on LinkedIn — clean and branded.
-# Visitor clicks → lands on product page with UTM tracking.
-# Plausible records the source. Visitor sees nothing ugly.
-#
 # Pattern: /[channel]/[product]
 #   li = LinkedIn    pi = Pinterest    em = Email
 #   rd = Reddit      tt = TikTok       yt = YouTube
@@ -50,123 +22,123 @@
 
 /li/           /?utm_source=linkedin&utm_medium=bio&utm_campaign=homepage                                              302
 /li/home       /?utm_source=linkedin&utm_medium=bio&utm_campaign=homepage                                              302
-/li/dcf        /dcf-valuation-model-excel.html?utm_source=linkedin&utm_medium=post&utm_campaign=dcf-model              302
-/li/dcf-boost  /dcf-valuation-model-excel.html?utm_source=linkedin&utm_medium=paid_social&utm_campaign=dcf-boost        302
-/li/tax        /self-employed-tax-tracker.html?utm_source=linkedin&utm_medium=post&utm_campaign=tax-tracker       302
-/li/1099       /1099-tax-calculator-2026.html?utm_source=linkedin&utm_medium=post&utm_campaign=1099-calc          302
-/li/agency     /freelance-finance-system.html?utm_source=linkedin&utm_medium=post&utm_campaign=agency-system      302
-/li/etsy       /etsy-profit-tracker.html?utm_source=linkedin&utm_medium=post&utm_campaign=etsy-tracker            302
-/li/vat        /uae-vat-calculator-excel.html?utm_source=linkedin&utm_medium=post&utm_campaign=uae-vat            302
+/li/dcf        /dcf-valuation-model-excel?utm_source=linkedin&utm_medium=post&utm_campaign=dcf-model              302
+/li/dcf-boost  /dcf-valuation-model-excel?utm_source=linkedin&utm_medium=paid_social&utm_campaign=dcf-boost        302
+/li/tax        /self-employed-tax-tracker?utm_source=linkedin&utm_medium=post&utm_campaign=tax-tracker       302
+/li/1099       /1099-tax-calculator-2026?utm_source=linkedin&utm_medium=post&utm_campaign=1099-calc          302
+/li/agency     /freelance-finance-system?utm_source=linkedin&utm_medium=post&utm_campaign=agency-system      302
+/li/etsy       /etsy-profit-tracker?utm_source=linkedin&utm_medium=post&utm_campaign=etsy-tracker            302
+/li/vat        /uae-vat-calculator-excel?utm_source=linkedin&utm_medium=post&utm_campaign=uae-vat            302
 
 
 # ------ PINTEREST (/pi/) ------
 
-/pi/dcf        /dcf-valuation-model-excel.html?utm_source=pinterest&utm_medium=pin&utm_campaign=dcf-model         302
-/pi/tax        /self-employed-tax-tracker.html?utm_source=pinterest&utm_medium=pin&utm_campaign=tax-tracker        302
-/pi/1099       /1099-tax-calculator-2026.html?utm_source=pinterest&utm_medium=pin&utm_campaign=1099-calc           302
-/pi/agency     /freelance-finance-system.html?utm_source=pinterest&utm_medium=pin&utm_campaign=agency-system       302
-/pi/etsy       /etsy-profit-tracker.html?utm_source=pinterest&utm_medium=pin&utm_campaign=etsy-tracker             302
-/pi/vat        /uae-vat-calculator-excel.html?utm_source=pinterest&utm_medium=pin&utm_campaign=uae-vat             302
+/pi/dcf        /dcf-valuation-model-excel?utm_source=pinterest&utm_medium=pin&utm_campaign=dcf-model         302
+/pi/tax        /self-employed-tax-tracker?utm_source=pinterest&utm_medium=pin&utm_campaign=tax-tracker        302
+/pi/1099       /1099-tax-calculator-2026?utm_source=pinterest&utm_medium=pin&utm_campaign=1099-calc           302
+/pi/agency     /freelance-finance-system?utm_source=pinterest&utm_medium=pin&utm_campaign=agency-system       302
+/pi/etsy       /etsy-profit-tracker?utm_source=pinterest&utm_medium=pin&utm_campaign=etsy-tracker             302
+/pi/vat        /uae-vat-calculator-excel?utm_source=pinterest&utm_medium=pin&utm_campaign=uae-vat             302
 
 
 # ------ EMAIL SEQUENCES (/em/) ------
 
-/em/dcf        /dcf-valuation-model-excel.html?utm_source=email&utm_medium=sequence&utm_campaign=dcf-model        302
-/em/tax        /self-employed-tax-tracker.html?utm_source=email&utm_medium=sequence&utm_campaign=tax-tracker       302
-/em/1099       /1099-tax-calculator-2026.html?utm_source=email&utm_medium=sequence&utm_campaign=1099-calc          302
-/em/agency     /freelance-finance-system.html?utm_source=email&utm_medium=sequence&utm_campaign=agency-system      302
-/em/etsy       /etsy-profit-tracker.html?utm_source=email&utm_medium=sequence&utm_campaign=etsy-tracker            302
-/em/vat        /uae-vat-calculator-excel.html?utm_source=email&utm_medium=sequence&utm_campaign=uae-vat            302
+/em/dcf        /dcf-valuation-model-excel?utm_source=email&utm_medium=sequence&utm_campaign=dcf-model        302
+/em/tax        /self-employed-tax-tracker?utm_source=email&utm_medium=sequence&utm_campaign=tax-tracker       302
+/em/1099       /1099-tax-calculator-2026?utm_source=email&utm_medium=sequence&utm_campaign=1099-calc          302
+/em/agency     /freelance-finance-system?utm_source=email&utm_medium=sequence&utm_campaign=agency-system      302
+/em/etsy       /etsy-profit-tracker?utm_source=email&utm_medium=sequence&utm_campaign=etsy-tracker            302
+/em/vat        /uae-vat-calculator-excel?utm_source=email&utm_medium=sequence&utm_campaign=uae-vat            302
 
 
 # ------ REDDIT (/rd/) ------
 
-/rd/dcf        /dcf-valuation-model-excel.html?utm_source=reddit&utm_medium=post&utm_campaign=dcf-model           302
-/rd/tax        /self-employed-tax-tracker.html?utm_source=reddit&utm_medium=post&utm_campaign=tax-tracker          302
-/rd/1099       /1099-tax-calculator-2026.html?utm_source=reddit&utm_medium=post&utm_campaign=1099-calc             302
-/rd/agency     /freelance-finance-system.html?utm_source=reddit&utm_medium=post&utm_campaign=agency-system         302
-/rd/etsy       /etsy-profit-tracker.html?utm_source=reddit&utm_medium=post&utm_campaign=etsy-tracker               302
-/rd/vat        /uae-vat-calculator-excel.html?utm_source=reddit&utm_medium=post&utm_campaign=uae-vat               302
+/rd/dcf        /dcf-valuation-model-excel?utm_source=reddit&utm_medium=post&utm_campaign=dcf-model           302
+/rd/tax        /self-employed-tax-tracker?utm_source=reddit&utm_medium=post&utm_campaign=tax-tracker          302
+/rd/1099       /1099-tax-calculator-2026?utm_source=reddit&utm_medium=post&utm_campaign=1099-calc             302
+/rd/agency     /freelance-finance-system?utm_source=reddit&utm_medium=post&utm_campaign=agency-system         302
+/rd/etsy       /etsy-profit-tracker?utm_source=reddit&utm_medium=post&utm_campaign=etsy-tracker               302
+/rd/vat        /uae-vat-calculator-excel?utm_source=reddit&utm_medium=post&utm_campaign=uae-vat               302
 
 
 # ------ TIKTOK (/tt/) ------
 
 /tt/home       /?utm_source=tiktok&utm_medium=bio&utm_campaign=homepage                                           302
-/tt/dcf        /dcf-valuation-model-excel.html?utm_source=tiktok&utm_medium=bio&utm_campaign=dcf-model             302
-/tt/tax        /self-employed-tax-tracker.html?utm_source=tiktok&utm_medium=bio&utm_campaign=tax-tracker            302
-/tt/1099       /1099-tax-calculator-2026.html?utm_source=tiktok&utm_medium=bio&utm_campaign=1099-calc               302
-/tt/agency     /freelance-finance-system.html?utm_source=tiktok&utm_medium=bio&utm_campaign=agency-system           302
-/tt/etsy       /etsy-profit-tracker.html?utm_source=tiktok&utm_medium=bio&utm_campaign=etsy-tracker                 302
-/tt/vat        /uae-vat-calculator-excel.html?utm_source=tiktok&utm_medium=bio&utm_campaign=uae-vat                 302
+/tt/dcf        /dcf-valuation-model-excel?utm_source=tiktok&utm_medium=bio&utm_campaign=dcf-model             302
+/tt/tax        /self-employed-tax-tracker?utm_source=tiktok&utm_medium=bio&utm_campaign=tax-tracker            302
+/tt/1099       /1099-tax-calculator-2026?utm_source=tiktok&utm_medium=bio&utm_campaign=1099-calc               302
+/tt/agency     /freelance-finance-system?utm_source=tiktok&utm_medium=bio&utm_campaign=agency-system           302
+/tt/etsy       /etsy-profit-tracker?utm_source=tiktok&utm_medium=bio&utm_campaign=etsy-tracker                 302
+/tt/vat        /uae-vat-calculator-excel?utm_source=tiktok&utm_medium=bio&utm_campaign=uae-vat                 302
 
 
 # ------ YOUTUBE (/yt/) ------
 
-/yt/dcf        /dcf-valuation-model-excel.html?utm_source=youtube&utm_medium=description&utm_campaign=dcf-model    302
-/yt/tax        /self-employed-tax-tracker.html?utm_source=youtube&utm_medium=description&utm_campaign=tax-tracker   302
-/yt/1099       /1099-tax-calculator-2026.html?utm_source=youtube&utm_medium=description&utm_campaign=1099-calc      302
-/yt/agency     /freelance-finance-system.html?utm_source=youtube&utm_medium=description&utm_campaign=agency-system  302
-/yt/etsy       /etsy-profit-tracker.html?utm_source=youtube&utm_medium=description&utm_campaign=etsy-tracker        302
-/yt/vat        /uae-vat-calculator-excel.html?utm_source=youtube&utm_medium=description&utm_campaign=uae-vat        302
+/yt/dcf        /dcf-valuation-model-excel?utm_source=youtube&utm_medium=description&utm_campaign=dcf-model    302
+/yt/tax        /self-employed-tax-tracker?utm_source=youtube&utm_medium=description&utm_campaign=tax-tracker   302
+/yt/1099       /1099-tax-calculator-2026?utm_source=youtube&utm_medium=description&utm_campaign=1099-calc      302
+/yt/agency     /freelance-finance-system?utm_source=youtube&utm_medium=description&utm_campaign=agency-system  302
+/yt/etsy       /etsy-profit-tracker?utm_source=youtube&utm_medium=description&utm_campaign=etsy-tracker        302
+/yt/vat        /uae-vat-calculator-excel?utm_source=youtube&utm_medium=description&utm_campaign=uae-vat        302
 
 
 # ------ GUMROAD BACKLINKS (/gm/) ------
 
-/gm/dcf        /dcf-valuation-model-excel.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=dcf-model   302
-/gm/tax        /self-employed-tax-tracker.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=tax-tracker  302
-/gm/1099       /1099-tax-calculator-2026.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=1099-calc     302
-/gm/agency     /freelance-finance-system.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=agency-system 302
-/gm/etsy       /etsy-profit-tracker.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=etsy-tracker       302
-/gm/vat        /uae-vat-calculator-excel.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=uae-vat       302
+/gm/dcf        /dcf-valuation-model-excel?utm_source=gumroad&utm_medium=product-page&utm_campaign=dcf-model   302
+/gm/tax        /self-employed-tax-tracker?utm_source=gumroad&utm_medium=product-page&utm_campaign=tax-tracker  302
+/gm/1099       /1099-tax-calculator-2026?utm_source=gumroad&utm_medium=product-page&utm_campaign=1099-calc     302
+/gm/agency     /freelance-finance-system?utm_source=gumroad&utm_medium=product-page&utm_campaign=agency-system 302
+/gm/etsy       /etsy-profit-tracker?utm_source=gumroad&utm_medium=product-page&utm_campaign=etsy-tracker       302
+/gm/vat        /uae-vat-calculator-excel?utm_source=gumroad&utm_medium=product-page&utm_campaign=uae-vat       302
 
 
 # ------ EMAIL SIGNATURE (/sig/) ------
 
 /sig/home      /?utm_source=email&utm_medium=signature&utm_campaign=homepage                                        302
-/sig/dcf       /dcf-valuation-model-excel.html?utm_source=email&utm_medium=signature&utm_campaign=dcf-model         302
-/sig/tax       /self-employed-tax-tracker.html?utm_source=email&utm_medium=signature&utm_campaign=tax-tracker        302
+/sig/dcf       /dcf-valuation-model-excel?utm_source=email&utm_medium=signature&utm_campaign=dcf-model         302
+/sig/tax       /self-employed-tax-tracker?utm_source=email&utm_medium=signature&utm_campaign=tax-tracker        302
 
 
-# ------ CONTENT PAGES (/li/, /pi/, /em/ for SEO articles) ------
+# ------ CONTENT PAGES (SEO articles + remaining products) ------
 
-/li/fpa        /fpa-variance-forecast-toolkit.html?utm_source=linkedin&utm_medium=post&utm_campaign=fpa-toolkit         302
-/pi/fpa        /fpa-variance-forecast-toolkit.html?utm_source=pinterest&utm_medium=pin&utm_campaign=fpa-toolkit          302
-/em/fpa        /fpa-variance-forecast-toolkit.html?utm_source=email&utm_medium=sequence&utm_campaign=fpa-toolkit         302
-/tt/fpa        /fpa-variance-forecast-toolkit.html?utm_source=tiktok&utm_medium=bio&utm_campaign=fpa-toolkit             302
-/rd/fpa        /fpa-variance-forecast-toolkit.html?utm_source=reddit&utm_medium=post&utm_campaign=fpa-toolkit            302
-/gm/fpa        /fpa-variance-forecast-toolkit.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=fpa-toolkit   302
-/sig/fpa       /fpa-variance-forecast-toolkit.html?utm_source=email&utm_medium=signature&utm_campaign=fpa-toolkit        302
+/li/fpa        /fpa-variance-forecast-toolkit?utm_source=linkedin&utm_medium=post&utm_campaign=fpa-toolkit         302
+/pi/fpa        /fpa-variance-forecast-toolkit?utm_source=pinterest&utm_medium=pin&utm_campaign=fpa-toolkit          302
+/em/fpa        /fpa-variance-forecast-toolkit?utm_source=email&utm_medium=sequence&utm_campaign=fpa-toolkit         302
+/tt/fpa        /fpa-variance-forecast-toolkit?utm_source=tiktok&utm_medium=bio&utm_campaign=fpa-toolkit             302
+/rd/fpa        /fpa-variance-forecast-toolkit?utm_source=reddit&utm_medium=post&utm_campaign=fpa-toolkit            302
+/gm/fpa        /fpa-variance-forecast-toolkit?utm_source=gumroad&utm_medium=product-page&utm_campaign=fpa-toolkit   302
+/sig/fpa       /fpa-variance-forecast-toolkit?utm_source=email&utm_medium=signature&utm_campaign=fpa-toolkit        302
 
-/li/equity     /equity-investment-thesis-builder.html?utm_source=linkedin&utm_medium=post&utm_campaign=equity-builder      302
-/pi/equity     /equity-investment-thesis-builder.html?utm_source=pinterest&utm_medium=pin&utm_campaign=equity-builder       302
-/em/equity     /equity-investment-thesis-builder.html?utm_source=email&utm_medium=sequence&utm_campaign=equity-builder      302
-/tt/equity     /equity-investment-thesis-builder.html?utm_source=tiktok&utm_medium=bio&utm_campaign=equity-builder          302
-/rd/equity     /equity-investment-thesis-builder.html?utm_source=reddit&utm_medium=post&utm_campaign=equity-builder         302
-/gm/equity     /equity-investment-thesis-builder.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=equity-builder 302
-/sig/equity    /equity-investment-thesis-builder.html?utm_source=email&utm_medium=signature&utm_campaign=equity-builder     302
+/li/equity     /equity-investment-thesis-builder?utm_source=linkedin&utm_medium=post&utm_campaign=equity-builder      302
+/pi/equity     /equity-investment-thesis-builder?utm_source=pinterest&utm_medium=pin&utm_campaign=equity-builder       302
+/em/equity     /equity-investment-thesis-builder?utm_source=email&utm_medium=sequence&utm_campaign=equity-builder      302
+/tt/equity     /equity-investment-thesis-builder?utm_source=tiktok&utm_medium=bio&utm_campaign=equity-builder          302
+/rd/equity     /equity-investment-thesis-builder?utm_source=reddit&utm_medium=post&utm_campaign=equity-builder         302
+/gm/equity     /equity-investment-thesis-builder?utm_source=gumroad&utm_medium=product-page&utm_campaign=equity-builder 302
+/sig/equity    /equity-investment-thesis-builder?utm_source=email&utm_medium=signature&utm_campaign=equity-builder     302
 
-/li/cfo-board  /cfo-board-reporting-system.html?utm_source=linkedin&utm_medium=post&utm_campaign=cfo-board              302
-/pi/cfo-board  /cfo-board-reporting-system.html?utm_source=pinterest&utm_medium=pin&utm_campaign=cfo-board               302
-/em/cfo-board  /cfo-board-reporting-system.html?utm_source=email&utm_medium=sequence&utm_campaign=cfo-board              302
-/tt/cfo-board  /cfo-board-reporting-system.html?utm_source=tiktok&utm_medium=bio&utm_campaign=cfo-board                  302
-/rd/cfo-board  /cfo-board-reporting-system.html?utm_source=reddit&utm_medium=post&utm_campaign=cfo-board                 302
-/gm/cfo-board  /cfo-board-reporting-system.html?utm_source=gumroad&utm_medium=product-page&utm_campaign=cfo-board        302
-/sig/cfo-board /cfo-board-reporting-system.html?utm_source=email&utm_medium=signature&utm_campaign=cfo-board             302
+/li/cfo-board  /cfo-board-reporting-system?utm_source=linkedin&utm_medium=post&utm_campaign=cfo-board              302
+/pi/cfo-board  /cfo-board-reporting-system?utm_source=pinterest&utm_medium=pin&utm_campaign=cfo-board               302
+/em/cfo-board  /cfo-board-reporting-system?utm_source=email&utm_medium=sequence&utm_campaign=cfo-board              302
+/tt/cfo-board  /cfo-board-reporting-system?utm_source=tiktok&utm_medium=bio&utm_campaign=cfo-board                  302
+/rd/cfo-board  /cfo-board-reporting-system?utm_source=reddit&utm_medium=post&utm_campaign=cfo-board                 302
+/gm/cfo-board  /cfo-board-reporting-system?utm_source=gumroad&utm_medium=product-page&utm_campaign=cfo-board        302
+/sig/cfo-board /cfo-board-reporting-system?utm_source=email&utm_medium=signature&utm_campaign=cfo-board             302
 
-/li/dcf-checklist  /dcf-preflight-checklist.html?utm_source=linkedin&utm_medium=post&utm_campaign=dcf-checklist          302
-/li/etsy-fees      /etsy-fees-explained-2026.html?utm_source=linkedin&utm_medium=post&utm_campaign=etsy-fees              302
-/li/freelance      /freelance-client-profitability.html?utm_source=linkedin&utm_medium=post&utm_campaign=freelance-profit  302
-/li/se-tax         /how-to-calculate-self-employment-tax-2026.html?utm_source=linkedin&utm_medium=post&utm_campaign=se-tax 302
+/li/dcf-checklist  /dcf-preflight-checklist?utm_source=linkedin&utm_medium=post&utm_campaign=dcf-checklist          302
+/li/etsy-fees      /etsy-fees-explained-2026?utm_source=linkedin&utm_medium=post&utm_campaign=etsy-fees              302
+/li/freelance      /freelance-client-profitability?utm_source=linkedin&utm_medium=post&utm_campaign=freelance-profit  302
+/li/se-tax         /how-to-calculate-self-employment-tax-2026?utm_source=linkedin&utm_medium=post&utm_campaign=se-tax 302
 
-/pi/dcf-checklist  /dcf-preflight-checklist.html?utm_source=pinterest&utm_medium=pin&utm_campaign=dcf-checklist           302
-/pi/etsy-fees      /etsy-fees-explained-2026.html?utm_source=pinterest&utm_medium=pin&utm_campaign=etsy-fees              302
-/pi/freelance      /freelance-client-profitability.html?utm_source=pinterest&utm_medium=pin&utm_campaign=freelance-profit  302
-/pi/se-tax         /how-to-calculate-self-employment-tax-2026.html?utm_source=pinterest&utm_medium=pin&utm_campaign=se-tax 302
+/pi/dcf-checklist  /dcf-preflight-checklist?utm_source=pinterest&utm_medium=pin&utm_campaign=dcf-checklist           302
+/pi/etsy-fees      /etsy-fees-explained-2026?utm_source=pinterest&utm_medium=pin&utm_campaign=etsy-fees              302
+/pi/freelance      /freelance-client-profitability?utm_source=pinterest&utm_medium=pin&utm_campaign=freelance-profit  302
+/pi/se-tax         /how-to-calculate-self-employment-tax-2026?utm_source=pinterest&utm_medium=pin&utm_campaign=se-tax 302
 
-/em/dcf-checklist  /dcf-preflight-checklist.html?utm_source=email&utm_medium=sequence&utm_campaign=dcf-checklist          302
-/em/etsy-fees      /etsy-fees-explained-2026.html?utm_source=email&utm_medium=sequence&utm_campaign=etsy-fees             302
-/em/freelance      /freelance-client-profitability.html?utm_source=email&utm_medium=sequence&utm_campaign=freelance-profit 302
-/em/se-tax         /how-to-calculate-self-employment-tax-2026.html?utm_source=email&utm_medium=sequence&utm_campaign=se-tax 302
+/em/dcf-checklist  /dcf-preflight-checklist?utm_source=email&utm_medium=sequence&utm_campaign=dcf-checklist          302
+/em/etsy-fees      /etsy-fees-explained-2026?utm_source=email&utm_medium=sequence&utm_campaign=etsy-fees             302
+/em/freelance      /freelance-client-profitability?utm_source=email&utm_medium=sequence&utm_campaign=freelance-profit 302
+/em/se-tax         /how-to-calculate-self-employment-tax-2026?utm_source=email&utm_medium=sequence&utm_campaign=se-tax 302
 
 
 # ------ GENERAL ------
