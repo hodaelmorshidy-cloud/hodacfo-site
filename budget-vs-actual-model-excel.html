@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget vs Actual Model Excel &mdash; Driver-Based FP&amp;A Reforecast with Price/Volume/Mix | Hoda Finance</title>
+  <meta name="description" content="Driver-based budget vs actual model in Excel &amp; Google Sheets: price/volume/mix variance, rolling reforecast, 3 scenarios, departments and a cash bridge.">
+  <link rel="canonical" href="https://hodacfo.com/budget-vs-actual-model-excel">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Budget vs Actual Model Excel &mdash; Driver-Based FP&amp;A Reforecast with Price/Volume/Mix">
+  <meta property="og:description" content="17-tab driver-based FP&amp;A model in Excel &amp; Google Sheets. Price/volume/mix variance, rolling reforecast, 3 scenarios, departments, sensitivity, cash bridge. Multi-client licence. $149.">
+  <meta property="og:image" content="https://hodacfo.com/images/annual-budget-model-og.png">
+  <meta property="og:image:alt" content="Budget vs Actual Model — price/volume/mix variance and rolling reforecast in Excel — Hoda Finance">
+  <meta property="og:site_name" content="Hoda Finance">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://hodacfo.com/budget-vs-actual-model-excel">
+  <meta name="twitter:card" content="summary_large_image">
+  <script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Annual Budget & Reforecast Model — Advisor Edition (Budget vs Actual)",
+  "description": "17-tab driver-based FP&A budget and reforecast model in Excel and Google Sheets: a units-times-price revenue build, a three-scenario engine, a rolling reforecast that swaps closed months to actuals, a genuine three-way price/volume/mix revenue variance decomposition that ties exactly to the revenue variance, departmental cost allocation, a two-way sensitivity grid, a budget-to-latest-estimate variance bridge, an accrual-to-cash bridge via DSO and DPO, a board-ready executive one-pager with a narrative written from the figures, and seven CFO-voice AI commentary prompts with worked sample outputs. Exactly 13 functions (ABS, CHOOSE, IF, IFERROR, INDEX, INT, MAX, MIN, MOD, OR, SUM, SUMPRODUCT, TEXT) — no XLOOKUP, LET, LAMBDA, dynamic arrays or macros. 829 formula cells, 0 errors, 3 charts, 18 input-validation rules. Includes an Excel edition, a Google Sheets edition and a 2-page methodology PDF. Multi-client commercial licence included. $149 one-time. Built by a Financial Controller and Fractional CFO.",
+  "brand": {"@type": "Brand", "name": "Hoda Finance"},
+  "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | 9+ Years Corporate Finance", "knowsAbout": ["Financial planning and analysis", "Budgeting and forecasting", "Variance analysis", "Price volume mix analysis", "Rolling forecasts", "Financial modeling"]},
+  "image": "https://hodacfo.com/images/annual-budget-model-og.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Annual Budget & Reforecast Model — Excel edition + Google Sheets edition + Methodology PDF",
+      "price": 149,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "url": "https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-model",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"},
+        "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"},
+          "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}
+        }
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What exactly is price/volume/mix, and why does it matter?", "acceptedAnswer": {"@type": "Answer", "text": "It answers why revenue moved. Price = you charged more or less per unit. Volume = you sold more or fewer units overall. Mix = the blend shifted toward higher- or lower-priced lines. Those are three different conversations with three different fixes, and a variance column alone cannot tell them apart. In the worked year, a $27,126 revenue beat splits into $3,036 price, $2,751 mix and $21,339 volume — and the three sum back to the revenue variance exactly, with an independent check column proving it."}},
+    {"@type": "Question", "name": "Do I need to be an FP&A specialist?", "acceptedAnswer": {"@type": "Answer", "text": "No. START HERE gives you a five-step order of operations, and the model opens with a complete worked year you can study before you overwrite it. The methodology PDF explains the method in plain English."}},
+    {"@type": "Question", "name": "Can I use it for more than one client?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — the multi-client / commercial licence is included by default. Use it internally and to deliver budgeting work for your own clients, including client-branded copies of the outputs. You may not resell the template itself as a template. One purchase covers one practitioner."}},
+    {"@type": "Question", "name": "Why is the profit line EBITDA and not net income?", "acceptedAnswer": {"@type": "Answer", "text": "The model plans revenue and operating expenses only, so the profit line is earnings before interest, tax and depreciation by construction. It is labelled EBITDA on every tab, with a note on Annual Summary. Add the below-the-line items yourself if you need statutory net income."}},
+    {"@type": "Question", "name": "Does it work in Google Sheets?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — a second file prepared for Google Sheets is included, formula-identical to the Excel edition. Both use only ABS, CHOOSE, IF, IFERROR, INDEX, INT, MAX, MIN, MOD, OR, SUM, SUMPRODUCT and TEXT — no XLOOKUP, no LET, no LAMBDA, no dynamic arrays, no macros."}},
+    {"@type": "Question", "name": "Is the AI commentary going to invent numbers?", "acceptedAnswer": {"@type": "Answer", "text": "That is exactly what the figure block is for. The workbook builds a plain-text line of your real figures that updates itself as you enter data — copy it, paste it above the prompt, and the model is writing from your numbers instead of guessing. All seven prompts ship with a worked sample output so you can see what good looks like. Always read every figure in the reply back against the workbook before sending it to anyone."}}
+  ]
+}
+</script>
+  <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--ice:#F7F8FB;--white:#FFFFFF;--dark-text:#1B2A4A;--body:#4A5A72;--border:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--body);background:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased}img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}nav{background:var(--white);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}nav .container{display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--cta);color:#0F1D32;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;box-shadow:0 2px 8px rgba(197,155,39,0.25)}.nav-cta:hover{background:var(--cta-hover)}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-link{font-size:.875rem;color:var(--body);font-weight:500}.nav-link:hover{color:var(--navy)}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--navy)}.hamburger svg{display:block}.nav-overlay{display:none}@media(max-width:680px){.nav-right .nav-cta{display:none}.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--white);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:var(--body)}.nav-overlay .nav-link:hover{color:var(--navy)}.nav-overlay .nav-cta{text-align:center}}
+.content-wrap{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;padding:60px 0}.main-col h2{font-size:1.75rem;font-weight:700;margin-bottom:16px;color:var(--navy)}.main-col h3{font-size:1.125rem;font-weight:700;margin-bottom:12px;color:var(--navy);margin-top:32px}.main-col p{font-size:.95rem;color:var(--body);line-height:1.7;margin-bottom:20px}.feature-list{list-style:none;margin:12px 0 20px}.feature-list li{font-size:.9rem;color:var(--body);line-height:1.7;margin-bottom:8px;padding-left:24px;position:relative}.feature-list li .ck{position:absolute;left:0;top:0;color:#8A6D1F;font-weight:700}.price-callout{background:var(--ice);border-radius:var(--card-radius);padding:20px 24px;display:flex;align-items:center;gap:20px;margin:24px 0;border:1px solid var(--border)}.price-callout .pc-num{font-size:2rem;font-weight:800;color:var(--navy);white-space:nowrap;letter-spacing:-1px}.price-callout .pc-text{font-size:.875rem;color:var(--body);line-height:1.6}.sidebar{position:sticky;top:90px}.sidebar .price-lg{font-size:2.75rem;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1}.sidebar .price-lbl{font-size:.8125rem;color:var(--body);margin-bottom:20px}.sidebar .cta-button{display:block;width:100%;background:var(--cta);color:#0F1D32;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 20px;border-radius:4px;text-align:center;transition:background .15s;box-shadow:0 4px 16px rgba(197,155,39,0.3)}.sidebar .cta-button:hover{background:var(--cta-hover)}.side-bullets{list-style:none;margin:20px 0}.side-bullets li{font-size:.85rem;color:var(--body);margin-bottom:8px;padding-left:20px;position:relative}.side-bullets li .ck{position:absolute;left:0;color:#8A6D1F;font-weight:700}.side-trust{font-size:.75rem;color:var(--body);border-top:1px solid var(--border);padding-top:16px;margin-top:16px}.section-title{font-size:1.5rem;font-weight:700;color:var(--navy);text-align:center;margin-bottom:8px;letter-spacing:-.3px}.sep{width:48px;height:3px;background:var(--accent);margin:0 auto 32px;border-radius:2px}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto}.audience-col{background:var(--ice);padding:28px;border-radius:var(--card-radius);border:1px solid var(--border)}.audience-col h3{font-size:.75rem;font-weight:700;letter-spacing:1.5px;margin-bottom:16px}.audience-col.is-for h3{color:#8A6D1F}.audience-col.not-for h3{color:#B84A4A}.audience-col ul{list-style:none}.audience-col ul li{font-size:.875rem;color:var(--body);margin-bottom:8px;line-height:1.5}.audience-col ul li .ck{color:#8A6D1F;font-weight:700}.audience-col ul li .cross{color:#B84A4A;font-weight:700}
+.section-ice{background:var(--ice);padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.author-wrap{display:flex;gap:32px;max-width:800px;margin:0 auto;align-items:start}.author-wrap img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0}.author-info h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:4px}.author-info .author-title{font-size:.8125rem;color:#8A6D1F;font-weight:600;margin-bottom:16px}.author-info .author-bio p{font-size:.875rem;color:var(--body);line-height:1.8;margin-bottom:12px}
+.pricing-section{background:var(--white);padding:60px 0;text-align:center}.pricing-content{max-width:780px;margin:0 auto}.pricing-content .pricing-sub{font-size:1rem;color:var(--body);margin-bottom:32px}.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}.tier-card{background:var(--ice);border:1px solid var(--border);border-radius:var(--card-radius);padding:24px;text-align:center;position:relative}.tier-card.featured{border-color:var(--accent);background:#FEFBF3}.tier-card .tier-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8A6D1F;margin-bottom:8px}.tier-card .tier-price{font-size:2.25rem;font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px}.tier-card .tier-note{font-size:.75rem;color:var(--body);margin-bottom:16px}.tier-card ul{list-style:none;text-align:left;margin-bottom:20px}.tier-card ul li{font-size:.8125rem;color:var(--body);margin-bottom:6px;padding-left:16px;position:relative}.tier-card ul li::before{content:'\2713';position:absolute;left:0;color:#8A6D1F;font-weight:700}.tier-card .tier-cta{display:block;background:var(--navy);color:#fff;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:11px 20px;border-radius:4px;transition:background .15s}.tier-card.featured .tier-cta{background:var(--cta);color:#0F1D32}.tier-card .tier-cta:hover{opacity:.85}.why-price{background:var(--ice);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--card-radius);padding:22px 26px;text-align:left;margin:0 auto 32px;max-width:620px}.why-price h3{font-size:.9375rem;font-weight:700;color:var(--navy);margin-bottom:8px}.why-price p{font-size:.875rem;color:var(--body);line-height:1.7;margin:0}.buybar{display:none}@media(max-width:680px){.buybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:200;align-items:center;justify-content:space-between;gap:12px;background:#0F1D32;border-top:2px solid var(--cta);padding:10px 14px;box-shadow:0 -6px 22px rgba(0,0,0,.28)}.buybar .bb-p{color:#fff;font-size:1.05rem;font-weight:800;line-height:1.15}.buybar .bb-p span{display:block;font-size:.625rem;font-weight:600;color:#A8BDD8;text-transform:uppercase;letter-spacing:.8px}.buybar a{background:var(--cta);color:#0A1424;font-size:.8125rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:12px 20px;border-radius:4px;white-space:nowrap}body{padding-bottom:64px}}.pricing-trust{font-size:.8125rem;color:var(--body);margin-bottom:24px}.home-link{font-size:.875rem;color:#8A6D1F;font-weight:600}.home-link:hover{color:var(--navy)}@media(max-width:680px){.tier-grid{grid-template-columns:1fr}}
+.faq-list{max-width:700px;margin:0 auto}.faq-item{margin-bottom:24px}.faq-item h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}.faq-item p{font-size:.9rem;color:var(--body);line-height:1.7}
+footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{font-size:1rem;font-weight:700;color:var(--white)}.foot-links{margin:12px 0}.foot-links a{color:#C8D6E8;font-size:.8125rem;margin:0 12px}.foot-links a:hover{color:var(--white)}.foot-disclaimer{font-size:.6875rem;color:#8C9CC0;max-width:640px;margin:0 auto 16px;line-height:1.5}.foot-tag{font-size:.75rem;color:#A8B6CE}
+.hero-ab{position:relative;overflow:hidden;background:#1F3551;border-bottom:1px solid #16273E;font-family:system-ui,-apple-system,sans-serif}
+.hero-ab::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#C9A84C 0%,#E4CE86 50%,#C9A84C 100%);z-index:5}
+.hero-ab .ab-inner{max-width:1160px;margin:0 auto;padding:44px 28px 52px;position:relative;z-index:2;display:grid;grid-template-columns:1.02fr 1fr;gap:52px;align-items:center}
+.hero-ab .ab-brand{display:flex;align-items:center;gap:9px;margin-bottom:18px}
+.hero-ab .ab-mark{width:30px;height:30px;border:2px solid #C9A84C;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:#fff}
+.hero-ab .ab-bname{font-weight:700;font-size:11px;color:#A8BDD8;letter-spacing:1.5px;text-transform:uppercase}
+.hero-ab .ab-eyebrow{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:#0A1424;background:#D9BC63;border-radius:3px;padding:5px 10px;margin-bottom:18px}
+.hero-ab h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:39px;line-height:1.12;letter-spacing:-1px;color:#fff;margin:0 0 18px}
+.hero-ab h1 .hl-g{color:#D9BC63}
+.hero-ab .ab-sub{font-size:15px;line-height:1.65;color:#C8D6E8;max-width:48ch;margin:0 0 26px}
+.hero-ab .ab-sub strong{color:#fff;font-weight:600}
+.hero-ab .ab-ctarow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:16px}
+.hero-ab .ab-cta{display:inline-block;background:#C9A84C;color:#0A1424;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;border-radius:5px;padding:15px 32px;text-decoration:none;transition:background 150ms ease,transform 150ms ease;box-shadow:0 10px 28px rgba(201,168,76,.22)}
+.hero-ab .ab-cta:hover{background:#E0C069;transform:translateY(-1px)}
+.hero-ab .ab-price{font-size:13px;color:#C8D6E8;font-weight:600;line-height:1.4}
+.hero-ab .ab-price b{display:block;color:#fff;font-size:19px;font-weight:800;letter-spacing:-.3px}
+.hero-ab .ab-trust{font-size:11.5px;color:#A8BDD8;letter-spacing:.2px;line-height:1.7}
+.hero-ab .ab-trust b{color:#5CCB93;font-weight:700}
+.hero-ab .ab-card{background:linear-gradient(165deg,#101F38 0%,#0B1729 100%);border:1px solid #24395A;border-radius:12px;padding:20px 22px 18px;box-shadow:0 26px 60px rgba(0,0,0,.42)}
+.hero-ab .ac-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #1E3251;margin-bottom:14px}
+.hero-ab .ac-deal{font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#A8BDD8;margin-bottom:5px}
+.hero-ab .ac-name{font-size:14px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.hero-ab .ac-amt{text-align:right;flex-shrink:0}
+.hero-ab .ac-amt .a-v{font-size:19px;font-weight:900;color:#5CCB93;letter-spacing:-.5px;line-height:1}
+.hero-ab .ac-amt .a-l{font-size:8px;color:#A8BDD8;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.hero-ab .ac-sub{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#A8BDD8;margin-bottom:11px}
+.hero-ab .ac-rows{display:flex;flex-direction:column;gap:11px;margin-bottom:14px}
+.hero-ab .ac-row{display:grid;grid-template-columns:58px 1fr;gap:10px;align-items:center}
+.hero-ab .ac-lbl{font-size:10px;font-weight:800;color:#C8D6E8;letter-spacing:.3px}
+.hero-ab .ac-track{position:relative;height:13px}
+.hero-ab .ac-bar{height:13px;border-radius:2px;position:relative;display:flex;align-items:center}
+.hero-ab .ac-bar span{position:absolute;left:calc(100% + 7px);font-size:10px;font-weight:800;white-space:nowrap;letter-spacing:.2px}
+.hero-ab .bar-price{background:linear-gradient(90deg,#8A6D1F,#D9BC63)}
+.hero-ab .bar-price span{color:#D9BC63}
+.hero-ab .bar-mix{background:linear-gradient(90deg,#2F5D7A,#6FA8CC)}
+.hero-ab .bar-mix span{color:#8FC4E2}
+.hero-ab .bar-vol{background:linear-gradient(90deg,#2E6B47,#5CCB93)}
+.hero-ab .bar-vol span{color:#7FDBA8}
+.hero-ab .ac-tie{border-top:1px solid #1E3251;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hero-ab .ac-tielbl{font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#A8BDD8}
+.hero-ab .ac-tieval{font-size:12.5px;font-weight:900;color:#fff}
+.hero-ab .ac-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:11px;border-top:1px solid #1E3251}
+.hero-ab .ac-src{font-size:9px;color:#8FA6C4;line-height:1.4;max-width:27ch}
+.hero-ab .ac-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:5px 9px;border-radius:3px;background:rgba(92,203,147,.13);color:#7FDBA8;border:1px solid rgba(92,203,147,.3);white-space:nowrap}
+@media(max-width:940px){.hero-ab .ab-inner{grid-template-columns:1fr;gap:34px;padding:38px 20px 44px}.hero-ab h1{font-size:32px}.hero-ab .ab-sub{max-width:none}}
+@media(max-width:680px){.hero-ab h1{font-size:26px;letter-spacing:-.5px}.hero-ab .ab-sub{font-size:14px}.hero-ab .ab-cta{display:block;width:100%;text-align:center}.hero-ab .ab-ctarow{gap:12px}.hero-ab .ac-foot{flex-direction:column;align-items:flex-start}}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
+.grid-stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.grid-stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.grid-shots{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
+@media(max-width:820px){.grid-3{grid-template-columns:1fr;gap:16px}.grid-stat3{grid-template-columns:1fr}.grid-stat4{grid-template-columns:1fr 1fr}.grid-shots{grid-template-columns:1fr}}
+@media(max-width:680px){.content-wrap{grid-template-columns:1fr;gap:32px;padding:40px 0}.sidebar{position:static}.audience-grid{grid-template-columns:1fr;gap:16px}.author-wrap{flex-direction:column;align-items:center;text-align:center}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div class="nav-right">
+      <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-model" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $149</a>
+      <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-model" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Get the Model &mdash; $149</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-ab">
+  <div class="ab-inner">
+    <div class="ab-copy">
+      <div class="ab-brand">
+        <div class="ab-mark">HF</div>
+        <span class="ab-bname">Hoda Finance</span>
+      </div>
+      <div class="ab-eyebrow">Budget vs Actual Model</div>
+      <h1>Revenue beat the plan by $27,126.<br>Only <span class="hl-g">$3,036</span> of it was price.</h1>
+      <p class="ab-sub">The rest was volume and mix &mdash; three different conversations with three different fixes. <strong>A variance column can't tell them apart</strong>, so this model decomposes every revenue variance into all three and proves the split ties back exactly.</p>
+      <div class="ab-ctarow">
+        <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-model" class="ab-cta" target="_blank" rel="noopener noreferrer">Get the Model</a>
+        <div class="ab-price"><b>$149</b>one-time &middot; Excel + Google Sheets</div>
+      </div>
+      <div class="ab-trust"><b>829 formula cells, 0 errors</b> &middot; 17 tabs &middot; multi-client licence included &middot; no macros, no XLOOKUP, no dynamic arrays</div>
+    </div>
+
+    <div class="ab-card">
+      <div class="ac-top">
+        <div>
+          <div class="ac-deal">Worked year &middot; month 6 of 12</div>
+          <div class="ac-name">Acme Studio LLC</div>
+        </div>
+        <div class="ac-amt">
+          <div class="a-v">+$27,126</div>
+          <div class="a-l">Revenue variance</div>
+        </div>
+      </div>
+      <div class="ac-sub">Decomposed by driver, year-to-date</div>
+      <div class="ac-rows">
+        <div class="ac-row"><span class="ac-lbl">Price</span>
+          <div class="ac-track"><div class="ac-bar bar-price" style="width:9.96%"><span>+$3,036</span></div></div>
+        </div>
+        <div class="ac-row"><span class="ac-lbl">Mix</span>
+          <div class="ac-track"><div class="ac-bar bar-mix" style="width:9.02%"><span>+$2,751</span></div></div>
+        </div>
+        <div class="ac-row"><span class="ac-lbl">Volume</span>
+          <div class="ac-track"><div class="ac-bar bar-vol" style="width:70%"><span>+$21,339</span></div></div>
+        </div>
+      </div>
+      <div class="ac-tie">
+        <span class="ac-tielbl">Price + Mix + Volume</span>
+        <span class="ac-tieval">= $27,126 &#10003;</span>
+      </div>
+      <div class="ac-foot">
+        <span class="ac-src">Live outputs from the workbook &mdash; a separate check column re-derives the same total.</span>
+        <span class="ac-badge">Ties exactly</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="padding:0">
+  <div class="container">
+    <div class="content-wrap">
+      <div class="main-col">
+        <h2>&ldquo;We're Ahead of Plan&rdquo; Is Not an Answer</h2>
+        <p>Every budget template can subtract actual from budget and colour the cell red or green. That number tells you a gap exists. It does not tell you whether you raised prices, sold more units, or simply sold a richer blend of products &mdash; and those three cause completely different decisions. Raising price is a pricing conversation. Selling more units is a capacity and pipeline conversation. A favourable mix is often luck that reverses next quarter.</p>
+        <p>This model separates them properly. In the pre-filled year, revenue is <strong>$27,126 ahead of the year-to-date plan</strong> &mdash; and the decomposition shows <strong>$21,339 of that came from volume, only $3,036 from price</strong>, with $2,751 from mix. The three components sum back to the revenue variance exactly, and a separate check column re-derives the same figure independently, so the split can't quietly drift out of balance.</p>
+
+        <div class="price-callout">
+          <span class="pc-num">$149</span>
+          <span class="pc-text">The 17-tab workbook in an Excel edition and a Google Sheets edition, plus a 2-page methodology PDF &mdash; with a multi-client commercial licence included. One price, no variants.</span>
+        </div>
+
+        <h3>What You Get &mdash; 17 Tabs</h3>
+        <ul class="feature-list">
+          <li><span class="ck">&#10003;</span> <strong>START HERE &middot; Setup</strong> &mdash; a five-step order of operations, then your business name, budget year, fiscal start month, currency, scenario and current month. Everything else keys off these.</li>
+          <li><span class="ck">&#10003;</span> <strong>Scenario Drivers</strong> &mdash; Base / Upside / Downside as volume, price and cost-inflation multipliers that flex the entire model from one cell.</li>
+          <li><span class="ck">&#10003;</span> <strong>Revenue Build</strong> &mdash; driver-based revenue: units &times; price per line, per month, so a price change and a volume change are genuinely different inputs.</li>
+          <li><span class="ck">&#10003;</span> <strong>Expense Budget</strong> &mdash; COGS derived as a percentage of revenue plus fixed operating lines, all scenario-aware.</li>
+          <li><span class="ck">&#10003;</span> <strong>Actuals &middot; Reforecast</strong> &mdash; enter what happened; the rolling reforecast swaps closed months to actuals and leaves open months at plan, giving a live latest estimate.</li>
+          <li><span class="ck">&#10003;</span> <strong>Budget vs Actual</strong> &mdash; monthly variance plus the full three-way price/volume/mix decomposition, per revenue line and in total, with an independent tie-out column.</li>
+          <li><span class="ck">&#10003;</span> <strong>Annual Summary &middot; Dashboard</strong> &mdash; budget, actual, latest estimate and variance on one page; six scenario-aware KPI tiles and charts.</li>
+          <li><span class="ck">&#10003;</span> <strong>3-Year Plan</strong> &mdash; extends the base year out two more years on two inputs, revenue growth and expense growth; margin is an output of the two, not an assumption.</li>
+          <li><span class="ck">&#10003;</span> <strong>Departments</strong> &mdash; allocate costs and revenue share across departments, with a REVIEW flag that fires if any allocation row is more than 0.5pp away from 100%.</li>
+          <li><span class="ck">&#10003;</span> <strong>Sensitivity</strong> &mdash; a two-way volume &times; cost grid whose base cell always equals the Annual Summary EBITDA, in every scenario.</li>
+          <li><span class="ck">&#10003;</span> <strong>Variance Bridge</strong> &mdash; the waterfall from budget to latest estimate.</li>
+          <li><span class="ck">&#10003;</span> <strong>Cash Bridge</strong> &mdash; converts the accrual budget to cash using DSO and DPO, with the reconciliation shown.</li>
+          <li><span class="ck">&#10003;</span> <strong>Exec Summary</strong> &mdash; a board one-pager whose narrative sentence is written from your own figures, not a placeholder.</li>
+          <li><span class="ck">&#10003;</span> <strong>AI Commentary</strong> &mdash; 7 CFO-voice prompts, each with a worked sample output, plus a self-updating figure block you paste in so the model writes from real numbers.</li>
+        </ul>
+
+        <h3>Three Scenarios, One Cell</h3>
+        <p>Scenario Drivers holds volume, price and cost-inflation multipliers for Base, Upside and Downside. Change <em>Scenario</em> on Setup from 1 to 3 and the entire model re-prices &mdash; revenue build, expenses, reforecast, dashboard, sensitivity grid and the executive narrative all move together. In the worked year that runs full-year revenue from <strong>$419,971 in the downside</strong> (volume &times;0.88, price &times;0.97, cost inflation &times;1.06) through <strong>$492,000 at base</strong> to <strong>$578,592 in the upside</strong>. The sensitivity grid's base cell is wired to equal the Annual Summary EBITDA in <em>every</em> scenario, so the grid can never quietly disagree with the model it sits inside.</p>
+
+        <h3>A Rolling Reforecast, Not a Frozen Budget</h3>
+        <p>Set the current month and every month up to and including it is treated as actual; the rest stay at plan. That gives a genuine latest estimate that updates as the year closes &mdash; in the worked year, <strong>$519,126 against a $492,000 original budget</strong> at month 6. The executive summary states it in plain English and compares like-for-like against the year-to-date plan of $246,000, not against the full-year number, so a mid-year read is never flattered or unfairly punished by the comparison.</p>
+
+        <h3>What It Deliberately Doesn't Do</h3>
+        <p>Two limits matter most if variance analysis is why you're here. <strong>Actual COGS is derived at the budget rate</strong> rather than entered, so no separate gross-margin variance appears &mdash; and under a scenario with cost inflation other than 1.00, the resulting COGS movement is an artifact of that derivation, not cost performance. The workbook says exactly this on the Actuals tab. Second, the <strong>price/volume/mix split is valued at budgeted price</strong> (the turnover basis), which is what makes the three components sum to the revenue variance exactly; a contribution-basis bridge answers a different question and isn't included.</p>
+        <p>Beyond that: the profit line is EBITDA, so there's no balance sheet, no 3-statement build and no interest, tax or depreciation; it's a single entity in a single currency, with no consolidation, no FX and no headcount module; and the Cash Bridge is a working-capital approximation that opens at zero receivables and payables, uses a single-month lag and caps DSO/DPO at 30 days. One operating rule is worth knowing before you buy: <strong>enter actuals only through the month set as Current month on Setup</strong> &mdash; months entered beyond it misstate every year-to-date figure until you advance it, which is why the Actuals tab carries a REVIEW warning that fires exactly when that happens.</p>
+        <p>If your general ledger only gives you a revenue total for a line rather than units, you can still use the decomposition &mdash; back into a units-weighted average price rather than a simple average, which the Actuals tab tells you directly, because a simple average distorts the split.</p>
+
+        <h3>13 Functions. Excel <em>and</em> Google Sheets.</h3>
+        <p>829 live formulas across 17 tabs, built from exactly thirteen functions &mdash; ABS, CHOOSE, IF, IFERROR, INDEX, INT, MAX, MIN, MOD, OR, SUM, SUMPRODUCT and TEXT. No XLOOKUP, no LET, no LAMBDA, no dynamic arrays, no macros, nothing that breaks on an older install or a different platform. A separate Google Sheets edition is included, formula-identical to the Excel one. Recalculated with a full dependency rebuild: <strong>829 formula cells, 0 errors</strong>, 3 charts and 18 input-validation rules.</p>
+      </div>
+
+      <div class="sidebar">
+        <div class="price-lg">$149</div>
+        <div class="price-lbl">Excel edition + Google Sheets edition + methodology PDF</div>
+        <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-model" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $149</a>
+        <ul class="side-bullets">
+          <li><span class="ck">&#10003;</span> 17-tab workbook, 829 formulas</li>
+          <li><span class="ck">&#10003;</span> Genuine price/volume/mix, tied out</li>
+          <li><span class="ck">&#10003;</span> Rolling reforecast &amp; latest estimate</li>
+          <li><span class="ck">&#10003;</span> Base / Upside / Downside from one cell</li>
+          <li><span class="ck">&#10003;</span> Departments, sensitivity &amp; variance bridge</li>
+          <li><span class="ck">&#10003;</span> Accrual-to-cash bridge (DSO/DPO)</li>
+          <li><span class="ck">&#10003;</span> 7 AI prompts with worked samples</li>
+          <li><span class="ck">&#10003;</span> Multi-client commercial licence</li>
+        </ul>
+        <div class="side-trust">Instant delivery &middot; Excel 2016+ and Google Sheets &middot; No macros &middot; No subscription</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">What You&rsquo;ll See Inside</h2>
+    <div class="sep"></div>
+    <div class="grid-shots">
+      <figure style="margin:0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+        <img src="images/annual-budget-price-volume-mix.png" alt="Budget vs Actual tab in Excel — price, mix and volume variance per revenue line with a line-variance total and an independent check column that re-derives the same figure." style="width:100%;display:block">
+        <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">The price/volume/mix decomposition &mdash; per line and in total, with the &ldquo;Check&rdquo; column independently re-deriving $27,126.</figcaption>
+      </figure>
+      <figure style="margin:0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+        <img src="images/annual-budget-dashboard.png" alt="Dashboard tab in Excel — six scenario-aware KPI tiles showing revenue actual and latest estimate, EBITDA, EBITDA margin, latest estimate versus target and percent of annual plan, above the monthly chart data." style="width:100%;display:block">
+        <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">The Dashboard &mdash; six scenario-aware KPI tiles and the monthly series that feeds the charts below them.</figcaption>
+      </figure>
+    </div>
+    <figure style="margin:16px 0 0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+      <img src="images/annual-budget-exec-summary.png" alt="Exec Summary tab in Excel — headline revenue and EBITDA figures, the price, mix and volume effects, and a board note written from the workbook's own numbers." style="width:100%;display:block">
+      <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">The board one-pager &mdash; headlines, the three variance drivers, and a narrative sentence built from the figures themselves.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section style="padding:48px 0;background:#FFFFFF">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="sep"></div>
+    <div class="grid-3">
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">1</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Build the Plan on Drivers</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Enter units and price per revenue line rather than a single revenue number. That one choice is what makes a real price/volume/mix decomposition possible later &mdash; you cannot recover it from a total.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">2</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Close a Month</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Enter that month's actuals, then advance the current month on Setup. The reforecast rolls, the latest estimate updates, and the variance decomposition recalculates against a like-for-like year-to-date plan.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">3</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Explain It to the Board</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Take the Exec Summary one-pager, or paste the self-updating figure block plus a prompt into your AI of choice and get a CFO-voice narrative written from your real numbers &mdash; then check it back against the workbook.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Real Numbers from the Model</h2>
+    <div class="sep"></div>
+    <div class="grid-stat3">
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">Revenue &mdash; Latest Estimate</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">$519,126</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">vs Original Budget</div>
+        <div style="font-size:2rem;font-weight:800;color:#1E7A4C">+$27,126</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">EBITDA Margin (Actual)</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">20.6%</div>
+      </div>
+    </div>
+    <div class="grid-stat4">
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$273,126</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Revenue actual, YTD (month 6)</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$246,000</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Year-to-date plan (like-for-like)</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$98,226</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">EBITDA latest estimate</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">56%</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Of annual plan at month 6</div></div>
+    </div>
+    <p style="font-size:.8125rem;color:var(--body);line-height:1.6;margin-top:20px;max-width:760px">These are outputs from the pre-loaded Acme Studio LLC worked year &mdash; a fictional company built so every figure ties out exactly, shown at month 6 of 12 on the base case. Full-year budget revenue is $492,000 against expenses of $408,240, giving budgeted EBITDA of $83,760 at a 17.0% margin; year-to-date actuals of $273,126 and $216,780 give $56,346 of EBITDA at a 20.6% margin. Change one cell to the downside scenario and the whole model re-prices to $419,971 of revenue. Swap in your own units, prices and actuals and every figure here recalculates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Who This Is For</h2>
+    <div class="sep"></div>
+    <div class="audience-grid">
+      <div class="audience-col is-for">
+        <h3>IS FOR</h3>
+        <ul>
+          <li><span class="ck">&#10003;</span> Fractional CFOs and finance consultants running budgets for several clients &mdash; the multi-client licence is included</li>
+          <li><span class="ck">&#10003;</span> FP&amp;A managers and analysts who reforecast monthly</li>
+          <li><span class="ck">&#10003;</span> Founders and operators who have to explain a variance to a board or a lender</li>
+          <li><span class="ck">&#10003;</span> Bookkeepers adding budgeting and reforecasting to their service line</li>
+          <li><span class="ck">&#10003;</span> Google Sheets users &mdash; a formula-identical edition is included, not an afterthought</li>
+        </ul>
+      </div>
+      <div class="audience-col not-for">
+        <h3>IS NOT FOR</h3>
+        <ul>
+          <li><span class="cross">&#10007;</span> Statutory net income &mdash; the profit line is EBITDA by construction; no balance sheet, no 3-statement build, no interest, tax or depreciation</li>
+          <li><span class="cross">&#10007;</span> Gross-margin variance &mdash; actual COGS is derived at the budget rate, so margin variance never appears as its own number</li>
+          <li><span class="cross">&#10007;</span> Multi-entity or multi-currency work &mdash; single entity, single currency, no consolidation, no FX, no headcount module</li>
+          <li><span class="cross">&#10007;</span> Credit terms beyond 30 days &mdash; the Cash Bridge opens at zero receivables and payables, uses a single-month lag and caps DSO/DPO at 30 days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Built by a Practitioner</h2>
+    <div class="sep"></div>
+    <div class="author-wrap">
+      <img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO">
+      <div class="author-info">
+        <h3>Hoda Elmorshidy</h3>
+        <div class="author-title">Fractional CFO | Financial Controller | Quantitative Analysis | 9+ Years</div>
+        <div class="author-bio">
+          <p>Financial Controller and Fractional CFO with 9+ years leading finance functions across commodity trading, real estate, hospitality, and professional services. This model was built the way a reforecast gets built when a board is going to ask follow-up questions &mdash; the price/volume/mix split has to tie back to the revenue variance exactly, and there is a separate check column in the file whose only job is to prove that it does.</p>
+          <p>That is also why the sensitivity grid is wired to agree with the Annual Summary in every scenario rather than just the base case, why the executive summary compares year-to-date actuals against a year-to-date plan instead of a full-year number, and why the AI prompts ship with a figure block that hands the model your real numbers rather than letting it guess.</p>
+          <p style="margin-top:12px"><a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600;font-size:.875rem">Connect on LinkedIn &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="container">
+    <div class="pricing-content">
+      <h2 class="section-title">One Price. One File. Multi-Client Licence.</h2>
+      <div class="sep" style="background:var(--cta)"></div>
+      <p class="pricing-sub">Everything included for a single $149. No variants, no upgrade prompts, no subscription.</p>
+      <div class="why-price">
+        <h3>Why $149?</h3>
+        <p>A budget grid subtracts one column from another. This is a driver-based model: it separates price from volume from mix, rolls a reforecast as months close, flexes three scenarios from one cell, and converts the accrual plan to cash &mdash; then proves its own variance split ties out. It also ships with a multi-client commercial licence, which is the difference between a template you use once and one a fractional CFO can run across an entire client book. Planning software that does this charges per month, every month; this is one file, once.</p>
+      </div>
+      <div class="tier-grid" style="grid-template-columns:1fr;max-width:460px;margin:0 auto 32px">
+        <div class="tier-card featured">
+          <div class="tier-badge">Complete Model</div>
+          <div class="tier-price">$149</div>
+          <div class="tier-note">Excel edition + Google Sheets edition + methodology PDF</div>
+          <ul>
+            <li>17-tab workbook, 829 live formulas</li>
+            <li>Three-way price/volume/mix, tied out</li>
+            <li>Rolling reforecast &amp; latest estimate</li>
+            <li>Base / Upside / Downside scenario engine</li>
+            <li>Departments, sensitivity, variance bridge</li>
+            <li>Accrual-to-cash bridge via DSO/DPO</li>
+            <li>7 AI prompts with worked sample outputs</li>
+            <li>Multi-client commercial licence included</li>
+          </ul>
+          <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-model" class="tier-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $149</a>
+        </div>
+      </div>
+      <p class="pricing-trust">Instant delivery &middot; Excel 2016+ and Google Sheets &middot; Multi-client licence &middot; No subscription</p>
+      <a href="/" class="home-link">&larr; Back to all tools</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="sep"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>What exactly is price/volume/mix, and why does it matter?</h3>
+        <p>It answers <em>why</em> revenue moved. Price = you charged more or less per unit. Volume = you sold more or fewer units overall. Mix = the blend shifted toward higher- or lower-priced lines. Those are three different conversations with three different fixes, and a variance column alone cannot tell them apart. In the worked year, a $27,126 revenue beat splits into $3,036 price, $2,751 mix and $21,339 volume &mdash; and the three sum back to the revenue variance exactly, with an independent check column proving it.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need to be an FP&amp;A specialist?</h3>
+        <p>No. START HERE gives you a five-step order of operations, and the model opens with a complete worked year you can study before you overwrite it. The methodology PDF explains the method in plain English.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I use it for more than one client?</h3>
+        <p>Yes &mdash; the multi-client / commercial licence is included by default. Use it internally and to deliver budgeting work for your own clients, including client-branded copies of the outputs. You may not resell the template itself as a template. One purchase covers one practitioner.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why is the profit line EBITDA and not net income?</h3>
+        <p>The model plans revenue and operating expenses only, so the profit line is earnings before interest, tax and depreciation by construction. It is labelled EBITDA on every tab, with a note on Annual Summary. Add the below-the-line items yourself if you need statutory net income.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does it work in Google Sheets?</h3>
+        <p>Yes &mdash; a second file prepared for Google Sheets is included, formula-identical to the Excel edition. Both use only ABS, CHOOSE, IF, IFERROR, INDEX, INT, MAX, MIN, MOD, OR, SUM, SUMPRODUCT and TEXT &mdash; no XLOOKUP, no LET, no LAMBDA, no dynamic arrays, no macros.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is the AI commentary going to invent numbers?</h3>
+        <p>That is exactly what the figure block is for. The workbook builds a plain-text line of your real figures that updates itself as you enter data &mdash; copy it, paste it above the prompt, and the model is writing from your numbers instead of guessing. All seven prompts ship with a worked sample output so you can see what good looks like. Always read every figure in the reply back against the workbook before sending it to anyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:720px;margin:0 auto">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The Annual Budget &amp; Reforecast Model (Advisor Edition) by Hoda Finance is a 17-tab driver-based FP&amp;A workbook in Excel and Google Sheets, priced at $149 one-time with a multi-client commercial licence. Tabs: START HERE, Setup, Scenario Drivers, Revenue Build, Expense Budget, Actuals, Reforecast, Budget vs Actual, Annual Summary, Dashboard, 3-Year Plan, Departments, Sensitivity, Variance Bridge, Cash Bridge, Exec Summary, AI Commentary. It builds revenue from units &times; price, flexes Base/Upside/Downside scenarios from a single cell, rolls a reforecast that swaps closed months to actuals, and decomposes revenue variance three ways into price, volume and mix with an independent tie-out column. Pre-filled with the Acme Studio LLC worked year at month 6 of 12: full-year budget revenue $492,000 and expenses $408,240 for $83,760 of budgeted EBITDA at a 17.0% margin; year-to-date actual revenue $273,126 against a like-for-like year-to-date plan of $246,000 and expenses of $216,780, giving $56,346 of EBITDA at a 20.6% margin; full-year latest estimate $519,126 revenue and $98,226 EBITDA, +$27,126 and +$14,466 against budget, at 56% of annual plan. That $27,126 revenue variance decomposes to $3,036 price, $2,751 mix and $21,339 volume, summing exactly. Switching to the downside scenario re-prices full-year revenue to $419,971. 829 formula cells, 0 errors, 3 charts, 18 input-validation rules, and exactly 13 functions &mdash; ABS, CHOOSE, IF, IFERROR, INDEX, INT, MAX, MIN, MOD, OR, SUM, SUMPRODUCT, TEXT &mdash; with no XLOOKUP, LET, LAMBDA, dynamic arrays or macros, so it runs in Excel 2016 and later and in Google Sheets. Includes an Excel edition, a Google Sheets edition and a 2-page methodology PDF. Built by Hoda Elmorshidy, Financial Controller and Fractional CFO. The sample company and all its figures are fictional; this is an analytical and educational planning tool, not financial, tax, accounting or legal advice.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Hoda Finance</div>
+  <div class="foot-links">
+    <a href="/">All Tools</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-model" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+    <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+  <p class="foot-disclaimer">This template is an analytical and educational planning tool, not professional financial, investment, tax, accounting, audit or legal advice, and its use creates no professional relationship. All assumptions and figures are illustrative &mdash; outputs are only as good as your assumptions, and past or sample results are not indicative. The sample company &ldquo;Acme Studio LLC&rdquo; and all of its figures are fictional. AI commentary drafts text from the numbers you give it &mdash; read every figure in the reply back against the workbook before you send it to anyone. Not affiliated with or endorsed by Microsoft or Google.</p>
+  <p class="foot-tag">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;text-align:center">
+  <div class="container">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#616F87;margin-bottom:14px">Related</p>
+    <a href="/fpa-variance-forecast-toolkit" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#8A6D1F;font-weight:600">FP&amp;A Variance &amp; Forecast Toolkit</a>
+    <a href="/cfo-board-reporting-system" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#8A6D1F;font-weight:600">CFO Board Reporting System &mdash; $97</a>
+    <a href="/variance-analysis-excel-template" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#8A6D1F;font-weight:600">What Is Variance Analysis?</a>
+  </div>
+</section>
+
+<div class="buybar">
+  <div class="bb-p">$149<span>One-time &middot; instant</span></div>
+  <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-model" target="_blank" rel="noopener noreferrer">Get the Model</a>
+</div>
+<script src="/subscribe.js" type="text/javascript"></script>
+</body>
+</html>
