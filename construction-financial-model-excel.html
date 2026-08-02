@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Financial Model Excel &mdash; WIP Schedule, Bonding Capacity &amp; Bank Covenants | Hoda Finance</title>
+  <meta name="description" content="Professional-grade construction financial model: WIP schedule, bonding capacity, bank covenant ratios, job costing, AIA billing in one Excel workbook.">
+  <link rel="canonical" href="https://hodacfo.com/construction-financial-model-excel">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Construction Financial Model Excel &mdash; WIP Schedule, Bonding Capacity &amp; Bank Covenants">
+  <meta property="og:description" content="14-tab construction financial model in Excel &amp; Google Sheets. WIP schedule, bonding capacity, bank covenant ratios, change-order log, AIA-style billing, one-page bank/surety package. $179.">
+  <meta property="og:image" content="https://hodacfo.com/images/construction-job-cost-og.png">
+  <meta property="og:image:alt" content="Construction Financial Model — WIP schedule and bonding capacity in Excel — Hoda Finance">
+  <meta property="og:site_name" content="Hoda Finance">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://hodacfo.com/construction-financial-model-excel">
+  <meta name="twitter:card" content="summary_large_image">
+  <script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Construction Financial Model (WIP Schedule, Bonding Capacity & Bank Covenants)",
+  "description": "14-tab construction financial model in Excel and Google Sheets: a bid estimator, a multi-job WIP schedule with cost-to-cost percentage-of-completion and contract asset/liability accounting (costs and billings in excess), current-period revenue and estimate-at-completion analysis, AIA-style progress billing with retainage, a change-order log reconciled against the schedule, working capital and bonding capacity, the four bank covenant ratios (current, quick, debt-to-equity, debt-to-tangible-net-worth), a period-over-period portfolio trend, eleven built-in integrity checks, a readiness dashboard, and a one-page Bank & Surety Package. Arithmetic functions only (SUM, IF, IFERROR, MAX, OR, ABS, COUNT, COUNTIF, SUMIF, SUMPRODUCT, TEXT) — no macros, no 365-only functions. 607 formula cells, 0 errors. Includes the workbook as an Excel download and a Google Sheets download (the same arithmetic-only file serves both), plus a methodology PDF. $179 one-time, same price on every channel. Built by a Financial Controller and Fractional CFO.",
+  "brand": {"@type": "Brand", "name": "Hoda Finance"},
+  "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | 9+ Years Corporate Finance", "knowsAbout": ["Construction accounting", "Percentage-of-completion", "Bonding capacity", "Bank covenant ratios", "Job costing", "Financial modeling"]},
+  "image": "https://hodacfo.com/images/construction-job-cost-og.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Construction Financial Model — Excel edition + Google Sheets edition + Methodology PDF",
+      "price": 179,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "url": "https://hodaelmorshidy.gumroad.com/l/construction-financial-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=construction-financial-model",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"},
+        "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"},
+          "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}
+        }
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Why $179 when there are $20 WIP templates?", "acceptedAnswer": {"@type": "Answer", "text": "The $20 sheets stop at a percent-done bar. This carries cost-to-cost percentage-of-completion through to the two things a bank and a surety actually decide on — your covenant ratios and your working-capital bonding capacity — with the contract-asset/liability accounting a CPA expects, all reconciled and audit-checked. $179 is deliberately above the going rate for a single construction model, not at it: it is a premium asked for depth and for the fact that every formula has been independently recomputed, and the same $179 applies on every channel."}},
+    {"@type": "Question", "name": "Isn't this overkill for a small contractor?", "acceptedAnswer": {"@type": "Answer", "text": "If you have never been asked for a WIP schedule by a bank or bonding agent, it probably is. If you have, this is what they actually want to see, in the format they check it in."}},
+    {"@type": "Question", "name": "Are the covenant thresholds MY actual loan covenants?", "acceptedAnswer": {"@type": "Answer", "text": "No, and the file says so twice. They are typical industry ranges, cited to surety underwriting commentary, not your specific loan or bond agreement. Confirm your real numbers with your bank or surety before relying on the status shown."}},
+    {"@type": "Question", "name": "What if I overwrite a formula?", "acceptedAnswer": {"@type": "Answer", "text": "In Excel you can't by accident: every calculated cell is locked on all 14 tabs, every input stays blue and editable, and there is no password — use Review then Unprotect Sheet if you want to change the structure. One honest caveat: Google Sheets does not always carry Excel's sheet protection across on import, so treat that lock as an Excel guarantee. In Sheets, go by the blue-is-input, black-is-formula colour convention instead. Everything calculates identically either way."}},
+    {"@type": "Question", "name": "Does it work in Excel and Google Sheets?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Arithmetic and lookup functions only — SUM, IF, IFERROR, MAX, OR, ABS, COUNT, COUNTIF, SUMIF, SUMPRODUCT, TEXT — with no macros and no 365-only functions. The workbook is arithmetic-only by construction, so a single file serves both: the Excel and Google Sheets downloads are the same workbook. The one difference to expect in Sheets is sheet protection, which may not carry across on import."}}
+  ]
+}
+</script>
+  <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--ice:#F7F8FB;--white:#FFFFFF;--dark-text:#1B2A4A;--body:#4A5A72;--border:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--body);background:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased}img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}nav{background:var(--white);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}nav .container{display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--cta);color:#0F1D32;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;box-shadow:0 2px 8px rgba(197,155,39,0.25)}.nav-cta:hover{background:var(--cta-hover)}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-link{font-size:.875rem;color:var(--body);font-weight:500}.nav-link:hover{color:var(--navy)}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--navy)}.hamburger svg{display:block}.nav-overlay{display:none}@media(max-width:680px){.nav-right .nav-cta{display:none}.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--white);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:var(--body)}.nav-overlay .nav-link:hover{color:var(--navy)}.nav-overlay .nav-cta{text-align:center}}
+.content-wrap{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;padding:60px 0}.main-col h2{font-size:1.75rem;font-weight:700;margin-bottom:16px;color:var(--navy)}.main-col h3{font-size:1.125rem;font-weight:700;margin-bottom:12px;color:var(--navy);margin-top:32px}.main-col p{font-size:.95rem;color:var(--body);line-height:1.7;margin-bottom:20px}.feature-list{list-style:none;margin:12px 0 20px}.feature-list li{font-size:.9rem;color:var(--body);line-height:1.7;margin-bottom:8px;padding-left:24px;position:relative}.feature-list li .ck{position:absolute;left:0;top:0;color:#8A6D1F;font-weight:700}.price-callout{background:var(--ice);border-radius:var(--card-radius);padding:20px 24px;display:flex;align-items:center;gap:20px;margin:24px 0;border:1px solid var(--border)}.price-callout .pc-num{font-size:2rem;font-weight:800;color:var(--navy);white-space:nowrap;letter-spacing:-1px}.price-callout .pc-text{font-size:.875rem;color:var(--body);line-height:1.6}.sidebar{position:sticky;top:90px}.sidebar .price-lg{font-size:2.75rem;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1}.sidebar .price-lbl{font-size:.8125rem;color:var(--body);margin-bottom:20px}.sidebar .cta-button{display:block;width:100%;background:var(--cta);color:#0F1D32;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 20px;border-radius:4px;text-align:center;transition:background .15s;box-shadow:0 4px 16px rgba(197,155,39,0.3)}.sidebar .cta-button:hover{background:var(--cta-hover)}.side-bullets{list-style:none;margin:20px 0}.side-bullets li{font-size:.85rem;color:var(--body);margin-bottom:8px;padding-left:20px;position:relative}.side-bullets li .ck{position:absolute;left:0;color:#8A6D1F;font-weight:700}.side-trust{font-size:.75rem;color:var(--body);border-top:1px solid var(--border);padding-top:16px;margin-top:16px}.section-title{font-size:1.5rem;font-weight:700;color:var(--navy);text-align:center;margin-bottom:8px;letter-spacing:-.3px}.sep{width:48px;height:3px;background:var(--accent);margin:0 auto 32px;border-radius:2px}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto}.audience-col{background:var(--ice);padding:28px;border-radius:var(--card-radius);border:1px solid var(--border)}.audience-col h3{font-size:.75rem;font-weight:700;letter-spacing:1.5px;margin-bottom:16px}.audience-col.is-for h3{color:#8A6D1F}.audience-col.not-for h3{color:#B84A4A}.audience-col ul{list-style:none}.audience-col ul li{font-size:.875rem;color:var(--body);margin-bottom:8px;line-height:1.5}.audience-col ul li .ck{color:#8A6D1F;font-weight:700}.audience-col ul li .cross{color:#B84A4A;font-weight:700}
+.section-ice{background:var(--ice);padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.author-wrap{display:flex;gap:32px;max-width:800px;margin:0 auto;align-items:start}.author-wrap img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0}.author-info h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:4px}.author-info .author-title{font-size:.8125rem;color:#8A6D1F;font-weight:600;margin-bottom:16px}.author-info .author-bio p{font-size:.875rem;color:var(--body);line-height:1.8;margin-bottom:12px}
+.pricing-section{background:var(--white);padding:60px 0;text-align:center}.pricing-content{max-width:780px;margin:0 auto}.pricing-content .pricing-sub{font-size:1rem;color:var(--body);margin-bottom:32px}.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}.tier-card{background:var(--ice);border:1px solid var(--border);border-radius:var(--card-radius);padding:24px;text-align:center;position:relative}.tier-card.featured{border-color:var(--accent);background:#FEFBF3}.tier-card .tier-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8A6D1F;margin-bottom:8px}.tier-card .tier-price{font-size:2.25rem;font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px}.tier-card .tier-note{font-size:.75rem;color:var(--body);margin-bottom:16px}.tier-card ul{list-style:none;text-align:left;margin-bottom:20px}.tier-card ul li{font-size:.8125rem;color:var(--body);margin-bottom:6px;padding-left:16px;position:relative}.tier-card ul li::before{content:'\2713';position:absolute;left:0;color:#8A6D1F;font-weight:700}.tier-card .tier-cta{display:block;background:var(--navy);color:#fff;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:11px 20px;border-radius:4px;transition:background .15s}.tier-card.featured .tier-cta{background:var(--cta);color:#0F1D32}.tier-card .tier-cta:hover{opacity:.85}.why-price{background:var(--ice);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--card-radius);padding:22px 26px;text-align:left;margin:0 auto 32px;max-width:620px}.why-price h3{font-size:.9375rem;font-weight:700;color:var(--navy);margin-bottom:8px}.why-price p{font-size:.875rem;color:var(--body);line-height:1.7;margin:0}.buybar{display:none}@media(max-width:680px){.buybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:200;align-items:center;justify-content:space-between;gap:12px;background:#0F1D32;border-top:2px solid var(--cta);padding:10px 14px;box-shadow:0 -6px 22px rgba(0,0,0,.28)}.buybar .bb-p{color:#fff;font-size:1.05rem;font-weight:800;line-height:1.15}.buybar .bb-p span{display:block;font-size:.625rem;font-weight:600;color:#A8BDD8;text-transform:uppercase;letter-spacing:.8px}.buybar a{background:var(--cta);color:#0A1424;font-size:.8125rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:12px 20px;border-radius:4px;white-space:nowrap}body{padding-bottom:64px}}.pricing-trust{font-size:.8125rem;color:var(--body);margin-bottom:24px}.home-link{font-size:.875rem;color:#8A6D1F;font-weight:600}.home-link:hover{color:var(--navy)}@media(max-width:680px){.tier-grid{grid-template-columns:1fr}}
+.faq-list{max-width:700px;margin:0 auto}.faq-item{margin-bottom:24px}.faq-item h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}.faq-item p{font-size:.9rem;color:var(--body);line-height:1.7}
+footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{font-size:1rem;font-weight:700;color:var(--white)}.foot-links{margin:12px 0}.foot-links a{color:#C8D6E8;font-size:.8125rem;margin:0 12px}.foot-links a:hover{color:var(--white)}.foot-disclaimer{font-size:.6875rem;color:#8C9CC0;max-width:640px;margin:0 auto 16px;line-height:1.5}.foot-tag{font-size:.75rem;color:#A8B6CE}
+.hero-cj{position:relative;overflow:hidden;background:#1F3551;border-bottom:1px solid #16273E;font-family:system-ui,-apple-system,sans-serif}
+.hero-cj::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#C9A84C 0%,#E4CE86 50%,#C9A84C 100%);z-index:5}
+.hero-cj .cj-inner{max-width:1160px;margin:0 auto;padding:44px 28px 52px;position:relative;z-index:2;display:grid;grid-template-columns:1.02fr 1fr;gap:52px;align-items:center}
+.hero-cj .cj-brand{display:flex;align-items:center;gap:9px;margin-bottom:18px}
+.hero-cj .cj-mark{width:30px;height:30px;border:2px solid #C9A84C;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:#fff}
+.hero-cj .cj-bname{font-weight:700;font-size:11px;color:#A8BDD8;letter-spacing:1.5px;text-transform:uppercase}
+.hero-cj .cj-eyebrow{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:#0A1424;background:#D9BC63;border-radius:3px;padding:5px 10px;margin-bottom:18px}
+.hero-cj h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:38px;line-height:1.14;letter-spacing:-.9px;color:#fff;margin:0 0 18px}
+.hero-cj .cj-sub{font-size:15px;line-height:1.65;color:#C8D6E8;max-width:48ch;margin:0 0 26px}
+.hero-cj .cj-sub strong{color:#fff;font-weight:600}
+.hero-cj .cj-ctarow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:16px}
+.hero-cj .cj-cta{display:inline-block;background:#C9A84C;color:#0A1424;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;border-radius:5px;padding:15px 32px;text-decoration:none;transition:background 150ms ease,transform 150ms ease;box-shadow:0 10px 28px rgba(201,168,76,.22)}
+.hero-cj .cj-cta:hover{background:#E0C069;transform:translateY(-1px)}
+.hero-cj .cj-price{font-size:13px;color:#C8D6E8;font-weight:600;line-height:1.4}
+.hero-cj .cj-price b{display:block;color:#fff;font-size:19px;font-weight:800;letter-spacing:-.3px}
+.hero-cj .cj-trust{font-size:11.5px;color:#A8BDD8;letter-spacing:.2px;line-height:1.7}
+.hero-cj .cj-card{background:linear-gradient(165deg,#101F38 0%,#0B1729 100%);border:1px solid #24395A;border-radius:12px;padding:20px 22px 18px;box-shadow:0 26px 60px rgba(0,0,0,.42)}
+.hero-cj .cc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:11px;border-bottom:1px solid #1E3251;margin-bottom:8px}
+.hero-cj .cc-deal{font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#A8BDD8;margin-bottom:5px}
+.hero-cj .cc-name{font-size:14px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.hero-cj .cc-amt{text-align:right;flex-shrink:0}
+.hero-cj .cc-amt .a-v{font-size:14px;font-weight:900;color:#D9BC63;letter-spacing:-.3px;line-height:1}
+.hero-cj .cc-amt .a-l{font-size:8px;color:#A8BDD8;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.hero-cj .cj-row{display:grid;grid-template-columns:70px 1fr 1fr 52px;align-items:center;padding:3px 0}
+.hero-cj .cj-name{font-size:9px;font-weight:700;color:#A8BDD8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:6px}
+.hero-cj .cj-neg{display:flex;justify-content:flex-end;height:9px;border-right:1px solid rgba(255,255,255,.18)}
+.hero-cj .cj-pos{display:flex;justify-content:flex-start;height:9px;border-left:1px solid rgba(255,255,255,.18)}
+.hero-cj .cj-bar-neg{height:9px;border-radius:2px 0 0 2px;background:linear-gradient(90deg,#8E2C25,#E8635A)}
+.hero-cj .cj-bar-pos{height:9px;border-radius:0 2px 2px 0;background:linear-gradient(90deg,#3E7A4F,#5CCB93)}
+.hero-cj .cj-val{font-size:9.5px;font-weight:800;text-align:right;white-space:nowrap}
+.hero-cj .cj-netrow{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid #1E3251}
+.hero-cj .cj-netlbl{font-size:9.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#A8BDD8}
+.hero-cj .cj-netbadge{font-size:11px;font-weight:900;color:#D9BC63;background:rgba(217,188,99,.12);border:1px solid rgba(217,188,99,.3);border-radius:3px;padding:3px 9px}
+.hero-cj .cc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:11px;border-top:1px solid #1E3251}
+.hero-cj .cc-src{font-size:9px;color:#8FA6C4;line-height:1.4;max-width:26ch}
+.hero-cj .cc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:5px 9px;border-radius:3px;background:rgba(217,188,99,.14);color:#D9BC63;border:1px solid rgba(217,188,99,.32);white-space:nowrap}
+@media(max-width:940px){.hero-cj .cj-inner{grid-template-columns:1fr;gap:34px;padding:38px 20px 44px}.hero-cj h1{font-size:31px}.hero-cj .cj-sub{max-width:none}}
+@media(max-width:680px){.hero-cj h1{font-size:25px;letter-spacing:-.5px}.hero-cj .cj-sub{font-size:14px}.hero-cj .cj-cta{display:block;width:100%;text-align:center}.hero-cj .cj-ctarow{gap:12px}.hero-cj .cc-foot{flex-direction:column;align-items:flex-start}}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
+.grid-stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.grid-stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.grid-shots{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
+@media(max-width:820px){.grid-3{grid-template-columns:1fr;gap:16px}.grid-stat3{grid-template-columns:1fr}.grid-stat4{grid-template-columns:1fr 1fr}.grid-shots{grid-template-columns:1fr}}
+@media(max-width:680px){.content-wrap{grid-template-columns:1fr;gap:32px;padding:40px 0}.sidebar{position:static}.audience-grid{grid-template-columns:1fr;gap:16px}.author-wrap{flex-direction:column;align-items:center;text-align:center}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div class="nav-right">
+      <a href="https://hodaelmorshidy.gumroad.com/l/construction-financial-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=construction-financial-model" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $179</a>
+      <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/construction-financial-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=construction-financial-model" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Get the Model &mdash; $179</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-cj">
+  <div class="cj-inner">
+    <div class="cj-copy">
+      <div class="cj-brand">
+        <div class="cj-mark">HF</div>
+        <span class="cj-bname">Hoda Finance</span>
+      </div>
+      <div class="cj-eyebrow">Construction Financial Model</div>
+      <h1>The net says +$25,000. Six of eight jobs say otherwise.</h1>
+      <p class="cj-sub">Riverside and Metro are up a combined $120,000 &mdash; enough to hide that the other six jobs are quietly losing money, down $95,000 combined. <strong>The Dashboard prints both numbers</strong>, because a lender reads the net and a project manager needs to know which six.</p>
+      <div class="cj-ctarow">
+        <a href="https://hodaelmorshidy.gumroad.com/l/construction-financial-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=construction-financial-model" class="cj-cta" target="_blank" rel="noopener noreferrer">Get the Model</a>
+        <div class="cj-price"><b>$179</b>one-time &middot; Excel + Google Sheets</div>
+      </div>
+      <div class="cj-trust"><b>607 formula cells, 0 errors</b> &middot; 14 tabs &middot; 11 built-in integrity checks &middot; same price on every channel</div>
+    </div>
+
+    <div class="cj-card">
+      <div class="cc-top">
+        <div>
+          <div class="cc-deal">Pre-filled worked portfolio</div>
+          <div class="cc-name">Granite Ridge Construction LLC</div>
+        </div>
+        <div class="cc-amt">
+          <div class="a-v">8 jobs</div>
+          <div class="a-l">Active</div>
+        </div>
+      </div>
+      <div class="cj-row"><span class="cj-name">Riverside</span><div class="cj-neg"></div><div class="cj-pos"><div class="cj-bar-pos" style="width:50%"></div></div><span class="cj-val" style="color:#7FDBA8">+$40K</span></div>
+      <div class="cj-row"><span class="cj-name">Oak St</span><div class="cj-neg"><div class="cj-bar-neg" style="width:18.75%;margin-left:auto"></div></div><div class="cj-pos"></div><span class="cj-val" style="color:#F2887F">&minus;$15K</span></div>
+      <div class="cj-row"><span class="cj-name">Metro</span><div class="cj-neg"></div><div class="cj-pos"><div class="cj-bar-pos" style="width:100%"></div></div><span class="cj-val" style="color:#7FDBA8">+$80K</span></div>
+      <div class="cj-row"><span class="cj-name">Downtown</span><div class="cj-neg"><div class="cj-bar-neg" style="width:12.5%;margin-left:auto"></div></div><div class="cj-pos"></div><span class="cj-val" style="color:#F2887F">&minus;$10K</span></div>
+      <div class="cj-row"><span class="cj-name">School Gym</span><div class="cj-neg"><div class="cj-bar-neg" style="width:12.5%;margin-left:auto"></div></div><div class="cj-pos"></div><span class="cj-val" style="color:#F2887F">&minus;$10K</span></div>
+      <div class="cj-row"><span class="cj-name">Medical</span><div class="cj-neg"><div class="cj-bar-neg" style="width:12.5%;margin-left:auto"></div></div><div class="cj-pos"></div><span class="cj-val" style="color:#F2887F">&minus;$10K</span></div>
+      <div class="cj-row"><span class="cj-name">Hillcrest</span><div class="cj-neg"><div class="cj-bar-neg" style="width:25%;margin-left:auto"></div></div><div class="cj-pos"></div><span class="cj-val" style="color:#F2887F">&minus;$20K</span></div>
+      <div class="cj-row"><span class="cj-name">Parking</span><div class="cj-neg"><div class="cj-bar-neg" style="width:37.5%;margin-left:auto"></div></div><div class="cj-pos"></div><span class="cj-val" style="color:#F2887F">&minus;$30K</span></div>
+      <div class="cj-netrow">
+        <span class="cj-netlbl">Est. GP change vs prior</span>
+        <span class="cj-netbadge">+$25,000 net &middot; 6 eroding / 2 improving</span>
+      </div>
+      <div class="cc-foot">
+        <span class="cc-src">Live outputs from the workbook &mdash; not a mockup.</span>
+        <span class="cc-badge">$541K net under-billed</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="padding:0">
+  <div class="container">
+    <div class="content-wrap">
+      <div class="main-col">
+        <h2>Every Free WIP Template Stops at a % Done Bar</h2>
+        <p>This one is built to the standard your bank line of credit and your surety program actually underwrite on: cost-to-cost percentage-of-completion, current-period revenue (not just inception-to-date), an estimate-at-completion that explains gross-profit fade, working capital and bonding capacity, and the four covenant ratios &mdash; current ratio, quick ratio, debt-to-equity, debt-to-tangible-net-worth &mdash; that show up in a real credit agreement.</p>
+        <p>The same portfolio also shows the classic WIP story: Granite Ridge has earned <strong>$7.40M against $6.86M billed</strong> across an $11.27M contract &mdash; a <strong>$541K net under-billed</strong> position, split into a $627K cost-in-excess asset and an $86K billings-in-excess liability. Both stories, the balance-sheet position and the per-job GP erosion, are built from the same eight rows and tie to the cent.</p>
+
+        <div class="price-callout">
+          <span class="pc-num">$179</span>
+          <span class="pc-text">The 14-tab workbook in an Excel edition and a Google Sheets edition, plus a methodology PDF. One price, on every channel, no variants.</span>
+        </div>
+
+        <h3>What You Get &mdash; 14 Tabs</h3>
+        <ul class="feature-list">
+          <li><span class="ck">&#10003;</span> <strong>START HERE / Settings</strong> &mdash; what the model does, quick start, and the company name, overhead rate, markup and retainage settings that drive every other tab.</li>
+          <li><span class="ck">&#10003;</span> <strong>Bid Estimate</strong> &mdash; a cost build-up (materials, labor, equipment, subs, other) through overhead and markup to a bid price, with margin shown after overhead.</li>
+          <li><span class="ck">&#10003;</span> <strong>WIP Schedule</strong> &mdash; cost-to-cost percentage-of-completion across up to 20 jobs: earned vs billed, over/(under) billing, costs and billings in excess, and est. GP change vs prior with an eroding/flat/improving count so the net can't hide which jobs are struggling. Rows you haven't used stay genuinely blank rather than filling with zeros.</li>
+          <li><span class="ck">&#10003;</span> <strong>Progress Billing</strong> &mdash; an AIA-style schedule of values with retainage, feeding the current draw due.</li>
+          <li><span class="ck">&#10003;</span> <strong>Period &amp; EAC</strong> &mdash; THIS period's revenue, cost and GP (not just inception-to-date), plus original-vs-current estimate-at-completion and the variance that explains gross-profit fade.</li>
+          <li><span class="ck">&#10003;</span> <strong>Bonding &amp; WC</strong> &mdash; working capital, aggregate and single-job bonding capacity, and backlog measured against that capacity.</li>
+          <li><span class="ck">&#10003;</span> <strong>Financial Covenants</strong> &mdash; current ratio, quick ratio (contractor-adjusted) and debt-to-tangible-net-worth, each with an OK/WATCH/FLAG status against a typical threshold; debt-to-equity shown for reference.</li>
+          <li><span class="ck">&#10003;</span> <strong>Change Order Log</strong> &mdash; a pending &rarr; approved &rarr; rejected workflow, auto-reconciled against the WIP Schedule's approved COs.</li>
+          <li><span class="ck">&#10003;</span> <strong>Portfolio Trend</strong> &mdash; period-over-period est. GP, so a healthy-looking net can't hide a deteriorating portfolio.</li>
+          <li><span class="ck">&#10003;</span> <strong>Audit Checks</strong> &mdash; eleven integrity checks that run before you send the schedule anywhere.</li>
+          <li><span class="ck">&#10003;</span> <strong>Dashboard</strong> &mdash; backlog, billing position, GP change vs prior, and the current draw at a glance.</li>
+          <li><span class="ck">&#10003;</span> <strong>Bank &amp; Surety Package</strong> &mdash; a one-page cover sheet a banker or bonding agent can open cold, every tile linked to an already-certified cell.</li>
+          <li><span class="ck">&#10003;</span> <strong>AI Prompts</strong> &mdash; 12 ready-to-use commentary prompts, including a covenant-compliance note and a change-order pipeline update.</li>
+        </ul>
+
+        <h3>Built for What a Bank or Surety Actually Underwrites</h3>
+        <p>Most WIP templates stop at percentage-of-completion. This one carries through to the four ratios a real credit agreement tests. In the pre-filled portfolio: current ratio <strong>2.30x</strong> (typical &ge;1.0x GCs / &ge;1.5x subs), contractor-adjusted quick ratio <strong>1.56x</strong> (typical &ge;1.4x, explicitly excluding costs-in-excess and retainage receivable), and debt-to-tangible-net-worth <strong>0.83x</strong> (typical &le;1.5x subs / &le;3.0x GCs) &mdash; each carrying an OK/WATCH/FLAG status against an industry-typical range reported in surety and bank underwriting commentary, with the current-ratio and debt-to-tangible-net-worth bands attributed in the file to CSBA. The fourth ratio, debt-to-equity, is deliberately shown for reference only: no single typical threshold applies to it, so it carries no band and no status. Bonding capacity is sized off working capital: aggregate 15x, single-job 10x, both editable, both disclosed as conventional defaults, not a commitment or guarantee.</p>
+
+        <h3>Eleven Integrity Checks Before You Send It</h3>
+        <p>Uncapped percent-complete, billed-over-contract, a job carried at a loss, a change order that never made it into the log, a duplicate job name silently netting two contracts into one row &mdash; each check is proven to fire by seeding the exact defect on a test copy before shipping, not just written and assumed to work. Formulas are locked on all 14 tabs so the model can't be broken by accident; every blue input cell stays editable, no password. <strong>One honest caveat:</strong> Google Sheets doesn't always carry Excel's sheet protection across on import, so that lock is an Excel guarantee &mdash; in Sheets, go by the blue-is-input, black-is-formula colour convention instead. Every figure calculates identically either way.</p>
+
+        <h3>Arithmetic Only. Excel <em>and</em> Google Sheets.</h3>
+        <p>607 live formulas across 14 tabs, built from SUM, IF, IFERROR, MAX, OR, ABS, COUNT, COUNTIF, SUMIF, SUMPRODUCT and TEXT &mdash; no macros, no 365-only functions. It opens clean in Microsoft Excel and in Google Sheets. Recalculated with a full dependency rebuild: <strong>607 formula cells, 0 errors</strong>, ownership of every headline number traced back to the eight raw job rows.</p>
+      </div>
+
+      <div class="sidebar">
+        <div class="price-lg">$179</div>
+        <div class="price-lbl">Excel edition + Google Sheets edition + methodology PDF</div>
+        <a href="https://hodaelmorshidy.gumroad.com/l/construction-financial-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=construction-financial-model" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $179</a>
+        <ul class="side-bullets">
+          <li><span class="ck">&#10003;</span> 14-tab workbook, 607 formulas</li>
+          <li><span class="ck">&#10003;</span> 20-job WIP schedule, cost/billings in excess</li>
+          <li><span class="ck">&#10003;</span> Bank covenant ratios (current/quick/debt-to-TNW)</li>
+          <li><span class="ck">&#10003;</span> Bonding capacity + backlog</li>
+          <li><span class="ck">&#10003;</span> Change-order log, reconciled</li>
+          <li><span class="ck">&#10003;</span> AIA-style progress billing + retainage</li>
+          <li><span class="ck">&#10003;</span> Eleven built-in integrity checks</li>
+          <li><span class="ck">&#10003;</span> One-page Bank &amp; Surety Package</li>
+        </ul>
+        <div class="side-trust">Instant delivery &middot; Excel + Google Sheets &middot; No macros &middot; No subscription</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">What You&rsquo;ll See Inside</h2>
+    <div class="sep"></div>
+    <div class="grid-shots">
+      <figure style="margin:0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+        <img src="images/construction-wip-schedule.png" alt="WIP Schedule tab in Excel — cost-to-cost percentage-of-completion across 20 job rows with 8 filled, showing earned vs billed, costs and billings in excess with billings-in-excess highlighted amber, and est. GP change vs prior with up and down arrows. Unused rows are blank." style="width:100%;display:block">
+        <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">WIP Schedule &mdash; the sample's 8 jobs footing to $11.27M and a $541,306 net under-billed position, on a 20-row schedule. Unused rows stay blank, not zero.</figcaption>
+      </figure>
+      <figure style="margin:0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+        <img src="images/construction-dashboard.png" alt="Dashboard tab in Excel — net over/under billed, active contract value, remaining backlog, est. gross profit, jobs eroding and jobs improving counters." style="width:100%;display:block">
+        <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">Dashboard &mdash; backlog, billing position, and the eroding/improving counters that keep the net honest.</figcaption>
+      </figure>
+    </div>
+    <figure style="margin:16px 0 0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+      <img src="images/construction-financial-covenants.png" alt="Financial Covenants tab in Excel — current ratio, contractor-adjusted quick ratio, debt-to-equity and debt-to-tangible-net-worth, each with an OK/WATCH/FLAG status." style="width:100%;display:block">
+      <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">Financial Covenants &mdash; the four ratios a real credit agreement tests: three carry a typical threshold and an OK/WATCH/FLAG status, debt-to-equity is shown for reference.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section style="padding:48px 0;background:#FFFFFF">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="sep"></div>
+    <div class="grid-3">
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">1</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Open a Real Portfolio, Fully Built</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">The model opens on Granite Ridge's 8-job portfolio with every tab live. Trace a job from the Bid Estimate through the WIP Schedule, the Change Order Log, and out the other side as a covenant ratio.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">2</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Swap in Your Own Jobs</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Everything you edit lives in blue cells: Settings, each job's contract value and cost, your balance-sheet items on Bonding &amp; WC and Financial Covenants. Every output tab recalculates behind it, and the eleven audit checks run automatically.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">3</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Send the Package</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Print the one-page Bank &amp; Surety Package, or send the whole workbook &mdash; your covenant ratios, bonding capacity and portfolio trend are already built, not assembled the night before a submission is due.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Real Numbers from the Model</h2>
+    <div class="sep"></div>
+    <div class="grid-stat3">
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">Active Contract Value</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">$11.27M</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">Net Under-Billed</div>
+        <div style="font-size:2rem;font-weight:800;color:#B03A2E">$541K</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">Aggregate Bonding Capacity</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">$27.3M</div>
+      </div>
+    </div>
+    <div class="grid-stat4">
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$3.87M</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Remaining backlog</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$1.72M</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Estimated gross profit</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">2.30x</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Current ratio (OK)</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$61,975</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Current draw due</div></div>
+    </div>
+    <p style="font-size:.8125rem;color:var(--body);line-height:1.6;margin-top:20px;max-width:760px">These are outputs from the pre-loaded Granite Ridge Construction LLC portfolio, a fictional contractor built so every figure can be tied out exactly. 66% complete on a blended cost-to-cost basis, $7.40M earned against $6.86M billed, backlog measured against a working-capital-based bonding capacity of $27.3M aggregate / $18.2M single-job. Swap in your own jobs and balance-sheet items and every figure here recalculates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Who This Is For</h2>
+    <div class="sep"></div>
+    <div class="audience-grid">
+      <div class="audience-col is-for">
+        <h3>IS FOR</h3>
+        <ul>
+          <li><span class="ck">&#10003;</span> Contractors who have been asked for a WIP schedule by a bank or bonding agent</li>
+          <li><span class="ck">&#10003;</span> Controllers and office managers preparing a bank or surety renewal package</li>
+          <li><span class="ck">&#10003;</span> Contractors tracking bonding capacity against a growing backlog</li>
+          <li><span class="ck">&#10003;</span> Anyone who needs a portfolio view that can't be flattered by one or two big jobs</li>
+          <li><span class="ck">&#10003;</span> Google Sheets users &mdash; fully supported, not an afterthought</li>
+        </ul>
+      </div>
+      <div class="audience-col not-for">
+        <h3>IS NOT FOR</h3>
+        <ul>
+          <li><span class="cross">&#10007;</span> Contractors who have never been asked for a WIP schedule &mdash; a free % done sheet may be all you need</li>
+          <li><span class="cross">&#10007;</span> Anyone wanting their exact loan or bond covenants &mdash; thresholds shown are typical industry ranges, not your agreement</li>
+          <li><span class="cross">&#10007;</span> Full company financial statements &mdash; balance-sheet items are inputs, not linked 3-statement outputs</li>
+          <li><span class="cross">&#10007;</span> Anyone wanting ongoing updates &mdash; one-time purchase, lifetime use, not a subscription</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Built by a Practitioner</h2>
+    <div class="sep"></div>
+    <div class="author-wrap">
+      <img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO">
+      <div class="author-info">
+        <h3>Hoda Elmorshidy</h3>
+        <div class="author-title">Fractional CFO | Financial Controller | Quantitative Analysis | 9+ Years</div>
+        <div class="author-bio">
+          <p>Financial Controller and Fractional CFO with 9+ years leading finance functions across commodity trading, real estate, hospitality, and professional services. This model was built the way a bank or surety package gets checked before it goes out the door &mdash; eleven integrity checks proven to fire by seeding the exact defect they're meant to catch, not written and assumed to work.</p>
+          <p>That is also why the Dashboard prints the eroding/improving job count next to the net GP change instead of just the number that nets out fine, and why the covenant thresholds are sourced to underwriting commentary and labelled "typical," not presented as your actual loan terms. Every formula is locked so the model can't be broken by accident; every input stays editable.</p>
+          <p style="margin-top:12px"><a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600;font-size:.875rem">Connect on LinkedIn &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="container">
+    <div class="pricing-content">
+      <h2 class="section-title">One Price. Every Channel.</h2>
+      <div class="sep" style="background:var(--cta)"></div>
+      <p class="pricing-sub">Everything included for a single $179. No variants, no upgrade prompts, no subscription.</p>
+      <div class="why-price">
+        <h3>Why $179?</h3>
+        <p>The $20 WIP sheets stop at a percent-done bar. This carries cost-to-cost percentage-of-completion through to the two things a bank and a surety actually decide on &mdash; your covenant ratios and your working-capital bonding capacity &mdash; with the contract-asset/liability accounting a CPA expects, all reconciled and audit-checked. To be straight about it: $179 sits <em>above</em> the established price for a single construction model, not at it. It's a premium asked for depth and for the fact that all 607 formulas have been independently recomputed &mdash; and it's the same $179 on every channel, deliberately, so there's no cheaper copy of the same file to find elsewhere.</p>
+      </div>
+      <div class="tier-grid" style="grid-template-columns:1fr;max-width:460px;margin:0 auto 32px">
+        <div class="tier-card featured">
+          <div class="tier-badge">Complete Model</div>
+          <div class="tier-price">$179</div>
+          <div class="tier-note">Excel edition + Google Sheets edition + methodology PDF</div>
+          <ul>
+            <li>14-tab workbook, 607 live formulas</li>
+            <li>20-job WIP schedule, cost/billings in excess</li>
+            <li>Four covenant ratios &mdash; three thresholded, debt-to-equity for reference</li>
+            <li>Working capital + bonding capacity</li>
+            <li>Change-order log, reconciled to the schedule</li>
+            <li>AIA-style progress billing + retainage</li>
+            <li>Eleven built-in integrity checks</li>
+            <li>No macros, no 365-only functions</li>
+          </ul>
+          <a href="https://hodaelmorshidy.gumroad.com/l/construction-financial-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=construction-financial-model" class="tier-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $179</a>
+        </div>
+      </div>
+      <p class="pricing-trust">Instant delivery &middot; Excel and Google Sheets &middot; Single-user license &middot; No subscription</p>
+      <a href="/" class="home-link">&larr; Back to all tools</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="sep"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Why $179 when there are $20 WIP templates?</h3>
+        <p>The $20 sheets stop at a percent-done bar. This carries cost-to-cost percentage-of-completion through to the two things a bank and a surety actually decide on &mdash; your covenant ratios and your working-capital bonding capacity &mdash; with the contract-asset/liability accounting a CPA expects, all reconciled and audit-checked. $179 is deliberately above the going rate for a single construction model, not at it: it is a premium asked for depth and for the fact that every formula has been independently recomputed, and the same $179 applies on every channel.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Isn't this overkill for a small contractor?</h3>
+        <p>If you have never been asked for a WIP schedule by a bank or bonding agent, it probably is. If you have, this is what they actually want to see, in the format they check it in.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Are the covenant thresholds MY actual loan covenants?</h3>
+        <p>No, and the file says so twice. They are typical industry ranges, cited to surety underwriting commentary, not your specific loan or bond agreement. Confirm your real numbers with your bank or surety before relying on the status shown.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if I overwrite a formula?</h3>
+        <p>In Excel you can't by accident: every calculated cell is locked on all 14 tabs, every input stays blue and editable, and there is no password &mdash; use Review &#9656; Unprotect Sheet if you want to change the structure. One honest caveat: Google Sheets does not always carry Excel's sheet protection across on import, so treat that lock as an Excel guarantee. In Sheets, go by the blue-is-input, black-is-formula colour convention instead. Everything calculates identically either way.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does it work in Excel and Google Sheets?</h3>
+        <p>Yes. Arithmetic and lookup functions only &mdash; SUM, IF, IFERROR, MAX, OR, ABS, COUNT, COUNTIF, SUMIF, SUMPRODUCT, TEXT &mdash; with no macros and no 365-only functions. The workbook is arithmetic-only by construction, so a single file serves both: the Excel and Google Sheets downloads are the same workbook. The one difference to expect in Sheets is sheet protection, which may not carry across on import.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:720px;margin:0 auto">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The Construction Financial Model by Hoda Finance is a 14-tab workbook in Excel and Google Sheets, priced at $179 one-time on every channel. Tabs: START HERE, Settings, Bid Estimate, WIP Schedule, Progress Billing, Period &amp; EAC, Bonding &amp; WC, Financial Covenants, Change Order Log, Portfolio Trend, Audit Checks, Dashboard, Bank &amp; Surety Package, AI Prompts. It builds a cost-to-cost percentage-of-completion WIP schedule with contract asset/liability accounting, current-period revenue and estimate-at-completion analysis, working capital and bonding capacity, and the four covenant ratios a real credit agreement tests. Pre-filled with the Granite Ridge Construction LLC worked portfolio: bid $251,811 at 13.0% margin after overhead, $11.27M active contract value across 8 of a possible 20 job rows (66% complete), earned $7.40M vs billed $6.86M &mdash; a $541,306 net under-billed position ($627,306 costs-in-excess asset, $86,000 billings-in-excess liability), estimated gross profit $1.72M with a net change of +$25,000 vs prior masking 6 of 8 jobs eroding and only 2 improving, remaining backlog $3.87M, current draw due $61,975, current ratio 2.30x, contractor-adjusted quick ratio 1.56x, debt-to-tangible-net-worth 0.83x, and aggregate bonding capacity of $27.3M (15x working capital) against a $18.2M single-job capacity (10x). 607 formulas, 0 error cells, eleven built-in integrity checks each proven to fire by seeding its defect. Arithmetic only &mdash; SUM, IF, IFERROR, MAX, OR, ABS, COUNT, COUNTIF, SUMIF, SUMPRODUCT, TEXT &mdash; no macros, no 365-only functions, compatible with Microsoft Excel and Google Sheets. Includes the workbook as an Excel download and a Google Sheets download (the same arithmetic-only file serves both), plus a methodology PDF. Built by Hoda Elmorshidy, Financial Controller and Fractional CFO. Covenant and bonding figures are indicative industry-typical ranges, not a commitment, quote, or guarantee of credit or bonding; sample data is fictional; "AIA-style" refers to the schedule-of-values format only and is not affiliated with the AIA.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Hoda Finance</div>
+  <div class="foot-links">
+    <a href="/">All Tools</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/construction-financial-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=construction-financial-model" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+    <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+  <p class="foot-disclaimer">Educational template; verify all figures before use in any decision. Not accounting, tax, or legal advice. Bonding and covenant figures are indicative industry-typical ranges &mdash; not a commitment, quote, or guarantee of bonding or credit. Percentage-of-completion outputs depend on the accuracy of your estimated total cost (IFRS 15.B19 / ASC 606-10-55-21). "AIA-style" refers to the schedule-of-values format only &mdash; not an official AIA form and not affiliated with the American Institute of Architects. Sample data ("Granite Ridge Construction LLC" and all figures) is fictional.</p>
+  <p class="foot-tag">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;text-align:center">
+  <div class="container">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#616F87;margin-bottom:14px">Related</p>
+    <a href="/cfo-board-reporting-system" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#8A6D1F;font-weight:600">CFO Board Reporting System &mdash; $97</a>
+    <a href="/fpa-variance-forecast-toolkit" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#8A6D1F;font-weight:600">FP&amp;A Variance &amp; Forecast Toolkit</a>
+    <a href="/dcf-valuation-model-excel" style="display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#8A6D1F;font-weight:600">Institutional-Grade DCF Model &mdash; $97</a>
+  </div>
+</section>
+
+<div class="buybar">
+  <div class="bb-p">$179<span>One-time &middot; instant</span></div>
+  <a href="https://hodaelmorshidy.gumroad.com/l/construction-financial-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=construction-financial-model" target="_blank" rel="noopener noreferrer">Get the Model</a>
+</div>
+<script src="/subscribe.js" type="text/javascript"></script>
+</body>
+</html>
