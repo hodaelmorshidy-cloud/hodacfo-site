@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Project Finance Model &mdash; DSCR Sculpting | Hoda Finance</title>
+  <meta name="description" content="Lender-grade solar project finance model in Excel: DSCR-sculpted debt, gearing cap, LLCR/PLCR, DSRA, covenant testing, LP/GP waterfall. Cross-lab verified.">
+  <link rel="canonical" href="https://hodacfo.com/solar-project-finance-model-excel">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Solar Project Finance Model &mdash; DSCR Sculpting, LLCR/PLCR, DSRA &amp; Covenant Testing">
+  <meta property="og:description" content="22-tab lender-grade solar project finance model. DSCR-sculpted senior debt with a gearing cap, LLCR/PLCR, DSRA, covenant testing, LP/GP promote waterfall, P50-P99 yield. Cross-lab verified. $479.">
+  <meta property="og:image" content="https://hodacfo.com/images/solar-project-finance-model-og.png">
+  <meta property="og:image:alt" content="Solar Project Finance Model — DSCR sculpting, debt schedule and covenant testing in Excel — Hoda Finance">
+  <meta property="og:site_name" content="Hoda Finance">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://hodacfo.com/solar-project-finance-model-excel">
+  <meta name="twitter:card" content="summary_large_image">
+  <script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Solar Project Finance Model",
+  "description": "22-tab lender-grade single-asset solar project finance model in Excel: DSCR-sculpted senior debt with a gearing cap on hard capex, LLCR and PLCR, a construction period with capitalized IDC, a funded DSRA, DSCR covenant testing (lock-up, cure, event of default), an LP/GP promote waterfall, depreciation (straight-line, declining-balance, custom or optional MACRS) with an optional NOL, a post-PPA merchant tail, analytic P50-P99 yield, nominal and real LCOE, and two native two-variable Data Tables plus a driver tornado. Five optional modules ship switched off: US MACRS, an investment tax credit, a tax-equity partnership flip, battery storage, and mezzanine debt with senior refinancing. Pre-filled with a fictional 100 MW worked deal, every default calibrated to published LBNL and Lazard data. Every one of the 13,951 formulas is independently re-derived in a separate engine, and the release passed an adversarial cross-lab review that rebuilt the model blind from raw inputs. 22 tabs, 13,951 live formulas, 142 named ranges, 7 charts, 0 unintended error values (14 cells are by-design #N/A chart-breaks past the 18-year debt tenor, documented in README_FIRST.txt), no circular references, no macros. Microsoft Excel only (native Data Tables) — not Google Sheets. Includes a Deal Book, an IC Walkthrough, a Lender Pack, a Methodology PDF and an AI Prompt Pack. $479 one-time. Built by a Financial Controller and Fractional CFO.",
+  "brand": {"@type": "Brand", "name": "Hoda Finance"},
+  "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "knowsAbout": ["Project finance", "Renewable energy finance", "Debt sizing", "DSCR sculpting", "Financial modeling", "Corporate finance"]},
+  "image": "https://hodacfo.com/images/solar-project-finance-model-og.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Solar Project Finance Model — Excel workbook + 5 PDF companions",
+      "price": 479,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "url": "https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=solar-project-finance",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"},
+        "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"},
+          "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}
+        }
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Does it work in Google Sheets?", "acceptedAnswer": {"@type": "Answer", "text": "No — this is the one hard incompatibility. The two sensitivity grids are native Excel two-variable Data Tables, which Sheets cannot compute. Import it and those grids arrive as static numbers that no longer respond to your inputs. Requires Microsoft Excel 2019, 2021 or 365, Windows or Mac."}},
+    {"@type": "Question", "name": "Can I break it?", "acceptedAnswer": {"@type": "Answer", "text": "You can change any input; you cannot silently break the arithmetic. Every input carries a validation bound, formula cells are locked (no password — Review > Unprotect Sheet if you want it off), and the Checks tab is a live integrity roll-up. Push the deal somewhere it cannot compute — a zero PPA price, say — and the debt floors at zero and coverage reads \"n/a\" instead of cascading errors."}},
+    {"@type": "Question", "name": "Does it do MACRS, the ITC or bonus depreciation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — US MACRS and the investment tax credit ship as optional modules, switched off by default so the base case stays jurisdiction-neutral. MACRS uses the IRS Publication 946 Table A-1 half-year-convention percentages at a selectable recovery class; the ITC computes the credit on eligible basis, applies the 50% basis reduction, and either offsets federal tax or monetises by transfer at a price you set. The PTC is not implemented, and bonus depreciation has no dedicated switch. Not tax advice — verify current credit rules against IRS guidance before relying on them."}},
+    {"@type": "Question", "name": "Is it really free of circular references?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Construction interest is capitalized without an iterative loop, and the file needs no iterative-calculation setting. Confirm it yourself: Formulas > Error Checking > Circular References is empty."}},
+    {"@type": "Question", "name": "How do I know the file I downloaded is the file that was released?", "acceptedAnswer": {"@type": "Answer", "text": "SHA256SUMS.txt ships inside the download with a checksum for every other file. On macOS, Linux or WSL run sha256sum -c SHA256SUMS.txt — the PowerShell equivalent is in the file's own header. The workbook's hash is also printed in the footer of every PDF, so the sources agree independently."}},
+    {"@type": "Question", "name": "Why $479 when there are $149 solar models?", "acceptedAnswer": {"@type": "Answer", "text": "Because of what the number has to survive. The shipped base case sizes $120.75M of senior debt against a $161M asset, and every headline in the model is independently re-derived twice before release — including an adversarial cross-lab review by a different AI lab, instructed to break the model rather than agree with it. For a screening case, a cheaper model is the right tool. For a number that goes in front of a credit committee, that difference is what you are buying. Dedicated PVsyst/HOMER Pro software runs $876-$1,575 per seat per year, and solar models list up to $495 on the major template marketplaces — $479 is a one-time purchase, below all three."}}
+  ]
+}
+</script>
+  <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--ice:#F7F8FB;--white:#FFFFFF;--dark-text:#1B2A4A;--body:#4A5A72;--border:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--body);background:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased}img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}nav{background:var(--white);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}nav .container{display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--cta);color:#0F1D32;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;box-shadow:0 2px 8px rgba(197,155,39,0.25)}.nav-cta:hover{background:var(--cta-hover)}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-link{font-size:.875rem;color:var(--body);font-weight:500}.nav-link:hover{color:var(--navy)}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--navy)}.hamburger svg{display:block}.nav-overlay{display:none}@media(max-width:680px){.nav-right .nav-cta{display:none}.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--white);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:var(--body)}.nav-overlay .nav-link:hover{color:var(--navy)}.nav-overlay .nav-cta{text-align:center}}
+.content-wrap{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;padding:60px 0}.main-col h2{font-size:1.75rem;font-weight:700;margin-bottom:16px;color:var(--navy)}.main-col h3{font-size:1.125rem;font-weight:700;margin-bottom:12px;color:var(--navy);margin-top:32px}.main-col p{font-size:.95rem;color:var(--body);line-height:1.7;margin-bottom:20px}.feature-list{list-style:none;margin:12px 0 20px}.feature-list li{font-size:.9rem;color:var(--body);line-height:1.7;margin-bottom:8px;padding-left:24px;position:relative}.feature-list li .ck{position:absolute;left:0;top:0;color:#8A6D1F;font-weight:700}.price-callout{background:var(--ice);border-radius:var(--card-radius);padding:20px 24px;display:flex;align-items:center;gap:20px;margin:24px 0;border:1px solid var(--border)}.price-callout .pc-num{font-size:2rem;font-weight:800;color:var(--navy);white-space:nowrap;letter-spacing:-1px}.price-callout .pc-text{font-size:.875rem;color:var(--body);line-height:1.6}.sidebar{position:sticky;top:90px}.sidebar .price-lg{font-size:2.75rem;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1}.sidebar .price-lbl{font-size:.8125rem;color:var(--body);margin-bottom:20px}.sidebar .cta-button{display:block;width:100%;background:var(--cta);color:#0F1D32;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 20px;border-radius:4px;text-align:center;transition:background .15s;box-shadow:0 4px 16px rgba(197,155,39,0.3)}.sidebar .cta-button:hover{background:var(--cta-hover)}.side-bullets{list-style:none;margin:20px 0}.side-bullets li{font-size:.85rem;color:var(--body);margin-bottom:8px;padding-left:20px;position:relative}.side-bullets li .ck{position:absolute;left:0;color:#8A6D1F;font-weight:700}.side-trust{font-size:.75rem;color:var(--body);border-top:1px solid var(--border);padding-top:16px;margin-top:16px}.section-title{font-size:1.5rem;font-weight:700;color:var(--navy);text-align:center;margin-bottom:8px;letter-spacing:-.3px}.sep{width:48px;height:3px;background:var(--accent);margin:0 auto 32px;border-radius:2px}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto}.audience-col{background:var(--ice);padding:28px;border-radius:var(--card-radius);border:1px solid var(--border)}.audience-col h3{font-size:.75rem;font-weight:700;letter-spacing:1.5px;margin-bottom:16px}.audience-col.is-for h3{color:#8A6D1F}.audience-col.not-for h3{color:#B84A4A}.audience-col ul{list-style:none}.audience-col ul li{font-size:.875rem;color:var(--body);margin-bottom:8px;line-height:1.5}.audience-col ul li .ck{color:#8A6D1F;font-weight:700}.audience-col ul li .cross{color:#B84A4A;font-weight:700}
+.section-ice{background:var(--ice);padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.author-wrap{display:flex;gap:32px;max-width:800px;margin:0 auto;align-items:start}.author-wrap img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0}.author-info h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:4px}.author-info .author-title{font-size:.8125rem;color:#8A6D1F;font-weight:600;margin-bottom:16px}.author-info .author-bio p{font-size:.875rem;color:var(--body);line-height:1.8;margin-bottom:12px}
+.pricing-section{background:var(--white);padding:60px 0;text-align:center}.pricing-content{max-width:780px;margin:0 auto}.pricing-content .pricing-sub{font-size:1rem;color:var(--body);margin-bottom:32px}.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}.tier-card{background:var(--ice);border:1px solid var(--border);border-radius:var(--card-radius);padding:24px;text-align:center;position:relative}.tier-card.featured{border-color:var(--accent);background:#FEFBF3}.tier-card .tier-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8A6D1F;margin-bottom:8px}.tier-card .tier-price{font-size:2.25rem;font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px}.tier-card .tier-note{font-size:.75rem;color:var(--body);margin-bottom:16px}.tier-card ul{list-style:none;text-align:left;margin-bottom:20px}.tier-card ul li{font-size:.8125rem;color:var(--body);margin-bottom:6px;padding-left:16px;position:relative}.tier-card ul li::before{content:'\2713';position:absolute;left:0;color:#8A6D1F;font-weight:700}.tier-card .tier-cta{display:block;background:var(--navy);color:#fff;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:11px 20px;border-radius:4px;transition:background .15s}.tier-card.featured .tier-cta{background:var(--cta);color:#0F1D32}.tier-card .tier-cta:hover{opacity:.85}.why-price{background:var(--ice);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--card-radius);padding:22px 26px;text-align:left;margin:0 auto 32px;max-width:620px}.why-price h3{font-size:.9375rem;font-weight:700;color:var(--navy);margin-bottom:8px}.why-price p{font-size:.875rem;color:var(--body);line-height:1.7;margin:0}.buybar{display:none}@media(max-width:680px){.buybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:200;align-items:center;justify-content:space-between;gap:12px;background:#0F1D32;border-top:2px solid var(--cta);padding:10px 14px;box-shadow:0 -6px 22px rgba(0,0,0,.28)}.buybar .bb-p{color:#fff;font-size:1.05rem;font-weight:800;line-height:1.15}.buybar .bb-p span{display:block;font-size:.625rem;font-weight:600;color:#A8BDD8;text-transform:uppercase;letter-spacing:.8px}.buybar a{background:var(--cta);color:#0A1424;font-size:.8125rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:12px 20px;border-radius:4px;white-space:nowrap}body{padding-bottom:64px}}.pricing-trust{font-size:.8125rem;color:var(--body);margin-bottom:24px}.home-link{font-size:.875rem;color:#8A6D1F;font-weight:600}.home-link:hover{color:var(--navy)}@media(max-width:680px){.tier-grid{grid-template-columns:1fr}}
+.faq-list{max-width:700px;margin:0 auto}.faq-item{margin-bottom:24px}.faq-item h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}.faq-item p{font-size:.9rem;color:var(--body);line-height:1.7}
+footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{font-size:1rem;font-weight:700;color:var(--white)}.foot-links{margin:12px 0}.foot-links a{color:#C8D6E8;font-size:.8125rem;margin:0 12px}.foot-links a:hover{color:var(--white)}.foot-disclaimer{font-size:.6875rem;color:#8C9CC0;max-width:640px;margin:0 auto 16px;line-height:1.5}.foot-tag{font-size:.75rem;color:#A8B6CE}
+.hero-spf{position:relative;overflow:hidden;background:#1F3551;border-bottom:1px solid #16273E;font-family:system-ui,-apple-system,sans-serif}
+.hero-spf::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#C9A84C 0%,#E4CE86 50%,#C9A84C 100%);z-index:5}
+.hero-spf::after{content:'';position:absolute;inset:0;background:radial-gradient(50% 55% at 78% 35%,rgba(201,168,76,.13) 0%,rgba(201,168,76,0) 70%);pointer-events:none}
+.hero-spf .spf-inner{max-width:1160px;margin:0 auto;padding:44px 28px 52px;position:relative;z-index:2;display:grid;grid-template-columns:1.02fr 1fr;gap:52px;align-items:center}
+.hero-spf .spf-brand{display:flex;align-items:center;gap:9px;margin-bottom:18px}
+.hero-spf .spf-mark{width:30px;height:30px;border:2px solid #C9A84C;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:#fff}
+.hero-spf .spf-bname{font-weight:700;font-size:11px;color:#A8BDD8;letter-spacing:1.5px;text-transform:uppercase}
+.hero-spf .spf-eyebrow{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:#0A1424;background:#D9BC63;border-radius:3px;padding:5px 10px;margin-bottom:18px}
+.hero-spf h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:41px;line-height:1.1;letter-spacing:-1px;color:#fff;margin:0 0 18px}
+.hero-spf h1 .hl{color:#D9BC63}
+.hero-spf .spf-sub{font-size:15px;line-height:1.65;color:#C8D6E8;max-width:48ch;margin:0 0 26px}
+.hero-spf .spf-sub strong{color:#fff;font-weight:600}
+.hero-spf .spf-ctarow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:16px}
+.hero-spf .spf-cta{display:inline-block;background:#C9A84C;color:#0A1424;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;border-radius:5px;padding:15px 32px;text-decoration:none;transition:background 150ms ease,transform 150ms ease;box-shadow:0 10px 28px rgba(201,168,76,.22)}
+.hero-spf .spf-cta:hover{background:#E0C069;transform:translateY(-1px)}
+.hero-spf .spf-price{font-size:13px;color:#C8D6E8;font-weight:600;line-height:1.4}
+.hero-spf .spf-price b{display:block;color:#fff;font-size:19px;font-weight:800;letter-spacing:-.3px}
+.hero-spf .spf-trust{font-size:11.5px;color:#A8BDD8;letter-spacing:.2px;line-height:1.7}
+.hero-spf .spf-trust b{color:#5CCB93;font-weight:700}
+.hero-spf .spf-card{background:linear-gradient(165deg,#28456D 0%,#1A2F4C 100%);border:1px solid #345580;border-radius:12px;padding:20px 22px 18px;box-shadow:0 26px 60px rgba(0,0,0,.42)}
+.hero-spf .sc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:13px;border-bottom:1px solid #33507A;margin-bottom:15px}
+.hero-spf .sc-deal{font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#A8BDD8;margin-bottom:5px}
+.hero-spf .sc-name{font-size:14.5px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.hero-spf .sc-amt{text-align:right;flex-shrink:0}
+.hero-spf .sc-amt .a-v{font-size:20px;font-weight:900;color:#D9BC63;letter-spacing:-.6px;line-height:1}
+.hero-spf .sc-amt .a-l{font-size:8.5px;color:#A8BDD8;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.hero-spf .sc-rows{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+.hero-spf .sc-row-lbl{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.hero-spf .sc-row-lbl .rl-t{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#C8D6E8}
+.hero-spf .sc-row-lbl .rl-v{font-size:12.5px;font-weight:800;color:#fff}
+.hero-spf .sc-bar-track{background:rgba(255,255,255,.08);border-radius:3px;height:11px;overflow:hidden}
+.hero-spf .sc-bar{height:100%;border-radius:3px;display:block}
+.hero-spf .sc-bar-sculpt{background:linear-gradient(90deg,#4A6690 0%,#7793BC 100%)}
+.hero-spf .sc-bar-cap{background:linear-gradient(90deg,#8A6D1F 0%,#D9BC63 100%)}
+.hero-spf .sc-sec-lbl{font-size:9px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:#A8BDD8;margin-bottom:9px}
+.hero-spf .sc-irr-rows{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #33507A}
+.hero-spf .sc-irr-row{display:grid;grid-template-columns:128px 1fr 40px;gap:7px;align-items:center}
+.hero-spf .sc-irr-lbl{font-size:9px;font-weight:700;color:#DCE6F2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-spf .sc-irr-track{height:9px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.hero-spf .sc-irr-bar{height:100%;border-radius:2px;display:block}
+.hero-spf .sc-irr-bar.unlevered{background:linear-gradient(90deg,#4A6690 0%,#7793BC 100%)}
+.hero-spf .sc-irr-bar.levered{background:linear-gradient(90deg,#8A6D1F 0%,#D9BC63 100%)}
+.hero-spf .sc-irr-v{font-size:10px;font-weight:800;color:#fff;text-align:right}
+.hero-spf .sc-dscr{border-top:1px solid #33507A;padding-top:14px}
+.hero-spf .sc-dlabel{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:9px}
+.hero-spf .sc-dlabel .d-t{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#A8BDD8}
+.hero-spf .sc-dlabel .d-v{font-size:11px;font-weight:800;color:#fff}
+.hero-spf .sc-dlabel .d-v em{color:#5CCB93;font-style:normal}
+.hero-spf .sc-spark{display:grid;grid-template-columns:repeat(18,1fr);gap:2px;align-items:end;height:34px;position:relative}
+.hero-spf .sp{background:linear-gradient(180deg,#E0C069 0%,#7A5F19 100%);border-radius:2px 2px 0 0;display:block}
+.hero-spf .sc-covline{position:absolute;left:0;right:0;bottom:20%;border-top:2px dashed rgba(232,99,90,.65)}
+.hero-spf .sc-yr{display:flex;justify-content:space-between;font-size:8px;color:#A8BDD8;margin-top:4px;letter-spacing:.3px}
+.hero-spf .sc-stats3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0 0;padding-top:14px;border-top:1px solid #33507A}
+.hero-spf .sc-stat{text-align:center}
+.hero-spf .sc-stat .s-v{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.hero-spf .sc-stat .s-v.gold{color:#D9BC63}
+.hero-spf .sc-stat .s-l{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#A8BDD8;margin-top:3px}
+.hero-spf .sc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid #33507A}
+.hero-spf .sc-src{font-size:9.5px;color:#C8D6E8;line-height:1.45;max-width:30ch}
+.hero-spf .sc-badge{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;padding:5px 10px;border-radius:3px;background:#1B4332;color:#95D5B2;border:1px solid #2E6B4C;white-space:nowrap}
+@media(max-width:940px){.hero-spf .spf-inner{grid-template-columns:1fr;gap:34px;padding:38px 20px 44px}.hero-spf h1{font-size:34px}.hero-spf .spf-sub{max-width:none}}
+@media(max-width:680px){.hero-spf h1{font-size:27px;letter-spacing:-.6px}.hero-spf .spf-sub{font-size:14px}.hero-spf .spf-cta{display:block;width:100%;text-align:center}.hero-spf .spf-ctarow{gap:12px}.hero-spf .sc-foot{flex-direction:column;align-items:flex-start}}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
+.grid-stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.grid-stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.grid-shots{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
+@media(max-width:820px){.grid-3{grid-template-columns:1fr;gap:16px}.grid-stat3{grid-template-columns:1fr}.grid-stat4{grid-template-columns:1fr 1fr}.grid-shots{grid-template-columns:1fr}}
+@media(max-width:680px){.content-wrap{grid-template-columns:1fr;gap:32px;padding:40px 0}.sidebar{position:static}.audience-grid{grid-template-columns:1fr;gap:16px}.author-wrap{flex-direction:column;align-items:center;text-align:center}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div class="nav-right">
+      <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=solar-project-finance" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $479</a>
+      <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=solar-project-finance" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Get the Model &mdash; $479</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-spf">
+  <div class="spf-inner">
+    <div class="spf-copy">
+      <div class="spf-brand">
+        <div class="spf-mark">HF</div>
+        <span class="spf-bname">Hoda Finance</span>
+      </div>
+      <div class="spf-eyebrow">Solar Project Finance Model</div>
+      <h1>Sculpted the debt to 1.40x DSCR.<br>Shipped a minimum of <span class="hl">1.56x</span>.</h1>
+      <p class="spf-sub">The 75% gearing cap bound before the covenant did &mdash; <strong>$134.97M of sculpted debt, capped to $120.75M</strong>. That is the model's own constraint doing its job, on a real worked deal with every input cited.</p>
+      <div class="spf-ctarow">
+        <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=solar-project-finance" class="spf-cta" target="_blank" rel="noopener noreferrer">Get the Model</a>
+        <div class="spf-price"><b>$479</b>one-time &middot; Excel only</div>
+      </div>
+      <div class="spf-trust"><b>13,951 formula cells, 0 unintended errors</b> (14 by-design #N/A chart-breaks) &middot; adversarial cross-lab review passed &middot; no circular references &middot; no macros</div>
+    </div>
+
+    <div class="spf-card">
+      <div class="sc-top">
+        <div>
+          <div class="sc-deal">Pre-filled worked deal</div>
+          <div class="sc-name">Bidayat Hayat Solar 100</div>
+        </div>
+        <div class="sc-amt">
+          <div class="a-v">75.0%</div>
+          <div class="a-l">Gearing</div>
+        </div>
+      </div>
+      <div class="sc-rows">
+        <div>
+          <div class="sc-row-lbl"><span class="rl-t">Sculpted debt (to 1.40x DSCR)</span><span class="rl-v">$134.97M</span></div>
+          <div class="sc-bar-track"><div class="sc-bar sc-bar-sculpt" style="width:100%"></div></div>
+        </div>
+        <div>
+          <div class="sc-row-lbl"><span class="rl-t">Capped senior debt (75% gearing)</span><span class="rl-v">$120.75M</span></div>
+          <div class="sc-bar-track"><div class="sc-bar sc-bar-cap" style="width:89.5%"></div></div>
+        </div>
+      </div>
+      <div class="sc-sec-lbl">What the leverage buys the equity</div>
+      <div class="sc-irr-rows">
+        <div class="sc-irr-row"><span class="sc-irr-lbl">Project IRR (unlevered)</span><div class="sc-irr-track"><div class="sc-irr-bar unlevered" style="width:57%"></div></div><span class="sc-irr-v">8.31%</span></div>
+        <div class="sc-irr-row"><span class="sc-irr-lbl">Equity IRR (levered)</span><div class="sc-irr-track"><div class="sc-irr-bar levered" style="width:100%"></div></div><span class="sc-irr-v">14.59%</span></div>
+      </div>
+      <div class="sc-dscr">
+        <div class="sc-dlabel">
+          <span class="d-t">DSCR path, 18-yr tenor</span>
+          <span class="d-v">min <em>1.56x</em> vs 1.20x covenant</span>
+        </div>
+        <div class="sc-spark">
+          <div class="sc-covline"></div>
+          <div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div>
+          <div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div>
+          <div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div><div class="sp" style="height:88%"></div>
+        </div>
+        <div class="sc-yr"><span>Y1</span><span>Y18 (debt retires)</span></div>
+      </div>
+      <div class="sc-stats3">
+        <div class="sc-stat"><div class="s-v gold">1.88x</div><div class="s-l">Min PLCR</div></div>
+        <div class="sc-stat"><div class="s-v gold">5.16x</div><div class="s-l">Equity multiple</div></div>
+        <div class="sc-stat"><div class="s-v">$56.89</div><div class="s-l">Real LCOE /MWh</div></div>
+      </div>
+      <div class="sc-foot">
+        <span class="sc-src">Live outputs from the workbook &mdash; not a mockup. Swap the Assumptions tab for your own deal.</span>
+        <span class="sc-badge">&#9650; Gearing cap binds</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="padding:0">
+  <div class="container">
+    <div class="content-wrap">
+      <div class="main-col">
+        <h2>The Debt Number Depends on a Chain, Not a Cell</h2>
+        <p>Sculpt the debt to a target DSCR. Cap it at maximum gearing. Fund construction interest without creating a circular reference. Hold a reserve. Test the covenant every period. Get one link wrong and the model still balances &mdash; it is just wrong in the sponsor's favour, and the equity margin can sit entirely inside a resource assumption nobody stress-tested.</p>
+        <p>On the pre-filled worked deal, sculpting to a 1.40x DSCR wants <strong>$134.97M</strong> of debt. The 75% gearing cap binds first, so the model sizes <strong>$120.75M</strong> and the minimum DSCR comes out at <strong>1.56x</strong> rather than the 1.40x target &mdash; the cap doing its job, and you can watch it happen by moving the gearing input.</p>
+
+        <div class="price-callout">
+          <span class="pc-num">$479</span>
+          <span class="pc-text">The 22-tab workbook plus a Deal Book, IC Walkthrough, Lender Pack, Methodology PDF and AI Prompt Pack. One price, no variants, no subscription.</span>
+        </div>
+
+        <h3>What You Get &mdash; 22 Tabs</h3>
+        <ul class="feature-list">
+          <li><span class="ck">&#10003;</span> <strong>Debt Schedule</strong> &mdash; DSCR sculpting, the gearing cap, amortisation, LLCR and PLCR.</li>
+          <li><span class="ck">&#10003;</span> <strong>Construction</strong> &mdash; monthly drawdown with interest during construction capitalised into capex, no circular reference.</li>
+          <li><span class="ck">&#10003;</span> <strong>Covenants</strong> &mdash; per-period DSCR test, distribution lock-up, cure periods, event of default.</li>
+          <li><span class="ck">&#10003;</span> <strong>DSRA</strong> &mdash; a funded debt service reserve that re-times equity and revolves to zero at maturity.</li>
+          <li><span class="ck">&#10003;</span> <strong>Returns</strong> &mdash; nominal and real LCOE, project NPV, dated project and equity IRR, equity multiple, DSCR summary.</li>
+          <li><span class="ck">&#10003;</span> <strong>Waterfall</strong> &mdash; LP/GP preferred return, return of capital, GP catch-up, promote, with LP and GP IRR and MoIC.</li>
+          <li><span class="ck">&#10003;</span> <strong>Yield</strong> &mdash; analytic P50 / P75 / P90 / P95 / P99 exceedance factors and the LCOE at each.</li>
+          <li><span class="ck">&#10003;</span> <strong>Sensitivity</strong> &mdash; two native two-variable Data Tables plus a driver tornado.</li>
+          <li><span class="ck">&#10003;</span> <strong>Mezzanine, Storage &amp; Tax Equity</strong> <em>(optional, off by default)</em> &mdash; subordinated debt with senior refinancing, PV+BESS storage that re-sizes the senior debt, and a partnership flip with capital accounts.</li>
+          <li><span class="ck">&#10003;</span> <strong>Checks</strong> &mdash; fourteen reconciliations rolled into one master PASS / REVIEW flag.</li>
+          <li><span class="ck">&#10003;</span> <strong>Dashboard</strong> &mdash; KPI tiles, DSCR-path vs covenant, sources &amp; uses, cash-flow bridge, P50/P90/P99 fan.</li>
+        </ul>
+
+        <h3>Verifiability, Not Feature Count</h3>
+        <p>Every one of the 13,951 formulas is re-derived in an independent engine, and every headline is rebuilt a second time from raw inputs by a separate model that shares no formulas with the workbook. The release passes a five-stage verification chain &mdash; including a golden case with a closed-form answer &mdash; before it ships. The method has additionally survived an adversarial cross-lab review: a model from a different AI lab, instructed to break it rather than agree with it, ran against this exact shipping build, rebuilt it blind from raw inputs, and matched the capital structure, coverage ratios and both LCOE figures to the cent.</p>
+
+        <h3>The Debt Bound Is Enforced, Not Assumed</h3>
+        <p>Debt = MAX(0, MIN(sculpted debt, maximum gearing &times; hard capex)). That bound is not automatic in DSCR sizing: a free modelling tool from a major energy lab shipped an unbounded debt fraction that could return debt above 100% of installed cost and negative equity, filed as a public issue and fixed only after the fact. Set the PPA price to zero here and the debt floors at zero rather than turning negative &mdash; the same bound reproduced independently by the Layer-B rebuild.</p>
+
+        <h3>Calibrated to Published Data</h3>
+        <p>The pre-loaded deal is not invented: the $1.61/W AC capex default is the capacity-weighted average for utility-scale PV that came online in 2024, per Lawrence Berkeley National Laboratory's <em>Utility-Scale Solar, 2025 Edition</em>; the 28.5% capacity factor sits inside LBNL's 17&ndash;31% fleet range; the $75/MWh PPA sits inside the $40&ndash;98/MWh unsubsidized range in Lazard's <em>LCOE+</em> v19.0 (2026). Both sources are cited on the START HERE tab and in the Methodology PDF.</p>
+      </div>
+
+      <div class="sidebar">
+        <div class="price-lg">$479</div>
+        <div class="price-lbl">Excel workbook + Deal Book, IC Walkthrough, Lender Pack, Methodology &amp; AI Prompt Pack PDFs</div>
+        <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=solar-project-finance" class="cta-button" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $479</a>
+        <ul class="side-bullets">
+          <li><span class="ck">&#10003;</span> 22-tab workbook, 13,951 formulas</li>
+          <li><span class="ck">&#10003;</span> DSCR-sculpted debt with a gearing cap</li>
+          <li><span class="ck">&#10003;</span> LLCR, PLCR &amp; funded DSRA</li>
+          <li><span class="ck">&#10003;</span> Covenant lock-up, cure &amp; default testing</li>
+          <li><span class="ck">&#10003;</span> LP/GP promote waterfall</li>
+          <li><span class="ck">&#10003;</span> Analytic P50&ndash;P99 yield, real &amp; nominal LCOE</li>
+          <li><span class="ck">&#10003;</span> MACRS, ITC, storage &amp; tax-equity modules (optional)</li>
+          <li><span class="ck">&#10003;</span> Adversarial cross-lab review passed</li>
+          <li><span class="ck">&#10003;</span> No circular references</li>
+        </ul>
+        <div class="side-trust">Instant delivery via Gumroad &middot; Excel 2019/2021/365, Windows &amp; Mac &middot; No macros &middot; No subscription</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">What You&rsquo;ll See Inside</h2>
+    <div class="sep"></div>
+    <div class="grid-shots">
+      <figure style="margin:0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+        <img src="images/solar-debt-schedule-dscr-sculpting.png" alt="Debt Schedule tab in Excel — DSCR-sculpted senior debt, the gearing cap binding at 75%, LLCR and PLCR by period." style="width:100%;display:block">
+        <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">Debt Schedule &mdash; sculpted debt capped by gearing, with LLCR and PLCR computed every period.</figcaption>
+      </figure>
+      <figure style="margin:0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+        <img src="images/solar-dashboard-kpis.png" alt="Dashboard tab in Excel — equity IRR, project IRR, LCOE, minimum DSCR, LLCR, PLCR, gearing and equity multiple KPI tiles, plus annual equity cash flow chart." style="width:100%;display:block">
+        <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">Dashboard &mdash; the full KPI set at a glance: DSCR, LLCR, PLCR, LCOE, IRR and equity multiple.</figcaption>
+      </figure>
+    </div>
+    <figure style="margin:16px 0 0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+      <img src="images/solar-sensitivity-tornado.png" alt="Sensitivity tab in Excel — two native two-variable Data Tables for equity IRR against PPA price, capex, capacity factor and interest rate, plus a driver tornado chart." style="width:100%;display:block">
+      <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">Sensitivity &mdash; native Data Tables and a driver tornado showing which assumption moves the equity IRR most.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section style="padding:48px 0;background:#FFFFFF">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="sep"></div>
+    <div class="grid-3">
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">1</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Open a Real Deal, Fully Built</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">The model opens on the Bidayat Hayat Solar 100 worked deal with every tab live. Trace the debt from the target DSCR through the gearing cap, into the covenant test, and out the other side as equity returns.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">2</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Swap in Your Own Deal</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Everything you edit lives on the Assumptions and Deal Dossier tabs: plant size, capex, PPA price, financing terms, target DSCR and gearing cap, tax profile. Every output tab recalculates behind it.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">3</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Defend the Number</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Read the coverage ratios and covenant outcomes, stress the resource assumption on the Sensitivity tab, and take the Lender Pack and Methodology PDF into the room when the credit committee asks how it was built.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Real Numbers from the Model</h2>
+    <div class="sep"></div>
+    <div class="grid-stat3">
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">Minimum DSCR</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">1.56x</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">Equity IRR</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">14.59%</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">Equity Multiple</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">5.16x</div>
+      </div>
+    </div>
+    <div class="grid-stat4">
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$120.75M</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Senior debt (75% gearing)</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$56.89</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Real LCOE, USD/MWh</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">1.88x</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Minimum PLCR</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$19.93M</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Project NPV</div></div>
+    </div>
+    <p style="font-size:.8125rem;color:var(--body);line-height:1.6;margin-top:20px;max-width:760px">These are outputs from the pre-loaded Bidayat Hayat Solar 100 worked deal &mdash; a fictional 100 MW single-axis-tracking plant, built from published LBNL and Lazard defaults. At a 0.92 P90/P50 resource ratio the P90 LCOE rises to $75.18/MWh &mdash; above the $75 PPA price, which is the point: the entire equity margin lives inside the yield assumption, and the model shows you exactly where. Swap the Assumptions tab for your own deal and every figure here recalculates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Who This Is For</h2>
+    <div class="sep"></div>
+    <div class="audience-grid">
+      <div class="audience-col is-for">
+        <h3>IS FOR</h3>
+        <ul>
+          <li><span class="ck">&#10003;</span> Lenders' credit teams sizing and testing senior debt on a contracted solar asset</li>
+          <li><span class="ck">&#10003;</span> Investment committees reviewing a sponsor's case with an independent model</li>
+          <li><span class="ck">&#10003;</span> Renewable-energy developers preparing a financing request or an IC paper</li>
+          <li><span class="ck">&#10003;</span> Infrastructure and energy-transition funds underwriting single-asset acquisitions</li>
+          <li><span class="ck">&#10003;</span> Advisors and consultants producing client-facing project finance analysis</li>
+        </ul>
+      </div>
+      <div class="audience-col not-for">
+        <h3>IS NOT FOR</h3>
+        <ul>
+          <li><span class="cross">&#10007;</span> Google Sheets users &mdash; the two sensitivity grids are native Excel Data Tables, which Sheets cannot compute</li>
+          <li><span class="cross">&#10007;</span> Deals underwritten on the US production tax credit (PTC) &mdash; not implemented (MACRS, ITC and the tax-equity flip are)</li>
+          <li><span class="cross">&#10007;</span> Portfolio or fund-level aggregation across several SPVs &mdash; this is a single-asset model</li>
+          <li><span class="cross">&#10007;</span> Anyone wanting a screening-speed model &mdash; this is built to be defended, not to be fast</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Built by a Practitioner</h2>
+    <div class="sep"></div>
+    <div class="author-wrap">
+      <img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO">
+      <div class="author-info">
+        <h3>Hoda Elmorshidy</h3>
+        <div class="author-title">Fractional CFO | Financial Controller | Quantitative Analysis | Since 2017</div>
+        <div class="author-bio">
+          <p>Financial Controller and Fractional CFO, in senior finance since 2017, leading finance functions across commodity trading, real estate, hospitality, and professional services &mdash; organizations up to $13M+ revenue, 2,000+ monthly transactions, teams of accountants and stock controllers, with a background in quantitative trading and financial modeling. Currently running full-cycle close on a 5-day cycle (30% faster than prior process) while serving 5+ SME clients as Fractional CFO with a sub-7-day close target across the portfolio. Previously led SAP Business One implementation for a multi-million-dollar trading operation at 95%+ accuracy. This model was built the way a lender's credit model gets built when a committee is going to interrogate it &mdash; not the way a template gets built when someone is going to skim it.</p>
+          <p>That is why the debt bound is enforced by construction rather than assumed, why the defaults are calibrated to LBNL and Lazard rather than invented, and why the model went through an adversarial cross-lab review whose entire job was to try to break it. The Methodology PDF documents the governing formulas, the sources and the scope limits, so you can answer the follow-up question as well as the first one.</p>
+          <p style="margin-top:12px"><a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600;font-size:.875rem">Connect on LinkedIn &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="container">
+    <div class="pricing-content">
+      <h2 class="section-title">One Price. Fully Verified.</h2>
+      <div class="sep" style="background:var(--cta)"></div>
+      <p class="pricing-sub">Everything included for a single $479. No variants, no upgrade prompts, no subscription.</p>
+      <div class="why-price">
+        <h3>Why $479?</h3>
+        <p>The shipped base case sizes $120.75M of senior debt against a $161M asset, and every headline in the model is independently re-derived twice before release &mdash; including an adversarial cross-lab review by a different AI lab, instructed to break the model rather than agree with it. Dedicated project-finance software a team would otherwise licence runs <strong>$876&ndash;$1,575 per seat per year</strong>, and solar models list up to $495 on the major template marketplaces. $479 is a one-time purchase, below all three.</p>
+      </div>
+      <div class="tier-grid" style="grid-template-columns:1fr;max-width:460px;margin:0 auto 32px">
+        <div class="tier-card featured">
+          <div class="tier-badge">Complete Model</div>
+          <div class="tier-price">$479</div>
+          <div class="tier-note">Excel workbook + 5 PDF companions</div>
+          <ul>
+            <li>22-tab workbook, 13,951 live formulas</li>
+            <li>DSCR-sculpted debt with a gearing cap</li>
+            <li>LLCR, PLCR, covenant testing, funded DSRA</li>
+            <li>LP/GP promote waterfall</li>
+            <li>MACRS, ITC, storage &amp; tax-equity modules (optional)</li>
+            <li>Analytic P50&ndash;P99 yield, real &amp; nominal LCOE</li>
+            <li>Deal Book, IC Walkthrough, Lender Pack, Methodology &amp; AI Prompt Pack PDFs</li>
+            <li>Adversarial cross-lab review passed</li>
+            <li>No macros, no circular references</li>
+          </ul>
+          <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=solar-project-finance" class="tier-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $479</a>
+        </div>
+      </div>
+      <p class="pricing-trust">Instant delivery via Gumroad &middot; Excel 2019 / 2021 / 365, Windows &amp; Mac &middot; Commercial / organization-internal license &middot; No subscription</p>
+      <a href="/" class="home-link">&larr; Back to all tools</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="sep"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Does it work in Google Sheets?</h3>
+        <p>No &mdash; this is the one hard incompatibility. The two sensitivity grids are native Excel two-variable Data Tables, which Sheets cannot compute. Import it and those grids arrive as static numbers that no longer respond to your inputs. Requires Microsoft Excel 2019, 2021 or 365, Windows or Mac.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I break it?</h3>
+        <p>You can change any input; you cannot silently break the arithmetic. Every input carries a validation bound, formula cells are locked (no password &mdash; Review &gt; Unprotect Sheet if you want it off), and the Checks tab is a live integrity roll-up. Push the deal somewhere it cannot compute &mdash; a zero PPA price, say &mdash; and the debt floors at zero and coverage reads "n/a" instead of cascading errors.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does it do MACRS, the ITC or bonus depreciation?</h3>
+        <p>Yes &mdash; US MACRS and the investment tax credit ship as optional modules, switched off by default so the base case stays jurisdiction-neutral. MACRS uses the IRS Publication 946 Table A-1 half-year-convention percentages at a selectable recovery class; the ITC computes the credit on eligible basis, applies the 50% basis reduction, and either offsets federal tax or monetises by transfer at a price you set. The PTC is not implemented, and bonus depreciation has no dedicated switch. Not tax advice &mdash; verify current credit rules against IRS guidance before relying on them.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is it really free of circular references?</h3>
+        <p>Yes. Construction interest is capitalized without an iterative loop, and the file needs no iterative-calculation setting. Confirm it yourself: Formulas &gt; Error Checking &gt; Circular References is empty.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I know the file I downloaded is the file that was released?</h3>
+        <p>SHA256SUMS.txt ships inside the download with a checksum for every other file. On macOS, Linux or WSL run sha256sum -c SHA256SUMS.txt &mdash; the PowerShell equivalent is in the file's own header. The workbook's hash is also printed in the footer of every PDF, so the sources agree independently.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why $479 when there are $149 solar models?</h3>
+        <p>Because of what the number has to survive. The shipped base case sizes $120.75M of senior debt against a $161M asset, and the model is built so that figure can be defended line by line &mdash; every headline independently re-derived twice before release, including an adversarial cross-lab review. For a screening case, a cheaper model is the right tool. For a number that goes in front of a credit committee, that difference is what you are buying. Dedicated PVsyst/HOMER Pro software runs $876&ndash;$1,575 per seat per year, and solar models list up to $495 on the major template marketplaces &mdash; $479 is a one-time purchase, below all three.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:720px;margin:0 auto">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The Solar Project Finance Model by Hoda Finance is a 22-tab lender-grade single-asset solar project finance model in Excel, priced at $479 one-time. It sizes senior debt by sculpting to a target DSCR, caps it at maximum gearing on hard capex, and builds the full generation-to-equity-cash-flow waterfall: LLCR and PLCR, a construction period with capitalised IDC, a funded DSRA, DSCR covenant testing with lock-up and cure, an LP/GP promote waterfall, depreciation with an optional NOL, analytic P50&ndash;P99 yield, and nominal and real LCOE. Five optional modules ship switched off: US MACRS, an investment tax credit, a tax-equity partnership flip, battery storage, and mezzanine debt with senior refinancing. Pre-filled with a fictional 100 MW worked deal &mdash; Bidayat Hayat Solar 100, $161.0M capex, 28.5% capacity factor, $75/MWh PPA &mdash; calibrated to LBNL and Lazard published data. Verified outputs: senior debt $120.75M against a $134.97M sculpted amount before the 75% gearing cap binds; minimum DSCR 1.56x against a 1.20x covenant; minimum LLCR 1.56x and minimum PLCR 1.88x; nominal LCOE $69.17/MWh and real LCOE $56.89/MWh; project NPV $19.93M; project IRR 8.31%; equity IRR 14.59%; equity multiple 5.16x. 22 tabs, 13,951 live formulas, 142 named ranges, 7 charts, 0 unintended error values (14 cells are by-design #N/A chart-breaks past the 18-year debt tenor, documented in README_FIRST.txt), no circular references, no macros. Every formula independently re-derived in a separate engine; the release passed an adversarial cross-lab review that rebuilt the model blind from raw inputs and matched the capital structure, coverage ratios and both LCOE figures to the cent. Microsoft Excel only (native two-variable Data Tables) &mdash; not Google Sheets. Includes a Deal Book, an IC Walkthrough, a Lender Pack, a Methodology PDF and an AI Prompt Pack. Built by Hoda Elmorshidy, Financial Controller and Fractional CFO. Illustrative worked deal &mdash; not investment, tax or legal advice.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Hoda Finance</div>
+  <div class="foot-links">
+    <a href="/">All Tools</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=solar-project-finance" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+    <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+  <p class="foot-disclaimer">This model is an analytical and educational tool, not investment, tax, accounting, legal or transaction-structuring advice. The pre-filled deal "Bidayat Hayat Solar 100" and its figures are fictional and illustrative. Not affiliated with, sponsored by or endorsed by LBNL, Lazard, NREL or Microsoft. Replace the inputs with your own deal.</p>
+  <p class="foot-tag">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+<div class="buybar">
+  <div class="bb-p">$479<span>One-time &middot; instant</span></div>
+  <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=solar-project-finance" target="_blank" rel="noopener noreferrer">Get the Model</a>
+</div>
+<script src="/subscribe.js" type="text/javascript"></script>
+</body>
+</html>

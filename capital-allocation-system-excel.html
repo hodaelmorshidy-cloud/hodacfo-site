@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital Allocation System &mdash; Capex Appraisal &amp; Rationing | Hoda Finance</title>
+  <meta name="description" content="26-tab capital allocation model in Excel &amp; Google Sheets: WACC builder, risk-adjusted hurdles, MACRS tax, capital rationing, Monte Carlo toolkit.">
+  <link rel="canonical" href="https://hodacfo.com/capital-allocation-system-excel">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Capital Allocation System &mdash; Capex Appraisal, Risk-Adjusted Hurdles &amp; Portfolio Rationing">
+  <meta property="og:description" content="26-tab capital allocation model: WACC builder, risk-adjusted hurdles, MACRS tax, capital rationing under a budget, Monte Carlo and exact-optimiser Python toolkit. Excel + Google Sheets, tested. $449.">
+  <meta property="og:image" content="https://hodacfo.com/images/capital-allocation-system-og.png">
+  <meta property="og:image:alt" content="Capital Allocation System — funded vs deferred project NPV under a capital budget — Hoda Finance">
+  <meta property="og:site_name" content="Hoda Finance">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://hodacfo.com/capital-allocation-system-excel">
+  <meta name="twitter:card" content="summary_large_image">
+  <script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Capital Allocation System — Capex Appraisal, Risk-Adjusted Hurdles & Portfolio Rationing",
+  "description": "26-tab capital allocation and capex appraisal system in Excel and Google Sheets: a cost of capital built from CAPM, Hamada relevering, after-tax cost of debt and target weights; five risk classes driving per-project hurdle rates; after-tax free cash flow from drivers with straight-line, declining-balance and MACRS depreciation, Section 179, bonus depreciation, loss carryforward and salvage taxed on the gain over book value; capital rationing under a budget with mutually exclusive project groups; portfolio roll-up by category and risk class; real options (defer, abandon, expand); lease vs buy; a seven-driver tornado, two-way grid, NPV profile and crossover rate; a post-investment review; 9 charts; 15 integrity checks; and a Python toolkit of 4 command-line tools (Monte Carlo, exact knapsack optimiser, batch CSV appraisal, independent self-check). Ships pre-filled with a complete worked capital cycle for 20 fictional projects under a $4.5M budget. Every formula recomputed in a live Excel engine with 0 error cells, and 6,203 of them independently rebuilt from raw drivers in a separate Python engine with 0 mismatches. The Google Sheets round-trip is tested, not assumed: 11,932 of 11,932 value-carrying formula cells identical after upload and export. 26 tabs, 12,042 formula cells, no macros, no 365-only functions. $449 one-time. Built by a Financial Controller and Fractional CFO.",
+  "brand": {"@type": "Brand", "name": "Hoda Finance"},
+  "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "knowsAbout": ["Capital budgeting", "Capital allocation", "Investment appraisal", "Cost of capital", "Financial modeling", "Corporate finance"]},
+  "image": "https://hodacfo.com/images/capital-allocation-system-og.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Capital Allocation System — Excel + Google Sheets + Python toolkit",
+      "price": 449,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "url": "https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-system",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "USD"},
+        "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"},
+          "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 0, "unitCode": "DAY"}
+        }
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Can I break it?", "acceptedAnswer": {"@type": "Answer", "text": "Formula cells are locked so a stray keystroke cannot damage the model, and every blue input cell stays editable. There is no password — Review > Unprotect Sheet if you want to restructure something. If you do break it, run self_check.py from the toolkit and it will tell you which project stopped agreeing with an independent rebuild."}},
+    {"@type": "Question", "name": "Does it work in Google Sheets?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, and that is tested rather than assumed. A build identical to this one in every formula and value was uploaded to Drive, opened as a Google Sheet, exported back to .xlsx and diffed against Excel cell by cell: all 26 tabs, 9 charts, 34 named ranges and the grouped engine rows came through, no error cells were introduced, and all 11,932 value-carrying formula cells matched Excel — including the crossover rate, the one cell most likely to degrade silently. Upload it to Drive and choose Open with ▸ Google Sheets, not Preview, which displays without converting."}},
+    {"@type": "Question", "name": "I only have one project to appraise. Is this overkill?", "acceptedAnswer": {"@type": "Answer", "text": "Probably. Use one row of the register and you have a full single-project appraisal with a proper cost of capital — but the portfolio machinery is most of what you are paying for, and it only earns its keep when projects compete for a budget."}},
+    {"@type": "Question", "name": "How do I know the numbers are right?", "acceptedAnswer": {"@type": "Answer", "text": "Every formula was recomputed in a live Excel engine with zero error cells. During development, 6,203 of them were independently rebuilt from raw drivers in a separate Python engine, zero mismatches. The golden case reproduces a published worked example exactly: an outlay of $100,000 against $25,000 a year for five years at 10% gives an NPV of -$5,230.33. The toolkit's own self_check.py is a separate, buyer-runnable check: it independently rebuilds all 20 projects' metrics (118 checks), replays 390 tornado and two-way-grid engine cells, and stress-tests 14 edge cases outside the shipped sample. Run it yourself: python self_check.py."}},
+    {"@type": "Question", "name": "Our capex is phased over three years, not a single Year-0 outlay.", "acceptedAnswer": {"@type": "Answer", "text": "Set that project's CF source to 2 and type the cash-flow row directly into the manual block. You keep every metric and the allocation; you lose the driver builder for that one project."}},
+    {"@type": "Question", "name": "Is there a bundle, a Lite version or a subscription?", "acceptedAnswer": {"@type": "Answer", "text": "No. One product, one price — $449 — one file set, on every channel."}}
+  ]
+}
+</script>
+  <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--ice:#F7F8FB;--white:#FFFFFF;--dark-text:#1B2A4A;--body:#4A5A72;--border:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--body);background:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased}img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}nav{background:var(--white);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}nav .container{display:flex;align-items:center;justify-content:space-between}.logo{font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--cta);color:#0F1D32;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;box-shadow:0 2px 8px rgba(197,155,39,0.25)}.nav-cta:hover{background:var(--cta-hover)}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-link{font-size:.875rem;color:var(--body);font-weight:500}.nav-link:hover{color:var(--navy)}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--navy)}.hamburger svg{display:block}.nav-overlay{display:none}@media(max-width:680px){.nav-right .nav-cta{display:none}.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--white);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:var(--body)}.nav-overlay .nav-link:hover{color:var(--navy)}.nav-overlay .nav-cta{text-align:center}}
+.content-wrap{display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start;padding:60px 0}.main-col h2{font-size:1.75rem;font-weight:700;margin-bottom:16px;color:var(--navy)}.main-col h3{font-size:1.125rem;font-weight:700;margin-bottom:12px;color:var(--navy);margin-top:32px}.main-col p{font-size:.95rem;color:var(--body);line-height:1.7;margin-bottom:20px}.feature-list{list-style:none;margin:12px 0 20px}.feature-list li{font-size:.9rem;color:var(--body);line-height:1.7;margin-bottom:8px;padding-left:24px;position:relative}.feature-list li .ck{position:absolute;left:0;top:0;color:#8A6D1F;font-weight:700}.price-callout{background:var(--ice);border-radius:var(--card-radius);padding:20px 24px;display:flex;align-items:center;gap:20px;margin:24px 0;border:1px solid var(--border)}.price-callout .pc-num{font-size:2rem;font-weight:800;color:var(--navy);white-space:nowrap;letter-spacing:-1px}.price-callout .pc-text{font-size:.875rem;color:var(--body);line-height:1.6}.sidebar{position:sticky;top:90px}.sidebar .price-lg{font-size:2.75rem;font-weight:800;color:var(--navy);letter-spacing:-1.5px;line-height:1}.sidebar .price-lbl{font-size:.8125rem;color:var(--body);margin-bottom:20px}.sidebar .cta-button{display:block;width:100%;background:var(--cta);color:#0F1D32;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:14px 20px;border-radius:4px;text-align:center;transition:background .15s;box-shadow:0 4px 16px rgba(197,155,39,0.3)}.sidebar .cta-button:hover{background:var(--cta-hover)}.side-bullets{list-style:none;margin:20px 0}.side-bullets li{font-size:.85rem;color:var(--body);margin-bottom:8px;padding-left:20px;position:relative}.side-bullets li .ck{position:absolute;left:0;color:#8A6D1F;font-weight:700}.side-trust{font-size:.75rem;color:var(--body);border-top:1px solid var(--border);padding-top:16px;margin-top:16px}.section-title{font-size:1.5rem;font-weight:700;color:var(--navy);text-align:center;margin-bottom:8px;letter-spacing:-.3px}.sep{width:48px;height:3px;background:var(--accent);margin:0 auto 32px;border-radius:2px}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:800px;margin:0 auto}.audience-col{background:var(--ice);padding:28px;border-radius:var(--card-radius);border:1px solid var(--border)}.audience-col h3{font-size:.75rem;font-weight:700;letter-spacing:1.5px;margin-bottom:16px}.audience-col.is-for h3{color:#8A6D1F}.audience-col.not-for h3{color:#B84A4A}.audience-col ul{list-style:none}.audience-col ul li{font-size:.875rem;color:var(--body);margin-bottom:8px;line-height:1.5}.audience-col ul li .ck{color:#8A6D1F;font-weight:700}.audience-col ul li .cross{color:#B84A4A;font-weight:700}
+.section-ice{background:var(--ice);padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.author-wrap{display:flex;gap:32px;max-width:800px;margin:0 auto;align-items:start}.author-wrap img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0}.author-info h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:4px}.author-info .author-title{font-size:.8125rem;color:#8A6D1F;font-weight:600;margin-bottom:16px}.author-info .author-bio p{font-size:.875rem;color:var(--body);line-height:1.8;margin-bottom:12px}
+.pricing-section{background:var(--white);padding:60px 0;text-align:center}.pricing-content{max-width:780px;margin:0 auto}.pricing-content .pricing-sub{font-size:1rem;color:var(--body);margin-bottom:32px}.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}.tier-card{background:var(--ice);border:1px solid var(--border);border-radius:var(--card-radius);padding:24px;text-align:center;position:relative}.tier-card.featured{border-color:var(--accent);background:#FEFBF3}.tier-card .tier-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#8A6D1F;margin-bottom:8px}.tier-card .tier-price{font-size:2.25rem;font-weight:800;color:var(--navy);letter-spacing:-1px;line-height:1;margin-bottom:4px}.tier-card .tier-note{font-size:.75rem;color:var(--body);margin-bottom:16px}.tier-card ul{list-style:none;text-align:left;margin-bottom:20px}.tier-card ul li{font-size:.8125rem;color:var(--body);margin-bottom:6px;padding-left:16px;position:relative}.tier-card ul li::before{content:'\2713';position:absolute;left:0;color:#8A6D1F;font-weight:700}.tier-card .tier-cta{display:block;background:var(--navy);color:#fff;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:11px 20px;border-radius:4px;transition:background .15s}.tier-card.featured .tier-cta{background:var(--cta);color:#0F1D32}.tier-card .tier-cta:hover{opacity:.85}.why-price{background:var(--ice);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--card-radius);padding:22px 26px;text-align:left;margin:0 auto 32px;max-width:620px}.why-price h3{font-size:.9375rem;font-weight:700;color:var(--navy);margin-bottom:8px}.why-price p{font-size:.875rem;color:var(--body);line-height:1.7;margin:0}.buybar{display:none}@media(max-width:680px){.buybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:200;align-items:center;justify-content:space-between;gap:12px;background:#0F1D32;border-top:2px solid var(--cta);padding:10px 14px;box-shadow:0 -6px 22px rgba(0,0,0,.28)}.buybar .bb-p{color:#fff;font-size:1.05rem;font-weight:800;line-height:1.15}.buybar .bb-p span{display:block;font-size:.625rem;font-weight:600;color:#A8BDD8;text-transform:uppercase;letter-spacing:.8px}.buybar a{background:var(--cta);color:#0A1424;font-size:.8125rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:12px 20px;border-radius:4px;white-space:nowrap}body{padding-bottom:64px}}.pricing-trust{font-size:.8125rem;color:var(--body);margin-bottom:24px}.home-link{font-size:.875rem;color:#8A6D1F;font-weight:600}.home-link:hover{color:var(--navy)}@media(max-width:680px){.tier-grid{grid-template-columns:1fr}}
+.faq-list{max-width:700px;margin:0 auto}.faq-item{margin-bottom:24px}.faq-item h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px}.faq-item p{font-size:.9rem;color:var(--body);line-height:1.7}
+footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{font-size:1rem;font-weight:700;color:var(--white)}.foot-links{margin:12px 0}.foot-links a{color:#C8D6E8;font-size:.8125rem;margin:0 12px}.foot-links a:hover{color:var(--white)}.foot-disclaimer{font-size:.6875rem;color:#8C9CC0;max-width:640px;margin:0 auto 16px;line-height:1.5}.foot-tag{font-size:.75rem;color:#A8B6CE}
+.hero-cas{position:relative;overflow:hidden;background:#1F3551;border-bottom:1px solid #16273E;font-family:system-ui,-apple-system,sans-serif}
+.hero-cas::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#C9A84C 0%,#E4CE86 50%,#C9A84C 100%);z-index:5}
+.hero-cas::after{content:'';position:absolute;inset:0;background:radial-gradient(50% 55% at 78% 35%,rgba(201,168,76,.13) 0%,rgba(201,168,76,0) 70%);pointer-events:none}
+.hero-cas .cas-inner{max-width:1160px;margin:0 auto;padding:44px 28px 52px;position:relative;z-index:2;display:grid;grid-template-columns:1.02fr 1fr;gap:52px;align-items:center}
+.hero-cas .cas-brand{display:flex;align-items:center;gap:9px;margin-bottom:18px}
+.hero-cas .cas-mark{width:30px;height:30px;border:2px solid #C9A84C;border-radius:5px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:#fff}
+.hero-cas .cas-bname{font-weight:700;font-size:11px;color:#A8BDD8;letter-spacing:1.5px;text-transform:uppercase}
+.hero-cas .cas-eyebrow{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:#0A1424;background:#D9BC63;border-radius:3px;padding:5px 10px;margin-bottom:18px}
+.hero-cas h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:40px;line-height:1.12;letter-spacing:-1px;color:#fff;margin:0 0 18px}
+.hero-cas h1 .hl{color:#F2887F;font-style:italic}
+.hero-cas .cas-sub{font-size:15px;line-height:1.65;color:#C8D6E8;max-width:48ch;margin:0 0 26px}
+.hero-cas .cas-sub strong{color:#fff;font-weight:600}
+.hero-cas .cas-ctarow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:16px}
+.hero-cas .cas-cta{display:inline-block;background:#C9A84C;color:#0A1424;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;border-radius:5px;padding:15px 32px;text-decoration:none;transition:background 150ms ease,transform 150ms ease;box-shadow:0 10px 28px rgba(201,168,76,.22)}
+.hero-cas .cas-cta:hover{background:#E0C069;transform:translateY(-1px)}
+.hero-cas .cas-price{font-size:13px;color:#C8D6E8;font-weight:600;line-height:1.4}
+.hero-cas .cas-price b{display:block;color:#fff;font-size:19px;font-weight:800;letter-spacing:-.3px}
+.hero-cas .cas-trust{font-size:11.5px;color:#A8BDD8;letter-spacing:.2px;line-height:1.7}
+.hero-cas .cas-trust b{color:#5CCB93;font-weight:700}
+.hero-cas .cas-card{background:linear-gradient(165deg,#28456D 0%,#1A2F4C 100%);border:1px solid #345580;border-radius:12px;padding:20px 22px 18px;box-shadow:0 26px 60px rgba(0,0,0,.42)}
+.hero-cas .cc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:13px;border-bottom:1px solid #33507A;margin-bottom:15px}
+.hero-cas .cc-deal{font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#A8BDD8;margin-bottom:5px}
+.hero-cas .cc-name{font-size:14.5px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.hero-cas .cc-amt{text-align:right;flex-shrink:0}
+.hero-cas .cc-amt .a-v{font-size:20px;font-weight:900;color:#D9BC63;letter-spacing:-.6px;line-height:1}
+.hero-cas .cc-amt .a-l{font-size:8.5px;color:#A8BDD8;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.hero-cas .cc-sec-lbl{font-size:9px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:#A8BDD8;margin-bottom:10px}
+.hero-cas .cc-ranks{display:flex;flex-direction:column;gap:6px;margin-bottom:2px}
+.hero-cas .cc-rank-row{display:grid;grid-template-columns:15px 122px 1fr 40px;gap:7px;align-items:center}
+.hero-cas .cc-rank-num{font-size:9px;font-weight:800;color:#A8BDD8;text-align:right}
+.hero-cas .cc-rank-name{font-size:9.5px;font-weight:700;color:#DCE6F2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-cas .cc-rank-track{height:9px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.hero-cas .cc-rank-bar{height:100%;border-radius:2px;display:block}
+.hero-cas .cc-rank-bar.funded{background:linear-gradient(90deg,#2E7D5B 0%,#5CCB93 100%)}
+.hero-cas .cc-rank-bar.deferred{background:repeating-linear-gradient(45deg,#8E2C25,#8E2C25 3px,#B5453B 3px,#B5453B 6px)}
+.hero-cas .cc-rank-pi{font-size:9.5px;font-weight:800;color:#fff;text-align:right}
+.hero-cas .cc-rank-row.is-deferred .cc-rank-name{color:#FFAB9E}
+.hero-cas .cc-rank-row.is-deferred .cc-rank-pi{color:#FFAB9E}
+.hero-cas .cc-callout{margin-top:12px;padding:10px 12px;background:rgba(232,99,90,.08);border:1px solid rgba(232,99,90,.3);border-radius:6px;font-size:10px;line-height:1.55;color:#E8D4D0}
+.hero-cas .cc-callout b{color:#FFAB9E}
+.hero-cas .cc-stats3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0 0;padding-top:14px;border-top:1px solid #33507A}
+.hero-cas .cc-stat{text-align:center}
+.hero-cas .cc-stat .s-v{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.2px}
+.hero-cas .cc-stat .s-v.green{color:#7BE0AC}
+.hero-cas .cc-stat .s-v.red{color:#FFAB9E}
+.hero-cas .cc-stat .s-l{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#A8BDD8;margin-top:3px}
+.hero-cas .cc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid #33507A}
+.hero-cas .cc-src{font-size:9.5px;color:#C8D6E8;line-height:1.45;max-width:30ch}
+.hero-cas .cc-badge{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;padding:5px 10px;border-radius:3px;background:#1F3D2E;color:#8FE6B4;border:1px solid #2E6B4C;white-space:nowrap}
+@media(max-width:940px){.hero-cas .cas-inner{grid-template-columns:1fr;gap:34px;padding:38px 20px 44px}.hero-cas h1{font-size:33px}.hero-cas .cas-sub{max-width:none}}
+@media(max-width:680px){.hero-cas h1{font-size:26px;letter-spacing:-.6px}.hero-cas .cas-sub{font-size:14px}.hero-cas .cas-cta{display:block;width:100%;text-align:center}.hero-cas .cas-ctarow{gap:12px}.hero-cas .cc-foot{flex-direction:column;align-items:flex-start}}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
+.grid-stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.grid-stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.grid-shots{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px}
+@media(max-width:820px){.grid-3{grid-template-columns:1fr;gap:16px}.grid-stat3{grid-template-columns:1fr}.grid-stat4{grid-template-columns:1fr 1fr}.grid-shots{grid-template-columns:1fr}}
+@media(max-width:680px){.content-wrap{grid-template-columns:1fr;gap:32px;padding:40px 0}.sidebar{position:static}.audience-grid{grid-template-columns:1fr;gap:16px}.author-wrap{flex-direction:column;align-items:center;text-align:center}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div class="nav-right">
+      <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-system" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the System &mdash; $449</a>
+      <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-system" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Get the System &mdash; $449</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-cas">
+  <div class="cas-inner">
+    <div class="cas-copy">
+      <div class="cas-brand">
+        <div class="cas-mark">HF</div>
+        <span class="cas-bname">Hoda Finance</span>
+      </div>
+      <div class="cas-eyebrow">Capital Allocation System</div>
+      <h1>Funded: $2,820,520 of value.<br>Deferred: <span class="hl">$2,678,754</span>.</h1>
+      <p class="cas-sub">Almost the same number &mdash; from one 20-project queue, under one $4.5M budget. <strong>This is the system that draws the line where it draws it</strong>, and can tell you what saying no costs.</p>
+      <div class="cas-ctarow">
+        <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-system" class="cas-cta" target="_blank" rel="noopener noreferrer">Get the System</a>
+        <div class="cas-price"><b>$449</b>one-time &middot; Excel + Google Sheets</div>
+      </div>
+      <div class="cas-trust"><b>12,042 formula cells, 0 errors</b> &middot; 6,203 independently rebuilt in Python, 0 mismatches &middot; Google Sheets round-trip tested</div>
+    </div>
+
+    <div class="cas-card">
+      <div class="cc-top">
+        <div>
+          <div class="cc-deal">Pre-filled worked cycle</div>
+          <div class="cc-name">Meridale Industries &middot; FY capital plan</div>
+        </div>
+        <div class="cc-amt">
+          <div class="a-v">$4.5M</div>
+          <div class="a-l">Budget</div>
+        </div>
+      </div>
+      <div class="cc-sec-lbl">Ranked by profitability index &mdash; value per dollar invested</div>
+      <div class="cc-ranks">
+        <div class="cc-rank-row"><span class="cc-rank-num">1</span><span class="cc-rank-name">DC Cooling Retrofit</span><div class="cc-rank-track"><div class="cc-rank-bar funded" style="width:100%"></div></div><span class="cc-rank-pi">1.99x</span></div>
+        <div class="cc-rank-row"><span class="cc-rank-num">2</span><span class="cc-rank-name">Cogeneration Plant</span><div class="cc-rank-track"><div class="cc-rank-bar funded" style="width:88%"></div></div><span class="cc-rank-pi">1.75x</span></div>
+        <div class="cc-rank-row"><span class="cc-rank-num">3</span><span class="cc-rank-name">Robotics Pilot Cell</span><div class="cc-rank-track"><div class="cc-rank-bar funded" style="width:83%"></div></div><span class="cc-rank-pi">1.66x</span></div>
+        <div class="cc-rank-row"><span class="cc-rank-num">4</span><span class="cc-rank-name">Line 3 Automation</span><div class="cc-rank-track"><div class="cc-rank-bar funded" style="width:79%"></div></div><span class="cc-rank-pi">1.56x</span></div>
+        <div class="cc-rank-row"><span class="cc-rank-num">5</span><span class="cc-rank-name">Packaging Line Upgrade</span><div class="cc-rank-track"><div class="cc-rank-bar funded" style="width:77%"></div></div><span class="cc-rank-pi">1.54x</span></div>
+        <div class="cc-rank-row is-deferred"><span class="cc-rank-num">6</span><span class="cc-rank-name">Regional DC&ndash;Iberia</span><div class="cc-rank-track"><div class="cc-rank-bar deferred" style="width:74%"></div></div><span class="cc-rank-pi">1.47x</span></div>
+        <div class="cc-rank-row is-deferred"><span class="cc-rank-num">7</span><span class="cc-rank-name">Warehouse Expansion</span><div class="cc-rank-track"><div class="cc-rank-bar deferred" style="width:68%"></div></div><span class="cc-rank-pi">1.35x</span></div>
+        <div class="cc-rank-row"><span class="cc-rank-num">8</span><span class="cc-rank-name">Fleet Electrification</span><div class="cc-rank-track"><div class="cc-rank-bar funded" style="width:67%"></div></div><span class="cc-rank-pi">1.33x</span></div>
+      </div>
+      <div class="cc-callout"><b>Rank 6, $1,055,183 of NPV, clears its hurdle &mdash; and gets nothing.</b> Its $2.1M capex won't fit the $885,000 left when the walk reaches it. Rank 8 needs only $540,000 &mdash; it fits the gap that's left and gets funded instead.</div>
+      <div class="cc-stats3">
+        <div class="cc-stat"><div class="s-v green">$2.82M</div><div class="s-l">Funded &middot; 7</div></div>
+        <div class="cc-stat"><div class="s-v red">$2.68M</div><div class="s-l">Deferred &middot; 10</div></div>
+        <div class="cc-stat"><div class="s-v">$170K</div><div class="s-l">Left unspent</div></div>
+      </div>
+      <div class="cc-foot">
+        <span class="cc-src">Live outputs from the workbook &mdash; not a mockup. Swap the Project Register for your own cycle.</span>
+        <span class="cc-badge">Ranking &ne; funding order</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section style="padding:0">
+  <div class="container">
+    <div class="content-wrap">
+      <div class="main-col">
+        <h2>Appraising One Project Is Easy</h2>
+        <p>A discount rate and a row of cash flows will do it. The job you actually have is deciding which seven of twenty get funded, putting a defensible figure on the thirteen you refused, and then defending both lists to people who will push back. Free NPV templates answer the easy question &mdash; they do not build your cost of capital, they do not vary the hurdle by how risky the project is, and they have no concept of a budget. They rank nothing, allocate nothing, and cannot tell you what saying no costs.</p>
+        <p>In the shipped example, ranking by size would spend a third of the $4.5M envelope on the Cogeneration Plant before considering anything else. Ranking by <strong>NPV per unit of capital</strong> instead funds the DC Cooling Retrofit first &mdash; it returns 1.99 per dollar against the plant's 1.75 &mdash; and the budget, not the project list, is what decides who gets funded.</p>
+
+        <div class="price-callout">
+          <span class="pc-num">$449</span>
+          <span class="pc-text">The 26-tab workbook (Excel + Google Sheets, one file), the Manual and Cycle Book PDFs, and a 4-tool Python toolkit. One license, one price.</span>
+        </div>
+
+        <h3>What You Get &mdash; 26 Tabs</h3>
+        <ul class="feature-list">
+          <li><span class="ck">&#10003;</span> <strong>WACC Builder</strong> &mdash; CAPM cost of equity, Hamada relevering, after-tax cost of debt, target weights. The shipped example builds to 9.34%.</li>
+          <li><span class="ck">&#10003;</span> <strong>Risk &amp; Hurdles</strong> &mdash; five risk classes, each carrying an explicit premium over WACC, overridable per project.</li>
+          <li><span class="ck">&#10003;</span> <strong>Depreciation Engine</strong> &mdash; straight-line, double-declining and MACRS (GDS half-year, classes 3/5/7/10/15/20), Section 179, bonus depreciation, loss carryforward, and salvage taxed on the gain over book value.</li>
+          <li><span class="ck">&#10003;</span> <strong>Portfolio Optimizer</strong> &mdash; ranks every eligible project by NPV per unit of capital, walks the ranking, funds whatever fits, and reports what got deferred and what it was worth.</li>
+          <li><span class="ck">&#10003;</span> <strong>Metrics</strong> &mdash; NPV, IRR, MIRR, profitability index, EAC, payback and discounted payback for all 20 projects.</li>
+          <li><span class="ck">&#10003;</span> <strong>Sensitivity</strong> &mdash; a seven-driver tornado, a two-way rate &times; volume grid, an NPV profile, and the crossover rate at which two projects swap ranking.</li>
+          <li><span class="ck">&#10003;</span> <strong>Real Options</strong> &mdash; what the ability to defer, abandon or expand is actually worth, as a transparent decision tree.</li>
+          <li><span class="ck">&#10003;</span> <strong>Lease vs Buy</strong> &mdash; the financing comparison, discounted at the after-tax cost of debt.</li>
+          <li><span class="ck">&#10003;</span> <strong>Post-Inv Review</strong> &mdash; re-runs the appraisal on actuals as you enter them, so you find out whether your process is calibrated or optimistic.</li>
+          <li><span class="ck">&#10003;</span> <strong>Dashboard</strong> &mdash; portfolio and project KPIs across 9 charts, including an NPV waterfall and a value frontier.</li>
+          <li><span class="ck">&#10003;</span> <strong>Audit &amp; Checks</strong> &mdash; fifteen integrity checks; all must read OK.</li>
+        </ul>
+
+        <h3>Two Things Worth the Price on Their Own</h3>
+        <p><strong>DC Cooling Retrofit ($310,000) is funded ahead of the Cogeneration Plant ($1,680,000)</strong> even though the plant creates four times the value &mdash; because the retrofit returns 1.99 per unit of capital against the plant's 1.75, and the budget is the constraint. Ranking on size alone would have spent a third of the envelope before considering anything else.</p>
+        <p><strong>Regional DC &mdash; Iberia is the second most valuable submission in the cycle</strong> at $1,055,183 of NPV, clears its hurdle comfortably, and receives nothing &mdash; because $2,100,000 will not fit in the $885,000 still unspent when the ranking reaches it. That is the correct decision under the constraint, and the strongest argument you will ever have for changing the constraint.</p>
+
+        <h3>Verifiability, Not Feature Count</h3>
+        <p>Every one of the 12,042 formulas was recomputed in a live Excel engine with zero error cells. During development, 6,203 of them were independently rebuilt from raw drivers in a separate Python engine (numpy_financial / scipy), zero mismatches. The golden case reproduces a published worked example exactly &mdash; an outlay of $100,000 against $25,000 a year for five years at 10% gives an NPV of &minus;$5,230.33. The toolkit ships its own buyer-runnable check, <code>self_check.py</code>: it independently rebuilds all 20 projects' metrics (118 checks), replays 390 tornado and two-way-grid engine cells, and stress-tests 14 edge cases outside the shipped sample &mdash; run it yourself and watch it pass.</p>
+      </div>
+
+      <div class="sidebar">
+        <div class="price-lg">$449</div>
+        <div class="price-lbl">Excel + Google Sheets workbook + Manual &amp; Cycle Book PDFs + Python toolkit</div>
+        <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-system" class="cta-button" target="_blank" rel="noopener noreferrer">Get the System &mdash; $449</a>
+        <ul class="side-bullets">
+          <li><span class="ck">&#10003;</span> 26-tab workbook, 12,042 formulas</li>
+          <li><span class="ck">&#10003;</span> WACC built from CAPM + Hamada relevering</li>
+          <li><span class="ck">&#10003;</span> Risk-adjusted hurdle rates, five classes</li>
+          <li><span class="ck">&#10003;</span> MACRS, Section 179 &amp; bonus depreciation</li>
+          <li><span class="ck">&#10003;</span> Capital rationing under a budget</li>
+          <li><span class="ck">&#10003;</span> Real options, lease vs buy, post-inv. review</li>
+          <li><span class="ck">&#10003;</span> Monte Carlo &amp; exact optimiser (Python)</li>
+          <li><span class="ck">&#10003;</span> Google Sheets round-trip tested, not assumed</li>
+          <li><span class="ck">&#10003;</span> Manual + Cycle Book PDFs included</li>
+        </ul>
+        <div class="side-trust">Instant delivery via Gumroad &middot; Excel 2019/2021/365 &amp; Google Sheets &middot; No macros &middot; No subscription</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">What You&rsquo;ll See Inside</h2>
+    <div class="sep"></div>
+    <div class="grid-shots">
+      <figure style="margin:0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+        <img src="images/capital-allocation-portfolio-optimizer.png" alt="Portfolio Optimizer tab in Excel — all 20 projects ranked by NPV per unit of capital, with capex, NPV and profitability index, plus the portfolio result: capital deployed, budget remaining, projects funded and deferred." style="width:100%;display:block">
+        <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">Portfolio Optimizer &mdash; the ranking that decides which projects get funded, and what the rest cost.</figcaption>
+      </figure>
+      <figure style="margin:0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+        <img src="images/capital-allocation-wacc-builder.png" alt="WACC Builder tab in Excel — CAPM cost of equity, Hamada relevered beta, after-tax cost of debt, target weights, and the resulting WACC of 9.34%." style="width:100%;display:block">
+        <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">WACC Builder &mdash; the cost of capital built from its components, not typed in as a guess.</figcaption>
+      </figure>
+    </div>
+    <figure style="margin:16px 0 0;background:#FFFFFF;border-radius:var(--card-radius);border:1px solid var(--border);overflow:hidden">
+      <img src="images/capital-allocation-dashboard-kpis.png" alt="Dashboard tab in Excel — capital deployed, portfolio NPV, budget used, NPV per unit capital, and the project in focus with its own NPV and IRR." style="width:100%;display:block">
+      <figcaption style="font-size:.8125rem;color:var(--body);padding:12px 16px;border-top:1px solid var(--border)">Dashboard &mdash; the portfolio at the top, the project in focus below.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section style="padding:48px 0;background:#FFFFFF">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <div class="sep"></div>
+    <div class="grid-3">
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">1</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Open a Real Cycle, Fully Built</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">The model opens on Meridale Industries' 20-project capital cycle with every tab live. Trace a project from the Driver Inputs through the WACC Builder and Risk &amp; Hurdles, into the Portfolio Optimizer, and out as a funding decision.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">2</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Load Your Own Projects</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Everything you edit lives on the Project Register and Driver Inputs tabs: capex, revenue, cost ratios, depreciation method, risk class, and the capital budget on Assumptions. Every metric and the allocation recalculate behind it.</p>
+      </div>
+      <div style="text-align:center;padding:24px">
+        <div style="width:48px;height:48px;background:var(--navy);border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;margin:0 auto 16px">3</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Defend the List</h3>
+        <p style="font-size:.875rem;color:var(--body);line-height:1.6">Read the funded and deferral lists, stress the ranking on the Sensitivity tab, and take the Executive Summary and auto-filled Capex Memo into the committee meeting when someone asks why a project didn't make the cut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Real Numbers from the Model</h2>
+    <div class="sep"></div>
+    <div class="grid-stat3">
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">Portfolio NPV Funded</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">$2,820,520</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">NPV Deferred (10 Projects)</div>
+        <div style="font-size:2rem;font-weight:800;color:#B03A2E">$2,678,754</div>
+      </div>
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:var(--card-radius);padding:28px 20px;text-align:center">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--body);font-weight:600;margin-bottom:8px">WACC (Shipped Example)</div>
+        <div style="font-size:2rem;font-weight:800;color:var(--navy)">9.34%</div>
+      </div>
+    </div>
+    <div class="grid-stat4">
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$4,330,000</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Capital deployed</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">7 of 20</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Projects funded</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">0.65</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">NPV per unit capital</div></div>
+      <div style="text-align:center"><div style="font-size:1.375rem;font-weight:800;color:var(--navy)">$170,000</div><div style="font-size:.75rem;color:var(--body);margin-top:2px">Left unspent</div></div>
+    </div>
+    <p style="font-size:.8125rem;color:var(--body);line-height:1.6;margin-top:20px;max-width:760px">These are outputs from the pre-loaded Meridale Industries worked cycle: 20 fictional projects requesting $14,820,000 against a $4,500,000 budget. The exact-knapsack optimiser in the Python toolkit finds an additional $35,137 of NPV that the greedy ranking order misses, and says so. Swap in your own Project Register and every figure here recalculates.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Who This Is For</h2>
+    <div class="sep"></div>
+    <div class="audience-grid">
+      <div class="audience-col is-for">
+        <h3>IS FOR</h3>
+        <ul>
+          <li><span class="ck">&#10003;</span> FP&amp;A leads and finance managers who own an annual capex cycle</li>
+          <li><span class="ck">&#10003;</span> Financial controllers preparing a capital committee pack</li>
+          <li><span class="ck">&#10003;</span> Fractional CFOs running the process for several clients</li>
+          <li><span class="ck">&#10003;</span> Operations and engineering leads submitting a defensible business case</li>
+          <li><span class="ck">&#10003;</span> Google Sheets users &mdash; the round-trip is tested, not an afterthought</li>
+        </ul>
+      </div>
+      <div class="audience-col not-for">
+        <h3>IS NOT FOR</h3>
+        <ul>
+          <li><span class="cross">&#10007;</span> A three-statement model &mdash; it will not show the financing or covenant consequences of the whole programme</li>
+          <li><span class="cross">&#10007;</span> Project finance &mdash; no debt sizing, no DSCR sculpting; see the <a href="/solar-project-finance-model-excel" style="color:#8A6D1F;text-decoration:underline">Solar Project Finance Model</a> ($479)</li>
+          <li><span class="cross">&#10007;</span> Multi-year phased capex as a driver input &mdash; use the manual cash-flow row instead</li>
+          <li><span class="cross">&#10007;</span> Portfolios larger than 20 projects as shipped &mdash; extending it is mechanical, but 20 is what's tested</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-ice">
+  <div class="container">
+    <h2 class="section-title">Built by a Practitioner</h2>
+    <div class="sep"></div>
+    <div class="author-wrap">
+      <img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO">
+      <div class="author-info">
+        <h3>Hoda Elmorshidy</h3>
+        <div class="author-title">Fractional CFO | Financial Controller | Quantitative Analysis | Since 2017</div>
+        <div class="author-bio">
+          <p>Financial Controller and Fractional CFO, in senior finance since 2017, leading finance functions across commodity trading, real estate, hospitality, and professional services &mdash; organizations up to $13M+ revenue, 2,000+ monthly transactions, teams of accountants and stock controllers, with a background in quantitative trading and financial modeling. Currently running full-cycle close on a 5-day cycle (30% faster than prior process) while serving 5+ SME clients as Fractional CFO with a sub-7-day close target across the portfolio. Previously led SAP Business One implementation for a multi-million-dollar trading operation at 95%+ accuracy. This system was built the way a capital cycle actually runs when a committee is going to push back &mdash; not the way a template gets built when someone is going to skim it.</p>
+          <p>That is why the deferral list gets equal billing with the funded list, why the MACRS tables are checked against IRS Publication 946 rather than approximated, and why every formula is independently rebuilt in a separate Python engine before release. The Manual and Cycle Book PDFs document the governing formulas, the sources and the worked cycle, so you can answer the follow-up question as well as the first one.</p>
+          <p style="margin-top:12px"><a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600;font-size:.875rem">Connect on LinkedIn &rarr;</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="container">
+    <div class="pricing-content">
+      <h2 class="section-title">One System. One Price.</h2>
+      <div class="sep" style="background:var(--cta)"></div>
+      <p class="pricing-sub">Same file, same 26 tabs, same toolkit, on every channel. No Lite version, no bundle, no subscription.</p>
+      <div class="why-price">
+        <h3>Why $449?</h3>
+        <p>A full eFinancialModels catalogue walk puts the capital-budgeting shelf's median at $49 &mdash; and $449 sits well above it, deliberately. The premium is earned by verification (12,042 formulas recomputed live, 6,203 independently rebuilt in Python, 0 mismatches), the portfolio-rationing machinery a free template does not have, and a tested Google Sheets round-trip &mdash; not by feature count and not by being cheaper than anyone. Deep single models on the same marketplace run to $1,000; $449 sits mid-range among them.</p>
+      </div>
+      <div class="tier-grid" style="grid-template-columns:1fr 1fr;max-width:700px;margin:0 auto 32px">
+        <div class="tier-card featured">
+          <div class="tier-badge">Complete System</div>
+          <div class="tier-price">$449</div>
+          <div class="tier-note">One file, one price, on every channel</div>
+          <ul>
+            <li>26-tab workbook, 12,042 formulas</li>
+            <li>Manual + Cycle Book PDFs</li>
+            <li>4-tool Python toolkit</li>
+            <li>Excel + Google Sheets, tested</li>
+          </ul>
+          <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-system" class="tier-cta" target="_blank" rel="noopener noreferrer">Get the System &mdash; $449</a>
+        </div>
+        <div class="tier-card">
+          <div class="tier-badge">The Toolkit</div>
+          <div class="tier-price">4</div>
+          <div class="tier-note">Command-line Python tools, included</div>
+          <ul>
+            <li>Monte Carlo (P10/P50/P90)</li>
+            <li>Exact knapsack optimiser</li>
+            <li>Batch CSV appraisal</li>
+            <li>Independent self-check</li>
+          </ul>
+        </div>
+      </div>
+      <p class="pricing-trust">Instant delivery via Gumroad &middot; Excel 2019 / 2021 / 365 and Google Sheets &middot; No macros &middot; No subscription</p>
+      <a href="/" class="home-link">&larr; Back to all tools</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Common Questions</h2>
+    <div class="sep"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Can I break it?</h3>
+        <p>Formula cells are locked so a stray keystroke cannot damage the model, and every blue input cell stays editable. There is no password &mdash; Review &gt; Unprotect Sheet if you want to restructure something. If you do break it, run self_check.py from the toolkit and it will tell you which project stopped agreeing with an independent rebuild.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does it work in Google Sheets?</h3>
+        <p>Yes, and that is tested rather than assumed. A build identical to this one in every formula and value was uploaded to Drive, opened as a Google Sheet, exported back to .xlsx and diffed against Excel cell by cell: all 26 tabs, 9 charts, 34 named ranges and the grouped engine rows came through, no error cells were introduced, and all 11,932 value-carrying formula cells matched Excel &mdash; including the crossover rate, the one cell most likely to degrade silently. Upload it to Drive and choose Open with &#9656; Google Sheets, not Preview, which displays without converting.</p>
+      </div>
+      <div class="faq-item">
+        <h3>I only have one project to appraise. Is this overkill?</h3>
+        <p>Probably. Use one row of the register and you have a full single-project appraisal with a proper cost of capital &mdash; but the portfolio machinery is most of what you are paying for, and it only earns its keep when projects compete for a budget.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I know the numbers are right?</h3>
+        <p>Every formula was recomputed in a live Excel engine with zero error cells. During development, 6,203 of them were independently rebuilt from raw drivers in a separate Python engine, zero mismatches. The golden case reproduces a published worked example exactly: an outlay of $100,000 against $25,000 a year for five years at 10% gives an NPV of &minus;$5,230.33. The toolkit's own self_check.py is a separate, buyer-runnable check: it independently rebuilds all 20 projects' metrics (118 checks), replays 390 tornado and two-way-grid engine cells, and stress-tests 14 edge cases outside the shipped sample. Run it yourself: python self_check.py.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Our capex is phased over three years, not a single Year-0 outlay.</h3>
+        <p>Set that project's CF source to 2 and type the cash-flow row directly into the manual block. You keep every metric and the allocation; you lose the driver builder for that one project.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is there a bundle, a Lite version or a subscription?</h3>
+        <p>No. One product, one price &mdash; $449 &mdash; one file set, on every channel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:720px;margin:0 auto">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The Capital Allocation System by Hoda Finance is a 26-tab capex appraisal and portfolio-rationing system in Excel and Google Sheets, priced at $449 one-time. It builds a cost of capital from CAPM, Hamada relevering, after-tax cost of debt and target weights; assigns each project a risk-adjusted hurdle across five risk classes; derives after-tax free cash flow from drivers with straight-line, declining-balance or MACRS depreciation (Section 179, bonus depreciation, loss carryforward, salvage taxed on the gain over book value); ranks all eligible projects by NPV per unit of capital under a fixed budget; and reports what was funded and what was deferred, and what the deferrals cost. Also includes real options (defer, abandon, expand), a lease-versus-buy comparison, a seven-driver tornado, a two-way sensitivity grid, an NPV profile and crossover rate, a post-investment review, 9 charts, and 15 integrity checks. Ships pre-filled with a complete worked capital cycle for Meridale Industries, a fictional manufacturer: 20 projects requesting $14,820,000 against a $4,500,000 budget, funding 7 projects deploying $4,330,000 for a portfolio NPV of $2,820,520, deferring 10 projects worth $2,678,754, with $170,000 left unspent. 26 tabs, 12,042 formula cells, 0 error cells, every formula recomputed in a live Excel engine and 6,203 independently rebuilt from raw drivers in a separate Python engine with 0 mismatches. The Google Sheets round-trip is tested: 11,932 of 11,932 value-carrying formula cells identical after upload and export. Includes a Manual PDF, a Cycle Book PDF, and a 4-tool Python toolkit (Monte Carlo, exact knapsack optimiser, batch CSV appraisal, independent self-check). No macros, no 365-only functions. Built by Hoda Elmorshidy, Financial Controller and Fractional CFO. Educational and analytical tool &mdash; not tax, accounting or legal advice; the company and all 20 projects are fictional.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Hoda Finance</div>
+  <div class="foot-links">
+    <a href="/">All Tools</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-system" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+    <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+  <p class="foot-disclaimer">This system is an analytical and educational tool, not professional accounting, tax, financial or legal advice. Appraisal outputs depend entirely on the cash-flow, tax-rate and cost-of-capital estimates you enter. Section 179, bonus depreciation and MACRS are US federal concepts — verify against current IRS rules and set to zero outside the US. The sample company "Meridale Industries" and all twenty project submissions are fictional. Not affiliated with, sponsored by or endorsed by Microsoft or Google.</p>
+  <p class="foot-tag">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+<div class="buybar">
+  <div class="bb-p">$449<span>One-time &middot; instant</span></div>
+  <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-system" target="_blank" rel="noopener noreferrer">Get the System</a>
+</div>
+<script src="/subscribe.js" type="text/javascript"></script>
+</body>
+</html>
