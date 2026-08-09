@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LBO Model Excel: Debt Schedule, Cash Sweep, MoIC &amp; IRR Explained</title>
+<meta name="description" content="How an LBO model works: Sources &amp; Uses, the multi-tranche debt stack, the cash sweep waterfall, and how MoIC and IRR get calculated. By a Financial Controller.">
+<link rel="canonical" href="https://hodacfo.com/lbo-model-guide">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="LBO Model Excel: Debt Schedule, Cash Sweep, MoIC &amp; IRR Explained">
+<meta property="og:description" content="How an LBO model actually works: Sources &amp; Uses, the multi-tranche debt stack, the cash sweep waterfall, and how MoIC and IRR get calculated. By a Financial Controller.">
+<meta property="og:image" content="https://hodacfo.com/images/lbo-model-og.png">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/lbo-model-guide">
+<script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LBO Model Excel: Debt Schedule, Cash Sweep, MoIC & IRR Explained",
+  "description": "How an LBO model actually works: Sources & Uses, the multi-tranche debt stack, the cash sweep waterfall, and how MoIC and IRR get calculated. By a Financial Controller.",
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "author": {
+    "@type": "Person",
+    "name": "Hoda Elmorshidy",
+    "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hoda Finance"
+  }
+}
+</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:#A9C0E4}.nav-overlay .nav-cta{text-align:center}}</style>
+</head>
+<body>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/lbo-model-multi-tranche?utm_source=hodacfo&utm_medium=referral&utm_campaign=lbo-article" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model — $199</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/lbo-model-multi-tranche?utm_source=hodacfo&utm_medium=referral&utm_campaign=lbo-article" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model — $199</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <h1>What Actually Happens Inside an LBO Model</h1>
+    <p class="subtitle">Sources &amp; Uses, the multi-tranche debt stack, the cash sweep, and how paying down debt turns into an equity return — explained by a Financial Controller.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017</p>
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+    <p>A leveraged buyout (LBO) model answers one question: if a sponsor buys a company mostly with borrowed money, pays that debt down with the company's own cash flow over a multi-year hold, and sells at exit, what return did the equity check actually earn? The mechanics are simple to describe and easy to get wrong in a spreadsheet, because the debt stack, the cash sweep, and the returns calculation are all interdependent.</p>
+
+    <h2>Sources &amp; Uses: The Balance Check Everything Else Depends On</h2>
+
+    <p>Every LBO starts with the entry price, usually expressed as a multiple of EBITDA, and a Sources &amp; Uses schedule that must balance exactly to zero.</p>
+
+    <div class="formula">Uses = Purchase Enterprise Value + Transaction Fees + Refinanced Debt<br>Sources = New Debt Tranches + Sponsor Equity Check<br>Sources &minus; Uses = 0</div>
+
+    <p>The equity check is the plug: once the debt tranches are sized against leverage and coverage limits, whatever the debt does not cover comes from the sponsor's equity. Get the leverage assumption wrong and every downstream number — the debt balance, the interest expense, the equity value at exit — is wrong along with it.</p>
+
+    <h2>Why a Real LBO Uses More Than One Tranche</h2>
+
+    <p>A single blended debt number is a simplification that free templates lean on because it is easy to build. A real capital structure stacks tranches by seniority, each with its own rate, amortization schedule, and claim on cash:</p>
+
+    <ul>
+      <li><strong>Senior term loan</strong> &mdash; lowest cost, first claim on repayment, mandatory annual amortization</li>
+      <li><strong>Mezzanine debt</strong> &mdash; subordinated, higher rate, sits behind the senior tranche</li>
+      <li><strong>Accreting PIK note</strong> &mdash; pays no cash interest; the coupon accretes onto principal instead, which changes the balance the sponsor has to retire before equity value is created</li>
+      <li><strong>Revolver</strong> &mdash; drawn against a minimum-cash floor when operating cash is tight, repaid first when it is not</li>
+    </ul>
+
+    <p>Stacking tranches this way is what makes the debt paydown story realistic: the senior loan amortizes on schedule regardless of performance, the mezzanine and PIK layers carry the risk premium a real lender would price in, and the minimum-cash floor stops the model from sweeping the company into a liquidity problem.</p>
+
+    <h2>The Cash Sweep Waterfall</h2>
+
+    <p>Free cash flow generated each year has to go somewhere, in a fixed order of priority:</p>
+
+    <div class="formula">1. Mandatory senior amortization (contractual, non-negotiable)<br>2. Cash interest on each tranche (senior, then mezzanine)<br>3. PIK coupon accretes to principal (non-cash, no FCF used)<br>4. Remaining free cash flow &rarr; 100% cash sweep, applied to the senior tranche</div>
+
+    <p>The cash sweep is the mechanism that compounds returns for a leveraged deal: debt paydown that would otherwise take a decade on a fixed amortization schedule accelerates whenever the business generates cash above its mandatory obligations. This is also the single most common source of circular-reference errors in a DIY build, because the sweep depends on free cash flow, and free cash flow includes interest expense, which depends on the ending debt balance the sweep is trying to calculate.</p>
+
+    <div class="callout">
+      <strong>The fix that removes the circularity</strong>
+      <p>Charge interest on the <em>beginning</em> balance of each tranche, not the ending balance. The beginning balance is already known at the start of the period, so interest expense, free cash flow, and the sweep can all be calculated in a single pass with no iterative calculation setting and no circular-reference warning.</p>
+    </div>
+
+    <h2>Optional Dividend Recaps and Hold Period</h2>
+
+    <p>A sponsor does not have to wait for exit to realize value. If leverage capacity opens up mid-hold — the debt balance has paid down enough to support a new draw — a dividend recapitalization lets the sponsor take a distribution funded by new debt, resetting leverage higher without selling the company. Modeling this as an optional toggle against a variable one-to-five-year hold period is what lets the same workbook answer "what if we exit in year 3" and "what if we recap in year 2 and exit in year 5" without rebuilding anything.</p>
+
+    <h2>How MoIC and IRR Are Actually Calculated</h2>
+
+    <div class="formula">MoIC = Total Cash Returned to Equity &divide; Total Equity Invested<br>IRR = the discount rate r such that:<br>&nbsp;&nbsp;&nbsp;&nbsp;&sum; CFt / (1 + r)t = 0</div>
+
+    <p>MoIC tells you the multiple on capital — a 2.5x MoIC means every dollar invested came back as $2.50. It says nothing about time. IRR annualizes the same cash flows, so a 2.5x MoIC over three years and a 2.5x MoIC over seven years produce very different IRRs. A model that reports MoIC without IRR, or IRR without a dated XIRR that accounts for exact holding-period length rather than whole years, is only telling half the story a return needs.</p>
+
+    <h2>A Worked Example, Not a Toy Number</h2>
+
+    <p>In the <a href="/lbo-model-excel"><strong>LBO Model — Multi-Tranche</strong></a>, the shipped worked example repays $288.5M of the debt stack over the hold period. The stack itself — because tranches amortize and sweep at different rates, and because the PIK note accretes rather than shrinks — falls by $240.9M, not $288.5M. That gap is not a rounding error; it is the PIK note growing while the senior and mezzanine tranches shrink, and it is exactly the kind of detail a single-blended-debt model cannot show, because it does not track tranches separately in the first place.</p>
+
+    <h2>Where Free LBO Templates Fall Short</h2>
+
+    <p>A live pull of eFinancialModels' LBO shelf on 2026-08-09 found 20 title-matched listings, 17 of them priced, spanning $15&ndash;$130 with a median around $79 <em>[VERIFIED, eFM catalogue, pulled 2026-08-09]</em>. Most of that shelf is built around a single blended debt tranche with straight-line amortization — useful for teaching the concept, but it cannot show a cash sweep accelerating senior paydown, a PIK note accreting against it, or a dividend recap resetting leverage mid-hold. The <a href="/lbo-model-excel"><strong>LBO Model — Multi-Tranche</strong></a> is a 297-formula, 7-tab build with zero error cells, a Sources &amp; Uses that balances to zero, and no circular references — priced at $199 because the multi-tranche waterfall and the sensitivity grid are the parts a $79 template does not attempt.</p>
+
+    <div style="background:var(--navy);border-radius:var(--card-radius);padding:24px 28px;margin:36px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <p style="font-size:.875rem;font-weight:600;color:#A9C0E4;margin:0 0 4px">The model this article describes:</p>
+        <p style="font-size:1rem;font-weight:700;color:#fff;margin:0">LBO Model — Multi-Tranche (Senior, Mezzanine, PIK &amp; Revolver)</p>
+        <p style="font-size:.8125rem;color:#8899B4;margin:6px 0 0">7 tabs &middot; 297 formulas, 0 errors &middot; Excel + Google Sheets &middot; Methodology PDF</p>
+      </div>
+      <a href="https://hodaelmorshidy.gumroad.com/l/lbo-model-multi-tranche?utm_source=hodacfo&utm_medium=referral&utm_campaign=lbo-article" style="display:inline-block;background:var(--gold);color:var(--navy);font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:12px 24px;border-radius:4px;white-space:nowrap;text-decoration:none" target="_blank" rel="noopener noreferrer">Download — $199</a>
+    </div>
+
+    <h2>When a Simple Model Is Actually the Right Call</h2>
+
+    <p>Not every deal needs a four-tranche waterfall. A single-lender, single-tranche acquisition loan with straight-line amortization is genuinely well served by a simple model — the multi-tranche machinery only earns its keep once there is more than one class of debt competing for the same cash flow, which is most institutional buyouts but not every small acquisition.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the LBO Model — Multi-Tranche</h2>
+    <p>Senior, mezzanine, PIK note and revolver, a full cash-sweep waterfall, optional dividend recaps, and MoIC/IRR/XIRR with a two-way sensitivity grid. 297 formulas, 0 errors, no circular references.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/lbo-model-multi-tranche?utm_source=hodacfo&utm_medium=referral&utm_campaign=lbo-article" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $199 — Excel Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; Excel + Google Sheets</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/lbo-model-excel">LBO Model — Multi-Tranche</a>
+    <a href="/accretion-dilution-model-excel">Accretion/Dilution Model Explained</a>
+    <a href="/dcf-valuation-model-excel">Institutional-Grade DCF Model</a>
+    <a href="/">All Hoda Finance Tools</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">An LBO (leveraged buyout) model projects the debt paydown and equity return of an acquisition funded mostly by borrowed money. Sources must equal Uses; a multi-tranche debt stack (senior, mezzanine, PIK, revolver) amortizes and sweeps free cash flow in order of seniority; interest is charged on the beginning balance to avoid circular references; and returns are measured as MoIC (cash returned &divide; cash invested) and IRR (the discount rate that zeroes the NPV of the cash flows). For a full multi-tranche build with a cash-sweep waterfall, dividend recaps and sensitivity grid, see the LBO Model — Multi-Tranche by Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). 7 tabs, 297 formulas, $199 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This article is for educational and informational purposes only. It does not constitute investment advice, financial advice, or a recommendation to buy or sell any security. Consult a qualified finance professional before making investment decisions.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>

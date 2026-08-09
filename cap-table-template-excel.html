@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cap Table Template Excel: SAFEs, Option Pool &amp; Liquidation Prefs</title>
+<meta name="description" content="How a startup cap table actually works: SAFE conversion, the option pool shuffle, and how a liquidation preference waterfall changes who gets paid at exit.">
+<link rel="canonical" href="https://hodacfo.com/cap-table-template-excel">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Cap Table Template Excel: SAFEs, Option Pool Shuffle &amp; Liquidation Preferences">
+<meta property="og:description" content="How a startup cap table actually works: SAFE conversion, the option pool shuffle, and how a liquidation preference waterfall changes who gets paid at exit.">
+<meta property="og:image" content="https://hodacfo.com/images/cap-table-model-og.png">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/cap-table-template-excel">
+<script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cap Table Template Excel: SAFEs, Option Pool Shuffle & Liquidation Preferences",
+  "description": "How a startup cap table actually works: SAFE conversion, the option pool shuffle, and how a liquidation preference waterfall changes who gets paid at exit.",
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "author": {
+    "@type": "Person",
+    "name": "Hoda Elmorshidy",
+    "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hoda Finance"
+  }
+}
+</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0}.nav-overlay .nav-cta{text-align:center}}</style>
+</head>
+<body>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/cap-table-dilution-model?utm_source=hodacfo&utm_medium=referral&utm_campaign=cap-table-article" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model — $179</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/cap-table-dilution-model?utm_source=hodacfo&utm_medium=referral&utm_campaign=cap-table-article" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model — $179</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <h1>What a Cap Table Actually Tracks</h1>
+    <p class="subtitle">SAFE conversion, the option pool shuffle, and how a liquidation preference waterfall decides who actually gets paid at exit &mdash; explained by a Financial Controller.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017</p>
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+    <p>A cap table is a ledger of who owns what, but the number that matters is not today's ownership percentage &mdash; it is what that percentage becomes after every future round, option grant, and conversion event dilutes it. A spreadsheet that only shows current ownership is a snapshot. A cap table <em>model</em> shows the trajectory.</p>
+
+    <h2>How a SAFE Actually Converts</h2>
+
+    <p>A SAFE (Simple Agreement for Future Equity) is not equity yet &mdash; it is a promise to convert into equity at a future priced round, on whichever term is more favorable to the investor: the valuation cap or the discount rate.</p>
+
+    <div class="formula">Conversion Price = MIN( Cap Price, Discounted Round Price )<br>Cap Price = SAFE Valuation Cap &divide; Pre-Money Fully-Diluted Shares<br>Discounted Round Price = Priced-Round Price &times; (1 &minus; Discount %)</div>
+
+    <p>The post-money SAFE (the YC 2018 form most seed deals now use) also fixes the investor's ownership percentage independent of how much other SAFE money comes in alongside it &mdash; which sounds like a detail and is actually the reason two founders who raised the "same" amount on SAFEs can end up with very different dilution once every SAFE converts at the same priced round.</p>
+
+    <h2>The Option Pool Shuffle</h2>
+
+    <p>Before a priced round closes, investors typically require the company to expand its option pool &mdash; and that expansion is added to the <em>pre-money</em> valuation, not the post-money.</p>
+
+    <div class="callout">
+      <strong>Why this dilutes founders, not investors</strong>
+      <p>Because the new pool shares come out of the pre-money share count, the new investor's post-money percentage is protected &mdash; the dilution from the pool increase lands entirely on the existing founders and earlier investors. A 10% pool top-up structured this way is a meaningfully larger effective dilution to a founder than a simple back-of-envelope 10% suggests, because it compounds with the round's own dilution rather than sitting alongside it. Solving this correctly in closed form (rather than by iterative goal-seek) is one of the more error-prone parts of a DIY cap table.</p>
+    </div>
+
+    <h2>Two Very Different Exit Waterfalls</h2>
+
+    <p>At exit, proceeds do not simply split pro-rata by ownership percentage &mdash; not if any round carries a liquidation preference.</p>
+
+    <ul>
+      <li><strong>As-converted pro-rata</strong> &mdash; every share class converts to common and splits proceeds by ownership %. This is the outcome only in a large exit, once every preferred holder is better off converting than taking their preference.</li>
+      <li><strong>Liquidation preference waterfall</strong> &mdash; each preferred class is paid its preference (commonly 1x the amount invested) <em>before</em> common gets anything, in reverse seniority order (last money in is typically first money out). A <strong>participating</strong> preferred class then <em>also</em> shares in what's left pro-rata; a <strong>non-participating</strong> class has to choose between taking its preference or converting to common and giving up the preference &mdash; whichever is worth more to them.</li>
+    </ul>
+
+    <p>The waterfall that actually governs an exit is whichever of the two produces more for each class at the specific exit valuation in question &mdash; which is exactly why a real model runs both and compares them at every hypothetical exit value, rather than assuming the friendlier one applies.</p>
+
+    <h2>MoIC and IRR Belong on a Cap Table Too</h2>
+
+    <p>Ownership percentage answers "how much of the company do I own." It does not answer "was this a good investment." Per-investor MoIC (proceeds &divide; capital invested) and annualized IRR, calculated from each investor's actual entry round and actual exit proceeds under the waterfall that applies, are what turn a cap table from an ownership ledger into a return analysis.</p>
+
+    <h2>A Worked Example</h2>
+
+    <p>In the <a href="/cap-table-model-excel"><strong>Cap Table &amp; Dilution Model</strong></a>, the pre-filled worked deal shows a founder starting at 84.2% ownership. By exit &mdash; after SAFE conversion, an option pool shuffle, and multiple priced rounds through Series B &mdash; the same founder's stake is 32.7%. Neither number is wrong. That is what a multi-round cap table is supposed to show, and it is exactly the trajectory a single-round ownership snapshot cannot.</p>
+
+    <div style="background:var(--navy);border-radius:var(--card-radius);padding:24px 28px;margin:36px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <p style="font-size:.875rem;font-weight:600;color:#A9C0E4;margin:0 0 4px">The model this article describes:</p>
+        <p style="font-size:1rem;font-weight:700;color:#fff;margin:0">Cap Table &amp; Dilution Model (SAFE, Option Pool Shuffle &amp; Liquidation Waterfall)</p>
+        <p style="font-size:.8125rem;color:#8899B4;margin:6px 0 0">7 tabs &middot; 329 formula cells, 0 errors &middot; Excel + Google Sheets</p>
+      </div>
+      <a href="https://hodaelmorshidy.gumroad.com/l/cap-table-dilution-model?utm_source=hodacfo&utm_medium=referral&utm_campaign=cap-table-article" style="display:inline-block;background:var(--gold);color:var(--navy);font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:12px 24px;border-radius:4px;white-space:nowrap;text-decoration:none" target="_blank" rel="noopener noreferrer">Download — $179</a>
+    </div>
+
+    <h2>Where Free Cap Table Templates Fall Short</h2>
+
+    <p>A live pull of eFinancialModels' cap-table shelf on 2026-08-09 found 11 title-matched listings, 9 priced, spanning $5&ndash;$199 with a median around $45 <em>[VERIFIED, eFM catalogue, pulled 2026-08-09]</em>. Most of that shelf tracks ownership through one or two priced rounds without a SAFE conversion mechanic or an option-pool shuffle solved in closed form, and few show more than a single simplified exit waterfall. The <a href="/cap-table-model-excel"><strong>Cap Table &amp; Dilution Model</strong></a> uses arithmetic only &mdash; no macros, no circular references &mdash; and still carries a post-money SAFE, a correctly-solved pool shuffle, and both exit waterfalls side by side, priced at $179 because that machinery is the part a free template usually skips.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the Cap Table &amp; Dilution Model</h2>
+    <p>Multi-round priced-equity cap table, post-money SAFE conversion, a correctly-solved option pool shuffle, and both exit waterfalls with per-investor MoIC and IRR.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/cap-table-dilution-model?utm_source=hodacfo&utm_medium=referral&utm_campaign=cap-table-article" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $179 — Excel Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; Excel + Google Sheets</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/cap-table-model-excel">Cap Table &amp; Dilution Model</a>
+    <a href="/capital-budgeting-guide">Capital Budgeting &amp; NPV Explained</a>
+    <a href="/dcf-valuation-model-excel">Institutional-Grade DCF Model</a>
+    <a href="/">All Hoda Finance Tools</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">A cap table tracks ownership through every future dilution event, not just today's split. A post-money SAFE converts at the lower of its valuation cap or discounted round price; an option pool top-up ahead of a priced round is added to the pre-money share count, so the dilution lands on existing holders, not the new investor; and at exit, a liquidation preference waterfall pays preferred classes their preference before common, with a participating/non-participating toggle deciding whether preferred also shares in the remainder. For a full 7-tab build with SAFE conversion, a correctly-solved pool shuffle and both exit waterfalls, see the Cap Table &amp; Dilution Model by Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). 7 tabs, 329 formula cells, $179 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This article is for educational and informational purposes only. It does not constitute legal, tax, or investment advice. Cap table and dilution mechanics vary by jurisdiction and by the specific terms of your financing documents &mdash; consult a qualified startup attorney before relying on any structure described here.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>

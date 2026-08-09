@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Budgeting: NPV, IRR &amp; Funding a Project Queue Under a Budget</title>
+<meta name="description" content="How capital budgeting actually works: NPV vs IRR, why ranking by profitability index beats ranking by size, risk-adjusted hurdle rates, and capital rationing.">
+<link rel="canonical" href="https://hodacfo.com/capital-budgeting-guide">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Capital Budgeting: NPV, IRR &amp; Funding a Project Queue Under a Budget">
+<meta property="og:description" content="How capital budgeting actually works: NPV vs IRR, why ranking by profitability index beats ranking by size, risk-adjusted hurdle rates, and capital rationing.">
+<meta property="og:image" content="https://hodacfo.com/images/capital-allocation-system-og.png">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/capital-budgeting-guide">
+<script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Capital Budgeting: NPV, IRR & Funding a Project Queue Under a Budget",
+  "description": "How capital budgeting actually works: NPV vs IRR, why ranking by profitability index beats ranking by size, risk-adjusted hurdle rates, and capital rationing.",
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "author": {
+    "@type": "Person",
+    "name": "Hoda Elmorshidy",
+    "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hoda Finance"
+  }
+}
+</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0}.nav-overlay .nav-cta{text-align:center}}</style>
+</head>
+<body>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-budgeting-article" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the System — $449</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-budgeting-article" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the System — $449</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <h1>Why Ranking Projects by NPV Alone Misallocates a Budget</h1>
+    <p class="subtitle">NPV, IRR, profitability index, risk-adjusted hurdle rates, and how capital rationing actually decides which projects get funded &mdash; explained by a Financial Controller.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017</p>
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+    <p>Capital budgeting answers "should we do this project." Capital allocation answers a harder question: given a fixed budget and more good projects than money to fund them, which ones actually get built. Most free NPV templates only answer the first question &mdash; they say yes or no to one project in isolation, with no concept of a budget constraint or a queue of competing submissions.</p>
+
+    <h2>NPV: The Foundation</h2>
+
+    <div class="formula">NPV = &sum; CFt / (1 + r)t &minus; Initial Outlay</div>
+
+    <p>Net Present Value discounts every future cash flow back to today at the project's cost of capital and nets out the initial investment. A positive NPV means the project creates value above what the capital could earn elsewhere at the same risk. This is the textbook decision rule, and on a single, unconstrained project it is the right one.</p>
+
+    <h2>Why NPV Alone Breaks Down Under a Budget Constraint</h2>
+
+    <p>NPV is an absolute dollar figure &mdash; it does not say how much capital was required to earn it. Rank a queue of projects by NPV alone and you will fund the biggest projects first, which can burn through a limited budget before smaller, more capital-efficient projects even get considered.</p>
+
+    <div class="formula">Profitability Index (PI) = PV of Future Cash Flows &divide; Initial Outlay</div>
+
+    <p>PI measures value created <em>per dollar invested</em>, not value in absolute terms. Under a fixed budget, ranking by PI and funding down the list until the budget runs out maximizes total portfolio NPV &mdash; ranking by NPV alone does not, and the gap between the two approaches is not theoretical.</p>
+
+    <div class="callout">
+      <strong>A concrete case</strong>
+      <p>A $310,000 project returning 1.99x per dollar invested and a $1,680,000 project returning 1.75x per dollar invested and four times the absolute NPV: ranked by size, the larger project gets funded first and can consume a third of the budget before anything else is even considered. Ranked by PI, the smaller, more efficient project is funded first &mdash; and because the budget is the binding constraint, that ordering funds more total value across the full queue, not less.</p>
+    </div>
+
+    <h2>One WACC Does Not Fit Every Project</h2>
+
+    <p>A single company-wide discount rate assumes every project carries the same risk &mdash; a maintenance capex request and a new-market expansion are not the same bet, and discounting them at the same rate systematically favors the riskier one (its cash flows get the same "discount" for risk that a much safer project gets). A properly built hurdle-rate structure starts from a cost of capital built up from its components &mdash; CAPM cost of equity, relevered beta for the project's actual risk profile, after-tax cost of debt, target capital weights &mdash; then adds an explicit risk premium on top for each project's risk class, so a risky project has to clear a higher bar than a safe one before it competes for the same dollar.</p>
+
+    <h2>Depreciation Is Not a Rounding Detail</h2>
+
+    <p>After-tax free cash flow depends on the depreciation method, because depreciation shields taxable income even though it is not a cash outflow itself. Straight-line, declining-balance, and MACRS (the US tax system's own accelerated schedule, with distinct class lives and a half-year convention) produce materially different tax-shield timing for the identical asset &mdash; and MACRS specifically requires Section 179 and bonus depreciation elections, loss carryforward treatment, and correct salvage-value taxation on the gain over remaining book value to model correctly. Getting this wrong does not change whether a project is worth doing; it changes exactly when the cash shows up, which is exactly what a budget-constrained ranking is sensitive to.</p>
+
+    <h2>Real Options: What Flexibility Is Worth</h2>
+
+    <p>A static NPV assumes management makes no decisions after the initial investment. In reality, most projects carry embedded flexibility that has real value: the option to defer investment until more information arrives, to abandon a failing project and recover salvage value, or to expand a successful pilot. Valuing that flexibility as a real option &mdash; conceptually similar to a financial option, priced off the same volatility-and-time logic &mdash; can turn a marginal-looking static NPV into a clearly positive decision, particularly for staged or pilot-then-scale investments.</p>
+
+    <h2>A Worked Result</h2>
+
+    <p>In the <a href="/capital-allocation-system-excel"><strong>Capital Allocation System</strong></a>'s shipped worked cycle &mdash; 20 projects requesting $14,820,000 against a $4,500,000 budget &mdash; the second most valuable single submission in the entire queue, worth $1,055,183 of NPV and comfortably clearing its hurdle rate, gets nothing, because its $2,100,000 capex will not fit the $885,000 left when the PI-based ranking reaches it. A smaller project needing only $540,000 gets funded instead. That is the correct decision under the constraint &mdash; and it is also the strongest, most concrete argument a finance team will ever have for asking the budget itself to be increased.</p>
+
+    <div style="background:var(--navy);border-radius:var(--card-radius);padding:24px 28px;margin:36px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <p style="font-size:.875rem;font-weight:600;color:#A9C0E4;margin:0 0 4px">The model this article describes:</p>
+        <p style="font-size:1rem;font-weight:700;color:#fff;margin:0">Capital Allocation System — Capex Appraisal &amp; Portfolio Rationing</p>
+        <p style="font-size:.8125rem;color:#8899B4;margin:6px 0 0">26 tabs &middot; 12,042 formula cells, 0 errors &middot; Excel + Google Sheets, tested</p>
+      </div>
+      <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-budgeting-article" style="display:inline-block;background:var(--gold);color:var(--navy);font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:12px 24px;border-radius:4px;white-space:nowrap;text-decoration:none" target="_blank" rel="noopener noreferrer">Download — $449</a>
+    </div>
+
+    <h2>Where Free Capital Budgeting Templates Fall Short</h2>
+
+    <p>A live pull of eFinancialModels' capital-budgeting shelf on 2026-08-09 found 6 title-matched listings, 3 priced, spanning $40&ndash;$89 with a median around $49 <em>[VERIFIED, eFM catalogue, pulled 2026-08-09]</em>. Most of that shelf calculates NPV and IRR for a single project in isolation, with no PI-based ranking, no per-project risk-adjusted hurdle, and no concept of a budget constraint across a queue of competing submissions. The <a href="/capital-allocation-system-excel"><strong>Capital Allocation System</strong></a> is priced at $449 because the portfolio-rationing machinery, the five-class risk-adjusted hurdle structure, and the MACRS depreciation engine are the parts a $49-median template does not attempt &mdash; the golden case alone (a $100,000 outlay against $25,000 a year for five years at 10%, giving an NPV of &minus;$5,230.33) is checked against a published worked example, not approximated.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the Capital Allocation System</h2>
+    <p>A cost of capital built from CAPM and Hamada relevering, five risk-adjusted hurdle classes, MACRS/Section 179/bonus depreciation, PI-based capital rationing under a budget, real options, and a Python toolkit with an exact knapsack optimiser.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-budgeting-article" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $449 — Excel + Google Sheets</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; Excel + Google Sheets</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/capital-allocation-system-excel">Capital Allocation System</a>
+    <a href="/dscr-project-finance-guide">DSCR &amp; Debt Sizing Explained</a>
+    <a href="/dcf-valuation-model-excel">Institutional-Grade DCF Model</a>
+    <a href="/">All Hoda Finance Tools</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">Capital budgeting evaluates a single project with NPV (discounted future cash flows minus initial outlay) and IRR (the discount rate that zeroes NPV). Capital allocation extends this to a queue of competing projects under a fixed budget: ranking by profitability index (value created per dollar invested), not by absolute NPV, maximizes total portfolio value when capital is the binding constraint. A defensible build also assigns each project a risk-adjusted hurdle rate rather than one company-wide WACC, models depreciation correctly (straight-line, declining-balance or MACRS with Section 179 and bonus depreciation), and can value embedded flexibility as real options. For a full 26-tab build with all of this, including a portfolio optimizer and an exact-knapsack Python tool, see the Capital Allocation System by Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). 26 tabs, 12,042 formula cells, $449 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This article is for educational and informational purposes only. It does not constitute investment, tax, or accounting advice. Section 179, bonus depreciation and MACRS are US federal concepts &mdash; verify against current IRS rules and consult a qualified tax advisor before relying on any structure described here.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>

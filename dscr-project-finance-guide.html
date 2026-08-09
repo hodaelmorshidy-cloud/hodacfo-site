@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSCR &amp; Debt Sizing: How Project Finance Lenders Size a Loan</title>
+<meta name="description" content="How project finance debt is actually sized: DSCR sculpting, LLCR/PLCR, the DSRA, covenant testing, and why a P50 yield case is the wrong number to size debt on.">
+<link rel="canonical" href="https://hodacfo.com/dscr-project-finance-guide">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="DSCR &amp; Debt Sizing: How Project Finance Lenders Size a Loan">
+<meta property="og:description" content="How project finance debt is actually sized: DSCR sculpting, LLCR/PLCR, the DSRA, covenant testing, and why a P50 yield case is the wrong number to size debt on.">
+<meta property="og:image" content="https://hodacfo.com/images/solar-project-finance-model-og.png">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/dscr-project-finance-guide">
+<script defer src="https://plausible.io/js/script.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "DSCR & Debt Sizing: How Project Finance Lenders Size a Loan",
+  "description": "How project finance debt is actually sized: DSCR sculpting, LLCR/PLCR, the DSRA, covenant testing, and why a P50 yield case is the wrong number to size debt on.",
+  "datePublished": "2026-08-09",
+  "dateModified": "2026-08-09",
+  "author": {
+    "@type": "Person",
+    "name": "Hoda Elmorshidy",
+    "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hoda Finance"
+  }
+}
+</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0}.nav-overlay .nav-cta{text-align:center}}</style>
+</head>
+<body>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=dscr-article" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model — $479</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=dscr-article" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model — $479</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <h1>How a Lender Actually Sizes Project Finance Debt</h1>
+    <p class="subtitle">DSCR sculpting, LLCR and PLCR, the DSRA, and covenant testing &mdash; and why a P50 production case is the wrong number to size debt against. Explained by a Financial Controller.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017</p>
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+    <p>A project finance loan is repaid entirely from the cash flow of the asset it finances &mdash; there is no parent balance sheet standing behind it. That single fact is why project finance debt sizing looks nothing like a corporate loan: the lender is not asking "can this company service its total debt," they are asking "does this specific asset generate enough cash, in its worst plausible year, to cover this specific loan."</p>
+
+    <h2>DSCR: The Ratio Everything Else Is Built Around</h2>
+
+    <div class="formula">DSCR = Cash Available for Debt Service &divide; Total Debt Service (Principal + Interest)</div>
+
+    <p>A DSCR of 1.40x means the project generates $1.40 of available cash for every $1.00 of scheduled debt service &mdash; a 40-cent cushion. Lenders set a minimum DSCR covenant (commonly 1.20x&ndash;1.35x for contracted renewable assets) below which the loan is technically in default, and they size the loan amount itself so the DSCR never falls below a target minimum across the entire debt tenor, not just in an average year.</p>
+
+    <h2>Sculpting the Debt, Not Just Amortizing It</h2>
+
+    <p>A naive model amortizes debt on a level schedule and checks whether DSCR happens to clear the covenant every year. A lender-grade model works backward: given the project's cash flow profile in every year of the tenor, size each year's principal repayment so DSCR lands as close as possible to the target minimum in every period &mdash; higher repayment in strong cash-flow years, lower in weak ones. This is "sculpting," and it is why the debt balance in a real project finance model rarely amortizes on a straight line.</p>
+
+    <div class="callout">
+      <strong>Why the sculpted minimum and the covenant minimum can differ</strong>
+      <p>A model can sculpt to a 1.40x <em>target</em> and still show a 1.56x <em>minimum</em> across the full tenor, because sculpting works off the base-case cash flow profile while the covenant test runs against a sensitized downside. If the downside case shows a period where DSCR would fall below the 1.40x sculpting target, the debt gets sized smaller until the covenant minimum clears &mdash; which is exactly why the number a lender actually cares about is the minimum across the full tenor under stress, not the average, and not the target used to build the schedule.</p>
+    </div>
+
+    <h2>LLCR and PLCR: Looking Beyond the Next Payment</h2>
+
+    <p>DSCR is a single-period ratio &mdash; it says nothing about whether next year is worse. Two coverage ratios look further ahead:</p>
+
+    <div class="formula">LLCR = PV(remaining cash flow to loan maturity, discounted at the loan rate) &divide; Outstanding Debt Balance<br>PLCR = PV(remaining cash flow to project life end) &divide; Outstanding Debt Balance</div>
+
+    <p>LLCR (Loan Life Coverage Ratio) asks: over everything left until the loan is repaid, is there enough discounted cash flow to cover the balance? PLCR (Project Life Coverage Ratio) asks the same question over the asset's full remaining useful life, including any tail after the loan is repaid. A project can show a healthy annual DSCR every year and still have a thin LLCR if cash flow is backloaded near maturity &mdash; which is precisely the scenario LLCR exists to catch.</p>
+
+    <h2>The DSRA: A Cushion Funded Up Front</h2>
+
+    <p>A Debt Service Reserve Account (DSRA) is a cash reserve, funded at or before financial close, sized to cover a set number of months of forward debt service (commonly six). It exists so a single bad quarter &mdash; a maintenance outage, a temporary curtailment &mdash; does not immediately trip a payment default; the DSRA covers the gap while the underlying issue gets fixed. Sizing it too small defeats its purpose; sizing it too large ties up equity capital that could otherwise reduce the size of the loan needed.</p>
+
+    <h2>What Actually Happens When DSCR Slips</h2>
+
+    <p>Covenant testing is not binary pass/fail &mdash; a real facility agreement defines an escalating sequence:</p>
+
+    <ol>
+      <li><strong>Lock-up</strong> &mdash; DSCR falls below a distribution threshold (but above default). Cash distributions to equity are trapped in the project until DSCR recovers.</li>
+      <li><strong>Cure</strong> &mdash; DSCR falls further, into a defined cure window. The sponsor has a contractual right to inject equity or subordinated cash to bring the ratio back above the threshold before it becomes a default.</li>
+      <li><strong>Event of Default</strong> &mdash; DSCR remains below the floor after the cure period expires, or a cure right is exhausted. Lenders gain enforcement rights.</li>
+    </ol>
+
+    <p>A model that only shows a single covenant pass/fail line is not modeling the actual facility agreement &mdash; it is modeling a simplification of it.</p>
+
+    <h2>Why Debt Is Sized on a Downside Case, Not P50</h2>
+
+    <p>P50 production (the level exceeded in 50% of years) is the right number for an equity investor's base-case return expectation. It is the wrong number to size debt against, because by definition the asset underperforms P50 roughly half the time. Lenders size debt against a more conservative exceedance probability &mdash; commonly P90 or a multi-year P99 &mdash; specifically because debt service is a fixed, non-negotiable obligation and the lender needs coverage to hold even in a year the asset genuinely underperforms.</p>
+
+    <h2>A Worked Result</h2>
+
+    <p>In the <a href="/solar-project-finance-model-excel"><strong>Solar Project Finance Model</strong></a>, the shipped worked deal sculpts senior debt to a 1.40x DSCR target &mdash; and the minimum DSCR that actually holds across the full tenor, once the covenant and sensitivity machinery runs, is 1.56x. That gap between the sculpting target and the realized minimum is not slack the model failed to use; it is the buffer created by the DSRA, the gearing cap on hard capex, and the merchant tail assumptions all doing their job together.</p>
+
+    <div style="background:var(--navy);border-radius:var(--card-radius);padding:24px 28px;margin:36px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <p style="font-size:.875rem;font-weight:600;color:#A9C0E4;margin:0 0 4px">The model this article describes:</p>
+        <p style="font-size:1rem;font-weight:700;color:#fff;margin:0">Solar Project Finance Model</p>
+        <p style="font-size:.8125rem;color:#8899B4;margin:6px 0 0">22 tabs &middot; 13,951 live formulas &middot; DSCR sculpting, LLCR/PLCR, DSRA, covenant testing &middot; Excel only</p>
+      </div>
+      <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=dscr-article" style="display:inline-block;background:var(--gold);color:var(--navy);font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:12px 24px;border-radius:4px;white-space:nowrap;text-decoration:none" target="_blank" rel="noopener noreferrer">Download — $479</a>
+    </div>
+
+    <h2>Where Free Project Finance Templates Fall Short</h2>
+
+    <p>A live pull of eFinancialModels' solar project-finance shelf on 2026-08-09 found 6 title-matched listings, 4 priced, spanning $89&ndash;$149 with a median around $110 <em>[VERIFIED, eFM catalogue, pulled 2026-08-09]</em>; the broader project-finance shelf across all asset types (44 listings, ~1.4% of the full catalogue) skews similarly. Most stop at a single-scenario DSCR check rather than sculpting debt against a downside case, and few carry a funded DSRA, a lock-up/cure/default covenant ladder, or a probabilistic P50&ndash;P99 yield curve. The <a href="/solar-project-finance-model-excel"><strong>Solar Project Finance Model</strong></a> ships all of it, at $479, because lender-grade debt sizing is the part a $110-median template does not attempt.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the Solar Project Finance Model</h2>
+    <p>DSCR-sculpted senior debt, LLCR/PLCR, a funded DSRA, full covenant testing, an LP/GP promote waterfall, and analytic P50&ndash;P99 yield. Pre-filled with a 100 MW worked deal calibrated to published LBNL and Lazard data.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/solar-project-finance-model-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=dscr-article" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $479 — Excel Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; Excel only (native Data Tables)</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/solar-project-finance-model-excel">Solar Project Finance Model</a>
+    <a href="/capital-budgeting-guide">Capital Budgeting &amp; NPV Explained</a>
+    <a href="/dcf-valuation-model-excel">Institutional-Grade DCF Model</a>
+    <a href="/">All Hoda Finance Tools</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">Project finance debt is sized by "sculpting" principal repayment so the Debt Service Coverage Ratio (cash available for debt service &divide; total debt service) holds at or above a target minimum across the full tenor under a conservative downside production case (commonly P90&ndash;P99), not the P50 base case used for equity returns. LLCR and PLCR extend the coverage test across the remaining loan life and full project life; a funded DSRA covers a set number of months of debt service if cash flow dips; and a lock-up/cure/event-of-default covenant ladder governs what happens if DSCR slips. For a full 22-tab lender-grade build with all of this modeled explicitly, see the Solar Project Finance Model by Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). 22 tabs, 13,951 formulas, $479 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This article is for educational and informational purposes only. It does not constitute investment, engineering, or legal advice. Covenant structures, coverage ratio conventions and reserve sizing vary by lender, market and jurisdiction &mdash; consult qualified project finance and legal advisors before relying on any structure described here.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>
