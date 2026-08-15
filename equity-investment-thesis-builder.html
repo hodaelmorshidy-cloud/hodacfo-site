@@ -60,7 +60,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "What stock is pre-filled in the model?", "acceptedAnswer": {"@type": "Answer", "text": "NVIDIA Corporation (NVDA), using FY2026 data from the 10-K filed February 25, 2026. Revenue $215.9B, EBIT $130.4B, D&A $2.8B, Capex $6.0B. DCF fair value: $95.11. At $205 market price, the verdict is AVOID — the stock trades at more than twice its calculated intrinsic value. This is intentional: a model that tells you to AVOID a world-class company at the wrong price is more credible than one that always says BUY. You can see exactly how every formula connects before you swap in your own company."}},
-    {"@type": "Question", "name": "What is included in the $129 bundle?", "acceptedAnswer": {"@type": "Answer", "text": "Three files delivered instantly via Gumroad: (1) Full 12-tab Excel workbook — DCF model, Reverse DCF, Margin of Safety, WACC Builder, Sensitivity Analysis, Holding Period Simulator, AI Prompts, and more — NVIDIA FY2026 pre-filled. (2) 20-page Methodology & Data Guide PDF explaining every formula, assumption, and data source. (3) 2-page Stock Analysis Checklist PDF for pre-investment due diligence screening. One price, no subscription, no upgrade tiers."}},
+    {"@type": "Question", "name": "What\u2019s included in the $129 bundle?", "acceptedAnswer": {"@type": "Answer", "text": "Three files delivered instantly via Gumroad: (1) Full 12-tab Excel workbook — DCF model, Reverse DCF, Margin of Safety, WACC Builder, Sensitivity Analysis, Holding Period Simulator, AI Prompts, and more — NVIDIA FY2026 pre-filled. (2) 20-page Methodology & Data Guide PDF explaining every formula, assumption, and data source. (3) 2-page Stock Analysis Checklist PDF for pre-investment due diligence screening. One price, no subscription, no upgrade tiers."}},
     {"@type": "Question", "name": "Can I use it for any stock?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Quick Start tab includes a Company Swap section with a step-by-step guide to replacing the NVIDIA data with any other company. You need three years of historical financials (revenue, EBIT, D&A, Capex, NWC), a current market price, and basic market data (beta, risk-free rate). All available from 10-K filings or Yahoo Finance."}},
     {"@type": "Question", "name": "What is a reverse DCF?", "acceptedAnswer": {"@type": "Answer", "text": "A reverse DCF works backwards: instead of projecting cash flows to find fair value, it asks 'what growth rate does the current stock price already assume?' If the implied growth rate is higher than what you believe is realistic, the stock may be overvalued. The Reverse DCF tab in this workbook solves for the implied 5-year revenue CAGR at any market price."}},
     {"@type": "Question", "name": "What is margin of safety?", "acceptedAnswer": {"@type": "Answer", "text": "Margin of safety is the discount to DCF fair value at which you would buy a stock. A 20% margin of safety on a $95 fair value means you only buy at $76 or below — protecting you against model error and unexpected negative events. The Margin of Safety tab calculates your entry price at 10%, 20%, and 30% discounts, and also solves for the purchase price at a target IRR."}}
@@ -118,6 +118,23 @@ footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:cente
 .hero-meq .meq-trust{font-size:11.5px;color:#8EA4C2;margin-top:16px;letter-spacing:.2px}
 .hero-meq .meq-trust b{color:#3FB57F;font-weight:700}
 @media(max-width:680px){.hero-meq .meq-inner{padding:36px 16px 40px}.hero-meq h1{font-size:28px;max-width:none}.hero-meq .meq-sub{font-size:14px}.hero-meq .meq-cta{display:block;width:100%}}
+.hero-meq .meq-card{max-width:560px;margin:0 auto 30px;background:#0F1D32;border:1px solid #1F3350;border-radius:8px;padding:18px 20px;text-align:left}
+.hero-meq .mc-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.hero-meq .mc-t{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#8EA4C2}
+.hero-meq .mc-badge{font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#FF7A6B;border:1px solid #FF7A6B;border-radius:4px;padding:3px 8px;white-space:nowrap}
+.hero-meq .mc-row{display:grid;grid-template-columns:170px 1fr 64px;gap:10px;align-items:center;margin-bottom:9px}
+.hero-meq .mc-lbl{font-size:12px;color:#C8D6E8}
+.hero-meq .mc-track{height:10px;background:#16273E;border-radius:5px;overflow:hidden}
+.hero-meq .mc-bar{height:100%;border-radius:5px}
+.hero-meq .mc-mkt{background:#8EA4C2}
+.hero-meq .mc-fv{background:#C9A84C}
+.hero-meq .mc-mos{background:#3FB57F}
+.hero-meq .mc-v{font-size:13px;font-weight:700;color:#fff;text-align:right;font-variant-numeric:tabular-nums}
+.hero-meq .mc-v.gold{color:#C9A84C}
+.hero-meq .mc-v.green{color:#3FB57F}
+.hero-meq .mc-foot{font-size:12px;line-height:1.55;color:#C8D6E8;border-top:1px solid #1F3350;padding-top:12px;margin-top:4px}
+.hero-meq .mc-foot b{color:#fff}
+@media(max-width:680px){.hero-meq .mc-row{grid-template-columns:1fr 64px}.hero-meq .mc-lbl{grid-column:1 / -1;margin-bottom:2px}}
 /* wcag-aa-overrides:start */div.container span.ck{color:#8A6D1F!important}div.audience-col.is-for h3{color:#8A6D1F!important}div.author-info div.author-title{color:#8A6D1F!important}div.tier-card.featured div.tier-badge{color:#8A6D1F!important}div.pricing-content a.home-link{color:#8A6D1F!important}p.foot-disclaimer{color:#8C9CC0!important}div.pricing-content a.home-link:hover{color:var(--navy)!important}/* wcag-aa-overrides:end */</style>
 <div class="hero-meq">
   <div class="meq-inner">
@@ -126,8 +143,15 @@ footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:cente
       <span class="meq-bname">Hoda Finance</span>
     </div>
     <div class="meq-eyebrow">Equity Investment Thesis Builder</div>
-    <h1>Build a defensible investment thesis <span class="hl">without Bloomberg.</span></h1>
-    <p class="meq-sub">One Excel model that runs a full DCF, reverse-engineers the growth the market is pricing in, and sets your margin-of-safety entry price &mdash; with every formula traceable to an investment committee.</p>
+    <h1>NVIDIA at $205. The DCF says <span class="hl">$95.11.</span></h1>
+    <p class="meq-sub">A defensible investment thesis without Bloomberg &mdash; one Excel model that runs a full DCF, reverse-engineers the growth the market is pricing in, and sets your margin-of-safety entry price. Every formula traceable to an investment committee.</p>
+    <div class="meq-card">
+      <div class="mc-head"><span class="mc-t">Live outputs &mdash; NVDA FY2026 pre-fill</span><span class="mc-badge">Verdict: AVOID</span></div>
+      <div class="mc-row"><span class="mc-lbl">Market price</span><div class="mc-track"><div class="mc-bar mc-mkt" style="width:100%"></div></div><span class="mc-v">$205.00</span></div>
+      <div class="mc-row"><span class="mc-lbl">DCF fair value</span><div class="mc-track"><div class="mc-bar mc-fv" style="width:46.4%"></div></div><span class="mc-v gold">$95.11</span></div>
+      <div class="mc-row"><span class="mc-lbl">Entry at 20% margin of safety</span><div class="mc-track"><div class="mc-bar mc-mos" style="width:37.1%"></div></div><span class="mc-v green">$76.09</span></div>
+      <div class="mc-foot">At $205, the market is pricing a <b>42.81%</b> implied 5-year revenue CAGR &mdash; the Reverse DCF tab solves it, and the Dashboard calls the gap: <b>&minus;53.6%</b> vs fair value.</div>
+    </div>
     <div class="meq-pills">
       <span class="meq-pill">10-Year DCF</span>
       <span class="meq-pill">Reverse DCF</span>
