@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valuation Models in Excel — DCF, LBO, M&amp;A &amp; Cap Table | Hoda Finance</title>
+  <meta name="description" content="Institutional-grade valuation models in Excel: DCF with WACC builder, LBO, M&A merger model, cap table & equity thesis — practitioner-built, one-time purchase.">
+  <link rel="canonical" href="https://hodacfo.com/valuation-models-excel">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Valuation Models in Excel — DCF, LBO, M&amp;A &amp; Cap Table">
+  <meta property="og:description" content="Institutional-grade valuation models in Excel: DCF with WACC builder, LBO, M&A merger model, cap table & equity thesis — practitioner-built, one-time purchase.">
+  <meta property="og:url" content="https://hodacfo.com/valuation-models-excel">
+  <meta property="og:image" content="https://hodacfo.com/homepage_og_v1_2x.png">
+  <meta property="og:image:alt" content="Hoda Finance — Practitioner-Built Excel Financial Tools">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://hodacfo.com/"},
+    {"@type":"ListItem","position":2,"name":"Valuation Models","item":"https://hodacfo.com/valuation-models-excel"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[
+    {"@type":"ListItem","position":1,"url":"https://hodacfo.com/dcf-valuation-model-excel"},
+    {"@type":"ListItem","position":2,"url":"https://hodacfo.com/lbo-model-excel"},
+    {"@type":"ListItem","position":3,"url":"https://hodacfo.com/merger-model-excel"},
+    {"@type":"ListItem","position":4,"url":"https://hodacfo.com/cap-table-model-excel"},
+    {"@type":"ListItem","position":5,"url":"https://hodacfo.com/equity-investment-thesis-builder"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Hoda Elmorshidy",
+    "jobTitle":"Financial Controller | Fractional CFO | Corporate Finance since 2017","url":"https://hodacfo.com/"}
+  </script>
+  <style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#1B2A4A;--accent:#C9A84C;--ice:#F7F8FB;--white:#FFFFFF;--body:#4A5A72;--border:#D0DFED;--card-radius:6px}
+html{font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--body);background:var(--white);line-height:1.75;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+nav{background:var(--white);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.3px}
+.nav-link{font-size:.875rem;color:var(--body);font-weight:500}
+.nav-link:hover{color:var(--navy)}
+.hub-head{background:var(--navy);padding:52px 0 56px;text-align:center}
+.hub-head .crumb{font-size:.75rem;color:#8C9CC0;margin-bottom:14px}
+.hub-head .crumb a{color:#8C9CC0;text-decoration:underline}
+.hub-head h1{font-size:2rem;font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:12px}
+.hub-head p{font-size:.95rem;color:#C8D6E8;max-width:62ch;margin:0 auto;line-height:1.7}
+.hub-body{padding:48px 0 56px}
+.hub-body h2{font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:-.2px}
+.hub-body .sep{width:48px;height:3px;background:var(--accent);margin:0 0 24px;border-radius:2px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:44px}
+.pcard{display:block;background:var(--ice);border:1px solid var(--border);border-radius:var(--card-radius);padding:20px 22px;transition:border-color .15s}
+.pcard:hover{border-color:#8A6D1F}
+.pc-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+.pc-name{font-size:1rem;font-weight:700;color:var(--navy);line-height:1.35}
+.pc-price{font-size:1rem;font-weight:800;color:#8A6D1F;white-space:nowrap}
+.pc-desc{font-size:.85rem;color:var(--body);line-height:1.6;margin-bottom:10px}
+.pc-cta{font-size:.8rem;font-weight:700;color:#8A6D1F}
+.glist{list-style:none}
+.glist li{border-bottom:1px solid var(--border)}
+.glist a{display:block;padding:12px 2px;font-size:.9rem;font-weight:600;color:var(--navy)}
+.glist a:hover{color:#8A6D1F}
+.hub-note{font-size:.85rem;color:var(--body);margin-top:36px;background:var(--ice);border:1px solid var(--border);border-radius:var(--card-radius);padding:16px 20px;line-height:1.7}
+footer{background:var(--navy);padding:36px 0;text-align:center}
+footer .logo{color:var(--white);display:block;margin-bottom:10px}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-bottom:14px}
+.foot-links a{color:#A9C0E4;font-size:.8125rem}
+.foot-tag{font-size:.8rem;color:#8C9CC0;line-height:1.6}
+@media(max-width:680px){.hub-head h1{font-size:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Hoda Finance</a>
+    <a href="/" class="nav-link">All Tools</a>
+  </div>
+</nav>
+
+<div class="hub-head">
+  <div class="container">
+    <p class="crumb"><a href="/">Home</a> / Valuation Models</p>
+    <h1>Valuation Models in Excel</h1>
+    <p>DCF, leveraged buyout, merger, cap table and equity-thesis models — every one built to survive an investment committee, with sourced inputs and a documented methodology.</p>
+  </div>
+</div>
+
+<section class="hub-body">
+  <div class="container">
+    <h2>The Models</h2>
+    <div class="sep"></div>
+    <div class="pgrid">
+      <a class="pcard" href="/dcf-valuation-model-excel">
+        <div class="pc-top"><span class="pc-name">Institutional-Grade DCF Valuation Model</span><span class="pc-price">$129</span></div>
+        <p class="pc-desc">10-year DCF with WACC builder, scenario engine and sourced inputs — pre-filled with a verified worked example.</p>
+        <span class="pc-cta">View the model &rarr;</span>
+      </a>
+      <a class="pcard" href="/lbo-model-excel">
+        <div class="pc-top"><span class="pc-name">LBO Model — Multi-Tranche</span><span class="pc-price">$199</span></div>
+        <p class="pc-desc">Senior, mezzanine, PIK and revolver tranches with cash sweep, MoIC and IRR.</p>
+        <span class="pc-cta">View the model &rarr;</span>
+      </a>
+      <a class="pcard" href="/merger-model-excel">
+        <div class="pc-top"><span class="pc-name">M&amp;A Merger Model — Multi-Year</span><span class="pc-price">$199</span></div>
+        <p class="pc-desc">Multi-year merger model with debt schedule, purchase price allocation and EPS accretion bridge.</p>
+        <span class="pc-cta">View the model &rarr;</span>
+      </a>
+      <a class="pcard" href="/cap-table-model-excel">
+        <div class="pc-top"><span class="pc-name">Cap Table &amp; Dilution Model</span><span class="pc-price">$179</span></div>
+        <p class="pc-desc">SAFEs, the option-pool shuffle solved in closed form, and an exact liquidation waterfall.</p>
+        <span class="pc-cta">View the model &rarr;</span>
+      </a>
+      <a class="pcard" href="/equity-investment-thesis-builder">
+        <div class="pc-top"><span class="pc-name">Equity Investment Thesis Builder</span><span class="pc-price">$129</span></div>
+        <p class="pc-desc">DCF + Reverse DCF + margin of safety — solves the growth rate the market is pricing in.</p>
+        <span class="pc-cta">View the model &rarr;</span>
+      </a>
+    </div>
+
+    <h2>Free Guides</h2>
+    <div class="sep"></div>
+    <ul class="glist">
+      <li><a href="/what-is-dcf-model">What Is a DCF Valuation Model — Formula &amp; Excel Tutorial</a></li>
+      <li><a href="/dcf-scenario-analysis">DCF Scenario Analysis — Bear, Base, Bull Cases</a></li>
+      <li><a href="/dcf-preflight-checklist">DCF Model Pre-Flight Checklist — 12 Inputs to Verify</a></li>
+      <li><a href="/wacc-calculator-excel">WACC Calculator in Excel — CAPM, Weights &amp; Worked Example</a></li>
+      <li><a href="/lbo-model-guide">LBO Model Excel: Debt Schedule, Cash Sweep, MoIC &amp; IRR</a></li>
+      <li><a href="/accretion-dilution-model-excel">Accretion/Dilution: How M&amp;A Deals Actually Move EPS</a></li>
+      <li><a href="/cap-table-template-excel">Cap Table Template Excel: SAFEs, Option Pool &amp; Liquidation Prefs</a></li>
+    </ul>
+
+    <p class="hub-note">Every model here is practitioner-built by Hoda Elmorshidy — Financial Controller and Fractional CFO, in corporate finance since 2017 — and sold as a one-time purchase with instant download. No macros, no subscription. New models are added regularly, including tools not yet listed on this page.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div class="foot-links">
+      <a href="/">All Tools</a>
+      <a href="/valuation-models-excel">Valuation</a><a href="/project-finance-models-excel">Project Finance</a><a href="/fpa-models-excel">FP&amp;A</a><a href="/tax-self-employed-excel">Tax Tools</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/refund-policy">Refunds</a>
+    </div>
+    <p class="foot-tag">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+  </div>
+</footer>
+
+<script async defer src="https://plausible.io/js/script.outbound-links.js" data-domain="hodacfo.com"></script>
+</body>
+</html>
