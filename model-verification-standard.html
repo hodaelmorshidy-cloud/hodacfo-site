@@ -14,11 +14,7 @@
   <meta property="og:image" content="https://hodacfo.com/homepage_og_v1_2x.png">
   <meta property="og:image:alt" content="Hoda Finance — Practitioner-Built Excel Financial Tools">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://hodacfo.com/"},
-    {"@type":"ListItem","position":2,"name":"Model Verification Standard","item":"https://hodacfo.com/model-verification-standard"}]}
-  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hodacfo.com/"}, {"@type": "ListItem", "position": 2, "name": "Model Verification Standard", "item": "https://hodacfo.com/model-verification-standard"}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "url": "https://hodacfo.com/about", "@id": "https://hodacfo.com/about#hoda", "sameAs": ["https://hodaelmorshidy.gumroad.com/", "https://www.eloquens.com/channel/hoda-e", "https://www.upwork.com/freelancers/hodaelmorshidy"]}</script>
   <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -62,9 +58,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
 .foot-links a{color:#A9C0E4;font-size:.8125rem}
 .foot-tag{font-size:.8rem;color:#8C9CC0;line-height:1.6}
 </style>
-  <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "Organization", "@id": "https://hodacfo.com/#org", "name": "Hoda Finance", "url": "https://hodacfo.com/", "logo": "https://hodacfo.com/HodaFinance_logo_v5_final.png"}
-  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://hodacfo.com/#org", "name": "Hoda Finance", "url": "https://hodacfo.com/", "logo": "https://hodacfo.com/HodaFinance_logo_v5_final.png"}</script>
   <style>.skip-link{position:absolute;left:-9999px;top:0;background:#1B2A4A;color:#FFFFFF;padding:10px 18px;z-index:300;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:2px}footer a{display:inline-block;padding:6px 4px}</style>
 </head>
 <body>
@@ -93,7 +87,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
       <div class="gate"><div class="g-num">Gate 1</div><h3>Independent golden case</h3>
         <p>The model&rsquo;s headline outputs are reproduced by an independent means &mdash; a published worked example, a second tool, or a separate hand-built recompute &mdash; before anything else is checked. If the file and the independent case disagree, the model does not ship.</p></div>
       <div class="gate"><div class="g-num">Gate 2</div><h3>Dual-engine formula recompute</h3>
-        <p>Every formula cell is recomputed in an independent calculation engine and diffed against the stored value. A workbook that merely &ldquo;looks right&rdquo; in Excel does not pass; the numbers must reproduce outside Excel too.</p></div>
+        <p>Formula cells are recomputed in an independent calculation engine and diffed against the stored values, with <strong>coverage reported</strong> &mdash; any cell the engine cannot genuinely re-derive is flagged as unverified rather than silently passed. A workbook that merely &ldquo;looks right&rdquo; in Excel does not pass; the numbers must reproduce outside Excel too.</p></div>
       <div class="gate"><div class="g-num">Gate 3</div><h3>Reconciliation</h3>
         <p>Statements must tie: balance sheets balance in every period, cash flows tie to cash, subtotals equal their components, and every &ldquo;ties out&rdquo; claim in the file is tested rather than asserted.</p></div>
       <div class="gate"><div class="g-num">Gate 4</div><h3>Edge &amp; stress inputs</h3>
@@ -101,12 +95,12 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
       <div class="gate"><div class="g-num">Gate 5</div><h3>Claims audit</h3>
         <p>Every falsifiable number in a listing &mdash; tab counts, formula counts, worked-example outputs &mdash; is recomputed from the shipped file. If a claim cannot be verified, it is removed rather than softened.</p></div>
       <div class="gate"><div class="g-num">Gate 6</div><h3>Adversarial review</h3>
-        <p>Flagship models additionally face an independent reviewer whose instruction is to refute the results &mdash; run in a separate environment, on different software, with findings adjudicated one by one.</p></div>
+        <p>The top tier of the standard: an independent reviewer, in a separate environment on different software, instructed to <em>refute</em> the results &mdash; with every finding adjudicated one by one. This gate is scoped to flagship models and is the slowest to clear; where a model has completed it, its own product page says so.</p></div>
     </div>
 
     <h2>What a verification standard cannot do</h2>
     <div class="sep"></div>
-    <p class="note-box">Verification proves the model computes what its methodology says it computes. It does not make outputs advice. Results depend entirely on your inputs and assumptions &mdash; a verified DCF with optimistic growth assumptions still produces an optimistic valuation. Nothing on this site is investment, tax, accounting or legal advice; defects are covered by the <a href="/refund-policy" style="color:#8A6D1F;font-weight:600">refund policy</a>&rsquo;s warranty.</p>
+    <p class="note-box"><strong>Scope, stated plainly:</strong> gates 1&ndash;5 are the build-and-list discipline; gate 6 is a flagship tier that individual models complete on their own timeline, and a model&rsquo;s own page is the authority on what it has cleared &mdash; not this page. Verification also proves only that the model computes what its methodology says it computes. It does not make outputs advice. Results depend entirely on your inputs and assumptions &mdash; a verified DCF with optimistic growth assumptions still produces an optimistic valuation. Nothing on this site is investment, tax, accounting or legal advice; defects are covered by the <a href="/refund-policy" style="color:#8A6D1F;font-weight:600">refund policy</a>&rsquo;s warranty.</p>
 
     <p>Built and maintained by <a href="/about" style="color:#8A6D1F;font-weight:600">Hoda Elmorshidy</a>, Financial Controller and Fractional CFO.</p>
 
