@@ -52,6 +52,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
 .g-card span{font-size:.85rem;line-height:1.55}
 @media(max-width:680px){.hub-head h1{font-size:1.3rem}}
 </style>
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -63,7 +64,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   </div>
 </nav>
 
-<div class="hub-head" id="main">
+<div role="main" class="hub-head" id="main">
   <div class="container">
     <p class="crumb"><a href="/">Home</a> / <a href="/finance-glossary">Glossary</a> / IRR</p>
     <h1>What Is IRR (Internal Rate of Return)?</h1>
@@ -74,7 +75,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   <div class="container">
     <p>The Internal Rate of Return is the discount rate at which a stream of cash flows has a net present value of exactly zero — the implied annual return of an investment, taking timing into account.</p>
     <div class="formula">IRR = the r solving &Sigma; CF&#8348; &divide; (1+r)&#7511; = 0.</div>
-    <svg viewBox="0 0 500 64" role="img" aria-label="illustrative comparison" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Project A: 40% IRR, NPV</text><rect x="150" y="8" width="67" height="14" rx="3" fill="#C9A84C"/><text x="222" y="19" font-size="11" font-weight="700" fill="#1B2A4A">2M</text><text x="0" y="45" font-size="11" fill="#4A5A72">Project B: 15% IRR, NPV</text><rect x="150" y="34" width="300" height="14" rx="3" fill="#3FB57F"/><text x="455" y="45" font-size="11" font-weight="700" fill="#1B2A4A">9M</text></svg><p style="font-size:.8rem;color:#767676;margin-top:-6px">Illustrative: the IRR winner and the value winner are different projects.</p>
+    <svg viewBox="0 0 500 64" role="img" aria-label="Illustrative comparison: a 40 percent IRR project with lower NPV against a 15 percent IRR project with higher NPV" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Project A: 40% IRR, NPV</text><rect x="150" y="8" width="67" height="14" rx="3" fill="#C9A84C"/><text x="222" y="19" font-size="11" font-weight="700" fill="#1B2A4A">2M</text><text x="0" y="45" font-size="11" fill="#4A5A72">Project B: 15% IRR, NPV</text><rect x="150" y="34" width="300" height="14" rx="3" fill="#3FB57F"/><text x="455" y="45" font-size="11" font-weight="700" fill="#1B2A4A">9M</text></svg><p style="font-size:.8rem;color:#767676;margin-top:-6px">Illustrative: the IRR winner and the value winner are different projects.</p>
     <h2>Why it matters</h2>
     <p>It is the lingua franca of investment decisions — but it is a rate, not a size. A 40% IRR on a tiny, brief project can create less value than 15% on a large, long one.</p>
     <h2>The practitioner trap</h2>

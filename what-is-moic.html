@@ -52,6 +52,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
 .g-card span{font-size:.85rem;line-height:1.55}
 @media(max-width:680px){.hub-head h1{font-size:1.3rem}}
 </style>
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -63,7 +64,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   </div>
 </nav>
 
-<div class="hub-head" id="main">
+<div role="main" class="hub-head" id="main">
   <div class="container">
     <p class="crumb"><a href="/">Home</a> / <a href="/finance-glossary">Glossary</a> / MoIC</p>
     <h1>What Is MoIC (Multiple on Invested Capital)?</h1>
@@ -74,7 +75,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   <div class="container">
     <p>Multiple on Invested Capital is the simplest private-equity return measure: everything you got back, divided by everything you put in. A 2.5x MoIC means $2.50 returned per dollar invested.</p>
     <div class="formula">MoIC = total value (realized + unrealized) &divide; invested capital.</div>
-    <svg viewBox="0 0 500 64" role="img" aria-label="illustrative comparison" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Invested</text><rect x="150" y="8" width="120" height="14" rx="3" fill="#8FA3BD"/><text x="275" y="19" font-size="11" font-weight="700" fill="#1B2A4A">100</text><text x="0" y="45" font-size="11" fill="#4A5A72">Returned (2.5x)</text><rect x="150" y="34" width="300" height="14" rx="3" fill="#3FB57F"/><text x="455" y="45" font-size="11" font-weight="700" fill="#1B2A4A">250</text></svg>
+    <svg viewBox="0 0 500 64" role="img" aria-label="Illustrative multiple on invested capital: 100 invested returning 250" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Invested</text><rect x="150" y="8" width="120" height="14" rx="3" fill="#8FA3BD"/><text x="275" y="19" font-size="11" font-weight="700" fill="#1B2A4A">100</text><text x="0" y="45" font-size="11" fill="#4A5A72">Returned (2.5x)</text><rect x="150" y="34" width="300" height="14" rx="3" fill="#3FB57F"/><text x="455" y="45" font-size="11" font-weight="700" fill="#1B2A4A">250</text></svg>
     <p style="font-size:.8rem;color:#767676;margin-top:-6px">Illustrative: $100 invested returning $250 is a 2.0x&ndash;2.5x range outcome.</p>
     <h2>Why it matters</h2>
     <p>IRR can be gamed with timing — early dividends, subscription lines. MoIC cannot: it ignores time entirely. Reading MoIC and IRR together is how a MoIC of 2.0x achieved in 18 months is told apart from the same 2.0x over 8 years.</p>

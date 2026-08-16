@@ -52,6 +52,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
 .g-card span{font-size:.85rem;line-height:1.55}
 @media(max-width:680px){.hub-head h1{font-size:1.3rem}}
 </style>
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -63,7 +64,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   </div>
 </nav>
 
-<div class="hub-head" id="main">
+<div role="main" class="hub-head" id="main">
   <div class="container">
     <p class="crumb"><a href="/">Home</a> / <a href="/finance-glossary">Glossary</a> / Cash Sweep</p>
     <h1>What Is a Cash Sweep in an LBO?</h1>
@@ -74,7 +75,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   <div class="container">
     <p>A cash sweep is the mechanism that sends excess cash flow to prepay debt ahead of schedule, in order of seniority: senior first, then mezzanine, then anything PIK-ing quietly compounds until cash reaches it.</p>
     <div class="formula">Sweepable cash = cash flow after mandatory amortisation, interest and minimum cash — applied down the waterfall by tranche.</div>
-    <svg viewBox="0 0 500 90" role="img" aria-label="illustrative comparison" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Senior prepaid</text><rect x="150" y="8" width="300" height="14" rx="3" fill="#3FB57F"/><text x="455" y="19" font-size="11" font-weight="700" fill="#1B2A4A">60%</text><text x="0" y="45" font-size="11" fill="#4A5A72">Mezz prepaid</text><rect x="150" y="34" width="125" height="14" rx="3" fill="#C9A84C"/><text x="280" y="45" font-size="11" font-weight="700" fill="#1B2A4A">25%</text><text x="0" y="71" font-size="11" fill="#4A5A72">PIK accreting</text><rect x="150" y="60" width="75" height="14" rx="3" fill="#E58080"/><text x="230" y="71" font-size="11" font-weight="700" fill="#1B2A4A">15%</text></svg>
+    <svg viewBox="0 0 500 90" role="img" aria-label="Illustrative cash sweep allocation across senior, mezzanine and PIK tranches" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Senior prepaid</text><rect x="150" y="8" width="300" height="14" rx="3" fill="#3FB57F"/><text x="455" y="19" font-size="11" font-weight="700" fill="#1B2A4A">60%</text><text x="0" y="45" font-size="11" fill="#4A5A72">Mezz prepaid</text><rect x="150" y="34" width="125" height="14" rx="3" fill="#C9A84C"/><text x="280" y="45" font-size="11" font-weight="700" fill="#1B2A4A">25%</text><text x="0" y="71" font-size="11" fill="#4A5A72">PIK accreting</text><rect x="150" y="60" width="75" height="14" rx="3" fill="#E58080"/><text x="230" y="71" font-size="11" font-weight="700" fill="#1B2A4A">15%</text></svg>
     <p style="font-size:.8rem;color:#767676;margin-top:-6px">Illustrative sweep allocation &mdash; proportions vary entirely by deal structure.</p>
     <h2>Why it matters</h2>
     <p>The sweep is where an LBO&rsquo;s deleveraging actually happens. Model it wrong and every year of debt balances, interest, and therefore equity returns is wrong in sequence.</p>

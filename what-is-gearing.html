@@ -52,6 +52,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
 .g-card span{font-size:.85rem;line-height:1.55}
 @media(max-width:680px){.hub-head h1{font-size:1.3rem}}
 </style>
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -63,7 +64,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   </div>
 </nav>
 
-<div class="hub-head" id="main">
+<div role="main" class="hub-head" id="main">
   <div class="container">
     <p class="crumb"><a href="/">Home</a> / <a href="/finance-glossary">Glossary</a> / Gearing</p>
     <h1>What Is Gearing in Project Finance?</h1>
@@ -74,7 +75,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   <div class="container">
     <p>Gearing is debt as a share of total project cost (debt &divide; debt + equity). In project finance it arrives as a hard cap — the maximum share of the project a lender will fund, regardless of how good the cash flows look.</p>
     <div class="formula">Gearing = senior debt &divide; total capitalisation; the binding constraint is min(sculpted debt, gearing cap &times; total cost).</div>
-    <svg viewBox="0 0 500 64" role="img" aria-label="illustrative comparison" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Sculpted (1.40x DSCR)</text><rect x="150" y="8" width="300" height="14" rx="3" fill="#C9A84C"/><text x="455" y="19" font-size="11" font-weight="700" fill="#1B2A4A">134.97M</text><text x="0" y="45" font-size="11" fill="#4A5A72">Gearing cap (75%)</text><rect x="150" y="34" width="268" height="14" rx="3" fill="#3FB57F"/><text x="423" y="45" font-size="11" font-weight="700" fill="#1B2A4A">120.75M</text></svg>
+    <svg viewBox="0 0 500 64" role="img" aria-label="Model outputs: debt sculpted to a 1.40x DSCR at $134.97 million, cut to $120.75 million by the 75 percent gearing cap" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Sculpted (1.40x DSCR)</text><rect x="150" y="8" width="300" height="14" rx="3" fill="#C9A84C"/><text x="455" y="19" font-size="11" font-weight="700" fill="#1B2A4A">134.97M</text><text x="0" y="45" font-size="11" fill="#4A5A72">Gearing cap (75%)</text><rect x="150" y="34" width="268" height="14" rx="3" fill="#3FB57F"/><text x="423" y="45" font-size="11" font-weight="700" fill="#1B2A4A">120.75M</text></svg>
     <h2>Why it matters</h2>
     <p>Debt sizing has two masters: the DSCR sculpt says how much debt the cash flows can service; the gearing cap says how much the lender will fund. The binding one decides.</p>
     <h2>The practitioner trap</h2>

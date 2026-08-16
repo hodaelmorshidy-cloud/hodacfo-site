@@ -52,6 +52,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
 .g-card span{font-size:.85rem;line-height:1.55}
 @media(max-width:680px){.hub-head h1{font-size:1.3rem}}
 </style>
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -63,7 +64,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   </div>
 </nav>
 
-<div class="hub-head" id="main">
+<div role="main" class="hub-head" id="main">
   <div class="container">
     <p class="crumb"><a href="/">Home</a> / <a href="/finance-glossary">Glossary</a> / Terminal Value</p>
     <h1>What Is Terminal Value in a DCF?</h1>
@@ -74,7 +75,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   <div class="container">
     <p>Terminal value is the worth, today, of every cash flow that arrives after your explicit forecast window ends. In most DCF valuations it is the single largest component of enterprise value — which is exactly why it deserves the most suspicion.</p>
     <div class="formula">TV = FCF&#8321;&#8320;&#8321; &divide; (WACC &minus; g) &nbsp;&mdash;&nbsp; the Gordon Growth form: next year&rsquo;s free cash flow divided by the discount rate minus perpetual growth.</div>
-    <svg viewBox="0 0 500 64" role="img" aria-label="illustrative comparison" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Explicit years 1-10</text><rect x="150" y="8" width="300" height="14" rx="3" fill="#8FA3BD"/><text x="455" y="19" font-size="11" font-weight="700" fill="#1B2A4A">54%</text><text x="0" y="45" font-size="11" fill="#4A5A72">Terminal value</text><rect x="150" y="34" width="256" height="14" rx="3" fill="#C9A84C"/><text x="411" y="45" font-size="11" font-weight="700" fill="#1B2A4A">46%</text></svg><p style="font-size:.8rem;color:#767676;margin-top:-6px">Illustrative split of enterprise value — the point of a long explicit window is pushing the gold bar down.</p>
+    <svg viewBox="0 0 500 64" role="img" aria-label="Illustrative split of enterprise value between the explicit forecast years and the terminal value" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Explicit years 1-10</text><rect x="150" y="8" width="300" height="14" rx="3" fill="#8FA3BD"/><text x="455" y="19" font-size="11" font-weight="700" fill="#1B2A4A">54%</text><text x="0" y="45" font-size="11" fill="#4A5A72">Terminal value</text><rect x="150" y="34" width="256" height="14" rx="3" fill="#C9A84C"/><text x="411" y="45" font-size="11" font-weight="700" fill="#1B2A4A">46%</text></svg><p style="font-size:.8rem;color:#767676;margin-top:-6px">Illustrative split of enterprise value — the point of a long explicit window is pushing the gold bar down.</p>
     <h2>Why it matters</h2>
     <p>A 10-year model exists largely to shrink the terminal value&rsquo;s share of the answer. The further out your explicit years run, the less of the valuation hides inside one perpetuity assumption.</p>
     <h2>The practitioner trap</h2>

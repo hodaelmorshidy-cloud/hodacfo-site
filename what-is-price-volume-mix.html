@@ -52,6 +52,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
 .g-card span{font-size:.85rem;line-height:1.55}
 @media(max-width:680px){.hub-head h1{font-size:1.3rem}}
 </style>
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -63,7 +64,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   </div>
 </nav>
 
-<div class="hub-head" id="main">
+<div role="main" class="hub-head" id="main">
   <div class="container">
     <p class="crumb"><a href="/">Home</a> / <a href="/finance-glossary">Glossary</a> / Price-Volume-Mix</p>
     <h1>What Is Price-Volume-Mix (PVM) Analysis?</h1>
@@ -74,7 +75,7 @@ footer .logo{color:var(--white);display:block;margin-bottom:10px}
   <div class="container">
     <p>Price-volume-mix analysis decomposes a revenue variance into three causes: what you charged (price), how much you sold (volume), and what you sold (mix). It is the difference between reporting a variance and explaining one.</p>
     <div class="formula">Bridge form: price effect + volume effect + mix effect = total revenue variance — with the interaction term allocated, not dropped.</div>
-    <svg viewBox="0 0 500 86" role="img" aria-label="illustrative PVM bridge" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Price</text><rect x="150" y="8" width="180" height="14" rx="3" fill="#3FB57F"/><text x="335" y="19" font-size="11" font-weight="700" fill="#1B2A4A">+3%</text><text x="0" y="45" font-size="11" fill="#4A5A72">Volume</text><rect x="150" y="34" width="300" height="14" rx="3" fill="#E58080"/><text x="455" y="45" font-size="11" font-weight="700" fill="#1B2A4A">&minus;5%</text><text x="0" y="71" font-size="11" fill="#4A5A72">Mix</text><rect x="150" y="60" width="120" height="14" rx="3" fill="#C9A84C"/><text x="275" y="71" font-size="11" font-weight="700" fill="#1B2A4A">&minus;2%</text></svg><p style="font-size:.8rem;color:#767676;margin-top:-6px">Illustrative bridge: a &minus;4% revenue variance explained, not just reported. (Negative bars drawn by magnitude.)</p>
+    <svg viewBox="0 0 500 86" role="img" aria-label="Illustrative price-volume-mix bridge: price plus 3 percent, volume minus 5 percent, mix minus 2 percent" style="max-width:500px;width:100%;height:auto;margin:14px 0"><text x="0" y="19" font-size="11" fill="#4A5A72">Price</text><rect x="150" y="8" width="180" height="14" rx="3" fill="#3FB57F"/><text x="335" y="19" font-size="11" font-weight="700" fill="#1B2A4A">+3%</text><text x="0" y="45" font-size="11" fill="#4A5A72">Volume</text><rect x="150" y="34" width="300" height="14" rx="3" fill="#E58080"/><text x="455" y="45" font-size="11" font-weight="700" fill="#1B2A4A">&minus;5%</text><text x="0" y="71" font-size="11" fill="#4A5A72">Mix</text><rect x="150" y="60" width="120" height="14" rx="3" fill="#C9A84C"/><text x="275" y="71" font-size="11" font-weight="700" fill="#1B2A4A">&minus;2%</text></svg><p style="font-size:.8rem;color:#767676;margin-top:-6px">Illustrative bridge: a &minus;4% revenue variance explained, not just reported. (Negative bars drawn by magnitude.)</p>
     <h2>Why it matters</h2>
     <p>A board asking &ldquo;why is revenue down 4%?&rdquo; will not accept &ldquo;it just is.&rdquo; PVM answers with causes that map to decisions: pricing, salesforce, product portfolio.</p>
     <h2>The practitioner trap</h2>
