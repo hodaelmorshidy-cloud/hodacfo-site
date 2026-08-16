@@ -30,7 +30,8 @@
 .forecast-months{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}.fm-dot{width:22px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}.fm-dot.closed{background:var(--green);color:#fff}.fm-dot.open{background:var(--cell-border);color:var(--label)}.forecast-meta{font-size:11px;color:var(--body2);line-height:1.7}
 .mini-table .mt-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04)}.mini-table .mt-row:last-child{border-bottom:none}.mt-l{font-size:11px;color:var(--body2)}.mt-r{font-size:13px;font-weight:700;color:var(--white)}.mt-r.gold{color:var(--gold)}.mt-r.grn{color:var(--green)}
 @media(max-width:768px){.hero-M-inner{padding:24px 16px 32px}.hero-M .dash-card{padding:20px 16px}.hero-M .dash-header{flex-direction:column;align-items:flex-start;gap:10px}.hero-M .dash-header h1{font-size:22px}.hero-M .dh-badge{white-space:normal;font-size:9px}.hero-M .dash-grid{grid-template-columns:1fr}.hero-M .dash-footer{flex-direction:column;align-items:flex-start}.hero-M .cta-group{text-align:left;width:100%}.hero-M .cta-btn{width:100%;text-align:center}}
-  /* wcag-aa-overrides:start */div.vt-row span.vt-badge.a{color:#EE7A7A!important}div.forecast-months div.fm-dot.closed{color:#0A1424!important}div.price-callout span.pc-num{color:#8A6D1F!important}div.container span.ck{color:#8A6D1F!important}div.sidebar div.price-lbl{color:#8A6D1F!important}div.tab-card div.tc-num{color:#8A6D1F!important}div.stat-card div.stat-lbl{color:#8A6D1F!important}div.audience-col.is-for h3{color:#8A6D1F!important}div.audience-col.not-for span.cross{color:#767676!important}div.author-info div.author-title{color:#8A6D1F!important}/* wcag-aa-overrides:end */</style>
+  /* wcag-aa-overrides:start */div.vt-row span.vt-badge.a{color:#EE7A7A!important}div.forecast-months div.fm-dot.closed{color:#0A1424!important}div.price-callout span.pc-num{color:#8A6D1F!important}div.container span.ck{color:#8A6D1F!important}div.sidebar div.price-lbl{color:#8A6D1F!important}div.tab-card div.tc-num{color:#8A6D1F!important}div.stat-card div.stat-lbl{color:#8A6D1F!important}div.audience-col.is-for h3{color:#8A6D1F!important}div.audience-col.not-for span.cross{color:#767676!important}div.author-info div.author-title{color:#8A6D1F!important}/* wcag-aa-overrides:end */.nav-desk{font-size:.875rem;color:#4A5A72;font-weight:500;text-decoration:none}.nav-desk:hover{color:#1B2A4A}@media(max-width:900px){.nav-desk{display:none}}
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hodacfo.com/"}, {"@type": "ListItem", "position": 2, "name": "FP&A Variance & Forecast Toolkit", "item": "https://hodacfo.com/fpa-variance-forecast-toolkit"}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://hodacfo.com/#org", "name": "Hoda Finance", "url": "https://hodacfo.com/", "logo": "https://hodacfo.com/HodaFinance_logo_v5_final.png"}</script>
   <style>.skip-link{position:absolute;left:-9999px;top:0;background:#1B2A4A;color:#FFFFFF;padding:10px 18px;z-index:300;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:2px}footer a{display:inline-block;padding:6px 4px}</style>
@@ -43,14 +44,15 @@
 <nav>
   <div class="container">
     <a href="/" class="logo">Hoda Finance</a>
-    <div class="nav-right">
+    <div class="nav-right"><a href="/#tools" class="nav-link nav-desk">All Tools</a><a href="/finance-glossary" class="nav-link nav-desk">Glossary</a>
       <a href="https://hodaelmorshidy.gumroad.com/l/fpa-variance-forecast-toolkit?utm_source=hodacfo&utm_medium=referral&utm_campaign=fpa-toolkit" class="nav-cta" target="_blank" rel="noopener noreferrer">Buy Now &mdash; $129</a>
       <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
       </button>
     </div>
     <div class="nav-overlay" id="mobile-menu">
-      <a href="/" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="/#tools" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="/finance-glossary" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Glossary</a>
       <a href="https://hodaelmorshidy.gumroad.com/l/fpa-variance-forecast-toolkit?utm_source=hodacfo&utm_medium=referral&utm_campaign=fpa-toolkit" class="nav-cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Buy Now &mdash; $129</a>
     </div>
   </div>
@@ -437,7 +439,7 @@
     <p style="font-size:.9rem;margin:0;line-height:1.8">
       <a href="/budget-vs-actual-model-excel" style="color:#8A6D1F;font-weight:700">Annual Budget &amp; Reforecast Model</a> &middot;
       <a href="/cfo-board-reporting-system" style="color:#8A6D1F;font-weight:700">CFO Board Reporting System</a>
-    </p>
+     &middot; <a href="/fpa-models-excel" style="color:#8A6D1F;font-weight:700">All FP&amp;A Models</a></p>
   </div>
 </section>
 
