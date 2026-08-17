@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget vs Actual Methodology — Drivers, Reforecast &amp; PVM Split</title>
+<meta name="description" content="How the Annual Budget &amp; Reforecast Model works: driver-based revenue, the scenario engine, the rolling latest estimate, and the price/mix/volume split.">
+<link rel="canonical" href="https://hodacfo.com/budget-vs-actual-methodology">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Budget vs Actual Methodology — Drivers, Reforecast &amp; PVM Split">
+<meta property="og:description" content="How the Annual Budget &amp; Reforecast Model works: driver-based revenue, the scenario engine, the rolling latest estimate, and the price/mix/volume split.">
+<meta property="og:image" content="https://hodacfo.com/images/og-budget-vs-actual-methodology.png">
+<meta property="og:image:alt" content="Annual Budget &amp; Reforecast Model — Methodology — Inside the Method: Driver-Based Revenue and the Scenario Engine; The Rolling Reforecast (Latest Estimate); Price / Volume / Mix — the Split That Reproduces">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/budget-vs-actual-methodology">
+<script defer src="https://plausible.io/js/script.outbound-links.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Budget vs Actual Methodology \u2014 Drivers, Reforecast & PVM Split", "description": "How the Annual Budget & Reforecast Model works: driver-based revenue, the scenario engine, the rolling latest estimate, and the price/mix/volume split.", "datePublished": "2026-08-17", "dateModified": "2026-08-17", "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "@id": "https://hodacfo.com/about#hoda"}, "publisher": {"@type": "Organization", "name": "Hoda Finance"}}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:#A9C0E4}.nav-overlay .nav-cta{text-align:center}}.nav-desk{font-size:.875rem;color:#A9C0E4;font-weight:500;text-decoration:none}.nav-desk:hover{color:#fff}@media(max-width:900px){.nav-desk{display:none}}
+</style>
+<style>.mtable{border-collapse:collapse;width:100%;font-size:.9375rem}.mtable th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-weight:600}.mtable td{border:1px solid var(--border-color);padding:10px 14px;color:var(--body-text);vertical-align:top}.mtable tbody tr:nth-child(even){background:var(--ice)}@media(max-width:680px){.mtable{font-size:.8125rem}.mtable th,.mtable td{padding:8px 8px}}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hodacfo.com/"}, {"@type": "ListItem", "position": 2, "name": "Annual Budget & Reforecast Model", "item": "https://hodacfo.com/budget-vs-actual-model-excel"}, {"@type": "ListItem", "position": 3, "name": "Budget vs Actual Methodology \u2014 Drivers, Reforecast & PVM Split", "item": "https://hodacfo.com/budget-vs-actual-methodology"}]}</script>
+<style>.skip-link{position:absolute;left:-9999px;top:0;background:#1B2A4A;color:#FFFFFF;padding:10px 18px;z-index:300;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:2px}footer a{display:inline-block;padding:6px 4px}</style>
+<link rel="preconnect" href="https://plausible.io" crossorigin>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div style="display:flex;gap:22px;align-items:center"><a href="/#tools" class="nav-desk">All Tools</a><a href="/finance-glossary" class="nav-desk">Glossary</a></div><a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $149</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/#tools" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="/finance-glossary" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Glossary</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $149</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div role="main" class="container" id="main">
+    <h1>Annual Budget &amp; Reforecast Model — Methodology</h1>
+    <p class="subtitle">Driver-based revenue, a one-switch scenario engine, the rolling latest estimate, and a price/mix/volume split that sums exactly back to the revenue variance — published from the shipped Methodology PDF.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017 &bull; Published 2026-08-17</p>
+    <p class="meta" style="margin-top:8px">The <a href="/budget-vs-actual-model-excel" style="color:#C9A84C;font-weight:600">product page</a> carries a machine-verified audit certificate with the shipping file&rsquo;s SHA-256.</p>
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+<p>This page publishes the methodology behind the <a href="/budget-vs-actual-model-excel"><strong>Annual Budget &amp; Reforecast Model</strong></a> — a driver-based operating model, not a budget grid. Revenue is planned from units and price rather than typed as a total; one scenario switch flexes the whole plan; actuals replace budget month by month; and every revenue variance decomposes into price, mix and volume the way an FP&amp;A team does it. Built to be defended to a board, a lender, or a client.</p>
+
+<h2>Driver-Based Revenue and the Scenario Engine</h2>
+<div class="formula">Line Revenue = (Units &times; Active Volume Factor) &times; (Price &times; Active Price Factor)<br>Active Factor = INDEX(Factor Column, Scenario Select)<br>Monthly Expense Total = (Revenue &times; COGS % + Direct Costs) &times; Active Cost Factor</div>
+<p>Scenario is a single input (1 = Base, 2 = Upside, 3 = Downside) selecting a row of volume / price / cost-inflation factors that feeds every tab. COGS is budgeted as a percentage of revenue so it flexes with volume automatically.</p>
+
+<h2>The Rolling Reforecast (Latest Estimate)</h2>
+<div class="formula">Latest Estimate = IF(Month &lt;= Current Month, Actual, Budget)</div>
+<p>Months up to the Current month pull actuals; later months keep budget. A closed month left blank reads as zero and pulls the estimate down — the formula behaving correctly, not a fault. The reverse matters too: actuals keyed <em>beyond</em> the Current month misstate every year-to-date figure until you advance it — costs entered ahead understate EBITDA, revenue entered ahead overstates it. The Actuals tab raises a REVIEW flag whenever data exists past the Current month, on either side; the latest estimate itself phases correctly either way.</p>
+
+<h2>Price / Volume / Mix — the Split That Reproduces</h2>
+<div class="formula">Price = (Actual Price &minus; Budget Price) &times; Actual Units<br>Mix = (Actual Mix % &minus; Budget Mix %) &times; Total Actual Units &times; Budget Price<br>Volume = (Total Actual Units &minus; Total Budget Units) &times; Budget Mix % &times; Budget Price<br>Price + Mix + Volume = LE &minus; FY Budget &nbsp;(exactly)</div>
+<p>Basis, stated plainly: Budget Price and Budget Units are the <strong>scenario-flexed</strong> values, phased to the months closed so far. The split is valued at budgeted price — the turnover method — because this tab bridges <em>revenue</em>. CIMA and ACCA value sales-mix and quantity variances at standard contribution when bridging <em>profit</em>, a different question; only a turnover-basis split sums back to the revenue variance, and the tab is labelled accordingly.</p>
+
+<h2>Sensitivity, Cash and Departments</h2>
+<p>The sensitivity grid flexes EBITDA across volume and cost-inflation; its 1.00x/1.00x cell equals the Annual Summary budget EBITDA for whichever scenario is selected — check it if you ever doubt the grid. The Cash Bridge converts accrual to cash with a single-month DSO/DPO lag capped at 30 days — a stated working-capital approximation, not a treasury forecast; the reconciliation closes by construction:</p>
+<div class="formula">EBITDA (accrual) &minus; FY Net Cash Flow = &Delta; Receivables &minus; &Delta; Payables</div>
+<p>Departments allocates each budgeted cost across cost centres; every allocation row must total 100% and the Check column flags any that does not with REVIEW — a warning, never a silent correction, because only you know which cell was meant to change.</p>
+
+<h2>Conventions</h2>
+<div style="overflow-x:auto;margin:24px 0"><table class="mtable"><thead><tr><th>Item</th><th>Convention</th></tr></thead><tbody><tr><td>Inputs</td><td>Blue cells only; black and grey cells are formulas</td></tr><tr><td>Variance</td><td>Actual &minus; Budget, everywhere, no exceptions</td></tr><tr><td>Cost arrows</td><td>Flipped vs revenue: an overspend reads unfavourable</td></tr><tr><td>Colour</td><td>Direction carried by arrows and text, never colour alone</td></tr><tr><td>Future months</td><td>Left at 0 until closed — not-yet-actual, not zero performance</td></tr><tr><td>Profit line</td><td>Revenue &minus; operating expenses = EBITDA; interest, tax, depreciation not modelled</td></tr><tr><td>Compatibility</td><td>Excel 2016+ and Google Sheets; no macros, no 365-only functions</td></tr></tbody></table></div>
+<p>Three independent checks are built in and worth quoting to a reviewer: Price + Mix + Volume ties to the revenue variance; the sensitivity base cell ties to Annual Summary EBITDA in every scenario; and the Cash Bridge ties EBITDA to cash via working capital. Educational template — not tax, accounting, or investment advice.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the Annual Budget &amp; Reforecast Model</h2>
+    <p>The model this methodology describes &mdash; with the full methodology document included in the download.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/budget-vs-actual-model-fpa?utm_source=hodacfo&utm_medium=referral&utm_campaign=budget-vs-actual-methodology" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $149 &mdash; Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; One-time purchase</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/budget-vs-actual-model-excel">Annual Budget &amp; Reforecast Model</a>
+    <a href="/budget-vs-actual-report-guide">Budget vs Actual Report Guide</a>
+    <a href="/what-is-price-volume-mix">What Is Price/Volume/Mix?</a>
+    <a href="/fpa-models-excel">FP&amp;A Models in Excel</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The Annual Budget &amp; Reforecast Model methodology: revenue built from units × price flexed by a one-switch scenario engine, a rolling latest estimate where IF(month ≤ Current, Actual, Budget) phases the year, a REVIEW flag when actuals exist past the Current month, and a price/mix/volume split — valued at budgeted price on the turnover basis, scenario-flexed — that sums exactly back to the revenue variance. Three built-in tie-out checks. By Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). $149 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<section style="background:#F7F8FB;border-top:1px solid #D0DFED;padding:26px 0"><div class="container" style="max-width:720px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid #D0DFED;flex-shrink:0" width="402" height="520" loading="lazy"><div style="flex:1;min-width:240px"><div style="font-size:.9375rem;font-weight:700;color:#1B2A4A">Written by Hoda Elmorshidy</div><div style="font-size:.8125rem;color:#4A5A72;line-height:1.5">Financial Controller &amp; Fractional CFO &middot; Corporate Finance since 2017 &middot; <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600">LinkedIn</a></div></div></div></div></section>
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/valuation-models-excel" style="font-size:.8125rem;margin:0 10px">Valuation</a>
+        <a href="/project-finance-models-excel" style="font-size:.8125rem;margin:0 10px">Project Finance</a>
+        <a href="/fpa-models-excel" style="font-size:.8125rem;margin:0 10px">FP&amp;A</a>
+        <a href="/tax-self-employed-excel" style="font-size:.8125rem;margin:0 10px">Tax Tools</a>
+        <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+    <a href="/refund-policy" style="font-size:.8125rem;margin:0 10px">Refunds</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This page is for educational and informational purposes only. It does not constitute investment advice, financial advice, or a recommendation to buy or sell any security. Consult a qualified finance professional before making investment decisions.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equity Thesis Methodology — DCF, Reverse DCF &amp; Margin of Safety</title>
+<meta name="description" content="The methodology behind the Equity Investment Thesis Builder: the eight-step framework, NVIDIA FY2026 10-K prefill sources, and the conventions per step.">
+<link rel="canonical" href="https://hodacfo.com/equity-thesis-methodology">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Equity Thesis Methodology — DCF, Reverse DCF &amp; Margin of Safety">
+<meta property="og:description" content="The methodology behind the Equity Investment Thesis Builder: the eight-step framework, NVIDIA FY2026 10-K prefill sources, and the conventions per step.">
+<meta property="og:image" content="https://hodacfo.com/images/og-equity-thesis-methodology.png">
+<meta property="og:image:alt" content="Equity Investment Thesis Builder — Methodology &amp; Data Guide — Inside the Method: The Eight-Step Framework; Pre-Fill Sources — Stated Definitions, Not Just Numbers; Why the Reverse DCF Is the Point">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/equity-thesis-methodology">
+<script defer src="https://plausible.io/js/script.outbound-links.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Equity Thesis Methodology \u2014 DCF, Reverse DCF & Margin of Safety", "description": "The methodology behind the Equity Investment Thesis Builder: the eight-step framework, NVIDIA FY2026 10-K prefill sources, and the conventions per step.", "datePublished": "2026-08-17", "dateModified": "2026-08-17", "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "@id": "https://hodacfo.com/about#hoda"}, "publisher": {"@type": "Organization", "name": "Hoda Finance"}}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:#A9C0E4}.nav-overlay .nav-cta{text-align:center}}.nav-desk{font-size:.875rem;color:#A9C0E4;font-weight:500;text-decoration:none}.nav-desk:hover{color:#fff}@media(max-width:900px){.nav-desk{display:none}}
+</style>
+<style>.mtable{border-collapse:collapse;width:100%;font-size:.9375rem}.mtable th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-weight:600}.mtable td{border:1px solid var(--border-color);padding:10px 14px;color:var(--body-text);vertical-align:top}.mtable tbody tr:nth-child(even){background:var(--ice)}@media(max-width:680px){.mtable{font-size:.8125rem}.mtable th,.mtable td{padding:8px 8px}}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hodacfo.com/"}, {"@type": "ListItem", "position": 2, "name": "Equity Investment Thesis Builder", "item": "https://hodacfo.com/equity-investment-thesis-builder"}, {"@type": "ListItem", "position": 3, "name": "Equity Thesis Methodology \u2014 DCF, Reverse DCF & Margin of Safety", "item": "https://hodacfo.com/equity-thesis-methodology"}]}</script>
+<style>.skip-link{position:absolute;left:-9999px;top:0;background:#1B2A4A;color:#FFFFFF;padding:10px 18px;z-index:300;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:2px}footer a{display:inline-block;padding:6px 4px}</style>
+<link rel="preconnect" href="https://plausible.io" crossorigin>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div style="display:flex;gap:22px;align-items:center"><a href="/#tools" class="nav-desk">All Tools</a><a href="/finance-glossary" class="nav-desk">Glossary</a></div><a href="https://hodaelmorshidy.gumroad.com/l/equity-investment-thesis-builder?utm_source=hodacfo&utm_medium=referral&utm_campaign=equity-thesis-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $129</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/#tools" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="/finance-glossary" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Glossary</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/equity-investment-thesis-builder?utm_source=hodacfo&utm_medium=referral&utm_campaign=equity-thesis-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $129</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div role="main" class="container" id="main">
+    <h1>Equity Investment Thesis Builder — Methodology &amp; Data Guide</h1>
+    <p class="subtitle">The eight-step valuation framework, the NVIDIA FY2026 pre-fill with every source named, and the conventions behind the reverse DCF, margin of safety and holding-period simulator — published from the shipped guide.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017 &bull; Published 2026-08-17</p>
+    
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+<p>This page publishes the methodology and data-source guide that ships with the <a href="/equity-investment-thesis-builder"><strong>Equity Investment Thesis Builder</strong></a>. The workbook is a complete equity valuation framework in eight steps, each tab building on the previous from a single set of inputs. The pre-fill is NVIDIA Corporation (NVDA) FY2026 as a fully worked example — <strong>Form 10-K for the fiscal year ended January 25, 2026, filed February 25, 2026</strong> (SEC EDGAR CIK 1045810), with balance-sheet detail verified against StockAnalysis.com (May 2026). Replace the amber input cells with any company&rsquo;s annual-report data and all calculations update.</p>
+
+<h2>The Eight-Step Framework</h2>
+<div style="overflow-x:auto;margin:24px 0"><table class="mtable"><thead><tr><th>Step</th><th>What it does</th></tr></thead><tbody><tr><td>1 — Company Data</td><td>3 years of historicals + 5 years of forward assumptions; the single source of truth</td></tr><tr><td>2 — WACC Builder</td><td>Cost of capital from first principles via CAPM</td></tr><tr><td>3 — DCF Model</td><td>10-year FCF, discounted at WACC, terminal value, bridged to per-share fair value using the mid-year convention</td></tr><tr><td>4 — Sensitivity</td><td>Two 5&times;5 grids: WACC &times; terminal growth, and revenue CAGR &times; EBIT margin — same DCF engine</td></tr><tr><td>5 — Reverse DCF</td><td>Solves backward: what revenue CAGR does the current market price imply? (Excel Goal Seek)</td></tr><tr><td>6 — Margin of Safety</td><td>Maximum entry price at 10/20/30% discounts to fair value, plus the price for a target IRR</td></tr><tr><td>7 — Holding Period Simulator</td><td>Bear/Base/Bull exits over 1&ndash;5 years on an EV/EBITDA multiple; IRR by year</td></tr><tr><td>8 — Dashboard</td><td>Fair value, upside, margin of safety, holding-period IRRs, and the investment verdict</td></tr></tbody></table></div>
+
+<h2>Pre-Fill Sources — Stated Definitions, Not Just Numbers</h2>
+<p>Two definitional choices are disclosed up front. <strong>Capex</strong> uses the 10-K cash-flow line &ldquo;Purchases of property and equipment and intangible assets&rdquo; — the broad figure sell-side analysts use for FCFF. <strong>Net working capital</strong> is estimated as (AR + Inventory) &minus; (AP + Accrued Liabilities) — a stated simplification; the 10-K provides the components if you need precision.</p>
+<div style="overflow-x:auto;margin:24px 0"><table class="mtable"><thead><tr><th>Line item (USD M)</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>10-K location</th></tr></thead><tbody><tr><td>Revenue</td><td>60,922</td><td>130,497</td><td>215,938</td><td>Income statement</td></tr><tr><td>EBIT</td><td>32,972</td><td>81,453</td><td>130,387</td><td>Operating income</td></tr><tr><td>Capex (broad)</td><td>1,069</td><td>3,236</td><td>6,042</td><td>Cash flow — PP&amp;E + intangibles</td></tr><tr><td>Total debt</td><td>8,456</td><td>8,463</td><td>8,468</td><td>Balance sheet</td></tr><tr><td>Cash &amp; ST investments</td><td>25,984</td><td>43,210</td><td>62,556</td><td>Balance sheet</td></tr><tr><td>Shares outstanding (M)</td><td>24,610</td><td>24,440</td><td>24,304</td><td>10-K cover page</td></tr></tbody></table></div>
+<p>Forward assumptions model a decelerating path from NVIDIA&rsquo;s exceptional FY2026 (65% revenue growth), with capex% recalibrated to the FY2026 actual (2.8%) and &Delta;NWC% derived from a stable ~13% NWC/revenue ratio. All values are editable — the pre-fill is a worked example, not a recommendation.</p>
+
+<h2>Why the Reverse DCF Is the Point</h2>
+<p>A conventional DCF asks &ldquo;what is this company worth, given my assumptions?&rdquo; The Reverse DCF inverts the question: <em>given the market price, what growth is the market assuming?</em> That turns a valuation argument into a falsifiable claim — you can judge whether the implied revenue CAGR is achievable rather than defending your own forecast. The Margin of Safety tab then converts fair value into maximum entry prices at fixed discounts, and the Holding Period Simulator prices Bear/Base/Bull exits on an EV/EBITDA multiple over 1&ndash;5 years, reporting IRR by year — so the thesis carries its own downside case.</p>
+<p>This is an educational/professional tool; the pre-filled figures are public-record data used as a worked example. Not investment advice. Verify every input at investor.nvidia.com or SEC EDGAR before relying on it.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the Equity Investment Thesis Builder</h2>
+    <p>The model this methodology describes &mdash; with the full methodology document included in the download.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/equity-investment-thesis-builder?utm_source=hodacfo&utm_medium=referral&utm_campaign=equity-thesis-methodology" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $129 &mdash; Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; One-time purchase</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/equity-investment-thesis-builder">Equity Investment Thesis Builder</a>
+    <a href="/what-is-reverse-dcf">What Is a Reverse DCF?</a>
+    <a href="/what-is-margin-of-safety">What Is Margin of Safety?</a>
+    <a href="/dcf-valuation-model-excel">Institutional-Grade DCF Model</a>
+    <a href="/valuation-models-excel">Valuation Models in Excel</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The Equity Investment Thesis Builder methodology: an eight-step framework — company data, CAPM WACC builder, 10-year mid-year-convention DCF, dual 5×5 sensitivity grids, a reverse DCF that solves the growth rate the market price implies, margin-of-safety entry prices, a Bear/Base/Bull holding-period simulator, and a verdict dashboard. Pre-filled with NVIDIA FY2026 10-K data (filed Feb 25, 2026), with the broad capex definition and NWC estimate disclosed. By Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). $129 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<section style="background:#F7F8FB;border-top:1px solid #D0DFED;padding:26px 0"><div class="container" style="max-width:720px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid #D0DFED;flex-shrink:0" width="402" height="520" loading="lazy"><div style="flex:1;min-width:240px"><div style="font-size:.9375rem;font-weight:700;color:#1B2A4A">Written by Hoda Elmorshidy</div><div style="font-size:.8125rem;color:#4A5A72;line-height:1.5">Financial Controller &amp; Fractional CFO &middot; Corporate Finance since 2017 &middot; <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600">LinkedIn</a></div></div></div></div></section>
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/valuation-models-excel" style="font-size:.8125rem;margin:0 10px">Valuation</a>
+        <a href="/project-finance-models-excel" style="font-size:.8125rem;margin:0 10px">Project Finance</a>
+        <a href="/fpa-models-excel" style="font-size:.8125rem;margin:0 10px">FP&amp;A</a>
+        <a href="/tax-self-employed-excel" style="font-size:.8125rem;margin:0 10px">Tax Tools</a>
+        <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+    <a href="/refund-policy" style="font-size:.8125rem;margin:0 10px">Refunds</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This page is for educational and informational purposes only. It does not constitute investment advice, financial advice, or a recommendation to buy or sell any security. Consult a qualified finance professional before making investment decisions.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>

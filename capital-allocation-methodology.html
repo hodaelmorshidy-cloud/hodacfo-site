@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Allocation Methodology — PI Ranking, Hurdles &amp; MACRS</title>
+<meta name="description" content="How the Capital Allocation System decides: driver-based FCF, five risk classes over WACC, profitability-index ranking under a budget, and real options.">
+<link rel="canonical" href="https://hodacfo.com/capital-allocation-methodology">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Capital Allocation Methodology — PI Ranking, Hurdles &amp; MACRS">
+<meta property="og:description" content="How the Capital Allocation System decides: driver-based FCF, five risk classes over WACC, profitability-index ranking under a budget, and real options.">
+<meta property="og:image" content="https://hodacfo.com/images/og-capital-allocation-methodology.png">
+<meta property="og:image:alt" content="Capital Allocation System — Methodology — Inside the Method: Building the Cash Flows; Depreciation — Why the Method Changes the Answer; Cost of Capital and Risk-Adjusted Hurdles">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/capital-allocation-methodology">
+<script defer src="https://plausible.io/js/script.outbound-links.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Capital Allocation Methodology \u2014 PI Ranking, Hurdles & MACRS", "description": "How the Capital Allocation System decides: driver-based FCF, five risk classes over WACC, profitability-index ranking under a budget, and real options.", "datePublished": "2026-08-17", "dateModified": "2026-08-17", "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "@id": "https://hodacfo.com/about#hoda"}, "publisher": {"@type": "Organization", "name": "Hoda Finance"}}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:#A9C0E4}.nav-overlay .nav-cta{text-align:center}}.nav-desk{font-size:.875rem;color:#A9C0E4;font-weight:500;text-decoration:none}.nav-desk:hover{color:#fff}@media(max-width:900px){.nav-desk{display:none}}
+</style>
+<style>.mtable{border-collapse:collapse;width:100%;font-size:.9375rem}.mtable th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-weight:600}.mtable td{border:1px solid var(--border-color);padding:10px 14px;color:var(--body-text);vertical-align:top}.mtable tbody tr:nth-child(even){background:var(--ice)}@media(max-width:680px){.mtable{font-size:.8125rem}.mtable th,.mtable td{padding:8px 8px}}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hodacfo.com/"}, {"@type": "ListItem", "position": 2, "name": "Capital Allocation System", "item": "https://hodacfo.com/capital-allocation-system-excel"}, {"@type": "ListItem", "position": 3, "name": "Capital Allocation Methodology \u2014 PI Ranking, Hurdles & MACRS", "item": "https://hodacfo.com/capital-allocation-methodology"}]}</script>
+<style>.skip-link{position:absolute;left:-9999px;top:0;background:#1B2A4A;color:#FFFFFF;padding:10px 18px;z-index:300;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:2px}footer a{display:inline-block;padding:6px 4px}</style>
+<link rel="preconnect" href="https://plausible.io" crossorigin>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div style="display:flex;gap:22px;align-items:center"><a href="/#tools" class="nav-desk">All Tools</a><a href="/finance-glossary" class="nav-desk">Glossary</a></div><a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $449</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/#tools" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="/finance-glossary" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Glossary</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $449</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div role="main" class="container" id="main">
+    <h1>Capital Allocation System — Methodology</h1>
+    <p class="subtitle">Which projects to fund when you cannot fund them all: driver-based cash flows, risk-adjusted hurdles, profitability-index ranking under a fixed budget, and the worked cases that show why — published from the shipped manual.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017 &bull; Published 2026-08-17</p>
+    <p class="meta" style="margin-top:8px">The <a href="/capital-allocation-system-excel" style="color:#C9A84C;font-weight:600">product page</a> carries a machine-verified audit certificate with the shipping file&rsquo;s SHA-256.</p>
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+<p>This page publishes the methodology behind the <a href="/capital-allocation-system-excel"><strong>Capital Allocation System</strong></a>. The unit of analysis is the capital <em>budget</em>, not the individual project: a project appraisal answers &ldquo;is this worth doing?&rdquo;; a capital allocation answers &ldquo;given a fixed amount of money and more good ideas than money, where does it go?&rdquo; The system appraises up to twenty projects over a twenty-five-year horizon, discounts each at its own risk-adjusted hurdle, ranks by value created per unit of capital, and funds down the ranking until the budget is exhausted — then reports what the unfunded projects would have been worth, usually the most useful number in the pack.</p>
+
+<h2>Building the Cash Flows</h2>
+<div class="formula">FCF(0) = &minus;(capex + working capital on year-1 revenue)<br>FCF(t) = EBIT(t) &times; (1 &minus; tax) + depreciation(t) &minus; &Delta;WC(t)<br>FCF(n) = the above + after-tax salvage + release of working capital</div>
+<p>Every project starts as drivers, not a typed cash-flow row. Depreciation is deducted to compute taxable profit and added straight back — its only cash effect is the tax it shelters, which is exactly why the method matters to NPV.</p>
+
+<h2>Depreciation — Why the Method Changes the Answer</h2>
+<p>Straight line, double declining balance, and US MACRS are supported. The MACRS GDS half-year tables are derived from the documented method (200% DB for 3&ndash;10-year property, 150% for 15&ndash;20-year, switching to straight line in the year that gives the larger deduction) and reconcile to IRS Publication 946, Appendix A, Table A-1 within the published two-decimal rounding, checked August 2026. Section 179 and bonus depreciation apply first, in year one. Salvage is taxed on the gain over written-down book value — an asset depreciated straight-line to salvage shows no gain; the same asset under MACRS is written to zero, so the entire proceeds are taxable. A real cash difference, handled explicitly.</p>
+
+<h2>Cost of Capital and Risk-Adjusted Hurdles</h2>
+<div class="formula">Levered beta = unlevered beta &times; (1 + (1 &minus; tax) &times; D/E)<br>Cost of equity = risk-free + levered beta &times; ERP + premiums<br>WACC = We &times; Re + Wd &times; Rd &times; (1 &minus; tax)</div>
+<p>One hurdle for every project is a common and expensive simplification — discounting a replacement compressor and a speculative new market at the same WACC systematically over-funds the speculative one. Five risk classes carry explicit premiums over WACC (maintenance 0.0% &rarr; new market 5.0%); any project can override its class rate. The premiums are a judgment call, yours to set and defend — what matters is that they are explicit, consistent, and visible.</p>
+
+<h2>Metrics, and What Each One Hides</h2>
+<div class="formula">NPV = &Sigma; FCF(t) / (1 + r)^t &nbsp;&middot;&nbsp; PI = PV of inflows / initial investment<br>EAC = NPV &times; r / (1 &minus; (1 + r)^&minus;n) &nbsp;&middot;&nbsp; real rate = (1 + nominal)/(1 + inflation) &minus; 1</div>
+<p>NPV is the only metric that maps directly onto value created. IRR flatters small projects and can have multiple roots; MIRR is almost always lower and more honest. PI — NPV per unit of capital — is the correct ranking when the <em>budget</em> is the constraint. EAC is the only fair comparison across different lives. Payback should never decide anything alone. When the rankings disagree, the disagreement is the finding — put it in the memo. Mid-year discounting and the real-vs-nominal Fisher switch are both explicit; mixing real cash flows with a nominal rate understates every project and is among the most common capital-budgeting errors.</p>
+
+<h2>Capital Rationing — the Worked Cases</h2>
+<p>The system ranks eligible projects by PI and funds down the list. The shipped sample makes the argument concrete:</p>
+<div style="overflow-x:auto;margin:24px 0"><table class="mtable"><thead><tr><th>Case</th><th>What it shows</th></tr></thead><tbody><tr><td>The small project that wins</td><td>DC Cooling Retrofit ($310k capex, PI 1.99) is funded first, ahead of a project with 4&times; its NPV — because under a budget, value per unit of capital decides, not size</td></tr><tr><td>The best project that gets nothing</td><td>Regional DC — Iberia (NPV $1,055,183, IRR 19.0% vs 12.3% hurdle) is deferred purely for budget fit; total NPV deferred is $2,678,754 against $2,820,520 funded — the strongest argument for relaxing the constraint</td></tr><tr><td>When the model says no and you go anyway</td><td>A mandatory cybersecurity project returns NPV &minus;$31,788 — a DCF measures cash created, not losses prevented. The right use is to make the cost of compliance visible and minimise it across alternatives</td></tr><tr><td>Two ways to solve one problem</td><td>Mutually exclusive projects share a group label; the optimizer removes the weaker one so a large budget cannot fund both and pay twice for one capability</td></tr></tbody></table></div>
+<p>The greedy PI ranking is not provably optimal; the included Python toolkit has an exact solver that reports when the two differ. Real options are modelled as a transparent two-state decision tree — defer, stage, expand, abandon — with the stated caution to count only options you could genuinely exercise. The Post-Investment Review enters actuals against plan to test whether the appraisal process is calibrated: if growth projects come in short three cycles running, the fix is a higher class-5 premium, not better project selection.</p>
+<p>Not investment, tax, or accounting advice. Section 179, bonus depreciation and MACRS are US federal concepts — set to zero outside the US and verify against current IRS rules.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the Capital Allocation System</h2>
+    <p>The model this methodology describes &mdash; with the full methodology document included in the download.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/capital-allocation-system-excel?utm_source=hodacfo&utm_medium=referral&utm_campaign=capital-allocation-methodology" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $449 &mdash; Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; One-time purchase</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/capital-allocation-system-excel">Capital Allocation System</a>
+    <a href="/capital-budgeting-guide">Capital Budgeting Guide</a>
+    <a href="/what-is-irr">What Is IRR?</a>
+    <a href="/what-is-margin-of-safety">What Is Margin of Safety?</a>
+    <a href="/valuation-models-excel">Valuation Models in Excel</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The Capital Allocation System methodology: driver-based project FCF with explicit depreciation/salvage tax handling (straight line, DDB, MACRS reconciled to IRS Pub 946 Table A-1), a WACC built via CAPM and Hamada relevering, five risk classes with explicit premiums, ranking by profitability index because the budget — not the opportunity — is the constraint, mutual-exclusion groups, real options as a two-state tree, and a post-investment review that scores the process. Worked cases include $2,678,754 of NPV deferred against $2,820,520 funded. By Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). $449 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<section style="background:#F7F8FB;border-top:1px solid #D0DFED;padding:26px 0"><div class="container" style="max-width:720px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid #D0DFED;flex-shrink:0" width="402" height="520" loading="lazy"><div style="flex:1;min-width:240px"><div style="font-size:.9375rem;font-weight:700;color:#1B2A4A">Written by Hoda Elmorshidy</div><div style="font-size:.8125rem;color:#4A5A72;line-height:1.5">Financial Controller &amp; Fractional CFO &middot; Corporate Finance since 2017 &middot; <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600">LinkedIn</a></div></div></div></div></section>
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/valuation-models-excel" style="font-size:.8125rem;margin:0 10px">Valuation</a>
+        <a href="/project-finance-models-excel" style="font-size:.8125rem;margin:0 10px">Project Finance</a>
+        <a href="/fpa-models-excel" style="font-size:.8125rem;margin:0 10px">FP&amp;A</a>
+        <a href="/tax-self-employed-excel" style="font-size:.8125rem;margin:0 10px">Tax Tools</a>
+        <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+    <a href="/refund-policy" style="font-size:.8125rem;margin:0 10px">Refunds</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This page is for educational and informational purposes only. It does not constitute investment advice, financial advice, or a recommendation to buy or sell any security. Consult a qualified finance professional before making investment decisions.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>

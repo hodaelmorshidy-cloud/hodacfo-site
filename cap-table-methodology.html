@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cap Table Methodology — Round Math, SAFE Conversion &amp; Waterfalls</title>
+<meta name="description" content="How the Cap Table &amp; Dilution Model computes each round: closed-form math, the option-pool shuffle, YC post-money SAFE conversion, and both exit waterfalls.">
+<link rel="canonical" href="https://hodacfo.com/cap-table-methodology">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Cap Table Methodology — Round Math, SAFE Conversion &amp; Waterfalls">
+<meta property="og:description" content="How the Cap Table &amp; Dilution Model computes each round: closed-form math, the option-pool shuffle, YC post-money SAFE conversion, and both exit waterfalls.">
+<meta property="og:image" content="https://hodacfo.com/images/og-cap-table-methodology.png">
+<meta property="og:image:alt" content="Cap Table &amp; Dilution Model — Methodology — Inside the Method: Round Math — Closed Form, No Circular References; The Post-Money SAFE — the Greater-Of Floor; Exit Waterfalls">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/cap-table-methodology">
+<script defer src="https://plausible.io/js/script.outbound-links.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cap Table Methodology \u2014 Round Math, SAFE Conversion & Waterfalls", "description": "How the Cap Table & Dilution Model computes each round: closed-form math, the option-pool shuffle, YC post-money SAFE conversion, and both exit waterfalls.", "datePublished": "2026-08-17", "dateModified": "2026-08-17", "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "@id": "https://hodacfo.com/about#hoda"}, "publisher": {"@type": "Organization", "name": "Hoda Finance"}}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:#A9C0E4}.nav-overlay .nav-cta{text-align:center}}.nav-desk{font-size:.875rem;color:#A9C0E4;font-weight:500;text-decoration:none}.nav-desk:hover{color:#fff}@media(max-width:900px){.nav-desk{display:none}}
+</style>
+<style>.mtable{border-collapse:collapse;width:100%;font-size:.9375rem}.mtable th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-weight:600}.mtable td{border:1px solid var(--border-color);padding:10px 14px;color:var(--body-text);vertical-align:top}.mtable tbody tr:nth-child(even){background:var(--ice)}@media(max-width:680px){.mtable{font-size:.8125rem}.mtable th,.mtable td{padding:8px 8px}}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hodacfo.com/"}, {"@type": "ListItem", "position": 2, "name": "Cap Table & Dilution Model", "item": "https://hodacfo.com/cap-table-model-excel"}, {"@type": "ListItem", "position": 3, "name": "Cap Table Methodology \u2014 Round Math, SAFE Conversion & Waterfalls", "item": "https://hodacfo.com/cap-table-methodology"}]}</script>
+<style>.skip-link{position:absolute;left:-9999px;top:0;background:#1B2A4A;color:#FFFFFF;padding:10px 18px;z-index:300;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:2px}footer a{display:inline-block;padding:6px 4px}</style>
+<link rel="preconnect" href="https://plausible.io" crossorigin>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div style="display:flex;gap:22px;align-items:center"><a href="/#tools" class="nav-desk">All Tools</a><a href="/finance-glossary" class="nav-desk">Glossary</a></div><a href="https://hodaelmorshidy.gumroad.com/l/cap-table-dilution-model?utm_source=hodacfo&utm_medium=referral&utm_campaign=cap-table-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $179</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/#tools" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="/finance-glossary" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Glossary</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/cap-table-dilution-model?utm_source=hodacfo&utm_medium=referral&utm_campaign=cap-table-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $179</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div role="main" class="container" id="main">
+    <h1>Cap Table &amp; Dilution Model — Methodology</h1>
+    <p class="subtitle">The round math, the option-pool shuffle, the post-money SAFE&rsquo;s greater-of conversion, and how the liquidation waterfall treats a converted SAFE — published from the shipped Methodology PDF.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017 &bull; Published 2026-08-17</p>
+    <p class="meta" style="margin-top:8px">The <a href="/cap-table-model-excel" style="color:#C9A84C;font-weight:600">product page</a> carries a machine-verified audit certificate with the shipping file&rsquo;s SHA-256.</p>
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+<p>This page publishes the methodology behind the <a href="/cap-table-model-excel"><strong>Cap Table &amp; Dilution Model</strong></a> — a multi-round priced-equity cap table: founder shares, an option pool, up to four priced rounds, one post-money SAFE, and two exit waterfalls. Two editions ship together and are identical in every tab, formula and result; the Sheets edition omits only the Excel-native chart object.</p>
+
+<h2>Round Math — Closed Form, No Circular References</h2>
+<div class="formula">Investor % = Investment / (Pre-money + Investment)<br>Post-round total shares T = Non-pool shares before / (1 &minus; Investor% &minus; Target pool%)<br>Investor shares = Investor% &times; T<br>Option pool (post) = Target pool% &times; T &nbsp;(top-up only when needed)<br>Price per share = Investment / Investor shares</div>
+<p>The option pool is expanded <strong>pre-money</strong>, so it dilutes existing holders, not the incoming investor — and the pool tops up only when needed; a granted pool never shrinks. Existing holders keep their share count; only their percentage falls.</p>
+
+<h2>The Post-Money SAFE — the Greater-Of Floor</h2>
+<div class="formula">Safe Price = SAFE post-money cap / Company Capitalization<br>Shares = GREATER of (Amount / Safe Price) or (Amount / round price per share)</div>
+<p>Under the Y Combinator post-money safe, Section 1(a), the safe converts into the greater of the cap-implied share count and what the purchase amount would buy at the new-money price. If the round prices <em>below</em> the cap, the round price wins and the safe holder receives more shares — the cap is a ceiling on price, not a floor. The model computes both branches in closed form and shows them side by side, so you can see which one applied. Conversion keys off the <strong>first funded round</strong>, not a round named &ldquo;Seed&rdquo;.</p>
+<div class="callout"><strong>Pool interaction — the exact YC design</strong><p>The SAFE % is fixed against the pre-round cap table including the existing option pool, then diluted by both the priced round&rsquo;s new money and its pool top-up — the round&rsquo;s pool increase is excluded from the SAFE&rsquo;s Company Capitalization, exactly as the post-money instrument defines it. Refs: Y Combinator, Primer for the post-money safe v1.1 (2021), and the instrument&rsquo;s Section 1(a) with the Section 2 definitions.</p></div>
+
+<h2>Exit Waterfalls</h2>
+<div class="formula">As-converted: Proceeds = Ownership % at exit &times; Exit equity value<br>MoIC = Proceeds / Invested &nbsp;&middot;&nbsp; Annualized = MoIC^(1/Years) &minus; 1</div>
+<p>The Liquidation Waterfall adds preferences across five pari-passu classes — Seed, Series A, Series B, optional Series C, and the converted SAFE. Non-participating classes take the <strong>greater</strong> of their preference or their as-converted value, solved exactly by an unrolled 4-pass conversion refinement that reproduces the brute-force equilibrium; participating classes take the preference and then share pro-rata. The converted SAFE is treated as Safe Preferred Stock — identical rights and liquidation multiple to the round it converts into, per the instrument&rsquo;s Section 2 — <em>not</em> as common stock. Both waterfalls tie to the exit value.</p>
+<p>The annualized return applies one holding period to every round, so a later round&rsquo;s true annualized return would be higher than shown — stated on the tab.</p>
+
+<h2>Scope — Covered and Deliberately Not</h2>
+<p><strong>Covers:</strong> 1&ndash;3 founders; one initial option pool; one post-money SAFE (valuation cap, no discount); up to four priced rounds; the pre-money pool shuffle; 1x+ liquidation preferences with a per-class participating toggle, pari passu.</p>
+<p><strong>Not covered:</strong> pre-money or discount-rate SAFEs; convertible notes with interest; seniority-ranked (stacked) preferences; participation caps; anti-dilution ratchets; multiple pools; secondary sales; per-round exit dates.</p>
+<div style="overflow-x:auto;margin:24px 0"><table class="mtable"><thead><tr><th>Tab</th><th>Purpose</th></tr></thead><tbody><tr><td>Assumptions</td><td>Founders, pool, SAFE, exit value; SAFE conversion engine</td></tr><tr><td>Funding Rounds</td><td>Pre/post-money, PPS, pool top-up, benchmark flags</td></tr><tr><td>Cap Table</td><td>Shares and ownership % by stage (incl. SAFE)</td></tr><tr><td>Exit Waterfall</td><td>As-converted proceeds, MoIC and IRR by stakeholder</td></tr><tr><td>Liquidation Waterfall</td><td>Returns with 1x+ preferences; founder cost of prefs</td></tr><tr><td>Dashboard</td><td>Founder dilution, returns, self-checks</td></tr></tbody></table></div>
+<p>&ldquo;SAFE&rdquo; and the post-money safe documents are published by Y Combinator; this is an independent analytical template, not affiliated with or endorsed by Y Combinator. NVCA references are methodological attribution only. Illustrative model — not investment, legal, or tax advice.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the Cap Table &amp; Dilution Model</h2>
+    <p>The model this methodology describes &mdash; with the full methodology document included in the download.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/cap-table-dilution-model?utm_source=hodacfo&utm_medium=referral&utm_campaign=cap-table-methodology" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $179 &mdash; Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; One-time purchase</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/cap-table-model-excel">Cap Table &amp; Dilution Model</a>
+    <a href="/cap-table-template-excel">Cap Table Template Guide</a>
+    <a href="/what-is-the-option-pool-shuffle">The Option Pool Shuffle</a>
+    <a href="/what-is-liquidation-preference">What Is Liquidation Preference?</a>
+    <a href="/valuation-models-excel">Valuation Models in Excel</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The Cap Table &amp; Dilution Model methodology: closed-form round math with the option pool expanded pre-money (top-up only when needed), a YC post-money SAFE converted at the greater of cap-implied and round-price share counts at the first funded round, and a liquidation waterfall that treats the converted SAFE as a fifth pari-passu preferred class — non-participating classes solved by exact greater-of refinement. Both waterfalls tie to the exit value. Published from the shipped Methodology PDF by Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). $179 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<section style="background:#F7F8FB;border-top:1px solid #D0DFED;padding:26px 0"><div class="container" style="max-width:720px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid #D0DFED;flex-shrink:0" width="402" height="520" loading="lazy"><div style="flex:1;min-width:240px"><div style="font-size:.9375rem;font-weight:700;color:#1B2A4A">Written by Hoda Elmorshidy</div><div style="font-size:.8125rem;color:#4A5A72;line-height:1.5">Financial Controller &amp; Fractional CFO &middot; Corporate Finance since 2017 &middot; <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600">LinkedIn</a></div></div></div></div></section>
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/valuation-models-excel" style="font-size:.8125rem;margin:0 10px">Valuation</a>
+        <a href="/project-finance-models-excel" style="font-size:.8125rem;margin:0 10px">Project Finance</a>
+        <a href="/fpa-models-excel" style="font-size:.8125rem;margin:0 10px">FP&amp;A</a>
+        <a href="/tax-self-employed-excel" style="font-size:.8125rem;margin:0 10px">Tax Tools</a>
+        <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+    <a href="/refund-policy" style="font-size:.8125rem;margin:0 10px">Refunds</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This page is for educational and informational purposes only. It does not constitute investment advice, financial advice, or a recommendation to buy or sell any security. Consult a qualified finance professional before making investment decisions.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FP&amp;A Variance Methodology — P&amp;L Waterfall, PVM Bridge &amp; Forecast</title>
+<meta name="description" content="How the FP&amp;A Variance &amp; Forecast Toolkit works: the six-level P&amp;L waterfall, the variance sign convention, the PVM decomposition, and the rolling forecast.">
+<link rel="canonical" href="https://hodacfo.com/fpa-variance-methodology">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="FP&amp;A Variance Methodology — P&amp;L Waterfall, PVM Bridge &amp; Forecast">
+<meta property="og:description" content="How the FP&amp;A Variance &amp; Forecast Toolkit works: the six-level P&amp;L waterfall, the variance sign convention, the PVM decomposition, and the rolling forecast.">
+<meta property="og:image" content="https://hodacfo.com/images/og-fpa-variance-methodology.png">
+<meta property="og:image:alt" content="FP&amp;A Variance &amp; Forecast Toolkit — Methodology — Inside the Method: The Six-Level P&amp;L Waterfall; Variance Direction — Sign Convention; The PVM Bridge — Three-Way Decomposition">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/fpa-variance-methodology">
+<script defer src="https://plausible.io/js/script.outbound-links.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "FP&A Variance Methodology \u2014 P&L Waterfall, PVM Bridge & Forecast", "description": "How the FP&A Variance & Forecast Toolkit works: the six-level P&L waterfall, the variance sign convention, the PVM decomposition, and the rolling forecast.", "datePublished": "2026-08-17", "dateModified": "2026-08-17", "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "@id": "https://hodacfo.com/about#hoda"}, "publisher": {"@type": "Organization", "name": "Hoda Finance"}}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:#A9C0E4}.nav-overlay .nav-cta{text-align:center}}.nav-desk{font-size:.875rem;color:#A9C0E4;font-weight:500;text-decoration:none}.nav-desk:hover{color:#fff}@media(max-width:900px){.nav-desk{display:none}}
+</style>
+<style>.mtable{border-collapse:collapse;width:100%;font-size:.9375rem}.mtable th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-weight:600}.mtable td{border:1px solid var(--border-color);padding:10px 14px;color:var(--body-text);vertical-align:top}.mtable tbody tr:nth-child(even){background:var(--ice)}@media(max-width:680px){.mtable{font-size:.8125rem}.mtable th,.mtable td{padding:8px 8px}}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hodacfo.com/"}, {"@type": "ListItem", "position": 2, "name": "FP&A Variance & Forecast Toolkit", "item": "https://hodacfo.com/fpa-variance-forecast-toolkit"}, {"@type": "ListItem", "position": 3, "name": "FP&A Variance Methodology \u2014 P&L Waterfall, PVM Bridge & Forecast", "item": "https://hodacfo.com/fpa-variance-methodology"}]}</script>
+<style>.skip-link{position:absolute;left:-9999px;top:0;background:#1B2A4A;color:#FFFFFF;padding:10px 18px;z-index:300;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:2px}footer a{display:inline-block;padding:6px 4px}</style>
+<link rel="preconnect" href="https://plausible.io" crossorigin>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div style="display:flex;gap:22px;align-items:center"><a href="/#tools" class="nav-desk">All Tools</a><a href="/finance-glossary" class="nav-desk">Glossary</a></div><a href="https://hodaelmorshidy.gumroad.com/l/fpa-variance-forecast-toolkit?utm_source=hodacfo&utm_medium=referral&utm_campaign=fpa-variance-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $129</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/#tools" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="/finance-glossary" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Glossary</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/fpa-variance-forecast-toolkit?utm_source=hodacfo&utm_medium=referral&utm_campaign=fpa-variance-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $129</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div role="main" class="container" id="main">
+    <h1>FP&amp;A Variance &amp; Forecast Toolkit — Methodology</h1>
+    <p class="subtitle">The six-level P&amp;L waterfall, the variance direction convention, the price/volume/mix decomposition and the rolling-forecast architecture — published from the toolkit&rsquo;s shipped Methodology Notes.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017 &bull; Published 2026-08-17</p>
+    
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+<p>This page publishes the methodology notes that ship with the <a href="/fpa-variance-forecast-toolkit"><strong>FP&amp;A Variance &amp; Forecast Toolkit</strong></a>. They document the P&amp;L architecture, the variance conventions, the PVM bridge and the rolling-forecast engine — for internal use and stakeholder documentation.</p>
+
+<h2>The Six-Level P&amp;L Waterfall</h2>
+<div class="formula">Gross Profit = Revenue &minus; COGS<br>EBITDA = Gross Profit &minus; Operating Expenses<br>EBIT = EBITDA &minus; D&amp;A<br>EBT = EBIT &minus; Interest Expense<br>Tax = MAX(0, EBT &times; Tax Rate)<br>Net Income = EBT &minus; Tax</div>
+<p>D&amp;A is intentionally excluded from operating expenses and placed below EBITDA — preserving the management-accounting convention where EBITDA represents operating cash generation before non-cash charges, comparable across companies with different capital structures and depreciation policies. The worksheet enforces the position structurally.</p>
+<div class="callout"><strong>The tax line&rsquo;s stated limitation</strong><p>MAX(0, EBT &times; TaxRate) floors tax at zero in loss-making periods — otherwise negative tax would overstate net income. It is a simplified estimate: no deferred tax, loss carryforwards, withholding, or jurisdiction-specific rules. Not for statutory reporting or external audit.</p></div>
+
+<h2>Variance Direction — Sign Convention</h2>
+<p>All variances are <strong>Actual &minus; Budget</strong>, everywhere. The arrows and colouring interpret the sign by line type: on revenue and profit lines, positive is favourable; on cost lines, negative is favourable. This is implemented with two Excel <em>number formats</em> — the formula value itself is never changed, so all downstream arithmetic stays consistent:</p>
+<div class="formula">Revenue: [&gt;=0]&quot;&#9650; &quot;#,##0;[&lt;0]&quot;&#9660; &quot;#,##0<br>Costs: &nbsp;&nbsp;[&gt;=0]&quot;&#9660; &quot;#,##0;[&lt;0]&quot;&#9650; &quot;#,##0</div>
+
+<h2>The PVM Bridge — Three-Way Decomposition</h2>
+<div class="formula">Price Effect = (Actual Price &minus; Budget Price) &times; Budget Volume<br>Volume Effect = (Actual Volume &minus; Budget Volume) &times; Budget Price<br>Interaction = (Actual Price &minus; Budget Price) &times; (Actual Volume &minus; Budget Volume)</div>
+<p>The three components are mutually exclusive and collectively exhaustive — they always sum exactly to the total revenue variance. Using budget volumes in the price term is the algebraically correct choice: actual volumes there would overlap the volume term and the components would exceed the total. The interaction term captures the joint effect, small when changes are modest and material when price and volume move together.</p>
+<p>The PVM Bridge carries its <strong>own</strong> price and volume input grid, by design: the main P&amp;L tabs hold monthly dollar amounts without unit economics, and price-volume decomposition needs unit-level data. PVM revenue totals therefore differ from the P&amp;L tabs — expected, and documented on the tab.</p>
+
+<h2>Rolling Forecast Architecture</h2>
+<div class="formula">=IF(month &lt;= ClosedMonth, Actuals, Forecast Inputs)</div>
+<p>Every cell in the rolling-forecast table is an IF: closed months pull live actuals; open months reference an editable forecast-input block on the same tab. Changing <em>Closed Through Month</em> in Settings instantly re-partitions actuals vs forecast — no manual overrides, whatever month the buyer starts in. Three named ranges (<code>TaxRate</code>, <code>ClosedMonth</code>, <code>ScenarioLabel</code>) drive every formula tab, so moving a Settings row needs one DefinedName update and zero formula edits.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the FP&amp;A Variance &amp; Forecast Toolkit</h2>
+    <p>The model this methodology describes &mdash; with the full methodology document included in the download.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/fpa-variance-forecast-toolkit?utm_source=hodacfo&utm_medium=referral&utm_campaign=fpa-variance-methodology" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $129 &mdash; Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; One-time purchase</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/fpa-variance-forecast-toolkit">FP&amp;A Variance &amp; Forecast Toolkit</a>
+    <a href="/variance-analysis-excel-template">Variance Analysis Guide</a>
+    <a href="/what-is-price-volume-mix">What Is Price/Volume/Mix?</a>
+    <a href="/fpa-models-excel">FP&amp;A Models in Excel</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The FP&amp;A Variance &amp; Forecast Toolkit methodology: a six-level P&amp;L waterfall with D&amp;A deliberately below EBITDA, tax floored at MAX(0, EBT × rate) with the simplification disclosed, variances computed as Actual − Budget with direction carried by number formats (never by changing the value), a three-way price/volume/mix decomposition that sums exactly to the total revenue variance, and a rolling forecast where an IF on ClosedMonth partitions actuals from forecast. By Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). $129 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<section style="background:#F7F8FB;border-top:1px solid #D0DFED;padding:26px 0"><div class="container" style="max-width:720px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid #D0DFED;flex-shrink:0" width="402" height="520" loading="lazy"><div style="flex:1;min-width:240px"><div style="font-size:.9375rem;font-weight:700;color:#1B2A4A">Written by Hoda Elmorshidy</div><div style="font-size:.8125rem;color:#4A5A72;line-height:1.5">Financial Controller &amp; Fractional CFO &middot; Corporate Finance since 2017 &middot; <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600">LinkedIn</a></div></div></div></div></section>
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/valuation-models-excel" style="font-size:.8125rem;margin:0 10px">Valuation</a>
+        <a href="/project-finance-models-excel" style="font-size:.8125rem;margin:0 10px">Project Finance</a>
+        <a href="/fpa-models-excel" style="font-size:.8125rem;margin:0 10px">FP&amp;A</a>
+        <a href="/tax-self-employed-excel" style="font-size:.8125rem;margin:0 10px">Tax Tools</a>
+        <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+    <a href="/refund-policy" style="font-size:.8125rem;margin:0 10px">Refunds</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This page is for educational and informational purposes only. It does not constitute investment advice, financial advice, or a recommendation to buy or sell any security. Consult a qualified finance professional before making investment decisions.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>

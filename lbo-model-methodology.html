@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LBO Model Methodology — Debt Waterfall, CFADS, MoIC &amp; Dated XIRR</title>
+<meta name="description" content="How the LBO Model — Multi-Tranche computes its numbers: sources &amp; uses, tranche sizing in turns of EBITDA, the six-step cash waterfall, and MoIC/XIRR conventions.">
+<link rel="canonical" href="https://hodacfo.com/lbo-model-methodology">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='%23C9A84C'%3EH%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="LBO Model Methodology — Debt Waterfall, CFADS, MoIC &amp; Dated XIRR">
+<meta property="og:description" content="How the LBO Model — Multi-Tranche computes its numbers: sources &amp; uses, tranche sizing in turns of EBITDA, the six-step cash waterfall, and MoIC/XIRR conventions.">
+<meta property="og:image" content="https://hodacfo.com/images/og-lbo-model-methodology.png">
+<meta property="og:image:alt" content="LBO Model — Methodology — Inside the Method: Entry &amp; Sources and Uses; The Debt Stack; Interest — the No-Circularity Design">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Hoda Finance">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hodacfo.com/lbo-model-methodology">
+<script defer src="https://plausible.io/js/script.outbound-links.js" data-domain="hodacfo.com"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "LBO Model Methodology \u2014 Debt Waterfall, CFADS, MoIC & Dated XIRR", "description": "How the LBO Model \u2014 Multi-Tranche computes its numbers: sources & uses, tranche sizing in turns of EBITDA, the six-step cash waterfall, and MoIC/XIRR conventions.", "datePublished": "2026-08-17", "dateModified": "2026-08-17", "author": {"@type": "Person", "name": "Hoda Elmorshidy", "jobTitle": "Financial Controller | Fractional CFO | Corporate Finance since 2017", "@id": "https://hodacfo.com/about#hoda"}, "publisher": {"@type": "Organization", "name": "Hoda Finance"}}</script>
+<style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--navy:#1B2A4A;--gold:#C9A84C;--accent:#C9A84C;--accent-hover:#B8963F;--cta:#C9A84C;--cta-hover:#A07E1F;--white:#FFFFFF;--ice:#F7F8FB;--light-grey:#F5F6F8;--dark-text:#1B2A4A;--body:#4A5A72;--body-text:#4A5A72;--border:#D0DFED;--border-color:#D0DFED;--card-radius:6px}html{font-size:16px;scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:var(--dark-text);line-height:1.75;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{text-decoration:none;color:inherit}img{max-width:100%;height:auto}.container{width:100%;max-width:800px;margin:0 auto;padding:0 20px}.container-wide{max-width:1120px}nav{background:var(--navy);padding:16px 0;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(201,168,76,.15)}nav .container-wide{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:0 20px}.logo{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.3px}.nav-cta{display:inline-block;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 20px;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta:hover{background:#B8963F}.page-header{background:var(--navy);padding:64px 0 56px;color:var(--white)}.page-header h1{font-size:2.375rem;font-weight:800;line-height:1.15;letter-spacing:-.5px;margin-bottom:16px}.page-header .subtitle{font-size:1.0625rem;color:#A9C0E4;line-height:1.7;max-width:660px}.page-header .meta{font-size:.875rem;color:#8899B4;margin-top:16px}.content{padding:56px 0}.content h2{font-size:1.625rem;font-weight:700;color:var(--navy);margin:48px 0 16px;line-height:1.25;letter-spacing:-.3px}.content h2:first-child{margin-top:0}.content h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin:32px 0 12px}.content p{font-size:1.0625rem;color:var(--body-text);margin-bottom:20px}.content p:last-child{margin-bottom:0}.content ul,.content ol{margin:0 0 20px 24px;font-size:1.0625rem;color:var(--body-text)}.content li{margin-bottom:10px}.content strong{color:var(--navy)}.content .formula,.content pre code{background:var(--light-grey);border-left:3px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:0 var(--card-radius) var(--card-radius) 0;font-family:Menlo,Consolas,monospace;font-size:.9375rem;color:var(--dark-text);overflow-x:auto}.content .callout{background:var(--light-grey);border:1px solid var(--border-color);border-radius:var(--card-radius);padding:24px;margin:24px 0}.content .callout strong{display:block;margin-bottom:6px;color:var(--navy)}.content .callout p{margin-bottom:0;font-size:1rem}.content .warning{background:#FFF4E0;border:1px solid #F0C060;border-radius:var(--card-radius);padding:20px 24px;margin:24px 0}.content .warning strong{color:#7A4F00;display:block;margin-bottom:6px}.content .warning p{margin-bottom:0;font-size:1rem;color:#5A3A00}.cta-section{background:var(--navy);padding:48px 0;text-align:center;color:var(--white)}.cta-section h2{font-size:1.625rem;font-weight:700;margin-bottom:12px;color:var(--white)}.cta-section p{color:#A9C0E4;margin-bottom:24px;font-size:1.0625rem}.cta-button{display:inline-block;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:16px 36px;border-radius:4px;transition:background .15s}.cta-button:hover{background:#B8963F}.cta-section .footnote{font-size:.8125rem;color:#8899B4;margin-top:12px;margin-bottom:0}.resource-links{background:var(--light-grey);padding:40px 0;text-align:center}.resource-links h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:16px}.resource-links a{display:inline-block;margin:0 12px 8px;font-size:.9375rem;color:#6B5416;font-weight:600;transition:color .15s}.resource-links a:hover{color:#4F3D10}footer{background:var(--navy);padding:40px 0;text-align:center;border-top:2px solid var(--cta)}footer .logo{display:block;margin-bottom:8px}footer p{font-size:.8125rem;color:#8899B4}.foot-links a{color:#C8D6E8}.foot-disclaimer{color:#8C9CC0}.foot-tag{color:#A8B6CE}@media(max-width:768px){.page-header h1{font-size:1.75rem}.page-header{padding:48px 0 40px}.content{padding:40px 0}.content h2{font-size:1.375rem}.cta-section{padding:40px 0}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--white)}.hamburger svg{display:block}
+.nav-overlay{display:none}.nav-overlay .nav-link{color:#A9C0E4}
+@media(max-width:680px){.hamburger{display:block}.nav-overlay{display:none;position:fixed;top:53px;left:0;right:0;background:var(--navy);padding:24px;flex-direction:column;gap:16px;z-index:99;border-bottom:1px solid rgba(255,255,255,.1)}.nav-overlay.open{display:flex}.nav-overlay .nav-link{font-size:1rem;padding:8px 0;color:#A9C0E4}.nav-overlay .nav-cta{text-align:center}}.nav-desk{font-size:.875rem;color:#A9C0E4;font-weight:500;text-decoration:none}.nav-desk:hover{color:#fff}@media(max-width:900px){.nav-desk{display:none}}
+</style>
+<style>.mtable{border-collapse:collapse;width:100%;font-size:.9375rem}.mtable th{background:var(--navy);color:var(--white);text-align:left;padding:10px 14px;font-weight:600}.mtable td{border:1px solid var(--border-color);padding:10px 14px;color:var(--body-text);vertical-align:top}.mtable tbody tr:nth-child(even){background:var(--ice)}@media(max-width:680px){.mtable{font-size:.8125rem}.mtable th,.mtable td{padding:8px 8px}}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://hodacfo.com/"}, {"@type": "ListItem", "position": 2, "name": "LBO Model \u2014 Multi-Tranche", "item": "https://hodacfo.com/lbo-model-excel"}, {"@type": "ListItem", "position": 3, "name": "LBO Model Methodology \u2014 Debt Waterfall, CFADS, MoIC & Dated XIRR", "item": "https://hodacfo.com/lbo-model-methodology"}]}</script>
+<style>.skip-link{position:absolute;left:-9999px;top:0;background:#1B2A4A;color:#FFFFFF;padding:10px 18px;z-index:300;font-weight:700}.skip-link:focus{left:0}a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:2px}footer a{display:inline-block;padding:6px 4px}</style>
+<link rel="preconnect" href="https://plausible.io" crossorigin>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav>
+  <div class="container-wide">
+    <a href="/" class="logo">Hoda Finance</a>
+    <div style="display:flex;gap:22px;align-items:center"><a href="/#tools" class="nav-desk">All Tools</a><a href="/finance-glossary" class="nav-desk">Glossary</a></div><a href="https://hodaelmorshidy.gumroad.com/l/lbo-model-multi-tranche?utm_source=hodacfo&utm_medium=referral&utm_campaign=lbo-model-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $199</a>
+    <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-overlay" id="mobile-menu">
+      <a href="/#tools" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">All Tools</a>
+      <a href="/finance-glossary" class="nav-link" onclick="document.getElementById('mobile-menu').classList.remove('open')">Glossary</a>
+      <a href="https://hodaelmorshidy.gumroad.com/l/lbo-model-multi-tranche?utm_source=hodacfo&utm_medium=referral&utm_campaign=lbo-model-methodology" class="nav-cta" target="_blank" rel="noopener noreferrer">Get the Model &mdash; $199</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div role="main" class="container" id="main">
+    <h1>LBO Model — Methodology</h1>
+    <p class="subtitle">How every number in the multi-tranche LBO model is computed: entry math, the debt stack, the no-circularity interest convention, the six-step waterfall, and the return conventions — published from the shipped Methodology PDF.</p>
+    <p class="meta">By Hoda Elmorshidy &bull; Fractional CFO &bull; Financial Modeling &bull; Corporate Finance since 2017 &bull; Published 2026-08-17</p>
+    <p class="meta" style="margin-top:8px">The <a href="/lbo-model-excel" style="color:#C9A84C;font-weight:600">product page</a> carries a machine-verified audit certificate with the shipping file&rsquo;s SHA-256.</p>
+  </div>
+</header>
+
+<section class="content">
+  <div class="container">
+
+<p>This page publishes the methodology that ships with the <a href="/lbo-model-excel"><strong>LBO Model — Multi-Tranche</strong></a>. The model executes a full sponsor-driven leveraged buyout: the target is purchased at an EV/EBITDA entry multiple, funded by a multi-tranche debt stack and sponsor equity; a 5-year operating projection feeds a complete debt-paydown waterfall; at exit, sponsor returns are measured by MoIC and a dated XIRR. All sample figures are fictional.</p>
+
+<h2>Entry &amp; Sources and Uses</h2>
+<p>Purchase price is set by an EV/EBITDA multiple applied to entry EBITDA. Transaction fees are added to arrive at Total Uses, and a minimum cash balance is funded at close.</p>
+<div class="formula">Entry EV = Entry EBITDA &times; Entry Multiple<br>Total Uses = Entry EV + Transaction Fees + Minimum Cash<br>Sponsor Equity = Total Uses &minus; Total Debt Drawn &nbsp;(equity is the plug)</div>
+<p>Debt is sized in <strong>turns of entry EBITDA</strong> — not as a percentage of EV — so the leverage multiple is directly comparable across deals with different entry prices.</p>
+
+<h2>The Debt Stack</h2>
+<p>Three tranches are modelled, plus a revolver: a <strong>Senior Term Loan</strong> (highest priority, cash pay, mandatory amortization), <strong>Mezzanine</strong> (subordinated, cash pay), and a <strong>PIK Note</strong> (most junior — interest accretes to the balance rather than being paid in cash). The revolving credit facility provides a liquidity buffer against the minimum-cash floor.</p>
+<div class="formula">Senior Debt = SeniorLev &times; Entry EBITDA<br>Mezzanine = MezzLev &times; Entry EBITDA<br>PIK Note = PIKLev &times; Entry EBITDA</div>
+<p>Total leverage in the shipped sample is 5.0&times; EBITDA, within the typical 4&ndash;6&times; range for sponsored mid-market buyouts.</p>
+
+<h2>Interest — the No-Circularity Design</h2>
+<p>All interest is computed on the <strong>beginning balance</strong> of each tranche. This eliminates the circular reference that arises when interest depends on an ending balance that itself depends on the interest charge — the model resolves in a single pass with no iterative calculation.</p>
+<div class="callout"><strong>The PIK tax caveat, stated on the record</strong><p>PIK interest is deducted in EBT and added back in the cash flow build as a non-cash item. That accrual deduction is a simplification: under US law a high-yield PIK note can be an Applicable High-Yield Discount Obligation (AHYDO; IRC 163(e)(5) and 163(i)) — part of the deduction can be deferred or permanently disallowed. Confirm deductibility for your instrument and jurisdiction.</p></div>
+
+<h2>CFADS and the Six-Step Waterfall</h2>
+<div class="formula">CFADS = Net Income + D&amp;A + PIK Interest &minus; Capex &minus; &Delta;NWC</div>
+<p>Cash interest on senior, mezzanine and revolver is already inside Net Income; PIK interest is added back because it compounds on the PIK balance instead of consuming cash. CFADS is then applied in strict priority order:</p>
+<div class="formula">1 &nbsp;Mandatory senior amortization = MIN(Senior Balance, Initial Senior &times; Amort Rate)<br>2 &nbsp;Revolver: draw if short, repay excess if long<br>3 &nbsp;Sponsor distribution (recap) = MIN(Distribution input, excess cash)<br>4 &nbsp;Senior optional sweep — up to the full remaining balance<br>5 &nbsp;Mezzanine sweep — after senior is cleared<br>6 &nbsp;Cash retained &ge; the Minimum-Cash floor</div>
+<p>The sponsor distribution is funded <em>before</em> the optional sweep, so cash paid to the sponsor is never also used to pay down debt — distributing cash reduces deleveraging and lowers exit equity, which is the correct economic trade-off of a dividend recap.</p>
+
+<h2>Exit &amp; Return Conventions</h2>
+<div class="formula">Exit EV = Exit EBITDA &times; Exit Multiple<br>Exit Equity = MAX(0, Exit EV &minus; Net Debt at Exit)<br>MoIC = (Exit Equity + Cumulative Distributions) / Sponsor Equity<br>XIRR = rate that NPVs all dated sponsor cash flows to zero</div>
+<p>Exit equity is floored at zero because sponsor equity is a limited-liability claim — MoIC cannot go negative, and the Returns tab reports any lender shortfall separately so the depth of a downside case stays visible. XIRR runs on actual dated cash flows (entry at close, distributions on each anniversary, exit at the hold-year anniversary), so it stays exact when interim distributions are non-zero. In a wipe-out scenario both IRR figures floor at &minus;100%; read MoIC alongside IRR — a MoIC below 1.0x is a loss regardless of the IRR shown.</p>
+
+<h2>Sensitivity Design</h2>
+<p>The 5&times;5 grids sweep MoIC and IRR across entry and exit EV/EBITDA multiples with operating assumptions held constant — isolating the multiple-risk component of returns. The grids use closed-form formulas rather than Excel Data Tables, so they stay Google Sheets-compatible and update without a manual recalculation trigger.</p>
+
+<h2>Benchmarks Used (Illustrative, Not Targets)</h2>
+<div style="overflow-x:auto;margin:24px 0"><table class="mtable"><thead><tr><th>Metric</th><th>Typical range</th><th>Sample case</th><th>Source</th></tr></thead><tbody><tr><td>Entry EV/EBITDA</td><td>9&ndash;12&times; mid-market</td><td>10.0&times;</td><td>Bain Global PE Report 2026</td></tr><tr><td>Total leverage</td><td>~30&ndash;40% of EV</td><td>5.0&times; EBITDA</td><td>Bain 2026</td></tr><tr><td>Senior rate (all-in)</td><td>7&ndash;8% (SOFR + 250&ndash;400 bps)</td><td>7.0%</td><td>Leveraged-loan market data 2025</td></tr><tr><td>Mezzanine rate</td><td>10&ndash;13%</td><td>10.0%</td><td>Mezzanine market data</td></tr><tr><td>Hold period</td><td>~5 yrs historic; ~7 yrs now</td><td>5 yrs</td><td>Bain Global PE Report 2026</td></tr><tr><td>Gross MoIC target</td><td>2.0&ndash;3.0&times;</td><td>2.22&times;</td><td>Bain Global PE Report 2026</td></tr></tbody></table></div>
+<p>The sample case lands at MoIC 2.22&times; and XIRR 17.2% — inside the MoIC target range and deliberately below the pre-2022 20&ndash;25% IRR peak, reflecting realistic mid-market returns in a higher-for-longer rate environment. Methodology references: Rosenbaum &amp; Pearl, <em>Investment Banking</em> (3rd ed., Wiley); Macabacus / Wall Street Prep waterfall standards; CFA Institute Private Equity curriculum; Bain Global Private Equity Report 2026; PitchBook LCD leveraged-loan data (sources accessed June 2026 — verify current figures before relying on any range).</p>
+
+<h2>Known Simplifications</h2>
+<p>Pro-rata debt pricing with no OID, PIK toggles or warrants; no interest income on the minimum cash balance; tax floored at zero with no NOL carryforward; sensitivity grids hold operating assumptions constant; the revolver has no commitment cap. The model is educational and illustrative — not investment, legal, tax, or accounting advice.</p>
+
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Get the LBO Model — Multi-Tranche</h2>
+    <p>The model this methodology describes &mdash; with the full methodology document included in the download.</p>
+    <a href="https://hodaelmorshidy.gumroad.com/l/lbo-model-multi-tranche?utm_source=hodacfo&utm_medium=referral&utm_campaign=lbo-model-methodology" class="cta-button" target="_blank" rel="noopener noreferrer">Download for $199 &mdash; Instant Delivery</a>
+    <p class="footnote">Instant delivery via Gumroad &bull; No macros &bull; One-time purchase</p>
+  </div>
+</section>
+
+<section class="resource-links">
+  <div class="container">
+    <h3>Related Resources</h3>
+    <a href="/lbo-model-excel">LBO Model — Multi-Tranche</a>
+    <a href="/lbo-model-guide">What Happens Inside an LBO Model</a>
+    <a href="/what-is-moic">What Is MoIC?</a>
+    <a href="/what-is-a-cash-sweep">What Is a Cash Sweep?</a>
+    <a href="/valuation-models-excel">Valuation Models in Excel</a>
+  </div>
+</section>
+
+<section style="background:#F5F6F8;padding:32px 0;border-top:1px solid #D0DFED;border-bottom:1px solid #D0DFED">
+  <div class="container" style="max-width:640px;margin:0 auto;text-align:center">
+    <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#1B2A4A;margin-bottom:10px">At a Glance</p>
+    <p style="font-size:.9375rem;color:#4A5A72;line-height:1.7">The LBO Model — Multi-Tranche methodology: debt sized in turns of EBITDA across senior, mezzanine and PIK tranches plus a revolver; interest charged on beginning balances so there is no circular reference; CFADS applied through a six-step waterfall where sponsor distributions are funded before the optional sweep; exit equity floored at zero and returns measured as MoIC and dated XIRR. Benchmarks from the Bain Global Private Equity Report 2026 and leveraged-loan market data. Published from the Methodology PDF that ships with the model by Hoda Finance (Hoda Elmorshidy, Financial Controller and Fractional CFO, in corporate finance since 2017). $199 one-time via Gumroad.</p>
+  </div>
+</section>
+
+<section style="background:#F7F8FB;border-top:1px solid #D0DFED;padding:26px 0"><div class="container" style="max-width:720px"><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><img src="hoda-elmorshidy-headshot.jpg" alt="Hoda Elmorshidy — Financial Controller and Fractional CFO" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid #D0DFED;flex-shrink:0" width="402" height="520" loading="lazy"><div style="flex:1;min-width:240px"><div style="font-size:.9375rem;font-weight:700;color:#1B2A4A">Written by Hoda Elmorshidy</div><div style="font-size:.8125rem;color:#4A5A72;line-height:1.5">Financial Controller &amp; Fractional CFO &middot; Corporate Finance since 2017 &middot; <a href="https://www.linkedin.com/in/hodaelmorshidy/" target="_blank" rel="noopener noreferrer" style="color:#8A6D1F;font-weight:600">LinkedIn</a></div></div></div></div></section>
+<footer>
+  <a href="/" class="logo">Hoda Finance</a>
+  <div class="foot-links" style="margin:10px 0">
+    <a href="/" style="font-size:.8125rem;margin:0 10px">All Tools</a>
+    <a href="/valuation-models-excel" style="font-size:.8125rem;margin:0 10px">Valuation</a>
+        <a href="/project-finance-models-excel" style="font-size:.8125rem;margin:0 10px">Project Finance</a>
+        <a href="/fpa-models-excel" style="font-size:.8125rem;margin:0 10px">FP&amp;A</a>
+        <a href="/tax-self-employed-excel" style="font-size:.8125rem;margin:0 10px">Tax Tools</a>
+        <a href="/privacy" style="font-size:.8125rem;margin:0 10px">Privacy</a>
+    <a href="/terms" style="font-size:.8125rem;margin:0 10px">Terms</a>
+    <a href="/refund-policy" style="font-size:.8125rem;margin:0 10px">Refunds</a>
+  </div>
+  <p class="foot-disclaimer" style="font-size:0.6875rem;max-width:640px;margin:8px auto 12px;line-height:1.5">This page is for educational and informational purposes only. It does not constitute investment advice, financial advice, or a recommendation to buy or sell any security. Consult a qualified finance professional before making investment decisions.</p>
+  <p class="foot-tag" style="font-size:.8rem">Every formula has a source. Every output survives scrutiny.<br>Methodology you can trace. Outputs you can defend.</p>
+</footer>
+
+</body>
+</html>
