@@ -340,6 +340,25 @@ footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:cente
   </div>
 </section>
 
+<section class="audit-cert" style="background:#FFFFFF;border-top:1px solid #D0DFED;padding:48px 0">
+  <div style="max-width:800px;margin:0 auto;padding:0 20px">
+    <p style="font-size:.75rem;font-weight:700;color:#8A6D1F;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px">Machine-verified &mdash; audit certificate</p>
+    <h2 style="font-size:1.375rem;color:#1B2A4A;margin:0 0 16px">What was checked on the shipping file</h2>
+    <div style="background:#F7F8FB;border:1px solid #D0DFED;border-radius:6px;padding:20px 24px">
+      <table style="width:100%;border-collapse:collapse;font-size:.875rem;color:#4A5A72">
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Structure</td><td style="padding:6px 0">26 tabs &middot; 12,042 formula cells &middot; 0 error cells (re-derived from the shipping file 2026-08-17)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Independent rebuild</td><td style="padding:6px 0">6,203 checks against an independent Python rebuild, 0 mismatches &mdash; including the MACRS depreciation tables re-derived from IRS Publication 946 (2025) rather than from the workbook; live Excel recalculation clean across all 12 scenario &times; project combinations (certified 2026-08-05)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Google Sheets round-trip</td><td style="padding:6px 0">This exact build was uploaded to Google Drive, opened as a Google Sheet, exported back and diffed cell by cell: all 11,932 value-carrying formula cells matched, all 26 tabs, 9 charts and 34 defined names survived, 0 error cells introduced (2026-08-05)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Cross-lab review</td><td style="padding:6px 0">Adjudicated by a Google Gemini run with 0 file defects found (2026-08-06, on a build differing from this file only by verified text-only edits &mdash; no formula or value differences)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Changelog</td><td style="padding:6px 0">2026-08-07 (v3.7 final) &mdash; licence consolidated to a single edition (text only).<br>2026-08-06 &mdash; MIRR readout label corrected on 4 display cells (text only; no formula or value changed).</td></tr>
+      </table>
+      <p style="font-size:.8125rem;color:#4A5A72;margin:16px 0 6px;font-weight:700">Verify your download &mdash; SHA-256 of the shipping file:</p>
+      <p style="font-family:ui-monospace,Consolas,monospace;font-size:.71rem;color:#4A5A72;margin:0;word-break:break-all;line-height:1.7">Excel&nbsp;&nbsp;de8f9670be0aab61b48b78784b87d79d48d07ccaeea5f024fcfa5994906bb52b</p>
+      <p style="font-size:.75rem;color:#616F87;margin:12px 0 0;line-height:1.6">Run <span style="font-family:ui-monospace,Consolas,monospace">Get-FileHash</span> (PowerShell) or <span style="font-family:ui-monospace,Consolas,monospace">sha256sum</span> (macOS/Linux) on the file you download &mdash; the value must match the hash above. This certificate describes this product&rsquo;s shipping file only; the <a href="/model-verification-standard" style="color:#8A6D1F;font-weight:600">Model Verification Standard</a> describes the checks.</p>
+    </div>
+  </div>
+</section>
+
 <section class="pricing-section">
   <div class="container">
     <div class="pricing-content">
