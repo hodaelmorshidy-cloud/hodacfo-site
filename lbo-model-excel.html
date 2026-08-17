@@ -396,6 +396,24 @@ footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:cente
   </div>
 </section>
 
+<section class="audit-cert" style="background:#FFFFFF;border-top:1px solid #D0DFED;padding:48px 0">
+  <div style="max-width:800px;margin:0 auto;padding:0 20px">
+    <p style="font-size:.75rem;font-weight:700;color:#8A6D1F;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px">Machine-verified &mdash; audit certificate</p>
+    <h2 style="font-size:1.375rem;color:#1B2A4A;margin:0 0 16px">What was checked on the shipping files</h2>
+    <div style="background:#F7F8FB;border:1px solid #D0DFED;border-radius:6px;padding:20px 24px">
+      <table style="width:100%;border-collapse:collapse;font-size:.875rem;color:#4A5A72">
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Structure</td><td style="padding:6px 0">7 tabs &middot; 297 formula cells &middot; 0 error cells (re-derived from the shipping file 2026-08-17)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Dual-engine check</td><td style="padding:6px 0">All 297 formula cells re-computed in an independent calculation engine, and the 10 headline outputs reproduced to the cent by an independent Python rebuild that reads only the raw inputs (certified 2026-07-16)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Live Excel</td><td style="padding:6px 0">Recalculated in Microsoft Excel with 0 error cells across the base case and 9 stress scenarios (certified 2026-07-16)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Cross-lab review</td><td style="padding:6px 0">Independently rebuilt by a non-Anthropic AI lab (Google Gemini); all 8 headline outputs matched to the cent (2026-07-15)</td></tr>
+      </table>
+      <p style="font-size:.8125rem;color:#4A5A72;margin:16px 0 6px;font-weight:700">Verify your download &mdash; SHA-256 of the shipping files:</p>
+      <p style="font-family:ui-monospace,Consolas,monospace;font-size:.71rem;color:#4A5A72;margin:0;word-break:break-all;line-height:1.7">Excel&nbsp;&nbsp;d7352fa873619c868b11b9c0a43c3ffd24152c4c914b154aaf01ffa11368e4ab<br>Sheets&nbsp;5a1c60b6e0f6e51a499c4202042e124f5b1b42a0d42c96d0e2a31383e478ee5e</p>
+      <p style="font-size:.75rem;color:#616F87;margin:12px 0 0;line-height:1.6">Run <span style="font-family:ui-monospace,Consolas,monospace">Get-FileHash</span> (PowerShell) or <span style="font-family:ui-monospace,Consolas,monospace">sha256sum</span> (macOS/Linux) on the files you download &mdash; the values must match the hashes above. This certificate describes this product&rsquo;s shipping files only; the <a href="/model-verification-standard" style="color:#8A6D1F;font-weight:600">Model Verification Standard</a> describes the checks.</p>
+    </div>
+  </div>
+</section>
+
 <section class="pricing-section">
   <div class="container">
     <div class="pricing-content">

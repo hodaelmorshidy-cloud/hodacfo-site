@@ -369,6 +369,23 @@ footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:cente
   </div>
 </section>
 
+<section class="audit-cert" style="background:#FFFFFF;border-top:1px solid #D0DFED;padding:48px 0">
+  <div style="max-width:800px;margin:0 auto;padding:0 20px">
+    <p style="font-size:.75rem;font-weight:700;color:#8A6D1F;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px">Machine-verified &mdash; audit certificate</p>
+    <h2 style="font-size:1.375rem;color:#1B2A4A;margin:0 0 16px">What was checked on the shipping files</h2>
+    <div style="background:#F7F8FB;border:1px solid #D0DFED;border-radius:6px;padding:20px 24px">
+      <table style="width:100%;border-collapse:collapse;font-size:.875rem;color:#4A5A72">
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Structure</td><td style="padding:6px 0">22 tabs &middot; 13,951 formula cells &middot; 0 unintended error cells &mdash; the 14 #N/A cells on the Dashboard are deliberate chart-gap markers beyond the debt tenor (re-derived from the shipping file 2026-08-17)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Dual-engine check</td><td style="padding:6px 0">Full-coverage engine recompute of all 13,951 formula cells with 0 unsupported, plus an independent rebuild reproducing 62 of 62 checkpoints (regression suite 5/5 green, certified 2026-08-05)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Cross-lab review</td><td style="padding:6px 0">A Google Gemini run against this exact file hash cleared the full evidence contract (2026-08-05)</td></tr>
+      </table>
+      <p style="font-size:.8125rem;color:#4A5A72;margin:16px 0 6px;font-weight:700">Verify your download &mdash; SHA-256 of the shipping files:</p>
+      <p style="font-family:ui-monospace,Consolas,monospace;font-size:.71rem;color:#4A5A72;margin:0;word-break:break-all;line-height:1.7">Excel&nbsp;&nbsp;434fd80cc18152d3aad266c2ffb2cb016f00bef20f0358eaa01da1dfc81bb840</p>
+      <p style="font-size:.75rem;color:#616F87;margin:12px 0 0;line-height:1.6">Run <span style="font-family:ui-monospace,Consolas,monospace">Get-FileHash</span> (PowerShell) or <span style="font-family:ui-monospace,Consolas,monospace">sha256sum</span> (macOS/Linux) on the files you download &mdash; the values must match the hashes above. This certificate describes this product&rsquo;s shipping files only; the <a href="/model-verification-standard" style="color:#8A6D1F;font-weight:600">Model Verification Standard</a> describes the checks.</p>
+    </div>
+  </div>
+</section>
+
 <section class="pricing-section">
   <div class="container">
     <div class="pricing-content">

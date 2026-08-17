@@ -343,6 +343,23 @@ footer{background:var(--navy);color:var(--white);padding:40px 0;text-align:cente
   </div>
 </section>
 
+<section class="audit-cert" style="background:#FFFFFF;border-top:1px solid #D0DFED;padding:48px 0">
+  <div style="max-width:800px;margin:0 auto;padding:0 20px">
+    <p style="font-size:.75rem;font-weight:700;color:#8A6D1F;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 8px">Machine-verified &mdash; audit certificate</p>
+    <h2 style="font-size:1.375rem;color:#1B2A4A;margin:0 0 16px">What was checked on the shipping files</h2>
+    <div style="background:#F7F8FB;border:1px solid #D0DFED;border-radius:6px;padding:20px 24px">
+      <table style="width:100%;border-collapse:collapse;font-size:.875rem;color:#4A5A72">
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Structure</td><td style="padding:6px 0">17 tabs &middot; 829 formula cells &middot; 0 error cells (re-derived from the shipping files 2026-08-17)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Independent rebuild</td><td style="padding:6px 0">18 of 18 headline outputs reproduced by an independent Python rebuild; scenario probes passed, including the zero-months-closed edge case (certified 2026-07-26)</td></tr>
+        <tr><td style="padding:6px 12px 6px 0;font-weight:700;color:#1B2A4A;white-space:nowrap;vertical-align:top">Compatibility</td><td style="padding:6px 0">Exactly 13 functions &mdash; no macros, no XLOOKUP, no LET or LAMBDA, no dynamic arrays; runs in Excel 2016+ and Google Sheets (verified against the file)</td></tr>
+      </table>
+      <p style="font-size:.8125rem;color:#4A5A72;margin:16px 0 6px;font-weight:700">Verify your download &mdash; SHA-256 of the shipping files:</p>
+      <p style="font-family:ui-monospace,Consolas,monospace;font-size:.71rem;color:#4A5A72;margin:0;word-break:break-all;line-height:1.7">Excel&nbsp;&nbsp;fc0baa415b95840aec19fcbb0368c2134865438f54e92ec9d289eb02893b36d9<br>Sheets&nbsp;03adc6d99b2131a45a28f7c295efc0e68a73ca7995e59444069dcdfc31b25f05</p>
+      <p style="font-size:.75rem;color:#616F87;margin:12px 0 0;line-height:1.6">Run <span style="font-family:ui-monospace,Consolas,monospace">Get-FileHash</span> (PowerShell) or <span style="font-family:ui-monospace,Consolas,monospace">sha256sum</span> (macOS/Linux) on the files you download &mdash; the values must match the hashes above. This certificate describes this product&rsquo;s shipping files only; the <a href="/model-verification-standard" style="color:#8A6D1F;font-weight:600">Model Verification Standard</a> describes the checks.</p>
+    </div>
+  </div>
+</section>
+
 <section class="pricing-section">
   <div class="container">
     <div class="pricing-content">
