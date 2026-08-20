@@ -1,0 +1,65 @@
+# hodacfo.com deploy repository — ignore rules
+#
+# WHY THIS FILE MATTERS MORE HERE THAN IN A NORMAL REPO:
+# the Cloudflare build config serves this directory as the web root
+# ("assets": {"directory": "."}). Anything committed here is PUBLISHED at
+# https://hodacfo.com/<path> — that is how /.git/* and /wrangler.jsonc ended up
+# on the public wire. A file that lands in this folder is a file the internet can
+# read. Deny it here first.
+#
+# Note: these rules do NOT affect the 209 files already tracked. They stop new
+# ones. If you ever need to publish a file type listed below, add an explicit
+# negation (e.g. "!pricing.zip") rather than deleting the rule.
+
+# --- Secrets and credentials: never, under any circumstances ---
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+credentials*.json
+secrets*.json
+service-account*.json
+.netrc
+.npmrc
+
+# --- Tooling config that reveals build internals ---
+wrangler.jsonc
+wrangler.toml
+.wrangler/
+.dev.vars
+
+# --- Editor and OS noise ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Build and dependency artifacts ---
+node_modules/
+__pycache__/
+*.pyc
+dist/
+.cache/
+
+# --- Backups, scratch and dumps: these get served verbatim ---
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.tmp
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+*.zip
+*.tar
+*.tar.gz
+*.7z
