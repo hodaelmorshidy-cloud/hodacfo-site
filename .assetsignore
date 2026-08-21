@@ -1,0 +1,16 @@
+# Excluded from the public asset upload.
+#
+# The Cloudflare assets directory for this project is the deploy root
+# ("assets": {"directory": "."}), so any file present at deploy time is
+# otherwise served at https://hodacfo.com/<path>. That is exactly how
+# /.git/HEAD, /.git/config, /.git/index and /wrangler.jsonc reached the
+# public wire. Same format as .gitignore.
+#
+# Do NOT add _headers or _redirects here: the platform consumes those
+# (both already return 404 on the wire) and ignoring them would drop the
+# security headers and every UTM short link.
+
+.git/
+.gitignore
+.wrangler/
+wrangler.jsonc
