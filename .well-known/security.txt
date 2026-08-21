@@ -1,0 +1,25 @@
+# Security and model-defect reporting for hodacfo.com
+#
+# Two kinds of report are welcome here, and both get the same treatment:
+# a security issue with the site, and a defect in a shipped model — a formula
+# that computes something other than what the product page and the methodology
+# documentation say it computes.
+
+Contact: mailto:Hoda.elmorshidy@gmail.com
+Expires: 2027-08-21T00:00:00.000Z
+Preferred-Languages: en, ar
+Canonical: https://hodacfo.com/.well-known/security.txt
+Policy: https://hodacfo.com/model-verification-standard
+
+# If you are reporting a model defect, please include the product, the tab and
+# cell reference, and what you expected the formula to do. Defects in shipped
+# files are corrected free of charge under the Refunds & Fixes policy:
+# https://hodacfo.com/refund-policy
+#
+# Please do not run automated scans that degrade the service for other users.
+# This is a static site with no user accounts and no login. Payments and
+# downloads are handled by the platform you purchase through, not by this
+# domain. The only personal data this domain collects is an email address you
+# submit voluntarily to the newsletter forms, which is stored with MailerLite;
+# analytics are cookieless. See https://hodacfo.com/privacy for the full
+# position — that page, not this file, is authoritative on data handling.
