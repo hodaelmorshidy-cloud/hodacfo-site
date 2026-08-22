@@ -5,7 +5,7 @@
 # that computes something other than what the product page and the methodology
 # documentation say it computes.
 
-Contact: mailto:Hoda.elmorshidy@gmail.com
+Contact: mailto:info@hodacfo.com
 Expires: 2027-08-21T00:00:00.000Z
 Preferred-Languages: en, ar
 Canonical: https://hodacfo.com/.well-known/security.txt
