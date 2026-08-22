@@ -1,0 +1,15 @@
+{
+  // Explicit build config. Without this file Workers Builds generates its own,
+  // which omits not_found_handling and makes every 404 a 0-byte body (the
+  // browser then shows its own error page instead of /404.html).
+  // Everything here matches that generated config; not_found_handling is the
+  // only addition. Excluded from the public asset upload via .assetsignore.
+  "name": "hodacfo-site",
+  "compatibility_date": "2026-07-25",
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  },
+  "compatibility_flags": ["nodejs_compat"]
+}

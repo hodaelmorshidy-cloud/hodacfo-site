@@ -26,7 +26,12 @@ service-account*.json
 .npmrc
 
 # --- Tooling config that reveals build internals ---
-wrangler.jsonc
+# wrangler.jsonc - DELIBERATELY TRACKED. Do not re-add it to this list.
+#   `npx wrangler deploy` reads it from the repo root at build time; it is
+#   what sets assets.not_found_handling=404-page. If git ignores it, the build
+#   falls back to an auto-generated config and every 404 returns a 0-byte body.
+#   It is kept OFF the public wire by .assetsignore, NOT by this file
+#   (verified: https://hodacfo.com/wrangler.jsonc -> 404).
 wrangler.toml
 .wrangler/
 .dev.vars
